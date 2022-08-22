@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.happyhouse.model.mapper.AptMapper">
+	<select id="getSido" resultType="Sido">
+	select code, sido
+	from sido
+	</select>
+	
+	<select id="getGugun" parameterType="string" resultType="Gugun">
+	select code, gugun
+	from gugun
+	where sido=#{code}
+	</select>
+	
+	<select id="getDong" parameterType="string" resultType="Dong">
+	select code, dong
+	from dong
+	where gugun=#{code}
+	</select>
+	
+	<select id="getCode" resultType="string">
+	select distinct left(code, 5)
+	from dong
+	</select>
+	
+	<select id="getAptList" parameterType="hashmap" resultType="aptDto">
+	select i.aptname, i.dongname, i.jibun, d.amount, d.year, d.month, d.day, d.area, d.floor
+	from aptInfo i inner join aptDeal d
+	where i.aptcode = d.aptcode
+	and i.dongcode = #{dong}
+	and d.year = #{year}
+	and d.month = #{month}
+	order by ${order}
+	</select>
+	
+	<insert id="saveAptInfo" parameterType="aptDto">
+	insert ignore into aptInfo(aptcode, aptname, dongcode, dongname, buildyear, jibun)
+	values
+	<foreach collection="list" item="apt" separator=",">
+	(
+	#{apt.aptCode}, #{apt.aptName}, #{apt.dongCode}, #{apt.dongName}, #{apt.buildYear}, #{apt.jibun}
+	)
+	</foreach>
+	</insert>
+	
+	<insert id="saveAptDeal" parameterType="aptDto">
+	insert into aptDeal(aptcode, amount, year, month, day, area, floor)
+	values
+	<foreach collection="list" item="apt" separator=",">
+	(
+	#{apt.aptCode}, #{apt.amount}, #{apt.year}, #{apt.month}, #{apt.day}, #{apt.area}, #{apt.floor}
+	)
+	</foreach>
+	</insert>
+</mapper>

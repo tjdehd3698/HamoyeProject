@@ -4,7 +4,7 @@
 	
 <mapper namespace="com.ssafy.happyhouse.model.mapper.AptMapper">
 	<select id="getSido" resultType="Sido">
-	select code, sido
+	select code, idsd
 	from sido
 	</select>
 	

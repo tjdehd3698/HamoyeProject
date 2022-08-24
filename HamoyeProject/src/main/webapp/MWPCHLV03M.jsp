@@ -60,6 +60,7 @@
                     <h3>부산에는 맛집이 많아요<br> 직접 방문하고 식사지원금을 받아보세요</h3>
                     <br>
                     <article>
+                    <!-- 식당 이름 받아와서 넣고, 100원 받기 누르면  alert로 적립확인 하고 챌린지 리스트로 넘어가도록... -->
                     	<section>
                     		식당1에 방문하고<br>
                     		<a class="btn btn-outline-primary px-3" href="" >
@@ -93,7 +94,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
                     <div class="position-relative rounded overflow-hidden h-100">
-                    <!-- 이거 카카오맵 API로 바꾸고 근처 식당 3개정도 띄우는걸로 해주세욥. 식당 123 이름 받아올 수 잇도록...! -->
+                    <!-- 이거 카카오맵 API로 바꾸고 근처 식당 3개정도 띄우는걸로... 식당 123 이름 받아올 수 잇도록...! -->
                         <iframe class="position-relative w-100 h-100"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
                         frameborder="0" style="min-height: 450px; border:0;" allowfullscreen="" aria-hidden="false"

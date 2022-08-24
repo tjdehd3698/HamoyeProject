@@ -10,12 +10,13 @@ public class User {
 	private String userPassword;
 	private String userName;
 	private String gender;
+	private int userAge;
 	private String email;
 	private String birthday;
 	private String userAddress;
 	private boolean isAdmin;
 	private Date registerDate;
-	private String accountId;
+	private String accountNumber;
 	private Account account;
 	private String pointId;
 	private Point point;

@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class EcoChallenge {
-	private String ecoChalengeId;
+	private String ecoChallengeId;
 	private String ecoChallengeName;
 	private double primeRate;
 	private Date startDate;

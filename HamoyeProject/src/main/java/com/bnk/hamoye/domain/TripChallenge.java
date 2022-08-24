@@ -1,0 +1,16 @@
+package com.bnk.hamoye.domain;
+
+import java.sql.Date;
+
+import lombok.Data;
+
+@Data
+public class TripChallenge {
+	private String tripChallengeId;
+	private String tripChallengeName;
+	private Date startDate;
+	private Date endDate;
+	private int hits;
+	private int rewardPoint;
+	private boolean isDelete;
+}

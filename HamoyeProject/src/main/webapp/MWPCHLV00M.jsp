@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <title>Challenge List</title>
+    <title>하모예-챌린지 리스트</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -60,9 +60,9 @@
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
-                        <img class="img-fluid mb-4" src="img/icon-1.png" alt="">
+                        <img class="img-fluid mb-4" src="img/free-icon-earth-globe-921423.png" alt="" width="90px" height="90px">
                         <h4 class="mb-3">지구를 지켜요</h4>
-                        <p class="mb-4"><b> 대중교통 이용하고 </b></p>
+                        <span class="mb-4"><b> 대중교통 이용하고 </b></span><br>
                         <a class="btn btn-outline-primary px-3" href="">
                             	이자 더 받기
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
@@ -70,7 +70,7 @@
                             </div>
                         </a>
                         <br> <br>
-                         <p class="mb-4"> <b>봉사활동 참여하고 </b> </p>
+                         <span class="mb-4"> <b>봉사활동 참여하고 </b> </span><br>
                          <a class="btn btn-outline-primary px-3" href="">
                             	이자 더 받기
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
@@ -81,9 +81,9 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
-                        <img class="img-fluid mb-4" src="img/icon-2.png" alt="">
+                        <img class="img-fluid mb-4" src="img/beach.png" alt="" width="90px" height="90px">
                         <h4 class="mb-3">떠나요 부산</h4>
-                 		<p class="mb-4"> <b>오늘의 식당 방문하고 </b></p>
+                 		<span class="mb-4"> <b>오늘의 식당 방문하고 </b></span><br>
                         <a class="btn btn-outline-primary px-3" href="">
                             	식사지원금 받기
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
@@ -91,7 +91,7 @@
                             </div>
                         </a>
                         <br> <br>
-                         <p class="mb-4"> <b>오늘의 소상공인 만나고</b> </p>
+                         <span class="mb-4"> <b>오늘의 소상공인 만나고</b> </span><br>
                          <a class="btn btn-outline-primary px-3" href="">
                             	쇼핑지원금 받기
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
@@ -102,7 +102,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
-                        <img class="img-fluid mb-4" src="img/icon-3.png" alt="">
+                        <img class="img-fluid mb-4" src="img/social-media.png" alt="" width="90px" height="90px">
                         <h4 class="mb-3">이런 챌린지 어때요?</h4>
                         <p class="mb-4"><b>요즘 핫해요</b></p>
                         <a class="btn btn-outline-primary px-3" href="">
@@ -118,13 +118,7 @@
                                 <i class="fa fa-arrow-right"></i>
                             </div>
                         </a>
-                         <br> <br>
-                        <a class="btn btn-outline-primary px-3" href="">
-                            	봉사활동 챌린지
-                            <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
-                        </a>
+
                     </div>
                 </div>
             </div>

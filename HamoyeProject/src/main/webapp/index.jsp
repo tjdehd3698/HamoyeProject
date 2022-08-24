@@ -27,7 +27,7 @@
                                 <div class="col-lg-7 pt-5">
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">금융, 그 이상의<br>가치를 만들고 있습니다.</h1>
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet</p>
-                                    <a class="btn btn-primary py-2 px-3 animated slideInDown" href="">
+                                    <a class="btn btn-outline-secondary py-2 px-3 animated slideInDown" href="">
                                         함께 하기
                                         <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                             <i class="fa fa-arrow-right"></i>
@@ -46,7 +46,7 @@
                                 <div class="col-lg-7 pt-5">
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">Let's Save More Lifes With Our Helping Hand</h1>
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet</p>
-                                    <a class="btn btn-primary py-2 px-3 animated slideInDown" href="">
+                                    <a class="btn btn-outline-secondary py-2 px-3 animated slideInDown" href="">
                                         Learn More
                                         <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                             <i class="fa fa-arrow-right"></i>
@@ -279,7 +279,7 @@
 
 
     <!-- Donate Start -->
-    <div class="container-fluid donate my-5 py-5" data-parallax="scroll" data-image-src="img/carousel-2.jpg">
+    <div class="container-fluid donate my-5 py-5" data-parallax="scroll" data-image-src="img/carousel-1.jpg">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">

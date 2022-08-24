@@ -70,7 +70,7 @@
                 <a href="#none" class="nav-item nav-link">마이페이지</a>
             </div>
             <div class="d-none d-lg-flex ms-2">
-                <a class="btn btn-outline-primary py-2 px-3" href="">
+                <a class="btn btn-outline-secondary py-2 px-3" href="">
                     로그인하기
                     <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                         <i class="fa fa-arrow-right"></i>

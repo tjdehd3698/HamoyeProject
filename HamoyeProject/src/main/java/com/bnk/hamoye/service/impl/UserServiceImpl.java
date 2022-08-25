@@ -53,4 +53,10 @@ public class UserServiceImpl implements UserService{
 		return userDAO.getUserInfo(id);
 	}
 
+	@Override
+	public int withdrawUser(String id) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

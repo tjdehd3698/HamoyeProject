@@ -15,33 +15,39 @@
 <link href="lib/animate/animate.min.css" rel="stylesheet">
 <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 <!-- Template Stylesheet -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"> -->
 <link href="css/mwp.css" rel="stylesheet">
 
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script> -->
 <script src="lib/wow/wow.min.js"></script>
 <script src="lib/easing/easing.min.js"></script>
 <script src="lib/waypoints/waypoints.min.js"></script>
 <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 <script src="lib/parallax/parallax.min.js"></script>
+
+
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
-    
     
 <!-- Navbar Start -->
 <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
     <div class="top-bar text-white-50 row gx-0 align-items-center d-none d-lg-flex">
         <div class="col-lg-6 px-5 text-start">
-            <small><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-            <small class="ms-4"><i class="fa fa-envelope me-2"></i>info@example.com</small>
+            <small><i class="fa fa-map-marker-alt me-2"></i>부산광역시 남구 문현금융로 30</small>
+            <small class="ms-4"><i class="fa fa-envelope me-2"></i>hamoye@busanbank.com</small>
         </div>
         <div class="col-lg-6 px-5 text-end">
             <small>Follow us:</small>
-            <a class="text-white-50 ms-3" href=""><i class="fab fa-facebook-f"></i></a>
-            <a class="text-white-50 ms-3" href=""><i class="fab fa-twitter"></i></a>
-            <a class="text-white-50 ms-3" href=""><i class="fab fa-linkedin-in"></i></a>
-            <a class="text-white-50 ms-3" href=""><i class="fab fa-instagram"></i></a>
+            <a class="text-white-50 ms-3" href="https://ko-kr.facebook.com/busanbank"><i class="fab fa-facebook-f"></i></a>
+            <a class="text-white-50 ms-3" href="https://twitter.com/busanbank"><i class="fab fa-twitter"></i></a>
+            <a class="text-white-50 ms-3" href="https://www.instagram.com/bnk_busanbank"><i class="fab fa-instagram"></i></a>
+            <a class="text-white-50 ms-3" href="https://www.youtube.com/channel/UCI9iMwrvrLYqfDeBL4al_HA"><i class="fab fa-youtube"></i></a>
         </div>
     </div>
 
@@ -67,7 +73,7 @@
                 <a href="#none" class="nav-item nav-link">마이페이지</a>
             </div>
             <div class="d-none d-lg-flex ms-2">
-                <a class="btn btn-outline-secondary py-2 px-3" href="">
+                <a class="btn btn-outline-secondary py-2 px-3" href="#none" data-toggle="modal" data-target="#loginModal">
                     로그인하기
                     <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                         <i class="fa fa-arrow-right"></i>

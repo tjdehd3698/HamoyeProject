@@ -6,12 +6,12 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h1 class="fw-bold text-primary mb-4">HA<span class="text-white">MOYE</span></h1>
-                <p>부산은행<br>사업자번호 | 604-81-04753 </p>
+                <p>BNK부산은행<br>사업자번호 | 604-81-04753 </p>
                 <div class="d-flex pt-2">
-                    <a class="btn btn-square me-1" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square me-1" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square me-1" href=""><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-square me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square me-1" href="https://twitter.com/busanbank"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square me-1" href="https://ko-kr.facebook.com/busanbank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square me-1" href="https://www.youtube.com/channel/UCI9iMwrvrLYqfDeBL4al_HA"><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-square me-0" href="https://www.instagram.com/bnk_busanbank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -22,14 +22,13 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Quick Links</h5>
-                <a class="btn btn-link" href="">개인정보처리방침</a>
-                <a class="btn btn-link" href="">경영공시</a>
-                <a class="btn btn-link" href="">고객정보취급방침</a>
-                <a class="btn btn-link" href="">보호금융상품등록부</a>
-                <a class="btn btn-link" href="">상품공시실</a>
-                <a class="btn btn-link" href="">전자민원접수</a>
-                <a class="btn btn-link" href="">전자금융이용자보호수칙</a>
-                <a class="btn btn-link" href="">전자금융사기피해금환급제도</a>
+                <a class="btn btn-link" href="https://www.busanbank.co.kr/ib20/mnu/BHPCSC353002001">개인정보처리방침</a>
+                <a class="btn btn-link" href="https://www.busanbank.co.kr/ib20/mnu/BHPBKI419005000">경영공시</a>
+                <a class="btn btn-link" href="https://www.busanbank.co.kr/ib20/mnu/BHPCSC0010001">고객정보취급방침</a>
+                <a class="btn btn-link" href="https://www.busanbank.co.kr/ib20/mnu/FPMDPO015003002">보호금융상품등록부</a>
+                <a class="btn btn-link" href="https://www.busanbank.co.kr/ib20/mnu/BHPCSC0110001">상품공시실</a>
+                <a class="btn btn-link" href="https://www.busanbank.co.kr/ib20/mnu/BHPCSC314004001">전자민원접수</a>
+                <a class="btn btn-link" href="https://www.busanbank.co.kr/ib20/mnu/BHPCSC360008002">전자금융이용자보호수칙</a>
             </div>
             
             <!-- 

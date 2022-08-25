@@ -95,4 +95,23 @@ public class UserTest {
 		System.out.println(user.getEcoChallenge().getEcoChallengeName());
 		System.out.println(user.getPoint().getTotalPoint());
 	}
+	
+	@Test
+	public void login() throws Exception{
+		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
+		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
+		SqlSession session = factory.openSession();
+		
+		String id = "admin";
+		String password = "admin";
+		User user = new User();
+		user.setUserId(id);
+		user.setUserPassword(password);
+		//user.setIsAdmin(1);
+		
+		String findId = (String)session.selectOne("userIdPassword", user);
+		System.out.println(findId);
+		
+		
+	}
 }

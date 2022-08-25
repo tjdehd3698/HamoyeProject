@@ -1,6 +1,8 @@
 package com.bnk.hamoye;
 
 import java.io.Reader;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -23,6 +25,20 @@ public class PointTest {
 		Point point = new Point();
 		
 		int row = session.insert("sql.hamoye.point_mapper.insertPoint",point);
+		session.commit();
+	}
+	
+	@Test
+	public void updatePoint() throws Exception{
+		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
+		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
+		SqlSession session = factory.openSession();
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", "aaa");
+		map.put("amount","-100");
+		System.out.println(session.update("sql.hamoye.point_mapper.updatePoint",map));
+		session.commit();
 	}
 	
 	

@@ -25,13 +25,19 @@
 		</association>
 	</resultMap>
 
-	<!-- 아이디 중복 검사 + 로그인 -->
+	<!--회원 아이디 중복 검사 + 회원/관리자 로그인 -->
 	<select id="userIdPassword" parameterType="user" resultType="string">
 		select user_id
 		from users
 		where user_id =#{userId}
 		<if test="userPassword != null">
 			and user_password=#{userPassword}
+		</if>
+		<if test="isAdmin==0">
+			and is_admin=0
+		</if>
+		<if test="isAdmin == 1">
+			and is_admin = 1
 		</if>
 	</select>
 	
@@ -41,22 +47,30 @@
 		values(#{userId},#{userPassword},#{userName},#{userAge},#{userAddress},to_date(TO_CHAR(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD'),#{pointId},#{birthday},#{gender},#{email})
 	</insert>
 	
-	<select id="findPassword" parameterType="user" resultType ="string">
-		select user_password
+	<select id="findPassword" parameterType="user" resultType ="user">
+		select user_id,user_name
 		from users
 		where user_id =#{userId}
 		and email=#{email}
 	</select>
 	
+	<update id="updateUserPassword" parameterType="user">
+		update users
+		set user_password=#{userPassword}
+		where user_id =#{user_id} and email=#{email} and user_name=#{user_name}
+	</update>
+	
 	<update id="updateUser" parameterType="user">
 		update users
 		set user_password=#{userPassword}, email=#{email}, user_address =#{userAddress}
+		where user_id =#{value}
 	</update>
 	
 	<select id="getUserInfo" parameterType="string" resultType="user">
 		select 
 		user_id, user_password, birthday, email, user_name, user_address
 		from users
+		where user_id =#{value}
 	</select>
 	
 	<select id="getMypageInfo" parameterType="string" resultMap="userWithPointAndAccountAndEcoChallenge">
@@ -66,19 +80,8 @@
 		join account a on u.account_number =a.account_number
 		join point p on u.point_id = p.point_id
 		join eco_challenge e on u.eco_challenge_id = e.eco_challenge_id
-		where e.is_delete = 0
+		where e.is_delete = 0 and u.user_id = #{value}
 	</select>
-	
-	<update id="registerAccount" parameterType="user">
-		update users
-		set account_number=#{accountNumber}, eco_challenge_id=#{ecoChallengeId}
-	</update>
-	
-	
-	
-	
-	
-	
 	
 </mapper>
 

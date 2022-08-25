@@ -12,5 +12,5 @@ public class EcoChallenge {
 	private Date startDate;
 	private Date endDate;
 	private int limitedPeople;
-	private boolean isDelete;
+	private int isDelete;
 }

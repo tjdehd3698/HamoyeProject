@@ -12,5 +12,5 @@ public class TripChallenge {
 	private Date endDate;
 	private int hits;
 	private int rewardPoint;
-	private boolean isDelete;
+	private int isDelete;
 }

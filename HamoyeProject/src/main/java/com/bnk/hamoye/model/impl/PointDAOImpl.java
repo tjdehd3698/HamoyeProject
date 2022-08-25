@@ -19,6 +19,7 @@ public class PointDAOImpl implements PointDAO {
 
 	@Override
 	public int insertPoint(Point point) throws SQLException {
+		
 		return sqlSession.insert("insertPoint",point);
 	}
 

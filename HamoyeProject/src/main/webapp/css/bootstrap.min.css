@@ -197,7 +197,7 @@ sup {
 }
 a {
     color: #2b3886;
-    text-decoration: none;
+/*     text-decoration: none; */
 }
 a:hover {
     color: #cc590c;
@@ -1832,9 +1832,9 @@ progress {
 .form-control:focus {
     color: #787878;
     background-color: #fff;
-    border-color: #ffb787;
+    border-color: #8887ff;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(255, 111, 15, 0.25);
+    box-shadow: 0 0 0 0.25rem rgb(96 143 210 / 50%);;
 }
 .form-control::-webkit-date-and-time-value {
     height: 1.5em;
@@ -12831,8 +12831,8 @@ fieldset:disabled .btn {
 }
 .btn-outline-primary:hover {
     color: #000;
-    background-color: #2b3886;
-    border-color: #2b3886;
+    background-color: #2b3886 !important ;
+    border-color: #2b3886 !important;
 }
 .btn-check:focus + .btn-outline-primary,
 .btn-outline-primary:focus {

@@ -25,7 +25,7 @@
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
-    <!-- Spinner End -->
+    <!-- //Spinner End -->
     
    <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5">
@@ -39,12 +39,12 @@
                                 <div class="col-lg-7 pt-5">
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">금융, 그 이상의<br>가치를 만들고 있습니다.</h1>
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">나에게 필요한 좋은 습관으로 지구를 지켜주세요</p>
-                                    <a class="btn btn-outline-secondary py-2 px-3 animated slideInDown" href="">
+                                    <button type="button" class="btn btn-outline-secondary py-2 px-3 animated slideInDown" data-bs-toggle="modal" data-bs-target="#loginModal">
                                         함께 하기
                                         <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                             <i class="fa fa-arrow-right"></i>
                                         </div>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -56,14 +56,14 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-7 pt-5">
-                                    <h1 class="display-4 text-white mb-3 animated slideInDown">하고<br>모으고<br>예금하고<br></h1>
-                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown"></p>
-                                    <a class="btn btn-outline-secondary py-2 px-3 animated slideInDown" href="">
+                                    <h1 class="display-4 text-white mb-3 animated slideInDown">금융, 그 이상의<br>가치를 만들고 있습니다.</h1>
+                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">나에게 필요한 좋은 습관으로 지구를 지켜주세요</p>
+                                    <button type="button" class="btn btn-outline-secondary py-2 px-3 animated slideInDown" data-toggle="modal" data-target="#loginModal">
                                         함께 하기
                                         <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                             <i class="fa fa-arrow-right"></i>
                                         </div>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -431,6 +431,44 @@
             </div>
         </div>
     </div>
+    
+    <!-- Modal -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			 <div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-center" id="modalTitle">
+						<strong class="fw-bold text-primary m-0">HA</strong>MOYE
+					</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="user_id" class="form-label">ID</label>
+							<input type="text" class="form-control" id="user_id" placeholder="아이디를 입력해주세요">
+							<div id="help" class="form-text"></div>
+						</div>
+						<div class="mb-3">
+							<label for="user_pass" class="form-label">Password</label>
+							<input type="password" class="form-control" id="user_pass" placeholder="비밀번호를 입력해주세요">
+						</div>
+					 	<a href="#" class="stretched-link" style="position: relative;">처음이신가요?</a>
+<!-- 						<div class="mb-3 form-check"> -->
+<!-- 						  <input type="checkbox" class="form-check-input" id="user_check"> -->
+<!-- 						  <label class="form-check-label" for="user_check">Check me out</label> -->
+<!-- 						</div> -->
+					</form>
+			    </div>
+			    <div class="modal-footer">
+			<!-- 				<button type="button" class="btn btn-secondary btn-lg">회원가입</button> -->
+					<button type="submit" class="btn btn-primary btn-lg">로그인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //Modal -->
+	
     <!-- Testimonial End -->
     <jsp:include page="/footer.jsp"></jsp:include>
 </body>

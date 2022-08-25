@@ -9,6 +9,18 @@
 </head>
 <body>
 	<jsp:include page="/header.jsp"></jsp:include>
+	<script>
+		$(function(){
+			
+		    // Causes progress
+		    $('.causes-progress').waypoint(function () {
+		        $('.progress .progress-bar').each(function () {
+		            $(this).css("width", $(this).attr("aria-valuenow") + '%');
+		        });
+		    }, {offset: '80%'});
+		    
+		});
+	</script>
 	<!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
@@ -20,13 +32,13 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="img/carousel-1.jpg" alt="Image">
+                    <img class="w-100" src="img/carousel-1.png" alt="Image">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-7 pt-5">
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">금융, 그 이상의<br>가치를 만들고 있습니다.</h1>
-                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet</p>
+                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">나에게 필요한 좋은 습관으로 지구를 지켜주세요</p>
                                     <a class="btn btn-outline-secondary py-2 px-3 animated slideInDown" href="">
                                         함께 하기
                                         <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
@@ -39,15 +51,15 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="img/carousel-2.jpg" alt="Image">
+                    <img class="w-100" src="img/carousel-2.png" alt="Image">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-7 pt-5">
-                                    <h1 class="display-4 text-white mb-3 animated slideInDown">Let's Save More Lifes With Our Helping Hand</h1>
-                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet</p>
+                                    <h1 class="display-4 text-white mb-3 animated slideInDown">하고<br>모으고<br>예금하고<br></h1>
+                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown"></p>
                                     <a class="btn btn-outline-secondary py-2 px-3 animated slideInDown" href="">
-                                        Learn More
+                                        함께 하기
                                         <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                             <i class="fa fa-arrow-right"></i>
                                         </div>
@@ -74,78 +86,84 @@
 
 
     <!-- About Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5 pb-0">
         <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="position-relative overflow-hidden h-100" style="min-height: 400px;">
-                        <img class="position-absolute w-100 h-100 pt-5 pe-5" src="img/about-1.jpg" alt="" style="object-fit: cover;">
-                        <img class="position-absolute top-0 end-0 bg-white ps-2 pb-2" src="img/about-2.jpg" alt="" style="width: 200px; height: 200px;">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="h-100">
-                        <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">About Us</div>
-                        <h1 class="display-6 mb-5">We Help People In Need Around The World</h1>
-                        <div class="bg-light border-bottom border-5 border-primary rounded p-4 mb-4">
-                            <p class="text-dark mb-2">Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet</p>
-                            <span class="text-primary">Jhon Doe, Founder</span>
-                        </div>
-                        <p class="mb-5">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <a class="btn btn-primary py-2 px-3 me-3" href="">
-                            Learn More
-                            <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
-                        </a>
-                        <a class="btn btn-outline-primary py-2 px-3" href="">
-                            Contact Us
-                            <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+	        <div class="wow fadeInUp" data-wow-delay="0.1s">
+	            <div class="h-100">
+	                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">About Us</div>
+	                <h1 class="display-6 about_tit">변화를 열망하는 사람들이 모여,<br>역사에 남을 만한 변화를 만듭니다.</h1>
+		            <div class="row g-4 justify-content-center">
+		                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+							<p class="mb-3">누적 가입자 수</p>
+			                <h3 class="display-5 mb-5">700만+</h3>
+		                </div>
+		                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+			                <p class="mb-3">참여자 수</p>
+			                <h3 class="display-5 mb-5">153만+</h3>
+		                </div>
+		                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+			                <p class="mb-3">환산 가치</p>
+			                <h3 class="display-5 mb-5">1조원+</h3>
+		                </div>
+		            </div>
+		             <div class="row g-4 wow fadeInUp" data-wow-delay="0.7s">
+		                <p class="mb-0">2022년 8월 기준</p>
+		            </div>
+	            </div>
+	        </div>
         </div>
     </div>
+	<svg class="editorial" viewBox="0 24 150 28" preserveAspectRatio="none">
+		<defs>
+		<path id="gentle-wave" d="M-160 44c30 0 
+		   58-18 88-18s
+		   58 18 88 18 
+		   58-18 88-18 
+		   58 18 88 18
+		   v44h-352z" />
+		 </defs>
+		 <g class="parallax">
+		  <use xlink:href="#gentle-wave" x="50" y="0" fill="#4579e2"/>
+		  <use xlink:href="#gentle-wave" x="50" y="3" fill="#3461c1"/>
+		  <use xlink:href="#gentle-wave" x="50" y="6" fill="#2d55aa"/>  
+		 </g>
+	</svg>
     <!-- About End -->
 
-
     <!-- Causes Start -->
-    <div class="container-xxl bg-light my-5 py-5">
+    <div class="container-fluid bg-light py-5">
         <div class="container py-5">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Feature Causes</div>
-                <h1 class="display-6 mb-5">Every Child Deserves The Opportunity To Learn</h1>
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 650px;">
+                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Challenge</div>
+                <h1 class="display-6 mb-5">나에게 필요한 좋은 습관으로<br>지구를 지켜주세요.</h1>
             </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="causes-item d-flex flex-column bg-white border-top border-5 border-primary rounded-top overflow-hidden h-100">
                         <div class="text-center p-4 pt-0">
                             <div class="d-inline-block bg-primary text-white rounded-bottom fs-5 pb-1 px-3 mb-4">
-                                <small>Education</small>
+                                <small>challenge 1</small>
                             </div>
-                            <h5 class="mb-3">Education For African Children</h5>
-                            <p>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</p>
+                            <h5 class="mb-3">대중교통 이용</h5>
+                            <p>대중교통 월 30회 이용하면 설명 텍스트가 들어갑니다. 들어갑니다. 들어갑니다.</p>
                             <div class="causes-progress bg-light p-3 pt-2">
                                 <div class="d-flex justify-content-between">
-                                    <p class="text-dark">$10,000 <small class="text-body">Goal</small></p>
-                                    <p class="text-dark">$9,542 <small class="text-body">Raised</small></p>
+                                    <p class="text-dark">0 <small class="text-body">회</small></p>
+                                    <p class="text-dark">30 <small class="text-body">회</small></p>
                                 </div>
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                        <span>90%</span>
+                                        <span>0.5%</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/courses-1.jpg" alt="">
+                            <img class="img-fluid" src="img/main-chl-1.png" alt="">
                             <div class="causes-overlay">
-                                <a class="btn btn-outline-primary" href="">
-                                    Read More
-                                    <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                            	<a class="btn btn-outline-secondary" href="">
+                                    자세히보기
+                                    <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                         <i class="fa fa-arrow-right"></i>
                                     </div>
                                 </a>
@@ -157,61 +175,28 @@
                     <div class="causes-item d-flex flex-column bg-white border-top border-5 border-primary rounded-top overflow-hidden h-100">
                         <div class="text-center p-4 pt-0">
                             <div class="d-inline-block bg-primary text-white rounded-bottom fs-5 pb-1 px-3 mb-4">
-                                <small>Pure Water</small>
+                                <small>challenge 2</small>
                             </div>
-                            <h5 class="mb-3">Ensure Pure Drinking Water</h5>
-                            <p>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</p>
+                            <h5 class="mb-3">봉사활동 참여</h5>
+                            <p>부산은행과 함께하는 봉사활동 5회 이상 참여하면 설명 텍스트가 들어갑니다.</p>
                             <div class="causes-progress bg-light p-3 pt-2">
                                 <div class="d-flex justify-content-between">
-                                    <p class="text-dark">$10,000 <small class="text-body">Goal</small></p>
-                                    <p class="text-dark">$9,542 <small class="text-body">Raised</small></p>
+                                    <p class="text-dark">0 <small class="text-body">회</small></p>
+                                    <p class="text-dark">5 <small class="text-body">회</small></p>
                                 </div>
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                        <span>90%</span>
+                                        <span>0.8%</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/courses-2.jpg" alt="">
+                            <img class="img-fluid" src="img/main-chl-2.png" alt="">
                             <div class="causes-overlay">
-                                <a class="btn btn-outline-primary" href="">
-                                    Read More
-                                    <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                        <i class="fa fa-arrow-right"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="causes-item d-flex flex-column bg-white border-top border-5 border-primary rounded-top overflow-hidden h-100">
-                        <div class="text-center p-4 pt-0">
-                            <div class="d-inline-block bg-primary text-white rounded-bottom fs-5 pb-1 px-3 mb-4">
-                                <small>Healthy Life</small>
-                            </div>
-                            <h5 class="mb-3">Ensure Medical Treatment</h5>
-                            <p>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</p>
-                            <div class="causes-progress bg-light p-3 pt-2">
-                                <div class="d-flex justify-content-between">
-                                    <p class="text-dark">$10,000 <small class="text-body">Goal</small></p>
-                                    <p class="text-dark">$9,542 <small class="text-body">Raised</small></p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                        <span>90%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/courses-3.jpg" alt="">
-                            <div class="causes-overlay">
-                                <a class="btn btn-outline-primary" href="">
-                                    Read More
-                                    <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                                <a class="btn btn-outline-secondary" href="">
+                                    자세히보기
+                                    <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                         <i class="fa fa-arrow-right"></i>
                                     </div>
                                 </a>
@@ -279,7 +264,7 @@
 
 
     <!-- Donate Start -->
-    <div class="container-fluid donate my-5 py-5" data-parallax="scroll" data-image-src="img/carousel-1.jpg">
+    <div class="container-fluid donate my-5 py-5" data-parallax="scroll" data-image-src="img/carousel-1.png">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">

@@ -14,10 +14,8 @@
 <!-- Libraries Stylesheet -->
 <link href="lib/animate/animate.min.css" rel="stylesheet">
 <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-<!-- Customized Bootstrap Stylesheet -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- Template Stylesheet -->
-<link href="css/style.css" rel="stylesheet">
+<link href="css/mwp.css" rel="stylesheet">
 
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -48,7 +46,7 @@
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+        <a href="home.do" class="navbar-brand ms-4 ms-lg-0">
             <h1 class="fw-bold text-primary m-0">HA<span class="text-white">MOYE</span></h1>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -56,13 +54,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">서비스소개</a>
+                <a href="home.do?param=intro" class="nav-item nav-link">서비스 소개</a><!-- active -->
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">챌린지</a>
+                    <a href="#none" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">챌린지</a>
                     <div class="dropdown-menu m-0">
+                        <a href="challege.do" class="dropdown-item">전체보기</a>
                         <a href="#none" class="dropdown-item">지구를 지켜요</a>
-                        <a href="#none" class="dropdown-item">챌린지명</a>
                         <a href="#none" class="dropdown-item">챌린지명</a>
                         <a href="#none" class="dropdown-item">챌린지명</a>
                     </div>

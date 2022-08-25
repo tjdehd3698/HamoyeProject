@@ -29,7 +29,7 @@
 	<select id="userIdPassword" parameterType="user" resultType="string">
 		select user_id
 		from users
-		where user_id =#{userId}
+		where user_id =#{userId} and is_withdraw = 0
 		<if test="userPassword != null">
 			and user_password=#{userPassword}
 		</if>
@@ -64,6 +64,12 @@
 		update users
 		set user_password=#{userPassword}, email=#{email}, user_address =#{userAddress}
 		where user_id =#{value}
+	</update>
+	
+	<update id="withdrawUser" parameterType="string">
+		update users
+		set is_withdraw=1
+		where user_id = #{value}
 	</update>
 	
 	<select id="getUserInfo" parameterType="string" resultType="user">

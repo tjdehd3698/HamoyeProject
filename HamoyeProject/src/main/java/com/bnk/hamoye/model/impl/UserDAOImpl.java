@@ -46,4 +46,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.update("updateUserPassword", user);
 	}
 
+	@Override
+	public int withdrawUser(String id) throws SQLException {
+		return sqlSession.update("withdrawUser", id);
+	}
+
 }

@@ -11,4 +11,5 @@ public interface UserService {
 	String findPassword(User user) throws SQLException;
 	int updateUser(User user) throws SQLException;
 	User getUserInfo(String id) throws SQLException;
+	int withdrawUser(String id) throws SQLException;
 }

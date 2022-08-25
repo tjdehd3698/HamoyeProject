@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public int withdrawUser(String id) throws SQLException {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 

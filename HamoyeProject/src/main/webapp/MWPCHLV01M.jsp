@@ -57,28 +57,28 @@
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">지구를 지켜요</div>
                 <h1 class="display-6 mb-5">대중교통 이용 챌린지</h1>
             </div>
-			<article align="center">
-			<section>
+			<article class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+			<section class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 			<h2><b>지구, 쉽게 지킬 수 있어요</b></h2>
-				일주일에 한번, 대중교통을 이용해보세요<br>
-				1년이면 <span style="color: green">소나무 72그루</span>를 심는 것과 같아요
-			</section><br><br><br>
-			<section>
+				대중교통을 이용해보세요<br>
+				1주일에 한번, 1년이면 <span style="color: green">소나무 72그루</span>를 심는 것과 같아요
+			</section><br><br>
+			<section class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 			<h2><b>지구는 지금</b></h2>
-				심각해지는 <span style="color: red">기후위기</span>에 아파하고 있어요
+				심각해지는 기후위기에 아파하고 있어요
 			</section>
-			<br><br>
+			<br>
  			<div class="row g-4">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
+                            <img class="img-fluid" src="https://newsimg.hankookilbo.com/cms/articlerelease/2021/07/28/11b7fb6c-21bb-40c1-9380-b2d0b1bda742.jpg" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
-                            <h5>기후위기 사진1</h5>
-                            <p class="text-primary">기후위기 종류</p>
+                            <h5>2019-20 호주 산불</h5>
+                            <p class="text-primary">건조함으로 산불 발생</p>
                             <div class="team-social text-center">
-                           		기후위기 설명
+                           		2019년 호주에서 발생한 산불은 <br> 6개월동안 호주 숲의 14%를 태웠어요
                             </div>
                         </div>
                     </div>
@@ -86,13 +86,13 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-2.jpg" alt="">
+                            <img class="img-fluid" src="http://image.dongascience.com/Photo/2020/04/15875301503149.jpg" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
-                            <h5>기후위기 사진2</h5>
-                            <p class="text-primary">기후위기 종류</p>
+                            <h5>빙하가 사라지는 북극</h5>
+                            <p class="text-primary">온난화로 인한 빙하 소실</p>
                             <div class="team-social text-center">
-                                 	기후위기 설명
+                                 	북극의 여름에는 이제 얼음이 없어요<br>북극곰은 어디로 가야할까요
                             </div>
                         </div>
                     </div>
@@ -100,13 +100,13 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-3.jpg" alt="">
+                            <img class="img-fluid" src="https://thumb.mt.co.kr/06/2022/08/2022080908264831583_1.jpg/dims/optimize/" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
-                            <h5>기후위기 사진3</h5>
-                            <p class="text-primary">기후위기 종류</p>
+                            <h5>2022년 서울 폭우</h5>
+                            <p class="text-primary">이상기후로 인한 폭우</p>
                             <div class="team-social text-center">
-                                	기후위기 설명
+                                	105년만의 기록적인 폭우로 <br> 서울도심이 물에 잠겼어요
                             </div>
                         </div>
                     </div>
@@ -114,31 +114,35 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-4.jpg" alt="">
+                            <img class="img-fluid" src="https://menu.mt.co.kr/moneyweek/thumb/2021/08/29/06/2021082911458043292_1.jpg" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
-                            <h5>기후위기 사진4</h5>
-                            <p class="text-primary">기후위기 종류</p>
+                            <h5>미국의 허리케인</h5>
+                            <p class="text-primary">거대 허리케인의 빈번화</p>
                             <div class="team-social text-center">
-                                	기후위기 설명
+                                	허리케인이 더 자주, 더 크게 발생해요 <br>이제는 이름도 짓기가 힘들어요
                             </div>
                         </div>
                     </div>
                 </div>
               </div>
-
-			</article>
-			<br><br><br>
-			<div align="center">
-			<h3>지구를 지키는 당신에게 <br>매년 0.5%의 이자를 더 드려요</h3><br><br>
-			 <a class="btn btn-outline-primary px-3" href="" >
-                            	챌린지 참여하고 우대이율 받기
-                            <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
-             </a>
+			  <div>
+			  <br><br><br>
+				주 3회 이상 대중교통을 이용하여 온실가스 배출을 줄여보세요<br>
+				환경을 지키고 생명을 구하는 일<br>
+				<b>당신도 할 수 있어요</b> <br>
+			</div>
+			<br><br>
+			<div>
+				<h3>지구를 지키는 당신에게 <br>매년 0.5%의 이자를 더 드려요</h3><br><br>
+			 	<a class="btn btn-outline-primary px-3" href="/MWPCHLV10M.jsp" >
+                               	챌린지 참여하고 우대이율 받기
+             		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+             			<i class="fa fa-arrow-right"></i>
+            		 </div>
+             	</a>
              </div>
-             
+			</article>
         </div>
     </div>
     <!-- Team End -->

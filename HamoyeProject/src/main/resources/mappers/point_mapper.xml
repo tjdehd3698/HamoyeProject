@@ -14,6 +14,12 @@
 		values(#{pointId},#{totalPoint})
 	</insert>
 	
+	<update id="updateTotalPoint" parameterType="Map">
+		update point
+		set total_point=total_point+#{amount}
+		where point_id = (select point_id from users where user_id = #{id})
+	</update>
+	
 	
 	
 </mapper>

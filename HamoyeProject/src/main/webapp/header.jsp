@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- Favicon -->
 <link href="img/favicon.ico" rel="icon">
 <!-- Google Web Fonts -->
@@ -58,17 +58,22 @@ $(function(){
 			param += "&userPassword=" + document.FrmLogin.userPassword.value;
 		}
 		
-		
 		$.ajax({
 			type:'post',
 			url:'login.do',
 			data:param,
 			
 			success:function(result) {
-				alert("로그인성공");
+				if(result="T"){
+					alert("로그인성공");
+					window.location.href = "home.do";
+				}else{
+					alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+				}
+			},error:function(){
+				alert("다시 시도해주세요.");
 			}
 		});
-		
 		
 		//document.FrmLogin.submit();
 		
@@ -100,6 +105,7 @@ $(function(){
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
+            
                 <a href="home.do?param=intro" class="nav-item nav-link">서비스 소개</a><!-- active -->
                 <div class="nav-item dropdown">
                     <a href="#none" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">챌린지</a>
@@ -110,15 +116,29 @@ $(function(){
                         <a href="#none" class="dropdown-item">챌린지명</a>
                     </div>
                 </div>
-                <a href="#none" class="nav-item nav-link">마이페이지</a>
+                <c:if test="${!empty login}">
+	                <a href="#none" class="nav-item nav-link">마이페이지</a>
+                </c:if>
             </div>
             <div class="d-none d-lg-flex ms-2">
-                <a class="btn btn-outline-secondary py-2 px-3" href="#none" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    로그인하기
-                    <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                </a>
+		        <c:choose>
+					<c:when test="${!empty login}">
+						<a class="btn btn-outline-secondary py-2 px-3" href="#none">
+		                    로그아웃
+		                    <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+		                        <i class="fa fa-arrow-right"></i>
+		                    </div>
+		                </a>
+					</c:when>
+					<c:otherwise>
+		                <a class="btn btn-outline-secondary py-2 px-3" href="#none" data-bs-toggle="modal" data-bs-target="#loginModal">
+		                    로그인하기
+		                    <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+		                        <i class="fa fa-arrow-right"></i>
+		                    </div>
+		                </a>
+					</c:otherwise>
+				</c:choose>
             </div>
         </div>
     </nav>

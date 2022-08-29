@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,12 +42,19 @@
                                 <div class="col-lg-7 pt-5">
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">금융, 그 이상의<br>가치를 만들고 있습니다.</h1>
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">나에게 필요한 좋은 습관으로 지구를 지켜주세요</p>
-                                    <button type="button" class="btn btn-outline-secondary py-2 px-3 animated slideInDown" data-bs-toggle="modal" data-bs-target="#loginModal">
-                                        함께 하기
-                                        <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                            <i class="fa fa-arrow-right"></i>
-                                        </div>
-                                    </button>
+                                    <c:choose>
+										<c:when test="${!empty login}">
+											${name}님, 함께 해주셔서 감사드려요😍<br> - 지구올림
+										</c:when>
+										<c:otherwise>
+		                                    <button type="button" class="btn btn-outline-secondary py-2 px-3 animated slideInDown" data-bs-toggle="modal" data-bs-target="#loginModal">
+		                                        함께 하기
+		                                        <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+		                                            <i class="fa fa-arrow-right"></i>
+		                                        </div>
+		                                    </button>
+										</c:otherwise>
+									</c:choose>
                                 </div>
                             </div>
                         </div>
@@ -60,12 +68,19 @@
                                 <div class="col-lg-7 pt-5">
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">금융, 그 이상의<br>가치를 만들고 있습니다.</h1>
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">나에게 필요한 좋은 습관으로 지구를 지켜주세요</p>
-                                    <button type="button" class="btn btn-outline-secondary py-2 px-3 animated slideInDown" data-toggle="modal" data-target="#loginModal">
-                                        함께 하기
-                                        <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                            <i class="fa fa-arrow-right"></i>
-                                        </div>
-                                    </button>
+                                    <c:choose>
+										<c:when test="${!empty login}">
+											${name}님, 저를 지켜주셔서 감사드려요🥺<br> - 지구올림
+										</c:when>
+										<c:otherwise>
+		                                    <button type="button" class="btn btn-outline-secondary py-2 px-3 animated slideInDown" data-bs-toggle="modal" data-bs-target="#loginModal">
+		                                        함께 하기
+		                                        <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+		                                            <i class="fa fa-arrow-right"></i>
+		                                        </div>
+		                                    </button>
+										</c:otherwise>
+									</c:choose>
                                 </div>
                             </div>
                         </div>

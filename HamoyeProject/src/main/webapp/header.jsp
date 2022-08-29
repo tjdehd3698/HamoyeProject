@@ -38,23 +38,39 @@
 <script type="text/javascript">
 $(function(){
 	$("#login").on("click",function(){
+		var param="";
+		
 		if(document.FrmLogin.userId.value == "") {
 			$("#userId").next(".form-text").text("ID를 입력해주세요.");
 			document.FrmLogin.userId.focus();
 			return false;
 		}else{
 			$("#userId").next(".form-text").text("");
+			param += "&userId=" + document.FrmLogin.userId.value;
 		}
 		
-		if (document.FrmLogin.userPass.value == "" ) {
+		if (document.FrmLogin.userPassword.value == "" ) {
 			$("#userPassword").next(".form-text").text("비밀번호를 입력해주세요.");
-			document.FrmLogin.userPass.focus();
+			document.FrmLogin.userPassword.focus();
 			return false;
 		}else{
-			$("#userPass").next(".form-text").text("");
+			$("#userPassword").next(".form-text").text("");
+			param += "&userPassword=" + document.FrmLogin.userPassword.value;
 		}
 		
-		document.FrmLogin.submit();
+		
+		$.ajax({
+			type:'post',
+			url:'login.do',
+			data:param,
+			
+			success:function(result) {
+				alert("로그인성공");
+			}
+		});
+		
+		
+		//document.FrmLogin.submit();
 		
 	})
 });

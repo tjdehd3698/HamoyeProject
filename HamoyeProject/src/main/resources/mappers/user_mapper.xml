@@ -2,7 +2,7 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+	
 <mapper namespace="sql.hamoye.user_mapper">
 	<resultMap type="user" id="userWithPointAndAccountAndEcoChallenge">
 		<id column="user_id" property="userId"/>
@@ -24,6 +24,7 @@
 			<result column="prime_rate" property="primeRate"/>
 		</association>
 	</resultMap>
+	
 
 	<!--회원 아이디 중복 검사 + 회원/관리자 로그인 -->
 	<select id="userIdPassword" parameterType="user" resultType="string">
@@ -47,12 +48,11 @@
 		values(#{userId},#{userPassword},#{userName},#{userAge},#{userAddress},to_date(TO_CHAR(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD'),#{pointId},#{birthday},#{gender},#{email})
 	</insert>
 	
-	<select id="findPassword" parameterType="user" resultType ="user">
-		select user_id,user_name
-		from users
-		where user_id =#{userId}
-		and email=#{email}
-	</select>
+	<update id="joinAccount" parameterType="user">
+		update users
+		set account_number=#{accountNumber}, eco_challenge_id=#{ecoChallengeId}
+		where user_id = #{userId} and is_withdraw = 0
+	</update>
 	
 	<update id="updateUserPassword" parameterType="user">
 		update users
@@ -74,7 +74,7 @@
 	
 	<select id="getUserInfo" parameterType="string" resultType="user">
 		select 
-		user_id, user_password, birthday, email, user_name, user_address
+		user_id, user_password, birthday, email, user_name, user_address, register_date
 		from users
 		where user_id =#{value}
 	</select>
@@ -87,6 +87,13 @@
 		join point p on u.point_id = p.point_id
 		join eco_challenge e on u.eco_challenge_id = e.eco_challenge_id
 		where e.is_delete = 0 and u.user_id = #{value}
+	</select>
+	
+	<select id="checkEcoChallenge" parameterType="string" resultType="string">
+		select
+		eco_challenge_id
+		from users
+		where user_id = #{value}
 	</select>
 	
 </mapper>

@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserDAOImpl implements UserDAO {
 	private final String NS = "sql.hamoye.user_mapper.";
-	private SqlSession sqlSession;
+	private final SqlSession sqlSession;
 	
 	@Override
 	public int registerUser(User user) throws SQLException {
@@ -37,8 +37,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User getUserInfo(String id) throws SQLException {
-		return sqlSession.selectOne("getUserInfo",id);
+	public User getUserInfo(String userId) throws SQLException {
+		return sqlSession.selectOne("getUserInfo",userId);
 	}
 
 	@Override
@@ -47,8 +47,18 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public int withdrawUser(String id) throws SQLException {
-		return sqlSession.update("withdrawUser", id);
+	public int withdrawUser(String userId) throws SQLException {
+		return sqlSession.update("withdrawUser", userId);
+	}
+	
+	@Override
+	public int joinAccount(User user) throws SQLException {
+		return sqlSession.update("joinAccount",user);
+	}
+
+	@Override
+	public String checkEcoChallenge(String userId) throws SQLException {
+		return sqlSession.selectOne("checkEcoChallenge",userId);
 	}
 
 }

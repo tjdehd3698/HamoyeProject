@@ -2,6 +2,7 @@ package com.bnk.hamoye.service;
 
 import java.sql.SQLException;
 
+import com.bnk.hamoye.domain.Account;
 import com.bnk.hamoye.domain.User;
 
 public interface UserService {
@@ -10,6 +11,8 @@ public interface UserService {
 	boolean duplicateId(User user) throws SQLException;
 	String findPassword(User user) throws SQLException;
 	int updateUser(User user) throws SQLException;
-	User getUserInfo(String id) throws SQLException;
-	int withdrawUser(String id) throws SQLException;
-}
+	User getUserInfo(String userId) throws SQLException;
+	int withdrawUser(String userId) throws SQLException;
+	int joinAccount(Account account, String userId, String ecoChallengeId) throws SQLException;
+	String checkEcoChallenge(String userId) throws SQLException;
+} 

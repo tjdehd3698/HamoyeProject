@@ -34,7 +34,31 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
-    
+
+<script type="text/javascript">
+$(function(){
+	$("#login").on("click",function(){
+		if(document.FrmLogin.userId.value == "") {
+			$("#userId").next(".form-text").text("ID를 입력해주세요.");
+			document.FrmLogin.userId.focus();
+			return false;
+		}else{
+			$("#userId").next(".form-text").text("");
+		}
+		
+		if (document.FrmLogin.userPass.value == "" ) {
+			$("#userPassword").next(".form-text").text("비밀번호를 입력해주세요.");
+			document.FrmLogin.userPass.focus();
+			return false;
+		}else{
+			$("#userPass").next(".form-text").text("");
+		}
+		
+		document.FrmLogin.submit();
+		
+	})
+});
+</script>
 <!-- Navbar Start -->
 <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
     <div class="top-bar text-white-50 row gx-0 align-items-center d-none d-lg-flex">
@@ -73,7 +97,7 @@
                 <a href="#none" class="nav-item nav-link">마이페이지</a>
             </div>
             <div class="d-none d-lg-flex ms-2">
-                <a class="btn btn-outline-secondary py-2 px-3" href="#none" data-toggle="modal" data-target="#loginModal">
+                <a class="btn btn-outline-secondary py-2 px-3" href="#none" data-bs-toggle="modal" data-bs-target="#loginModal">
                     로그인하기
                     <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                         <i class="fa fa-arrow-right"></i>
@@ -84,3 +108,42 @@
     </nav>
 </div>
 <!-- Navbar End -->
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		 <div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title text-center" id="modalTitle">
+					<strong class="fw-bold text-primary m-0">HA</strong>MOYE
+				</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form method="post" name="FrmLogin" action="login.do">
+				<div class="modal-body">
+						<div class="mb-3">
+							<label for="userId" class="form-label">ID</label>
+							<input type="text" class="form-control" id="userId" tabindex=1 placeholder="아이디를 입력해주세요" required="required">
+							<div class="form-text text-primary"></div>
+						</div>
+						<div class="mb-3">
+							<label for="userPassword" class="form-label">Password</label>
+							<input type="password" class="form-control" id="userPassword" tabindex=2 placeholder="비밀번호를 입력해주세요" required="required">
+							<div class="form-text text-primary"></div>
+						</div>
+					 	<a href="#" class="stretched-link" style="position: relative;">처음이신가요?</a>
+	<!-- 						<div class="mb-3 form-check"> -->
+	<!-- 						  <input type="checkbox" class="form-check-input" id="user_check"> -->
+	<!-- 						  <label class="form-check-label" for="user_check">Check me out</label> -->
+	<!-- 						</div> -->
+			    </div>
+			    <div class="modal-footer">
+			<!-- 				<button type="button" class="btn btn-secondary btn-lg">회원가입</button> -->
+					<button type="button" class="btn btn-primary btn-lg" id="login">로그인</button>
+					
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- //Modal -->

@@ -5,7 +5,7 @@ import java.sql.Date;
 import lombok.Data;
 
 @Data
-public class EcoChallenge {
+public class EcoChallenge{
 	private String ecoChallengeId;
 	private String ecoChallengeName;
 	private double primeRate;
@@ -13,4 +13,5 @@ public class EcoChallenge {
 	private Date endDate;
 	private int limitedPeople;
 	private int isDelete;
+	
 }

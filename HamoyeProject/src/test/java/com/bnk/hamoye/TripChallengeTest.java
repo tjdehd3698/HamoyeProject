@@ -13,66 +13,63 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
-import com.bnk.hamoye.domain.EcoChallenge;
+import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.User;
 
-
-public class EcoChallengeTest {
+public class TripChallengeTest {
 	
 	@Test
-	public void registerEcoChallenge() throws Exception {
+	public void registerTripChallenge() throws Exception {
 		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
 		
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
 		SqlSession session = factory.openSession();
 		
-		EcoChallenge eco = new EcoChallenge();
-		eco.setEcoChallengeName("쓰레기 줍기");
-		((EcoChallenge) eco).setPrimeRate(2.3);
-		eco.setStartDate(Date.valueOf("2022-03-12"));
-		eco.setEndDate(Date.valueOf("2022-05-18"));
-		((EcoChallenge) eco).setLimitedPeople(300);
+		TripChallenge trip = new TripChallenge();
+		trip.setTripChallengeName("쓰레기 줍기");
+		trip.setStartDate(Date.valueOf("2022-03-15"));
+		trip.setEndDate(Date.valueOf("2022-05-19"));
+		trip.setRewardPoint(100);
 		
-		int row = session.insert("sql.hamoye.ecoChallenge_mapper.registerEcoChallenge",eco);
+		int row = session.insert("sql.hamoye.tripChallenge_mapper.registerTripChallenge",trip);
 		System.out.println();
 		session.commit();
 	}
 	
 	@Test
-	public void updateEcoChallenge() throws Exception {
+	public void updateTripChallenge() throws Exception {
 		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
 		
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
 		SqlSession session = factory.openSession();
 		
-		EcoChallenge eco = new EcoChallenge();
-		eco.setEcoChallengeId("4");
-		eco.setEcoChallengeName("쓰레기 줍기");
-		((EcoChallenge) eco).setPrimeRate(3.3);
-		eco.setStartDate(Date.valueOf("2022-03-15"));
-		eco.setEndDate(Date.valueOf("2022-05-19"));
-		((EcoChallenge) eco).setLimitedPeople(400);
+		TripChallenge trip = new TripChallenge();
+		trip.setTripChallengeId("4");
+		trip.setTripChallengeName("쓰레기 줍기");
+		trip.setStartDate(Date.valueOf("2022-03-15"));
+		trip.setEndDate(Date.valueOf("2022-05-19"));
+		trip.setRewardPoint(100);
 		
-		int row = session.update("sql.hamoye.ecoChallenge_mapper.updateEcoChallenge",eco);
+		int row = session.update("sql.hamoye.tripChallenge_mapper.updateTripChallenge",trip);
 		System.out.println();
 		session.commit();
 	}
 	
 	@Test
-	public void deleteEcoChallenge() throws Exception {
+	public void deleteTripChallenge() throws Exception {
 		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
 		
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
 		SqlSession session = factory.openSession();
 		
-		int row = session.update("sql.hamoye.ecoChallenge_mapper.deleteEcoChallenge",'4');
+		int row = session.update("sql.hamoye.tripChallenge_mapper.deleteTripChallenge",'4');
 		System.out.println();
 		session.commit();
 	}
 	
 	
 	  @Test
-	  public void searchEcoChallenge() throws Exception { 
+	  public void searchTripChallenge() throws Exception { 
 		  Reader r =
 	  Resources.getResourceAsReader("config/SqlMapConfig.xml");
 	  
@@ -81,33 +78,33 @@ public class EcoChallengeTest {
 	  
 	  String word = "쓰";
 	  
-	  List<EcoChallenge> ecoChallengeList =
-	  session.selectList("sql.hamoye.ecoChallenge_mapper.searchEcoChallenge", word);
+	  List<TripChallenge> tripChallengeList =
+	  session.selectList("sql.hamoye.tripChallenge_mapper.searchTripChallenge", word);
 	  
-	  for(EcoChallenge ecoChallenge : ecoChallengeList) { 
-		  System.out.println(ecoChallenge);
+	  for(TripChallenge tripChallenge : tripChallengeList) { 
+		  System.out.println(tripChallenge);
 	  }
 	  }
 	
 	@Test
-	public void getEcoChallengeList() throws Exception {
+	public void getTripChallengeList() throws Exception {
 		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
 		
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
 		SqlSession session = factory.openSession();
 		
-		List<EcoChallenge> ecoChallengeList = new ArrayList<EcoChallenge>();
+		List<TripChallenge> tripChallengeList = new ArrayList<TripChallenge>();
 				
-		ecoChallengeList = session.selectList("sql.hamoye.ecoChallenge_mapper.getEcoChallengeList");
+		tripChallengeList = session.selectList("sql.hamoye.tripChallenge_mapper.getTripChallengeList");
 		
-		for(EcoChallenge ecoChallenge : ecoChallengeList) {
-			System.out.println(ecoChallenge);
+		for(TripChallenge tripChallenge : tripChallengeList) {
+			System.out.println(tripChallenge);
 		}
 		System.out.println();
 	}
 	
 	@Test
-	public void getEcoChallengeDetail() throws Exception {
+	public void getTripChallengeDetail() throws Exception {
 		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
 		
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
@@ -115,14 +112,14 @@ public class EcoChallengeTest {
 		
 		String challengeId = "5";
 		
-		EcoChallenge ecoChallenge = session.selectOne("sql.hamoye.ecoChallenge_mapper.getEcoChallengeDetail", challengeId);
+		TripChallenge tripChallenge = session.selectOne("sql.hamoye.tripChallenge_mapper.getTripChallengeDetail", challengeId);
 		
-		System.out.println(ecoChallenge);
+		System.out.println(tripChallenge);
 		System.out.println();
 	}
 	
 	@Test
-	public void getRecommendedEcoChallengeList() throws Exception {
+	public void getRtripmmendedTripChallengeList() throws Exception {
 		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
 		
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
@@ -132,12 +129,10 @@ public class EcoChallengeTest {
 		
 		User user = (User)session2.getAttribute("user");
 		
-		EcoChallenge ecoChallenge = session.selectOne("sql.hamoye.ecoChallenge_mapper.getRecommendedEcoChallengeList", user);
+		TripChallenge tripChallenge = session.selectOne("sql.hamoye.tripChallenge_mapper.getRtripmmendedTripChallengeList", user);
 		
-		System.out.println(ecoChallenge);
+		System.out.println(tripChallenge);
 		System.out.println();
 	}
-	
-	
 	
 }

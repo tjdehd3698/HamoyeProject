@@ -4,11 +4,60 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="sql.hamoye.ecoChallenge_mapper">
-	<insert id="insertEcoChallenge" parameterType="ecoChallenge">		
+	<insert id="registerEcoChallenge" parameterType="EcoChallenge">		
 		insert into 
 		eco_challenge(eco_challenge_id, eco_challenge_name, prime_rate, start_date, end_date, limited_people)
 		values(eco_seq.nextval,#{ecoChallengeName},#{primeRate},#{startDate},#{endDate},#{limitedPeople})
 	</insert>
+	
+	<update id="updateEcoChallenge" parameterType="EcoChallenge">
+		update eco_challenge
+		set eco_challenge_name = #{ecoChallengeName},
+		prime_rate = #{primeRate},
+		start_date = #{startDate},
+		end_date = #{endDate},
+		limited_people = #{limitedPeople}
+		where eco_challenge_id = #{ecoChallengeId}
+	</update>
+	
+	<update id="deleteEcoChallenge" parameterType="string">
+		update eco_challenge
+		set is_delete=1
+		where eco_challenge_id = #{value}
+	</update>
+	
+	<select id="searchEcoChallenge" parameterType="string" resultType="EcoChallenge">
+		select eco_challenge_id, prime_rate, eco_challenge_name, start_date,
+		end_date, limited_people, is_delete, challenge_image
+		from eco_challenge
+		where eco_challenge_name like '%' || #{value} || '%'
+	</select>
+	
+	<select id="getEcoChallengeStatus" parameterType="string" resultType="EcoChallenge">
+		select eco_challenge_id, prime_rate, eco_challenge_name, start_date,
+		end_date, limited_people, is_delete, challenge_image
+		from eco_challenge
+	</select>
+	
+	<select id="getEcoChallengeList" resultType="EcoChallenge">
+		select eco_challenge_id, eco_challenge_name, prime_rate, start_date,
+		end_date, limited_people, is_delete, challenge_image
+		from eco_challenge
+	</select>
+	
+	<select id="getEcoChallengeDetail" parameterType="string" resultType="EcoChallenge">
+		select eco_challenge_id, eco_challenge_name, prime_rate, start_date,
+		end_date, limited_people, is_delete, challenge_image
+		from eco_challenge
+		where eco_challenge_id = #{value}
+	</select>
+	
+	<!-- <select id="getRecommendedChallengeList" parameterType="User" resultType="Challenge">
+		select eco_challenge_id, prime_rate, eco_challenge_name, start_date,
+		end_date, limited_people, is_delete, challenge_image
+		from eco_challenge
+		where eco_challenge_id=
+	</select> -->
 	
 	
 </mapper>

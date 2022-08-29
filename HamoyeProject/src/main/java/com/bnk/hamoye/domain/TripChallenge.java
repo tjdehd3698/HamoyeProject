@@ -5,7 +5,7 @@ import java.sql.Date;
 import lombok.Data;
 
 @Data
-public class TripChallenge {
+public class TripChallenge{
 	private String tripChallengeId;
 	private String tripChallengeName;
 	private Date startDate;
@@ -13,4 +13,5 @@ public class TripChallenge {
 	private int hits;
 	private int rewardPoint;
 	private int isDelete;
+	
 }

@@ -35,7 +35,7 @@ public class AccountDAOImpl implements AccountDAO{
 
 	@Override
 	public int deleteAccount(String id) throws SQLException {
-		return sqlSession.update("deleteAccount",id);
+		return sqlSession.delete("deleteAccount",id);
 	}
 
 	@Override

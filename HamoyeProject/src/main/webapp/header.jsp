@@ -46,9 +46,9 @@ $(function(){
 			$("#userId").next(".form-text").text("");
 		}
 		
-		if (document.FrmLogin.userPass.value == "" ) {
+		if (document.FrmLogin.userPassword.value == "" ) {
 			$("#userPassword").next(".form-text").text("비밀번호를 입력해주세요.");
-			document.FrmLogin.userPass.focus();
+			document.FrmLogin.userPassword.focus();
 			return false;
 		}else{
 			$("#userPass").next(".form-text").text("");

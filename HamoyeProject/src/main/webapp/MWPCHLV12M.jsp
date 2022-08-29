@@ -8,28 +8,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="/header.jsp"></jsp:include>
@@ -56,29 +34,36 @@
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">가입하기</div>
                 <h1 class="display-6 mb-5">지구를 지켜요</h1>
+                <h2 class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s"><b>가입이 완료되었습니다</b></h2>
             </div>
-			<article align="center">
-			<h2><b>가입이 완료되었습니다</b></h2><br>
-			
-			<!-- 시간나면 가입정보 확인하기 눌러서 ajax로 확인할 수 있도록? -->
-			가입정보 확인하기<br><br>
+            
+			<article class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+			가입정보 확인하기<br>
 			<div style="border: 1px solid #2b3886">
-			이름	<br>
-			아이디 <br>
-			성별 <br>
-			생년월일 <br>
-			이메일 <br>
-			주소 <br>
-			계좌번호 <br>
+			<p>
+			이름:	<br>
+			아이디: <br>
+			성별: <br>
+			생년월일: <br>
+			이메일: <br>
+			주소: <br>
+			계좌번호: <br>
+			</p>
 			</div>
 			<br>
 			<div class="col-12">
-            	<button class="btn btn-primary py-2 px-3 me-3">
-                 	챌린지리스트로
-                	<div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                    <i class="fa fa-arrow-right"></i>
-                     </div>
-                 </button>
+            	 <a class="btn btn-outline-primary px-3" href="MWPCHLV00M.jsp">
+               		챌린지 리스트로
+             		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                		<i class="fa fa-arrow-right"></i>
+                	</div>
+             	</a>
+             	<a class="btn btn-outline-primary px-3" href="">
+               		마이페이지로
+             		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                		<i class="fa fa-arrow-right"></i>
+                	</div>
+             	</a>
             </div>
             
 			</article>

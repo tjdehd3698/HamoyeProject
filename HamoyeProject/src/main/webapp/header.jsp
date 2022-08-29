@@ -64,7 +64,8 @@ $(function(){
 			data:param,
 			
 			success:function(result) {
-				if(result="T"){
+				alert(result);
+				if(result=="T"){
 					alert("로그인성공");
 					window.location.href = "home.do";
 				}else{

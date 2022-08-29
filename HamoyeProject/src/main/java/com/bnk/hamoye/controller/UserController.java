@@ -50,9 +50,9 @@ public class UserController {
 	@PostMapping("login.do")
 	@ResponseBody
 	public String login(User user, Model model, HttpSession session) {
-		user.setIsAdmin(0);
 		try {
 			String result = userService.login(user);
+			System.out.println(result);
 			
 			if(result!=null){
 				model.addAttribute("result", "T");

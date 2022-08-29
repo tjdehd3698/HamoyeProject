@@ -14,6 +14,10 @@ public class Account {
 	private int balance;
 	private double primeRate;
 	
+	public Account(){
+		this.primeRate = 0.5;
+	}
+	
 	public void makeAccountNumber() {
 		if(accountNumber!=null) return;
 		Random random = new Random();

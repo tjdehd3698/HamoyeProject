@@ -8,28 +8,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="/header.jsp"></jsp:include>
@@ -63,22 +41,24 @@
                     	<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
                     	<br><br>
                     	<!-- 100원 받기 하면 alert로 적립확인 하고 챌린지 리스트 페이지로 돌아가기 -->
-                    	<h5>이야기를 들어주셔서 감사해요</h5>
-                    		쇼핑지원금
-                 			<a class="btn btn-outline-primary px-3" href="" >
-                            	100원 받기
-                            <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
-             				</a>
                     </article>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
                     <div class="position-relative rounded overflow-hidden h-100">
-                         <img class="img-fluid" src="img/team-3.jpg" alt="">
+                         <img class="img-fluid" src="img/team-3.jpg">
                     </div>
                 </div>
             </div>
+            <article>
+            <h5>이야기를 들어주셔서 감사해요</h5>
+             	쇼핑지원금
+             <a class="btn btn-outline-primary px-3" href="" >
+               100원 받기
+             	<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                	<i class="fa fa-arrow-right"></i>
+                </div>
+             </a>
+           </article>				
         </div>
     </div>
     <!-- Contact End -->

@@ -8,28 +8,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="/header.jsp"></jsp:include>
@@ -53,77 +31,112 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Challenge</div>
-                <h1 class="display-6 mb-5">챌린지에 도전해보세요</h1>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
-                        <img class="img-fluid mb-4" src="img/free-icon-earth-globe-921423.png" alt="" width="90px" height="90px">
-                        <h4 class="mb-3">지구를 지켜요</h4>
-                        <span class="mb-4"><b> 대중교통 이용하고 </b></span><br>
-                        <a class="btn btn-outline-primary px-3" href="/MWPCHLV01M.jsp">
+                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Now On</div>
+               		<h1 class="display-6 mb-5">챌린지에 도전해보세요</h1>
+            	</div>
+            	<div class="row g-4 justify-content-center">
+                	<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    	<div class="service-item bg-white text-center h-100 p-4 p-xl-5">
+                        	<img class="img-fluid mb-4" src="img/free-icon-earth-globe-921423.png" width="90px" height="90px">
+                        	<h4 class="mb-3">지구를 지켜요</h4>
+                        	<div class="mb-4"><b> 대중교통 이용하고 </b><br>
+                        	<a class="btn btn-outline-primary px-3" href="/MWPCHLV01M.jsp">
                             	이자 더 받기
-                            <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
-                        </a>
-                        <br> <br>
-                         <span class="mb-4"> <b>봉사활동 참여하고 </b> </span><br>
+                            	<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                                	<i class="fa fa-arrow-right"></i>
+                            	</div>
+                        	</a>
+                        	</div>
+                         <div class="mb-4"> <b>봉사활동 참여하고 </b><br>
                          <a class="btn btn-outline-primary px-3" href="/MWPCHLV02M.jsp">
                             	이자 더 받기
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>
                             </div>
-                        </a>
+                         </a>
+                     	</div> 
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="img/beach.png" alt="" width="90px" height="90px">
                         <h4 class="mb-3">떠나요 부산</h4>
-                 		<span class="mb-4"> <b>오늘의 식당 방문하고 </b></span><br>
+                 		<div class="mb-4"> <b>오늘의 식당 방문하고 </b><br>
                         <a class="btn btn-outline-primary px-3" href="/MWPCHLV03M.jsp">
                             	식사지원금 받기
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>
                             </div>
                         </a>
-                        <br> <br>
-                         <span class="mb-4"> <b>오늘의 소상공인 만나고</b> </span><br>
+                        </div>
+                         <div class="mb-4"> <b>오늘의 소상공인 만나고</b><br>
                          <a class="btn btn-outline-primary px-3" href="/MWPCHLV04M.jsp">
                             	쇼핑지원금 받기
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>
                             </div>
                         </a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="img/social-media.png" alt="" width="90px" height="90px">
                         <h4 class="mb-3">이런 챌린지 어때요?</h4>
-                        <p class="mb-4"><b>요즘 핫해요</b></p>
+                        <div class="mb-4"><b>요즘 핫해요</b></div>
+                        <div style="padding:5px">
                         <a class="btn btn-outline-primary px-3" href="">
                             	대중교통 챌린지
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>
                             </div>
                         </a>
-                        <br> <br>
+                        </div>
+                        <div style="padding:5px">
                         <a class="btn btn-outline-primary px-3" href="">
                             	오늘의 식당 방문 챌린지
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>
                             </div>
                         </a>
-
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Service End -->
+    
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Last</div>
+                <h1 class="display-6 mb-5">지난 챌린지</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/free-icon-earth-globe-921423.png" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                    	지난 챌린지1
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/free-icon-earth-globe-921423.png" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+						지난 챌린지2
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/beach.png" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+						지난 챌린지3
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
   
  <jsp:include page="/footer.jsp"></jsp:include>
 

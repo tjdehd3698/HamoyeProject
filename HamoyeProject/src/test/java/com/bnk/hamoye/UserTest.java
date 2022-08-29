@@ -107,10 +107,10 @@ public class UserTest {
 		User user = new User();
 		user.setUserId(id);
 		user.setUserPassword(password);
-		//user.setIsAdmin(1);
+		user.setIsAdmin(1);
 		
-		String findId = (String)session.selectOne("userIdPassword", user);
-		System.out.println(findId);
+		User findId = (User)session.selectOne("userIdPassword", user);
+		System.out.println(findId.getUserAddress());
 		
 		
 	}

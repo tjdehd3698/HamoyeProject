@@ -104,7 +104,7 @@
 						    <label for="userId" class="col-sm-2 col-form-label">ID</label>
 						    <div class="col-sm-10">
 								<div class="position-relative">
-					                <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="아이디를 입력해주세요" id="userId" maxlength="25" required>
+					                <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="아이디를 입력해주세요" id="userId" name="userId" maxlength="25" required>
 					                <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" id="duplicateId">중복확인</button>
 					            	<div class="form-text text-primary"></div>
 					            	<div class="form-text text-danger"></div>
@@ -114,7 +114,7 @@
 						<div class="mb-3 row">
 						    <label for="userPassword" class="col-sm-2 col-form-label">비밀번호</label>
 						    <div class="col-sm-10">
-								<input type="password" class="form-control" id="userPassword" maxlength="25" required/>
+								<input type="password" class="form-control" id="userPassword" name="userPassword" maxlength="25" required/>
 								<div class="form-text text-primary"></div>
 						    </div>
 						</div>
@@ -128,13 +128,13 @@
 						<div class="mb-3 row">
 							<label for="userName" class="col-sm-2 col-form-label">이름</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="userName" maxlength="25" required>
+								<input type="text" class="form-control" id="userName" name="userName" maxlength="25" required>
 							</div>
 						</div>
 						<div class="mb-3 row">
 							<label for="birthday" class="col-sm-2 col-form-label">생년월일</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="birthday" placeholder="생년월일 8자리 입력 예) 19951230" maxlength="8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required/>
+								<input type="text" class="form-control" id="birthday" name="birthday" placeholder="생년월일 8자리 입력 예) 19951230" maxlength="8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required/>
 								<div class="form-text text-primary"></div>
 							</div>
 						</div>
@@ -154,13 +154,13 @@
 						<div class="mb-3 row">
 							<label for="userAddress" class="col-sm-2 col-form-label">주소</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="userAddress" maxlength="50" required/>
+								<input type="text" class="form-control" id="userAddress" maxlength="50" name="userAddress" required/>
 							</div>
 						</div>
 						<div class="mb-3 row">
 							<label for="email" class="col-sm-2 col-form-label">이메일</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="email" placeholder="hamoye@example.com" maxlength="50" required/>
+								<input type="text" class="form-control" id="email" placeholder="hamoye@example.com" name="email" maxlength="50" required/>
 							</div>
 						</div>
 					</div>

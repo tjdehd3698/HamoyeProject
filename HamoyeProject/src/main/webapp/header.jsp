@@ -40,22 +40,22 @@ $(function(){
 	$("#login").on("click",function(){
 		var param="";
 		
-		if(document.FrmLogin.userId.value == "") {
-			$("#userId").next(".form-text").text("ID를 입력해주세요.");
-			document.FrmLogin.userId.focus();
+		if(document.FrmLogin.loginId.value == "") {
+			$("#loginId").next(".form-text").text("ID를 입력해주세요.");
+			document.FrmLogin.loginId.focus();
 			return false;
 		}else{
-			$("#userId").next(".form-text").text("");
-			param += "&userId=" + document.FrmLogin.userId.value;
+			$("#loginId").next(".form-text").text("");
+			param += "&userId=" + document.FrmLogin.loginId.value;
 		}
 		
-		if (document.FrmLogin.userPassword.value == "" ) {
-			$("#userPassword").next(".form-text").text("비밀번호를 입력해주세요.");
-			document.FrmLogin.userPassword.focus();
+		if (document.FrmLogin.loginPassword.value == "" ) {
+			$("#loginPassword").next(".form-text").text("비밀번호를 입력해주세요.");
+			document.FrmLogin.loginPassword.focus();
 			return false;
 		}else{
-			$("#userPassword").next(".form-text").text("");
-			param += "&userPassword=" + document.FrmLogin.userPassword.value;
+			$("#loginPassword").next(".form-text").text("");
+			param += "&userPassword=" + document.FrmLogin.loginPassword.value;
 		}
 		
 		$.ajax({
@@ -64,7 +64,6 @@ $(function(){
 			data:param,
 			
 			success:function(result) {
-				alert(result);
 				if(result=="T"){
 					window.location.href = "home.do";
 				}else{
@@ -155,19 +154,19 @@ $(function(){
 				</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
-			<form method="post" name="FrmLogin" action="login.do">
+			<form method="post" name="FrmLogin">
 				<div class="modal-body">
 						<div class="mb-3">
-							<label for="userId" class="form-label">ID</label>
-							<input type="text" class="form-control" id="userId" tabindex=1 placeholder="아이디를 입력해주세요" required="required">
+							<label for="loginId" class="form-label">ID</label>
+							<input type="text" class="form-control" id="loginId" tabindex=1 placeholder="아이디를 입력해주세요" required="required">
 							<div class="form-text text-primary"></div>
 						</div>
 						<div class="mb-3">
-							<label for="userPassword" class="form-label">Password</label>
-							<input type="password" class="form-control" id="userPassword" tabindex=2 placeholder="비밀번호를 입력해주세요" required="required">
+							<label for="loginPassword" class="form-label">Password</label>
+							<input type="password" class="form-control" id="loginPassword" tabindex=2 placeholder="비밀번호를 입력해주세요" required="required">
 							<div class="form-text text-primary"></div>
 						</div>
-					 	<a href="#" class="stretched-link" style="position: relative;">처음이신가요?</a>
+					 	<a href="agree.do" class="stretched-link" style="position: relative;">처음이신가요?</a>
 	<!-- 						<div class="mb-3 form-check"> -->
 	<!-- 						  <input type="checkbox" class="form-check-input" id="user_check"> -->
 	<!-- 						  <label class="form-check-label" for="user_check">Check me out</label> -->

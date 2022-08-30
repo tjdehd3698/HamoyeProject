@@ -13,13 +13,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HamoyeController {
 	/**************************************************************
-		Front Test
+		Front Page Test
 	 ***************************************************************/
 	
 	@RequestMapping("home.do")
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping("agree.do")
+	public String agree() {
+		return "MWPCMNV00M";
+	}
+	
+	@RequestMapping("viewRegister.do")
+	public String viewRegister() {
+		return "MWPCMNV01M";
+	}	
+	
 	
 //	@PostMapping("login.do")
 //	@ResponseBody
@@ -31,10 +42,10 @@ public class HamoyeController {
 //		return "";
 //	}
 	
-//	@GetMapping("challege.do")
-//	public String doChallegeList() {
-//		return "MWPCHLV00M";
-//	}
-//	
+	@RequestMapping("challege.do")
+	public String doChallegeList() {
+		return "MWPCHLV00M";
+	}
+
 	
 }

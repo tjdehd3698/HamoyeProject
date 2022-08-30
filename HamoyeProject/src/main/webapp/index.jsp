@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HAMOYE</title>
+<title>도전을 통해 만들어가는 실천금융, HAMOYE입니다.</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -44,7 +44,7 @@
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">나에게 필요한 좋은 습관으로 지구를 지켜주세요</p>
                                     <c:choose>
 										<c:when test="${!empty userName}">
-											${name}님, 함께 해주셔서 감사드려요😍<br> - 지구올림
+											${userName}님, 함께 해주셔서 감사드려요😍<br> - 하모예 드림
 										</c:when>
 										<c:otherwise>
 		                                    <button type="button" class="btn btn-outline-secondary py-2 px-3 animated slideInDown" data-bs-toggle="modal" data-bs-target="#loginModal">
@@ -66,11 +66,11 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-7 pt-5">
-                                    <h1 class="display-4 text-white mb-3 animated slideInDown">금융, 그 이상의<br>가치를 만들고 있습니다.</h1>
-                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">나에게 필요한 좋은 습관으로 지구를 지켜주세요</p>
+                                    <h1 class="display-4 text-white mb-3 animated slideInDown">하고<br>모으고<br>예금하고</h1>
+                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">쉽고 간단한 실천금융, 하모예</p>
                                     <c:choose>
 										<c:when test="${!empty userName}">
-											${name}님, 저를 지켜주셔서 감사드려요🥺<br> - 지구올림
+											${userName}님, 저를 지켜주셔서 감사드려요🥺<br> - 하모예 드림
 										</c:when>
 										<c:otherwise>
 		                                    <button type="button" class="btn btn-outline-secondary py-2 px-3 animated slideInDown" data-bs-toggle="modal" data-bs-target="#loginModal">

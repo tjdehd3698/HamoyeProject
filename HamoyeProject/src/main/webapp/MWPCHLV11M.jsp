@@ -35,9 +35,10 @@
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">가입하기</div>
                 <h1 class="display-6 mb-5">지구를 지켜요</h1>
             </div>
-			<article class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+			<div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 			<h2><b>서약서 작성하기</b></h2>
-				챌린지에 가입하기 위해 서약서를 작성해주세요
+				챌린지에 가입하기 위해 서약서를 작성해주세요<br>
+				서약서를 작성하면 추가 이율을 드려요
 				<br><br>
 			<article style="border: 1px solid #2b3886">
 				<h4>서약서</h4>
@@ -55,14 +56,15 @@
 				</section>
 			</article>
 				<br>
-			<div class="col-12">
-            	 <a class="btn btn-outline-primary px-3" href="" >
-               		서약서 제출하기
-             		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+				<div class="col-12">
+            	 	<a class="btn btn-outline-primary px-3" href="MWPCHLV12M.jsp" >
+               			서약서 제출하기
+             			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                 		<i class="fa fa-arrow-right"></i>
-                	</div>
-             	</a>
-            </div>
+                		</div>
+             		</a>
+            	</div>
+        	</div>
         </div>
     </div>
     <!-- Team End -->

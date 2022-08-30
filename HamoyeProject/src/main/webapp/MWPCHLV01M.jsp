@@ -9,11 +9,9 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
     
+    <script type="text/javascript">
     
-    <style type="text/css">
-    
-    
-    </style>
+    </script>
 </head>
 <body>
 <jsp:include page="/header.jsp"></jsp:include>
@@ -124,6 +122,17 @@
             		 </div>
              	</a>
              </div>
+			</article>
+			<article style="border: 1px solid #2b3886">
+				<h5>※챌린지 참여 주의사항※</h5>
+				<p>
+				1. 지구를 지켜요 챌린지에 참여하기 위해서는 새로운 부산은행 정기예금계좌를 개설해야합니다.<br>
+					해당 계좌는 챌린지 중도 포기시 자동적으로 해지되며, 잔액은 다른 계좌로 이체하여야합니다.<br>
+				2. 챌린지 참여를 위해 서약서를 작성하면 기본 이율을 제공합니다.<br>
+				3. 챌린지에 참가하여 목표를 달성한다면 챌린지 상세 페이지에 기재된 우대이율을 익월에 추가로 적용받을 수 있습니다.<br>
+				4. 챌린지에 참가하여 목표를 달성하지 못한다면 익월에 우대이율을 적용받을 수 없으며, 서약서 작성을 통해 제공받은 기본 이율만 적용받게됩니다.<br>
+				5. 챌린지 종료 이후에도 계좌는 유지되며, 챌린지 우대 이율 적용이 끝난 계좌는 서약서 작성을 통해 제공받은 기본 이율만 적용받게됩니다.
+				</p>
 			</article>
         </div>
     </div>

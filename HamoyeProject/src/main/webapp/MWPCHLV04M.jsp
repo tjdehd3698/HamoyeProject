@@ -8,6 +8,15 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+ 		$(function(){
+			$('a').click(function(){
+				/* 동백포인트에 돈 넣어주는 로직 */
+				alert("동백포인트가 100원 적립되었습니다");
+			});//on
+    	});//ready
+    </script>
 </head>
 <body>
 <jsp:include page="/header.jsp"></jsp:include>
@@ -38,21 +47,25 @@
                     <h3>부산에 사는 000씨</h3>
                     <br>
                     <article>
-                    	<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                    	<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+                    	The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
+                    	as opposed to using 'Content here, content here', making it look like readable English. 
+                    	Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, 
+                    	and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, 
+                    	sometimes by accident, sometimes on purpose (injected humour and the like).</p>
                     	<br><br>
-                    	<!-- 100원 받기 하면 alert로 적립확인 하고 챌린지 리스트 페이지로 돌아가기 -->
                     </article>
                 </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
-                    <div class="position-relative rounded overflow-hidden h-100">
-                         <img class="img-fluid" src="img/team-3.jpg">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="float:right">
+                	<div class="position-relative rounded overflow-hidden h-100">
+                        <img class="img-fluid" src="img/team-3.jpg">
                     </div>
                 </div>
             </div>
             <article>
-            <h5>이야기를 들어주셔서 감사해요</h5>
+            <h5 style="padding:20px">이야기를 들어주셔서 감사해요</h5>
              	쇼핑지원금
-             <a class="btn btn-outline-primary px-3" href="" >
+             <a class="btn btn-outline-primary px-3" href="/MWPCHLV00M.jsp">
                100원 받기
              	<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                 	<i class="fa fa-arrow-right"></i>

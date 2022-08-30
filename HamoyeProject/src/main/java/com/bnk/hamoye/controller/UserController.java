@@ -107,17 +107,7 @@ public class UserController {
 //		}
 //		return "";
 //	}
-//	
-//	@GetMapping()
-//	public String getUserInfo(Model model, HttpSession session) {
-//		try {
-//			User user = userService.getUserInfo((String)session.getAttribute("user"));
-//			model.addAttribute("result", user);
-//		} catch (SQLException e) {
-//			System.out.println("getUserInfo 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
+
 //	
 //	@PostMapping()
 //	public String withdraw(HttpSession session) {
@@ -138,39 +128,12 @@ public class UserController {
 //			System.out.println("checkEcoChallenge 에러 : "+ e.getMessage());
 //		}
 //		return "";
-//	}
-	
-	@GetMapping()
-	public String checkEcoChallenge(Model model,HttpSession session) {
-		return "";
-	}
-	
+//	}	
 //	
 //	@PostMapping()
 //	public String joinAccount(Account account, String userId, String ecoChallengeId) {
 //		
 //		return "";
 //	}
-	
-	@PostMapping("")
-	@ResponseBody
-	public String adminLogin(User user, HttpSession session) {
-		try {
-			
-			User findUser = userService.login(user);
-			
-			if(findUser!=null){
-				session.setAttribute("user", findUser.getUserId());
-				session.setAttribute("userName", findUser.getUserName());
-				System.out.println("로그인 성공");
-				return "T";
-			} 
-			else return "F";
-			
-		} catch (SQLException e) {
-			System.out.println("login 에러 : "+ e.getMessage());
-		}
-		return "";
-	}
 
 }

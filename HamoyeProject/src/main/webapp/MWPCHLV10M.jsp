@@ -8,6 +8,13 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    
+    <script type="text/javascript">
+    $(function(){
+		
+    });//ready
+    
+    </script>
 </head>
 <body>
 <jsp:include page="/header.jsp"></jsp:include>
@@ -37,7 +44,7 @@
             </div>
 			<article class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 				<h2><b>지구를 지키기 위한 "한 걸음"</b></h2>
-				<form>
+				<form id="frm">
             		<div class="row g-3">
             			<p>참여할 챌린지를 선택해 주세요</p>
             			<div class="col-6">
@@ -119,16 +126,96 @@
             				</div>
             			</div>
                      	<!-- 정보입력하기 누르면 다음페이지는 약관동의 페이지입니당 -->
-                     	<div class="col-12">
-                     		<a class="btn btn-outline-primary px-3" href="" >
-              	 				챌린지 가입하기
-             					<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                					<i class="fa fa-arrow-right"></i>
-                				</div>
-             				</a>
-                  		</div>
+                 
                  	</div>
               	</form>
+              </article>
+              
+              <div class="mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div align="center">아래 약관에 동의해주세요</div>
+            </div>
+            
+            <div class="wow fadeIn" data-wow-delay="0.5s">
+				<div class="accordion mb-5" id="accordion">
+				  <div class="accordion-item">
+				    <h2 class="accordion-header" id="headingOne">
+				      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				        <div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="agreeChk1">
+							<label class="form-check-label" for="agreeChk1">
+								챌린지 계좌 개설을 위한 약관
+							</label>
+						</div>
+				      </button>
+				    </h2>
+				    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+				      <div class="accordion-body">
+				        <p>
+					        <input class="form-check-input" type="checkbox" value="" id="agreeChk1_1">
+							<label class="form-check-label" for="agreeChk1_1"></label>
+				        	<strong><a href="https://m.busanbank.co.kr/ib20/mnu/MWPCMN000000013?REG_DTTI=20220801001041&FPCD=01020400560001">[필수] 전자금융거래 기본약관</a></strong>
+				        </p>
+				      	<p>
+				      		<input class="form-check-input" type="checkbox" value="" id="agreeChk1_2">
+							<label class="form-check-label" for="agreeChk1_2"></label>
+				      		<strong><a href="https://m.busanbank.co.kr/ib20/mnu/MWPCMN000000013?REG_DTTI=20220801001041&FPCD=01020400560001">[필수] 전자금융서비스 이용약관</a></strong>
+				      	</p>
+				      	<p>
+				      		<input class="form-check-input" type="checkbox" value="" id="agreeChk1_3">
+							<label class="form-check-label" for="agreeChk1_3"></label>
+				      		<strong><a href="https://m.busanbank.co.kr/ib20/mnu/MWPCMN000000013?REG_DTTI=20220801001041&FPCD=01020400560001">[필수] 개인정보 수집 및 이용 동의</a></strong>
+				      	</p>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="accordion-item">
+				    <h2 class="accordion-header" id="headingTwo">
+				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				        <div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="agreeChk2">
+							<label class="form-check-label" for="agreeChk2">
+								금융혜택정보 알림 동의
+							</label>
+						</div>
+				      </button>
+				    </h2>
+				    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+				      <div class="accordion-body">
+				      	<div class="mb-4">
+				      		<p>
+						        <input class="form-check-input" type="checkbox" value="" id="agreeChk2_1">
+								<label class="form-check-label" for="agreeChk2_1"></label>
+					        	<a href="https://m.busanbank.co.kr/ib20/mnu/MWPCMN000000013?REG_DTTI=20220801001041&FPCD=01020400560001">[선택] 개인(신용) 정보 수집 및 이용 동의</a>
+					        </p>
+					      	<p>
+					      		<input class="form-check-input" type="checkbox" value="" id="agreeChk2_2">
+								<label class="form-check-label" for="agreeChk2_2"></label>
+					      		<a href="https://m.busanbank.co.kr/ib20/mnu/MWPCMN000000013?REG_DTTI=20220801001041&FPCD=01020400560001">[선택] 모바일뱅킹 마케팅 수신 동의</a>
+					      	</p>
+					      	<p>
+					      		<input class="form-check-input" type="checkbox" value="" id="agreeChk2_3">
+								<label class="form-check-label" for="agreeChk2_3"></label>
+					      		<a href="https://m.busanbank.co.kr/ib20/mnu/MWPCMN000000013?REG_DTTI=20220801001041&FPCD=01020400560001">[선택] 개인(신용) 정보 수집, 이용, 제공(상품서비스 안내 등) 동의</a>
+					      	</p>
+				      	</div>
+				      	<h6>금융혜택정보 알림 방법</h6>
+				      	<p>이메일</p>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<article>
+				<button class="btn btn-primary px-5" style="height: 46px; margin-bottom:5px">
+                   		 모두 동의합니다.
+                </button>
+                <a class="btn btn-outline-primary px-3" href="MWPCHLV11M.jsp" style="margin-bottom:5px">
+              	 				챌린지 가입하기
+             		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                	<i class="fa fa-arrow-right"></i>
+                </div>
+              </a>
+              </article>
+			</div>
         </div>
     </div>
     <!-- Team End -->
@@ -138,7 +225,6 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

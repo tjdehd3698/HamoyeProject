@@ -96,6 +96,18 @@
 		where user_id = #{value}
 	</select>
 	
+	<update id="expireAccount" parameterType="string">
+		update users
+		set eco_challenge_id = NULL
+		where user_id = #{value}
+	</update>
+	
+	<select id="getAllUser" resultType="user">
+		select user_id,user_name, register_date
+		from users
+		where is_admin=0 and is_withdraw=0
+	</select>
+	
 </mapper>
 
 

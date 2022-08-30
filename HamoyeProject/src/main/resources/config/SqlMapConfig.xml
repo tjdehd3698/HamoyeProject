@@ -32,6 +32,7 @@
 		<mapper resource="mappers/user_mapper.xml"/>	
 		<mapper resource="mappers/eco_challenge_mapper.xml"/>	
 		<mapper resource="mappers/trip_challenge_mapper.xml"/>	
+		<mapper resource="mappers/participation_mapper.xml"/>	
 	</mappers>
 	
 </configuration>

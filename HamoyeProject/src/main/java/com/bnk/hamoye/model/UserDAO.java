@@ -1,7 +1,9 @@
 package com.bnk.hamoye.model;
 
 import java.sql.SQLException;
+import java.util.List;
 
+import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.User;
 
 public interface UserDAO {
@@ -14,5 +16,9 @@ public interface UserDAO {
 	User getUserInfo(String userId) throws SQLException;
 	int withdrawUser(String userId) throws SQLException;
 	String checkEcoChallenge(String userId) throws SQLException;
+	User getMypageInfo(String userId) throws SQLException;
+	int expireAccount(String userId) throws SQLException;
+	List<Participation> getParticipateChallenge(String userId) throws SQLException;
+	List<User> getAllUser() throws SQLException;
 }
  

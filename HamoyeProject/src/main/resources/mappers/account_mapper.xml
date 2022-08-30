@@ -10,12 +10,6 @@
 		values(#{accountNumber},to_date(TO_CHAR(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD'),#{purpose},#{incomeSource},#{balance},#{primeRate})
 	</insert>	
 	
-	<update id="expireAccount" parameterType="string">
-		update users
-		set account_number=null, eco_challenge_id=null
-		where user_id = #{userId}
-	</update>
-	
 	<delete id="deleteAccount" parameterType="string">
 		delete from account
 		where account_id =(select account_id from users where user_id=#{value})
@@ -26,6 +20,7 @@
 		set balance=balance+#{amount}
 		where account_id = (select account_id from users where user_id =#{id})
 	</update>
+	
 	
 	
 </mapper>

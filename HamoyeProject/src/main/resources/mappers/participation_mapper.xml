@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sql.hamoye.participation_mapper">
+	<resultMap type="participation" id="participationWithUserAndChallenge">
+		<id column="parcitipation_id" property="parcitipationId"/>
+		<result column="parcitipation_date" property ="parcitipationDate"/>
+		<result column="achievement_rate" property ="achievementRate"/>
+		<result column="is_success" property ="isSuccess"/>
+		<association property="tripChallenge" javaType="tripChallenge">
+			<id column="trip_challenge_id" property="tripChallengeId"/>
+			<result column="trip_challenge_name" property="tripChallengeName"/>
+			<result column="reward_point" property="rewardPoint"/>
+		</association>
+	</resultMap>
+
+	<select id="getParticipateChallenge" parameterType="user" resultMap="participationWithUserAndChallenge">
+		select p.participation_id, p.participation_date, p.achievement_rate, p.is_success, t.trip_challenge_id,
+		t.trip_challenge_name, t.reward_point 
+		from participation p
+		join users u on p.user_id = u.user_id
+		join trip_challenge t on p.trip_challenge_id = t.trip_challenge_id
+		where p.user_id = #{value}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+

@@ -70,7 +70,7 @@ public class UserController {
 		return "";
 	}
 	
-	@PostMapping("logout.do")
+	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "index";

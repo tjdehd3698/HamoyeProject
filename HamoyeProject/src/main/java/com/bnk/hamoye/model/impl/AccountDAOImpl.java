@@ -34,4 +34,9 @@ public class AccountDAOImpl implements AccountDAO{
 		return sqlSession.update("updateBalance", map);
 	}
 
+	@Override
+	public int getAllAcountCnt() throws SQLException {
+		return sqlSession.selectList("getAllAcountCnt").size();
+	}
+
 }

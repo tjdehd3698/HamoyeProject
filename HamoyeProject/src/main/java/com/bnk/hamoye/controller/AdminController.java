@@ -52,9 +52,16 @@ public class AdminController {
 		return "";
 	}
 	
-//	@GetMapping("getAdminPageInfo.do")
-//	public String getAdminPageInfo(Model model) {
-//		int totalUserCnt = adminService.getAllUser().size();
-//		
-//	}
+	@GetMapping("getAdminPageInfo.do")
+	public String getAdminPageInfo(Model model) {
+		try {
+			int totalUserCnt = adminService.getAllUser().size();
+			int totalAccountCnt = adminService.getAllAcountCnt();
+			//int
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";	
+	}
 }

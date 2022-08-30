@@ -13,5 +13,6 @@ public class EcoChallenge{
 	private Date endDate;
 	private int limitedPeople;
 	private int isDelete;
+	private String content;
 	
 }

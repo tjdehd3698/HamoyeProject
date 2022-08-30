@@ -15,6 +15,7 @@ import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.Point;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.model.AccountDAO;
+import com.bnk.hamoye.model.ParticipationDAO;
 import com.bnk.hamoye.model.PointDAO;
 import com.bnk.hamoye.model.UserDAO;
 import com.bnk.hamoye.service.UserService;
@@ -27,6 +28,7 @@ public class UserServiceImpl implements UserService{
 	private final UserDAO userDAO;
 	private final PointDAO pointDAO;
 	private final AccountDAO accountDAO;
+	private final ParticipationDAO participationDAO;
 	
 	@Override
 	public int registerUser(User user) throws SQLException {
@@ -133,7 +135,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<Participation> getParticipateChallenge(String userId) throws SQLException {
-		return userDAO.getParticipateChallenge(userId);
+		return participationDAO.getParticipateChallenge(userId);
 	}
 
 	@Override

@@ -14,5 +14,6 @@ public class EcoChallenge{
 	private int limitedPeople;
 	private int isDelete;
 	private String content;
+	private int totalCount;
 	
 }

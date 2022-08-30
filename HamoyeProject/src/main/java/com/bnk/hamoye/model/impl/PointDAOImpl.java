@@ -20,17 +20,17 @@ public class PointDAOImpl implements PointDAO {
 
 	@Override
 	public int insertPoint(Point point) throws SQLException {
-		return sqlSession.insert("insertPoint",point);
+		return sqlSession.insert(NS+"insertPoint",point);
 	}
 
 	@Override
 	public int updateTotalPoint(Map<String, String> map) throws SQLException {
-		return sqlSession.update("updateTotalPoint",map);
+		return sqlSession.update(NS+"updateTotalPoint",map);
 	}
 
 	@Override
 	public int deletePoint(String userId) throws SQLException {
-		return sqlSession.delete("deletePoint",userId);
+		return sqlSession.delete(NS+"deletePoint",userId);
 	}
 	
 

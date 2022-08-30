@@ -57,7 +57,7 @@ public class AdminController {
 		try {
 			int totalUserCnt = adminService.getAllUser().size();
 			int totalAccountCnt = adminService.getAllAcountCnt();
-			//int
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

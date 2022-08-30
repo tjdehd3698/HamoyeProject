@@ -9,6 +9,7 @@
 		<result column="account_number" property ="accountNumber"/>
 		<result column="eco_challenge_id" property ="ecoChallengeId"/>
 		<result column="point_id" property ="pointId"/>
+		<result column="participation_count" property ="participationCount"/>
 		<association property="point" javaType="point">
 			<id column="point_id" property="pointId"/>
 			<result column="total_point" property="totalPoint"/>
@@ -22,6 +23,7 @@
 			<id column="eco_challenge_id" property="ecoChallengeId"/>
 			<result column="eco_challenge_name" property="ecoChallengeName"/>
 			<result column="prime_rate" property="primeRate"/>
+			<result column="total_count" property ="totalCount"/>
 		</association>
 	</resultMap>
 	

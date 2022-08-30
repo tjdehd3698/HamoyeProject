@@ -21,22 +21,22 @@ public class AccountDAOImpl implements AccountDAO{
 	
 	@Override
 	public int registerAccount(Account account) throws SQLException {
-		return sqlSession.insert("insertAccount",account);
+		return sqlSession.insert(NS+"insertAccount",account);
 	}
 
 	@Override
 	public int deleteAccount(String userId) throws SQLException {
-		return sqlSession.delete("deleteAccount",userId);
+		return sqlSession.delete(NS+"deleteAccount",userId);
 	}
 
 	@Override
 	public int updateBalance(Map<String, String> map) throws SQLException {
-		return sqlSession.update("updateBalance", map);
+		return sqlSession.update(NS+"updateBalance", map);
 	}
 
 	@Override
 	public int getAllAcountCnt() throws SQLException {
-		return sqlSession.selectList("getAllAcountCnt").size();
+		return sqlSession.selectList(NS+"getAllAcountCnt").size();
 	}
 
 }

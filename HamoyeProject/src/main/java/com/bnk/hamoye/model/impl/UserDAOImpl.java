@@ -22,13 +22,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public String login(User user) throws SQLException {
-		return (String)sqlSession.selectOne("userIdPassword", user);
+	public User login(User user) throws SQLException {
+		return (User)sqlSession.selectOne("userIdPassword", user);
 	}
 
 	@Override
-	public String duplicateId(User user) throws SQLException {
-		return (String)sqlSession.selectOne("userIdPassword", user);
+	public User duplicateId(User user) throws SQLException {
+		return (User)sqlSession.selectOne("userIdPassword", user);
 	}
 
 	@Override

@@ -49,13 +49,13 @@ public class UserController {
 	
 	@PostMapping("login.do")
 	@ResponseBody
-	public String login(User user, Model model, HttpSession session) {
+	public String login(User user, HttpSession session) {
 		try {
-			String result = userService.login(user);
-			System.out.println(result);
+			User findUser = userService.login(user);
 			
-			if(result!=null){
-				session.setAttribute("user", result);
+			if(findUser!=null){
+				session.setAttribute("user", findUser.getUserId());
+				session.setAttribute("userName", findUser.getUserName());
 				System.out.println("로그인 성공");
 				return "T";
 			} 
@@ -137,6 +137,12 @@ public class UserController {
 //		}
 //		return "";
 //	}
+	
+	@GetMapping()
+	public String checkEcoChallenge(Model model,HttpSession session) {
+		return "";
+	}
+	
 //	
 //	@PostMapping()
 //	public String joinAccount(Account account, String userId, String ecoChallengeId) {

@@ -36,13 +36,13 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public String login(User user) throws SQLException {
+	public User login(User user) throws SQLException {
 		return userDAO.login(user);
 	}
 	
 	@Override
 	public boolean duplicateId(User user) throws SQLException {
-		String findId = userDAO.duplicateId(user);
+		String findId = userDAO.duplicateId(user).getUserId();
 		
 		if(findId==null) return false;
 		else return true;

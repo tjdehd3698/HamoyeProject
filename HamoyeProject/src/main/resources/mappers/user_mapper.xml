@@ -27,8 +27,8 @@
 	
 
 	<!--회원 아이디 중복 검사 + 회원/관리자 로그인 -->
-	<select id="userIdPassword" parameterType="user" resultType="string">
-		select user_id
+	<select id="userIdPassword" parameterType="user" resultType="user">
+		select user_id, user_name
 		from users
 		where user_id =#{userId} and is_withdraw = 0
 		<if test="userPassword != null">

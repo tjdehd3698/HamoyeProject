@@ -7,7 +7,7 @@ import com.bnk.hamoye.domain.User;
 
 public interface UserService {
 	int registerUser(User user) throws SQLException;
-	String login(User user) throws SQLException;
+	User login(User user) throws SQLException;
 	boolean duplicateId(User user) throws SQLException;
 	String findPassword(User user) throws SQLException;
 	int updateUser(User user) throws SQLException;

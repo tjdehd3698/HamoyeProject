@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService{
 		account.setCreateDate(new Date(System.currentTimeMillis()));
 		
 		int result = accountDAO.registerAccount(account);
-		if(result ==1) {
+		if(result == 1) {
 			User user = new User();
 			user.setUserId(userId);
 			user.setEcoChallengeId(ecoChallengeId);

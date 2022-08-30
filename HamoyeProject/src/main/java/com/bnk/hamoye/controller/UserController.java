@@ -24,15 +24,15 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 	private final UserService userService;
 	
-	@PostMapping("")
-	public String registerUser(User user, Model model) {
-		try {
-			userService.registerUser(user);
-		} catch (SQLException e) {
-			System.out.println("registerUser 에러 : "+ e.getMessage());
-		}
-		return "";
-	}
+//	@PostMapping("")
+//	public String registerUser(User user, Model model) {
+//		try {
+//			userService.registerUser(user);
+//		} catch (SQLException e) {
+//			System.out.println("registerUser 에러 : "+ e.getMessage());
+//		}
+//		return "";
+//	}
 	
 //	@GetMapping()
 //	@ResponseBody
@@ -127,25 +127,29 @@ public class UserController {
 //	}
 	
 //	@GetMapping()
-//	public String checkEcoChallenge(HttpSession session, Model model) {
+//	public String checkEcoChallenge(Model model,HttpSession session) {
 //		try {
 //			String findId = userService.checkEcoChallenge((String)session.getAttribute("user"));
-//
+//			if(findId == null) {
+//				model.addAttribute("result", "T");
+//			}
+//			else {
+//				model.addAttribute("result", "F");
+//			}
 //		} catch (SQLException e) {
 //			System.out.println("checkEcoChallenge 에러 : "+ e.getMessage());
 //		}
 //		return "";
 //	}
 	
-	@GetMapping()
-	public String checkEcoChallenge(Model model,HttpSession session) {
-		return "";
-	}
 	
-//	
 //	@PostMapping()
-//	public String joinAccount(Account account, String userId, String ecoChallengeId) {
-//		
+//	public String joinAccount(Account account, HttpSession session, String ecoChallengeId ) {
+//		try {
+//			userService.joinAccount(account, (String)session.getAttribute("user"), ecoChallengeId);
+//		} catch (SQLException e) {
+//			System.out.println("joinAccount 에러 : "+ e.getMessage());
+//		}
 //		return "";
 //	}
 	

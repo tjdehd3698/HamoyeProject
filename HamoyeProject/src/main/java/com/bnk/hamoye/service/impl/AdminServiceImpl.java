@@ -16,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 public class AdminServiceImpl implements AdminService{
 	private final UserDAO userDAO;
 	
-	
 	@Override
 	public List<User> getAllUser() throws SQLException {
 		return userDAO.getAllUser();

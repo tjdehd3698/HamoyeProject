@@ -136,4 +136,9 @@ public class UserServiceImpl implements UserService{
 		return userDAO.getParticipateChallenge(userId);
 	}
 
+	@Override
+	public User getUserAllInfo(String userId) throws SQLException {
+		return userDAO.getUserAllInfo(userId);
+	}
+
 }

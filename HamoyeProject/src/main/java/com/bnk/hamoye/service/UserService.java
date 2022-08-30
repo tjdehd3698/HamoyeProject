@@ -21,4 +21,5 @@ public interface UserService {
 	User getMypageInfo(String userId) throws SQLException;
 	int changePoint(String userId, int amount) throws SQLException;
 	List<Participation> getParticipateChallenge(String userId) throws SQLException; 
+	User getUserAllInfo(String userId) throws SQLException;
 }

@@ -83,4 +83,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectList("getAllUser");
 	}
 
+	@Override
+	public User getUserAllInfo(String userId) throws SQLException {
+		return sqlSession.selectOne("getUserAllInfo",userId);
+	}
+
 }

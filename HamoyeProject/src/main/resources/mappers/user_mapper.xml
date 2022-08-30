@@ -79,6 +79,13 @@
 		where user_id =#{value}
 	</select>
 	
+	<select id="getUserAllInfo" parameterType="string" resultType="user">
+		select
+		user_id, user_name, user_age, user_address,birthday, gender,email
+		from users
+		where user_id =#{value}
+	</select>
+	
 	<select id="getMypageInfo" parameterType="string" resultMap="userWithPointAndAccountAndEcoChallenge">
 		select 
 		u.user_id, a.account_number, a.balance, p.point_id, p.total_point, e.eco_challenge_id, e.eco_challenge_name

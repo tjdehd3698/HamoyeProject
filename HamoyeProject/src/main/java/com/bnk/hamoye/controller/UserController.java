@@ -76,6 +76,18 @@ public class UserController {
 		return "index";
 	}
 	
+	@GetMapping("getUserAllInfo.do")
+	public String getUserAllInfo(HttpSession session, Model model) {
+		try {
+			User user = userService.getUserAllInfo((String)session.getAttribute("user"));
+			model.addAttribute("result", user);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "MWPCHLV10M";
+	}
+	
 //	@PostMapping()
 //	public String joinAccount(Account account,String ecoChallengeId, HttpSession session) {
 //		try {

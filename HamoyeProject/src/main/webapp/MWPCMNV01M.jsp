@@ -15,6 +15,8 @@
 	$(function(){
 		$("#duplicateId").on("click",function(){
 			var param="";
+			var noEngRule = /^[a-zA-Z0-9]*$/;
+			 
 			$("#userId").siblings(".form-text").text("");
 			$("#userId").attr("data-value","0");
 			
@@ -22,7 +24,10 @@
 				$("#userId").siblings(".text-primary").text("ID를 입력해주세요.");
 				$("#userId").focus();
 				return false;
-			}else{
+			}else if(!noEngRule.test($("#userId").val())) {
+				$("#userId").siblings(".text-primary").text("영문,숫자조합으로 입력해주세요.");
+				return false;
+		    }else{
 				param += "&userId=" + $("#userId").val();
 			}
 			
@@ -52,11 +57,20 @@
 				$("#userId").focus();
 				return false;
 			}
+			if($("#userPassword").val()!=$("#userPassConfirm").val()){
+				$("#userPassConfirm").siblings(".text-primary").text("비밀번호가 일치하지 않습니다.");
+				$("#userPassConfirm").focus();
+				return false;
+			}else{
+				$("#userPassConfirm").siblings(".text-primary").text("");
+			}
 			
 			if(!email_rule.test(mail)){
-				alert("이메일을 형식에 맞게 입력해주세요.");
+				$("#email").siblings(".text-primary").text("이메일을 형식에 맞게 입력해주세요.");
 				$("#email").focus();
 				return false;
+			}else{
+				$("#email").siblings(".text-primary").text("");
 			}
 			
 		});
@@ -104,7 +118,7 @@
 						    <label for="userId" class="col-sm-2 col-form-label">ID</label>
 						    <div class="col-sm-10">
 								<div class="position-relative">
-					                <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="아이디를 입력해주세요" id="userId" name="userId" maxlength="25" required>
+					                <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="영문,숫자조합으로 입력해주세요." id="userId" name="userId" maxlength="25" required/>
 					                <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" id="duplicateId">중복확인</button>
 					            	<div class="form-text text-primary"></div>
 					            	<div class="form-text text-danger"></div>
@@ -161,6 +175,7 @@
 							<label for="email" class="col-sm-2 col-form-label">이메일</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="email" placeholder="hamoye@example.com" name="email" maxlength="50" required/>
+								<div class="form-text text-primary"></div>
 							</div>
 						</div>
 					</div>

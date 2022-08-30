@@ -29,7 +29,7 @@ public class UserController {
 	public String registerUser(User user, Model model) {
 		try {
 			userService.registerUser(user);
-			return "MWPCMNV02M";
+			return "MWPCMNV03M";
 		} catch (SQLException e) {
 			System.out.println("registerUser 에러 : "+ e.getMessage());
 			return "";

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -67,10 +68,10 @@ public class UserController {
 		return "";
 	}
 	
-	@PostMapping("logout.do")
+	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "";
+		return "index";
 	}
 	
 //	@PostMapping()

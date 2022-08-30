@@ -66,7 +66,6 @@ $(function(){
 			success:function(result) {
 				alert(result);
 				if(result=="T"){
-					alert("로그인성공");
 					window.location.href = "home.do";
 				}else{
 					alert("아이디 또는 비밀번호가 일치하지 않습니다.");
@@ -117,14 +116,14 @@ $(function(){
                         <a href="#none" class="dropdown-item">챌린지명</a>
                     </div>
                 </div>
-                <c:if test="${!empty login}">
+                <c:if test="${!empty userName}">
 	                <a href="#none" class="nav-item nav-link">마이페이지</a>
                 </c:if>
             </div>
             <div class="d-none d-lg-flex ms-2">
 		        <c:choose>
-					<c:when test="${!empty login}">
-						<a class="btn btn-outline-secondary py-2 px-3" href="#none">
+					<c:when test="${!empty userName}">
+						<a class="btn btn-outline-secondary py-2 px-3" href="logout.do">
 		                    로그아웃
 		                    <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
 		                        <i class="fa fa-arrow-right"></i>

@@ -152,7 +152,6 @@ public class UserController {
 //		return "";
 //	}
 	
-<<<<<<< HEAD
 	@PostMapping("")
 	@ResponseBody
 	public String adminLogin(User user, HttpSession session) {
@@ -173,8 +172,5 @@ public class UserController {
 		}
 		return "";
 	}
-	
-=======
-//	int joinAccount(Account account, String userId, String ecoChallengeId) throws SQLException;
->>>>>>> branch 'main_test' of https://github.com/tjdehd3698/HamoyeProject.git
+
 }

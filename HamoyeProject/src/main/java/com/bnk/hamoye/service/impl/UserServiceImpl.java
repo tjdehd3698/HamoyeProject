@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public boolean duplicateId(User user) throws SQLException {
-		if(userDAO.duplicateId(user).getUserId()==null) return false;
+		if(userDAO.duplicateId(user)==null) return false;
 		else return true;
 	}
 

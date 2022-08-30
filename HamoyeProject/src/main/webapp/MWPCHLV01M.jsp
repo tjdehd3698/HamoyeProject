@@ -115,7 +115,7 @@
 			<div style="padding:20px"  class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 				<h3>지구를 지키는 당신에게 <br>매년 0.5%의 이자를 더 드려요</h3>
 				<br>
-			 	<a class="btn btn-outline-primary px-3" href="/MWPCHLV10M.jsp" >
+			 	<a class="btn btn-outline-primary px-3" href="getUserAllInfo.do" >
                                	챌린지 참여하고 우대이율 받기
              		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
              			<i class="fa fa-arrow-right"></i>

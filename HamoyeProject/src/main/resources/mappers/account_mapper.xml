@@ -21,6 +21,10 @@
 		where account_id = (select account_id from users where user_id =#{id})
 	</update>
 	
+	<select id="getAllAcountCnt" resultType="account">
+		select account_id
+		from account
+	</select>
 	
 	
 </mapper>

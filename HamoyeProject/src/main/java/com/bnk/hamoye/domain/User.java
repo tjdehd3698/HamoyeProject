@@ -23,6 +23,7 @@ public class User {
 	private Point point;
 	private String ecoChallengeId;
 	private EcoChallenge ecoChallenge;
+	private int participationCount;
 	
 	public void changePassword() {
 		Random rnd =new Random();

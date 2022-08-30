@@ -18,7 +18,7 @@ public interface UserDAO {
 	String checkEcoChallenge(String userId) throws SQLException;
 	User getMypageInfo(String userId) throws SQLException;
 	int expireAccount(String userId) throws SQLException;
-	List<Participation> getParticipateChallenge(String userId) throws SQLException;
 	List<User> getAllUser() throws SQLException;
+	User getUserAllInfo(String userId) throws SQLException;
 }
  

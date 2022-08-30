@@ -67,37 +67,37 @@
             			<p>챌린지에 참여하기 위해 개인정보를 확인해주세요</p>
                 		<div class="col-md-3">
                 			<div class="form-floating">
-               					<input type="text" class="form-control" id="name" placeholder="이름">
+               					<input type="text" value="${result.userName}" class="form-control" id="name" placeholder="이름" disabled="disabled">
                 				<label for="name">이름</label>
                 			</div>
                     	 </div>
                     	<div class="col-md-3">
                      		<div class="form-floating">
-                        		<input type="id" class="form-control" id="email" placeholder="아이디">
+                        		<input type="text" value = "${result.userId}" class="form-control" id="email" placeholder="아이디" disabled="disabled">
                             	<label for="id">아이디</label>
                         	</div>
                      	</div>
                 		<div class="col-md-3">
                 			<div class="form-floating">
-               					<input type="text" class="form-control" id="gender" placeholder="성별">
+               					<input type="text" value = "${result.gender}" class="form-control" id="gender" placeholder="성별" disabled="disabled">
                 				<label for="gender">성별</label>
                 			</div>
                      	</div>
                      	<div class="col-md-3">
                      		<div class="form-floating">
-                        		<input type="id" class="form-control" id="birthday" placeholder="생년월일">
+                        		<input type="date" value = "${result.birthday}" class="form-control" id="birthday" placeholder="생년월일" disabled="disabled">
                             	<label for="birthday">생년월일</label>
                         	</div>
                      	</div>
                      	<div class="col-12">
                      		<div class="form-floating">
-                     			<input type="text" class="form-control" id="email" placeholder="이메일">
+                     			<input type="email" value = "${result.email}" class="form-control" id="email" placeholder="이메일" disabled="disabled">
                      			<label for="email">이메일</label>
                      		</div>
                      	</div>
                       	<div class="col-12">
                      		<div class="form-floating">
-                     			<input type="text" class="form-control" id="address" placeholder="주소">
+                     			<input type="text" value = "${result.userAddress}" class="form-control" id="address" placeholder="주소" disabled="disabled">
                      			<label for="address">주소</label>
                      		</div>
                      	</div>

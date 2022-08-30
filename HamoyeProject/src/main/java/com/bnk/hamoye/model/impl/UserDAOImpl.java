@@ -20,67 +20,67 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public int registerUser(User user) throws SQLException {
-		return sqlSession.insert("registerUser",user);
+		return sqlSession.insert(NS+"registerUser",user);
 	}
 
 	@Override
 	public User login(User user) throws SQLException {
-		return (User)sqlSession.selectOne("userIdPassword", user);
+		return (User)sqlSession.selectOne(NS+"userIdPassword", user);
 	}
 
 	@Override
 	public User duplicateId(User user) throws SQLException {
-		return (User)sqlSession.selectOne("userIdPassword", user);
+		return (User)sqlSession.selectOne(NS+"userIdPassword", user);
 	}
 
 	@Override
 	public int updateUser(User user) throws SQLException {
-		return sqlSession.update("updateUser", user);
+		return sqlSession.update(NS+"updateUser", user);
 	}
 
 	@Override
 	public User getUserInfo(String userId) throws SQLException {
-		return sqlSession.selectOne("getUserInfo",userId);
+		return sqlSession.selectOne(NS+"getUserInfo",userId);
 	}
 
 	@Override
 	public int updateUserPassword(User user) throws SQLException {
-		return sqlSession.update("updateUserPassword", user);
+		return sqlSession.update(NS+"updateUserPassword", user);
 	}
 
 	@Override
 	public int withdrawUser(String userId) throws SQLException {
-		return sqlSession.update("withdrawUser", userId);
+		return sqlSession.update(NS+"withdrawUser", userId);
 	}
 	
 	@Override
 	public int joinAccount(User user) throws SQLException {
-		return sqlSession.update("joinAccount",user);
+		return sqlSession.update(NS+"joinAccount",user);
 	}
 
 	@Override
 	public String checkEcoChallenge(String userId) throws SQLException {
-		return sqlSession.selectOne("checkEcoChallenge",userId);
+		return sqlSession.selectOne(NS+"checkEcoChallenge",userId);
 	}
 
 	@Override
 	public User getMypageInfo(String userId) throws SQLException {
-		return sqlSession.selectOne("getMypageInfo",userId);
+		return sqlSession.selectOne(NS+"getMypageInfo",userId);
 	}
 
 	@Override
 	public int expireAccount(String userId) throws SQLException {
-		return sqlSession.update("expireAccount",userId);
-	}
-
-	@Override
-	public List<Participation> getParticipateChallenge(String userId) throws SQLException {
-		return sqlSession.selectList("getParticipateChallenge", userId);
+		return sqlSession.update(NS+"expireAccount",userId);
 	}
 
 	@Override
 	public List<User> getAllUser() throws SQLException {
-		return sqlSession.selectList("getAllUser");
+		return sqlSession.selectList(NS+"getAllUser");
+	}
+
+	@Override
+	public User getUserAllInfo(String userId) throws SQLException {
+		return sqlSession.selectOne(NS+"getUserAllInfo",userId);
 	}
 
 }

@@ -25,6 +25,12 @@
 		where p.user_id = #{value}
 	</select>
 	
+	<select id="getAllUserByTripChallenge" parameterType= "string" resultType="participation">
+		select user_id, trip_challenge_id, achievement_rate, is_success
+		from participation
+		where trip_challenge_id =#{value}
+	</select>
+	
 </mapper>
 
 

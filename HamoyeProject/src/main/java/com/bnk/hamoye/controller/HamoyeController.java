@@ -26,6 +26,12 @@ public class HamoyeController {
 		return "MWPCMNV00M";
 	}
 	
+	@RequestMapping("viewRegister.do")
+	public String viewRegister() {
+		return "MWPCMNV01M";
+	}	
+	
+	
 //	@PostMapping("login.do")
 //	@ResponseBody
 //	public String getloginForm(String userId,Model model,HttpServletRequest request) {

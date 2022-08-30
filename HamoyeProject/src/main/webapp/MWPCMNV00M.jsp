@@ -42,7 +42,7 @@
 		});
 		
 		$("#nextPage").on("click", function() {
-			window.location.href = "MWPCMNV00M";
+			window.location.href = "viewRegister.do";
 		});
 		
 	});

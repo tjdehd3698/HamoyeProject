@@ -227,7 +227,7 @@
 
     <!-- Service Start -->
     <div class="container-xxl py-5">
-        <div class="container">
+        <div class="container py-5">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Challenge S</div>
                 <h1 class="display-6 mb-4">떠나요 부산</h1>
@@ -265,12 +265,12 @@
     </div>
     <!-- Service End -->
 
-    <!-- Donate Start -->
+    <!-- container Start -->
     <div class="container-fluid donate my-5 py-5" data-parallax="scroll" data-image-src="img/carousel-1.png">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Donate Now</div>
+                    <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Together</div>
                     <h1 class="display-6 text-white mb-5">같은 목표를 가진 사람들과 함께 하니까 끝까지 해낼 수 있어요</h1>
                     <p class="text-white-50 mb-0">도전에 실패해도 괜찮아요.<br>약속만으로도 누릴 수 있는 혜택이 있어요.</p>
                 </div>
@@ -286,43 +286,22 @@
             </div>
         </div>
     </div>
-    <!-- Donate End -->
-
-    <!-- Testimonial Start -->
+    <!-- container End -->
+    
+	<!-- container Start -->
     <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Testimonial</div>
-                <h1 class="display-6 mb-5">Trusted By Thousands Of People And Nonprofits</h1>
+        <div class="container py-5">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="display-6 mb-5">환경과 금융, 지역과 경제<br>그 사이의 조화를 찾는 우리는 하모예입니다.</h1>
             </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
-                        <h5 class="mb-1">Doner Name</h5>
-                        <span class="fst-italic">Profession</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
-                        <h5 class="mb-1">Doner Name</h5>
-                        <span class="fst-italic">Profession</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
-                        <h5 class="mb-1">Doner Name</h5>
-                        <span class="fst-italic">Profession</span>
-                    </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+	                <img class="img-fluid mb-4" src="img/main-bnk-logo.png">
                 </div>
             </div>
         </div>
     </div>
+	<!-- container End -->
 	
 	<!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>

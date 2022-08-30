@@ -24,16 +24,16 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 	private final UserService userService;
 	
-//	@PostMapping("")
-//	public String registerUser(User user, Model model) {
-//		try {
-//			userService.registerUser(user);
-//		} catch (SQLException e) {
-//			System.out.println("registerUser 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
-//	
+	@PostMapping("")
+	public String registerUser(User user, Model model) {
+		try {
+			userService.registerUser(user);
+		} catch (SQLException e) {
+			System.out.println("registerUser 에러 : "+ e.getMessage());
+		}
+		return "";
+	}
+	
 //	@GetMapping()
 //	@ResponseBody
 //	public String duplicateId(@RequestParam User user,Model model) {
@@ -55,11 +55,11 @@ public class UserController {
 			System.out.println(result);
 			
 			if(result!=null){
-				model.addAttribute("result", "T");
 				session.setAttribute("user", result);
 				System.out.println("로그인 성공");
+				return "T";
 			} 
-			else model.addAttribute("result", "F");
+			else return "F";
 			
 		} catch (SQLException e) {
 			System.out.println("login 에러 : "+ e.getMessage());

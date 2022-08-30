@@ -20,4 +20,10 @@ public class AdminServiceImpl implements AdminService{
 	public List<User> getAllUser() throws SQLException {
 		return userDAO.getAllUser();
 	}
+
+	@Override
+	public User adminLogin(User user) throws SQLException {
+		user.setIsAdmin(1);
+		return userDAO.login(user);
+	}
 }

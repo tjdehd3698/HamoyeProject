@@ -6,5 +6,6 @@ import java.util.List;
 import com.bnk.hamoye.domain.User;
 
 public interface AdminService {
+	User adminLogin(User user) throws SQLException;
 	List<User> getAllUser() throws SQLException;
 }

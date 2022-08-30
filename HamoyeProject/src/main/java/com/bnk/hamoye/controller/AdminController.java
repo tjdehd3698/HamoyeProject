@@ -21,21 +21,21 @@ public class AdminController {
 	@PostMapping("")
 	@ResponseBody
 	public String adminLogin(User user, HttpSession session) {
-//		try {
-//			
-//			User findUser = adminService.login(user);
-//			
-//			if(findUser!=null){
-//				session.setAttribute("user", findUser.getUserId());
-//				session.setAttribute("userName", findUser.getUserName());
-//				System.out.println("로그인 성공");
-//				return "T";
-//			} 
-//			else return "F";
-//			
-//		} catch (SQLException e) {
-//			System.out.println("login 에러 : "+ e.getMessage());
-//		}
+		try {
+			
+			User findUser = adminService.adminLogin(user);
+			
+			if(findUser!=null){
+				session.setAttribute("user", findUser.getUserId());
+				session.setAttribute("userName", findUser.getUserName());
+				System.out.println("로그인 성공");
+				return "T";
+			} 
+			else return "F";
+			
+		} catch (SQLException e) {
+			System.out.println("login 에러 : "+ e.getMessage());
+		}
 		return "";
 	}
 }

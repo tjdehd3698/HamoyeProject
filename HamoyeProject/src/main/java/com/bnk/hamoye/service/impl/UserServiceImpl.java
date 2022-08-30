@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService{
 			LocalDate now = LocalDate.now();     
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
 			String nowYear = now.format(formatter);
-			int age = Integer.parseInt(nowYear)-Integer.parseInt(user.getBirthday().substring(0, 3)); 
+			int age = Integer.parseInt(nowYear)-Integer.parseInt(user.getBirthday().substring(0,4))+1; 
 			
 			user.setUserAge(age);
 			

@@ -66,14 +66,13 @@ public class UserController {
 		}
 		return "";
 	}
-//	
-//	@GetMapping()
-//	public String logout(HttpSession session) {
-//		session.invalidate();
-//		
-//		return "";
-//	}
-//	
+	
+	@PostMapping("logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "";
+	}
+	
 //	@PostMapping()
 //	public String joinAccount(Account account,String ecoChallengeId, HttpSession session) {
 //		try {

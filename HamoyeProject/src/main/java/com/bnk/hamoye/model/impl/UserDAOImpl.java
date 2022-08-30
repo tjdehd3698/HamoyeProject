@@ -1,10 +1,12 @@
 package com.bnk.hamoye.model.impl;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.model.UserDAO;
 
@@ -59,6 +61,26 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public String checkEcoChallenge(String userId) throws SQLException {
 		return sqlSession.selectOne("checkEcoChallenge",userId);
+	}
+
+	@Override
+	public User getMypageInfo(String userId) throws SQLException {
+		return sqlSession.selectOne("getMypageInfo",userId);
+	}
+
+	@Override
+	public int expireAccount(String userId) throws SQLException {
+		return sqlSession.update("expireAccount",userId);
+	}
+
+	@Override
+	public List<Participation> getParticipateChallenge(String userId) throws SQLException {
+		return sqlSession.selectList("getParticipateChallenge", userId);
+	}
+
+	@Override
+	public List<User> getAllUser() throws SQLException {
+		return sqlSession.selectList("getAllUser");
 	}
 
 }

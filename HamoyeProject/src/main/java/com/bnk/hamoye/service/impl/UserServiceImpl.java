@@ -2,10 +2,16 @@ package com.bnk.hamoye.service.impl;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.bnk.hamoye.domain.Account;
+import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.Point;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.model.AccountDAO;
@@ -28,8 +34,17 @@ public class UserServiceImpl implements UserService{
 		int row = pointDAO.insertPoint(point);
 		
 		if(row==1) {
+			LocalDate now = LocalDate.now();     
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
+			String nowYear = now.format(formatter);
+			int age = Integer.parseInt(nowYear)-Integer.parseInt(user.getBirthday().substring(0, 3)); 
+			
+			user.setUserAge(age);
+			
 			user.setRegisterDate(new Date(System.currentTimeMillis()));
 			user.setPointId(point.getPointId());
+			
+			
 			return userDAO.registerUser(user);
 		}
 		return 0;
@@ -42,9 +57,7 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public boolean duplicateId(User user) throws SQLException {
-		String findId = userDAO.duplicateId(user).getUserId();
-		
-		if(findId==null) return false;
+		if(userDAO.duplicateId(user).getUserId()==null) return false;
 		else return true;
 	}
 
@@ -92,6 +105,40 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public String checkEcoChallenge(String userId) throws SQLException {
 		return userDAO.checkEcoChallenge(userId);
+	}
+
+	@Override
+	public User getMypageInfo(String userId) throws SQLException {
+		return userDAO.getMypageInfo(userId);
+	}
+
+	@Override
+	public int changePoint(String userId, int amount) throws SQLException {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("id", userId);
+		map.put("amount", Integer.toString(-amount));
+		
+		pointDAO.updateTotalPoint(map);
+		
+		map.put("amount", amount+"");
+		
+		return accountDAO.updateBalance(map);
+	}
+
+	@Override
+	public int expireAccount(String userId) throws SQLException {
+		accountDAO.deleteAccount(userId);
+		return userDAO.expireAccount(userId);
+	}
+
+	@Override
+	public List<Participation> getParticipateChallenge(String userId) throws SQLException {
+		return userDAO.getParticipateChallenge(userId);
+	}
+
+	@Override
+	public List<User> getAllUser() throws SQLException {
+		return userDAO.getAllUser();
 	}
 
 }

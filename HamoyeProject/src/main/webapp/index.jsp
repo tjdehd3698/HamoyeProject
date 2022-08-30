@@ -43,7 +43,7 @@
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">금융, 그 이상의<br>가치를 만들고 있습니다.</h1>
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">나에게 필요한 좋은 습관으로 지구를 지켜주세요</p>
                                     <c:choose>
-										<c:when test="${!empty login}">
+										<c:when test="${!empty userName}">
 											${name}님, 함께 해주셔서 감사드려요😍<br> - 지구올림
 										</c:when>
 										<c:otherwise>
@@ -69,7 +69,7 @@
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">금융, 그 이상의<br>가치를 만들고 있습니다.</h1>
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">나에게 필요한 좋은 습관으로 지구를 지켜주세요</p>
                                     <c:choose>
-										<c:when test="${!empty login}">
+										<c:when test="${!empty userName}">
 											${name}님, 저를 지켜주셔서 감사드려요🥺<br> - 지구올림
 										</c:when>
 										<c:otherwise>

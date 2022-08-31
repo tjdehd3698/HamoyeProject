@@ -43,9 +43,19 @@ public class MyPageController {
 //	}
 
 //	@PostMapping()
-//	public String withdraw(HttpSession session) {
+//	public String withdraw(HttpSession session,Model model, String userPassword) {
 //		try {
-//			userService.withdrawUser((String)session.getAttribute("user"));
+//			User user = new User();
+//			user.setUserId((String)session.getAttribute("user"));
+//			user.setUserPassword(userPassword);
+//			
+//			User findUser = userService.login(user);
+//			if(findUser!=null) {
+//				userService.withdrawUser((String)session.getAttribute("user"));
+//				model.addAttribute("result", "T");
+//				session.invalidate();
+//			}
+//			else model.addAttribute("result", "F");
 //		} catch (SQLException e) {
 //			System.out.println("withdraw 에러 : "+ e.getMessage());
 //		}
@@ -93,9 +103,19 @@ public class MyPageController {
 //	}
 	
 //	@PostMapping()
-//	public String expireAccount(HttpSession session) {
+//	public String expireAccount(HttpSession session, String userPassword, Model model) {
 //		try {
-//			userService.expireAccount((String)session.getAttribute("user"));
+//			User user = new User();
+//			user.setUserId((String)session.getAttribute("user"));
+//			user.setUserPassword(userPassword);
+//			
+//			User findUser = userService.login(user);
+//			if(findUser!= null) {
+//				userService.expireAccount((String)session.getAttribute("user"));
+//				model.addAttribute("result", "T");
+//			}
+//			else model.addAttribute("result", "F");
+//			
 //		} catch (SQLException e) {
 //			System.out.println("expireAccount 에러 : "+ e.getMessage());
 //		}

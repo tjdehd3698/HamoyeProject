@@ -81,12 +81,12 @@
 											</div>
 											<div>
 											<br><br><br>
-											<h2>${result.ecoChallenge.ecoChallengeName} </h2>
+											<h2>\${result.ecoChallenge.ecoChallengeName} </h2>
 											<h4> 계좌 </h4><br>
 											</div>
 										</header>
-										<p class="showAccount">계좌번호 : ${result.account.accountNumber}</p> <br>
-										<h2 class="showPrice">잔액 : ${result.account.balance}</h2> <br>
+										<p class="showAccount">계좌번호 : \${result.account.accountNumber}</p> <br>
+										<h2 class="showPrice">잔액 : \${result.account.balance}</h2> <br>
 									</div>
 									
 								</div>
@@ -95,7 +95,7 @@
 						<!-- First Section -->
 							<section id="first" class="main special">
 								<c:choose>
-									<c:when test="${result.ecoChallenge.ecoChallengeName eq 'transportation'}">
+									<c:when test="\${result.ecoChallenge.ecoChallengeName eq 'transportation'}">
 										<header class="major">
 											<h2>대중교통이용 챌린지</h2>
 										</header>
@@ -111,7 +111,7 @@
 																		<h5>629명이 목표달성했어요!</h5>
 										<footer class="major">
 											<ul class="actions special">
-												<li><a href="/WEB-INF/view/chl/MWPCHLV01M.jsp" class="button">챌린지 자세히 보기</a></li>
+												<li><a href="challengeDetail.do" class="button">챌린지 자세히 보기</a></li>
 											</ul>
 											<div >
 											<h5 id="progressNow" >진행현황</h5> <h4>지금까지 지구를 15번 지켰어요!</h4><br><br>
@@ -131,8 +131,8 @@
 												<span class="icon solid major style3 fas fa-globe"></span> 
 											</li> 
 										</ul>
-										<h5>현재 함께하는 1,743 명 가운데</h5>
-																		<h5>629명이 목표달성했어요!</h5>
+										<h5>현재 함께하는 \${totalCnt} 명 가운데</h5>
+																		<h5>\${successCnt}명이 목표달성했어요!</h5>
 										<footer class="major">
 											<ul class="actions special">
 												<li><a href="MWPCHLV02M.jsp" class="button">챌린지 자세히 보기</a></li>
@@ -152,13 +152,13 @@
 								<div class="content">
 								<header class="major">
 									<div>
-										<h1>\${겟네임}</h1>
+										<h1>${userName}</h1>
 										<h4 >님의</h4>
 										
 									</div>
 									<div>
 										<br><br><br>
-										<h2>동백포인트 : \${동백포인트} P </h2>
+										<h2>동백포인트 : \${result.point.totalPoint} P </h2>
 										<br>
 										<br>
 									</div>

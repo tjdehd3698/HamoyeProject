@@ -76,14 +76,23 @@ public class AdminController {
 	public String getAdminPageInfo(Model model) {
 		try {
 			int totalUserCnt = adminService.getAllUser().size();
+			model.addAttribute("totalUserCnt", totalUserCnt);
 			int totalAccountCnt = adminService.getAllAcountCnt();
+			model.addAttribute("totalAccountCnt", totalAccountCnt);
 			List<Status> ecoList = adminService.getAllEcoChallenge();
+			model.addAttribute("ecoList", ecoList);
 			int userIncrement = adminService.getUserCntByDate();
+			model.addAttribute("userIncrement", userIncrement);
 			int accountIncrement = adminService.getAccountCntByDate();
+			model.addAttribute("accountIncrement", accountIncrement);
 			int accountBalanceSum = adminService.getBalanceSum();
+			model.addAttribute("accountBalanceSum", accountBalanceSum);
 			int pointSum = adminService.getPointSum();
+			model.addAttribute("pointSum", pointSum);
 			List<TripStatus> tripList = adminService.getAllTripChallenge();
+			model.addAttribute("tripList", tripList);
 			Map<String, Integer> challengeDateCnt = adminService.getTripChallengeCntByMonth();
+			model.addAttribute("challengeDateCnt", challengeDateCnt);
 			
 			
 		} catch (Exception e) {

@@ -60,15 +60,23 @@ public class MyPageController {
 			User user = userService.getMypageInfo((String)session.getAttribute("user"));
 			System.out.println(user.getEcoChallenge().getEcoChallengeId());
 			model.addAttribute("result", user);
-	        List<User> userList = userService.getUserByEcoChallenge(user.getEcoChallenge().getEcoChallengeId());
-	        model.addAttribute("totalCnt", userList.size());
-	         
-	        int successCnt = 0;
-	        for(User u : userList) {
-	           if(u.getParticipationCount()>=user.getEcoChallenge().getTotalCount())
-	               successCnt++;
-	        }
-	        model.addAttribute("successCnt", successCnt);
+			
+			if(user.getEcoChallenge().getEcoChallengeId()==null) {
+				model.addAttribute("totalCnt", null);
+				model.addAttribute("successCnt", null);
+			}
+			else {
+				List<User> userList = userService.getUserByEcoChallenge(user.getEcoChallenge().getEcoChallengeId());
+				model.addAttribute("totalCnt", userList.size());
+				
+				int successCnt = 0;
+		        for(User u : userList) {
+		           if(u.getParticipationCount()>=user.getEcoChallenge().getTotalCount())
+		               successCnt++;
+		        }
+		        model.addAttribute("successCnt", successCnt);
+			}
+	        
 		} catch (SQLException e) {
 			System.out.println("getMyPageInfo 에러 : "+ e.getMessage());
 		}

@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class Status {
-	private String ecoChallengeId;
-	private String ecoChallengeName;
+	private String challengeId;
+	private String challengeName;
 	private int userCnt;
 	private int successPercent;
 }

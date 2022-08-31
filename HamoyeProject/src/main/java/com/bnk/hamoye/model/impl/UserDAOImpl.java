@@ -83,4 +83,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne(NS+"getUserAllInfo",userId);
 	}
 
+	@Override
+	public List<User> getUserByEcoChallenge(String ecoChallengeId) throws SQLException {
+		return sqlSession.selectList(NS+"getUserByEcoChallenge", ecoChallengeId);
+	}
+
 }

@@ -48,10 +48,27 @@ public class AdminServiceImpl implements AdminService{
 		List<EcoChallenge> list1 = ecoChallengeDAO.getEcoChallengeList();
 		for(EcoChallenge e : list1) {
 			if(e.getIsDelete()==1) continue;
+			Status status = new Status();
+			status.setChallengeId(e.getEcoChallengeId());
+			status.setChallengeName(e.getEcoChallengeName());
 			
+			List<User> list2 = userDAO.getUserByEcoChallenge(e.getEcoChallengeId());
+			status.setUserCnt(list2.size());
 			
-				
+			int count = 0;
+			for(User u : list2) {
+				if(e.getTotalCount()<=u.getParticipationCount()) count++;
+			}
+			
+			status.setSuccessPercent((count/list2.size())*100);
+			result.add(status);
 		}
 		return result;
+	}
+
+	@Override
+	public List<Status> getAllTripChallenge() throws Exception {
+		
+		return null;
 	}
 }

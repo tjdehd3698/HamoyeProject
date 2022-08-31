@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="css/mypage1.css" />
 </head>
 <body>
-<jsp:include page="/header.jsp"></jsp:include>
+<jsp:include page="../header.jsp"></jsp:include>
 <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
@@ -76,17 +76,17 @@
 									 
 										<header class="major" style="display:block"><br>
 											<div>
-											<h1>\${겟네임}</h1>
+											<h1>${userName}</h1>
 											<h4 >님의</h4>
 											</div>
 											<div>
 											<br><br><br>
-											<h2>\${메인챌린지} </h2>
+											<h2>${result.ecoChallenge.ecoChallengeName} </h2>
 											<h4> 계좌 </h4><br>
 											</div>
 										</header>
-										<p class="showAccount">계좌번호 : \${계좌번호-계좌번호}</p> <br>
-										<h2 class="showPrice">잔액 : \${잔액}</h2> <br>
+										<p class="showAccount">계좌번호 : ${result.account.accountNumber}</p> <br>
+										<h2 class="showPrice">잔액 : ${result.account.balance}</h2> <br>
 									</div>
 									
 								</div>
@@ -95,7 +95,7 @@
 						<!-- First Section -->
 							<section id="first" class="main special">
 								<c:choose>
-									<c:when test="${challenge eq 'ictransportation'}">
+									<c:when test="${result.ecoChallenge.ecoChallengeName eq 'transportation'}">
 										<header class="major">
 											<h2>대중교통이용 챌린지</h2>
 										</header>
@@ -236,7 +236,7 @@
 					</div> 
 			</div>
  
- <jsp:include page="/footer.jsp"></jsp:include>
+ <jsp:include page="../footer.jsp"></jsp:include>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>

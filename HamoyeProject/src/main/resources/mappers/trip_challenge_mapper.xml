@@ -58,6 +58,7 @@
 		select trip_challenge_id, trip_challenge_name, start_date,
 		end_date, hits, reward_point, challenge_image,is_deleted
 		from trip_challenge
+		where is_delete = 1 
 	</select>
 	
 </mapper>

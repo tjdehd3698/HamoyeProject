@@ -94,7 +94,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public int getUserByDate(String date) throws SQLException {
+	public int getUserCntByDate(String date) throws SQLException {
 		return sqlSession.selectOne("getUserCntByDate", date);
 	}
 

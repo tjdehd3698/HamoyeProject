@@ -79,7 +79,7 @@ public class AdminServiceImpl implements AdminService{
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 		String nowYear = LocalDate.now().format(formatter);
 		
-		return userDAO.getUserByDate(nowYear);
+		return userDAO.getUserCntByDate(nowYear);
 	}
 
 	@Override

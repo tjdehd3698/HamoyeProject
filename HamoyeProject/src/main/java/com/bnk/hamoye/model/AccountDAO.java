@@ -7,9 +7,9 @@ import com.bnk.hamoye.domain.Account;
 import com.bnk.hamoye.domain.User;
 
 public interface AccountDAO {
-	int registerAccount(Account account) throws SQLException;
-	int deleteAccount(String userId)  throws SQLException;
-	int updateBalance(Map<String, String> map) throws SQLException;
-	int getAllAcountCnt() throws SQLException;
-	int getAccountCntByDate(String date) throws SQLException;
+	int registerAccount(Account account) throws SQLException;//계좌 등록
+	int deleteAccount(String userId)  throws SQLException; //계좌 삭제
+	int updateBalance(Map<String, String> map) throws SQLException; //계좌 잔액 수정
+	int getAllAcountCnt() throws SQLException; //총계좌 수 조회
+	int getAccountCntByDate(String date) throws SQLException; //날짜별 새로운 계좌 수 조회
 }

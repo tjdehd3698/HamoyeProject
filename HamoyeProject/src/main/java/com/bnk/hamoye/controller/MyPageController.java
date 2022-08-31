@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MyPageController {
 	private final UserService userService;
-
+	
 //	@PostMapping()
 //	public String updateUser(User user) {
 //		try {
@@ -91,7 +91,7 @@ public class MyPageController {
 //		}
 //		return "";
 //	}
-
+	
 //	@PostMapping()
 //	public String expireAccount(HttpSession session) {
 //		try {
@@ -113,8 +113,9 @@ public class MyPageController {
 		return "mpg/MWPMPGV04M";
 	}
 
-	@GetMapping("moveToOut.do") public String pageMoveToOut() { return
-	 "mpg/MWPMPGV02M"; }
+	@GetMapping("moveToOut.do") public String pageMoveToOut() { 
+		return "mpg/MWPMPGV02M"; 
+	}
 	 
 	/*
 	 * @GetMapping("") public String pageMoveToOutOfAcc() { return "mpg/MWPMPGV03M";
@@ -123,7 +124,21 @@ public class MyPageController {
 	 * @GetMapping("") public String pageMoveToChangeForm() { return
 	 * "mpg/MWPMPGV04M"; }
 	 */
-	 @GetMapping("moveDeposit.do") public String pageMoveToDeposit() { 
-		 return "mpg/MWPMPGV05M"; }
+	 @GetMapping("moveDeposit.do") 
+	 public String pageMoveToDeposit() { 
+		 return "mpg/MWPMPGV05M"; 
+	 }
+	
+//	@GetMapping()
+//	public String getParticipateChallenge(HttpSession session,Model model) {
+//		try {
+//			List<Participation>list = userService.getParticipateChalleng((String)session.getAttribute("user"));
+//			model.addAttribute("result", list);
+//		} catch (SQLException e) {
+//			
+//		}
+//		return "";
+//	}
+	
 	
 }

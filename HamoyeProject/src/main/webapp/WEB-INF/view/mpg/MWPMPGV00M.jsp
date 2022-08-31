@@ -9,17 +9,17 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description"> 
-<script type="text/javascript"> 
-$(function() {
-	$('#depositBtn').click(function () { 
-    	if(${result.account != null}){
-    		return ;
-    	}else{
-    		alert('챌린지 계좌가 있어야 입금 가능합니다!');  
-    		$('#makeAccount').focus();
-    		return false;	
-    	} 
-    });
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>  
+$(function(){
+	$("#depositBtn").click(function(){ 
+		if($("#asd").val() == "") {
+			alert('챌린지 계좌가 있어야 입금 가능합니다!');
+			$('#makeAccount').focus();
+			return false;
+		}
+			 
+	});
 });
 </script>
 </head>
@@ -216,7 +216,8 @@ $(function() {
                        			<br><br>
                        			<div>
                        			<br><br>
-                       			<h5 id="text">5,000 P 이상 모았다면 </h3>		
+                       			<h5 id="text">5,000 P 이상 모았다면 </h3>
+								<div id="asd" value=${result.account}/>
                        			<a id="depositBtn" class="btn btn-outline-primary px-3" href="moveDeposit.do" >
                             		계좌입금하기
                             		<div  class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">

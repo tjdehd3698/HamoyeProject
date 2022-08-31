@@ -58,13 +58,13 @@
 						<div class="mb-3 row">
 						    <label id="mypage_text" for="userName" class="col-sm-2 col-form-label">이름</label>
 						    <div class="col-sm-10">
-								<input type="text" name="userName" class="form-control" id="mypage_name" value="${result.userName}" disabled="disabled">
+								<input type="text" name="userName" class="form-control" id="mypage_name" value="${result.userName}" readonly="readonly">
 						    </div> 
 						</div>
 						<div class="mb-3 row">
 						    <label id="mypage_text" for="userPhone" class="col-sm-2 col-form-label">생년월일 / 성별</label>
 						    <div class="col-sm-10">
-								<input type="text" name="birthday" class="form-control" id="mypage_birthday_gender" value="${result.birthday} / ${result.gender}" disabled="disabled">
+								<input type="text" name="birthday" class="form-control" id="mypage_birthday_gender" value="${result.birthday} / ${result.gender}" readonly="readonly">
 						    </div> 
 						</div>
 						<div class="mb-3 row">

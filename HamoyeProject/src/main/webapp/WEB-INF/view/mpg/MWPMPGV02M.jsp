@@ -50,7 +50,7 @@ body {
 		background-image:   -ms-linear-gradient(45deg, #E8E7DF 15%, #E8E7DF 85%);
 		background-image:   linear-gradient(45deg, #E8E7DF 15%, #E8E7DF 85%);
 }
-.statistics{
+.mypage_statistics{
 	width: 50em;
     height: 50em;
     margin-left: auto;
@@ -58,9 +58,9 @@ body {
     padding-top: 5%;
     
 }
-.sure , .outform{
+.mypage_sure{
 	float:left;
-	padding-top:5%;
+	padding-top:7%;
 }
 ul{
 	list-style: none;
@@ -93,11 +93,13 @@ ul{
     </div>
     <!-- Page Header End -->
     
-		<ul class="statistics">
-		 	<li class="sure">
+		<ul class="mypage_statistics">
+		 	<li class="mypage_sure">
 				 <font  size="7" >정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font>
+				 <form action="userout.do">
 				  <br><br>비밀번호 입력 &nbsp<input type="password" id="password"><br><br>
 				  <input type="submit" value="회원탈퇴">
+				  </form>
 			</li>
 			<li class="cryImg">
 				<img  src="img/cry.jpg" alt="" /> 

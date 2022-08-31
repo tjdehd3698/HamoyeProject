@@ -116,7 +116,7 @@ $(function(){
                     </div>
                 </div>
                 <c:if test="${!empty userName}">
-	                <a href="#none" class="nav-item nav-link">마이페이지</a>
+	                <a href="mypage.do" class="nav-item nav-link">마이페이지</a>
                 </c:if>
             </div>
             <div class="d-none d-lg-flex ms-2">

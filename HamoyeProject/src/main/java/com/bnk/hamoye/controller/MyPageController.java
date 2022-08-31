@@ -62,7 +62,7 @@ public class MyPageController {
 			System.out.println("getMyPageInfo 에러 : "+ e.getMessage());
 		}
 		
-		return "MWPMPGV00M";
+		return "mpg/MWPMPGV00M";
 	}
 	
 //	@PostMapping()

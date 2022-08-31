@@ -6,7 +6,8 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h1 class="fw-bold text-primary mb-4">HA<span class="text-white">MOYE</span></h1>
-                <p>BNK부산은행<br>사업자번호 | 604-81-04753 </p>
+                <img class="img-fluid mb-1" src="img/main-bnk-logo.png" width="110px">
+                <p>사업자번호 | 604-81-04753 </p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-square me-1" href="https://twitter.com/busanbank"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-square me-1" href="https://ko-kr.facebook.com/busanbank"><i class="fab fa-facebook-f"></i></a>

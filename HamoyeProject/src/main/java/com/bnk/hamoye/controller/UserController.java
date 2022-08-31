@@ -29,7 +29,7 @@ public class UserController {
 	public String registerUser(User user, Model model) {
 		try {
 			userService.registerUser(user);
-			return "MWPCMNV03M";
+			return "cmn/MWPCMNV03M";
 		} catch (SQLException e) {
 			System.out.println("registerUser 에러 : "+ e.getMessage());
 			return "";
@@ -91,7 +91,7 @@ public class UserController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "MWPCHLV10M";
+		return "chl/MWPCHLV10M";
 	}
 	
 //	@PostMapping()

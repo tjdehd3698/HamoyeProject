@@ -23,12 +23,12 @@ public class HamoyeController {
 	
 	@RequestMapping("agree.do")
 	public String agree() {
-		return "MWPCMNV00M";
+		return "cmn/MWPCMNV00M";
 	}
 	
 	@RequestMapping("viewRegister.do")
 	public String viewRegister() {
-		return "MWPCMNV01M";
+		return "cmn/MWPCMNV01M";
 	}	
 	
 	
@@ -44,7 +44,7 @@ public class HamoyeController {
 	
 	@RequestMapping("challege.do")
 	public String doChallegeList() {
-		return "MWPCHLV00M";
+		return "chl/MWPCHLV00M";
 	}
 
 	

@@ -10,7 +10,7 @@
     <meta content="" name="description">
 </head>
 <body>
-<jsp:include page="/header.jsp"></jsp:include>
+<jsp:include page="../header.jsp"></jsp:include>
  <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
@@ -34,44 +34,43 @@
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">가입하기</div>
                 <h1 class="display-6 mb-5">지구를 지켜요</h1>
-                <h2 class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s"><b>가입이 완료되었습니다</b></h2>
             </div>
-            
-			<article class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-			가입정보 확인하기<br>
-			<div style="border: 1px solid #2b3886">
-			<p>
-			이름:	<br>
-			아이디: <br>
-			성별: <br>
-			생년월일: <br>
-			이메일: <br>
-			주소: <br>
-			계좌번호: <br>
-			</p>
-			</div>
-			<br>
-			<div class="col-12">
-            	 <a class="btn btn-outline-primary px-3" href="MWPCHLV00M.jsp">
-               		챌린지 리스트로
-             		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                		<i class="fa fa-arrow-right"></i>
-                	</div>
-             	</a>
-             	<a class="btn btn-outline-primary px-3" href="">
-               		마이페이지로
-             		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                		<i class="fa fa-arrow-right"></i>
-                	</div>
-             	</a>
-            </div>
+			<div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+			<h2><b>서약서 작성하기</b></h2>
+				챌린지에 가입하기 위해 서약서를 작성해주세요<br>
+				서약서를 작성하면 추가 이율을 드려요
+				<br><br>
+			<article style="border: 1px solid #2b3886">
+				<h4>서약서</h4>
+				<section>
+					나, 챌린지 참여자 000은 거짓없이 성실하게 챌린지에 참여할 것을 다짐하면서 다음과 같이 서약합니다.
+						<br><br>
+					1. 챌린지에 참여하여 환경을 지키기 위한 노력을 할것입니다.<br>
+					2. 진행중인 챌린지 이외에도 환경을 보호하기 위해 앞장서겠습니다. <br>
+					3. 선한 영향력을 위하여 챌린지를 홍보하는데 앞장서겠습니다.<br>
+					4. 보상을 위해 허위로 결과를 조작하지 않을 것입니다.<br>
+					5. 서약서를 작성함으로써, 챌린지 이외에 0.5%의 우대이율을 추가로 제공받는데 동의합니다.<br>
+					<br><br>
+					20XX년 XX월 XX일<br>
+					챌린지 참여자 &nbsp;<h6 style="display:inline">000</h6>  &nbsp;(인)
+				</section>
 			</article>
+				<br>
+				<div class="col-12">
+            	 	<a class="btn btn-outline-primary px-3" href="MWPCHLV12M.jsp" >
+               			서약서 제출하기
+             			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                		<i class="fa fa-arrow-right"></i>
+                		</div>
+             		</a>
+            	</div>
+        	</div>
         </div>
     </div>
     <!-- Team End -->
 
   
- <jsp:include page="/footer.jsp"></jsp:include>
+ <jsp:include page="../footer.jsp"></jsp:include>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>

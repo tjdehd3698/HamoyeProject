@@ -143,4 +143,9 @@ public class UserServiceImpl implements UserService{
 		return userDAO.getUserAllInfo(userId);
 	}
 
+	@Override
+	public List<User> getUserByEcoChallenge(String ecoChallengeId) throws SQLException {
+		return userDAO.getUserByEcoChallenge(ecoChallengeId);
+	}
+
 }

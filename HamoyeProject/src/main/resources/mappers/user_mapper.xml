@@ -6,6 +6,7 @@
 <mapper namespace="sql.hamoye.user_mapper">
 	<resultMap type="user" id="userWithPointAndAccountAndEcoChallenge">
 		<id column="user_id" property="userId"/>
+		<result column="user_name" property="userName"/>
 		<result column="account_number" property ="accountNumber"/>
 		<result column="eco_challenge_id" property ="ecoChallengeId"/>
 		<result column="point_id" property ="pointId"/>
@@ -90,7 +91,7 @@
 	
 	<select id="getMypageInfo" parameterType="string" resultMap="userWithPointAndAccountAndEcoChallenge">
 		select 
-		u.user_id, a.account_number, a.balance, p.point_id, p.total_point, e.eco_challenge_id, e.eco_challenge_name,u.participation_count, e.total_count
+		u.user_id,u.user_name, a.account_number, a.balance, p.point_id, p.total_point, e.eco_challenge_id, e.eco_challenge_name,u.participation_count, e.total_count
 		from users u 
 		join account a on u.account_number =a.account_number
 		join point p on u.point_id = p.point_id
@@ -118,7 +119,9 @@
 	</select>
 	
 	<select id="getUserByEcoChallenge" parameterType="string" resultType="user">
-		select user_id, user_name, 
+		select user_id, user_name, eco_challenge_id, participation_count
+		from users
+		where eco_challegn_id =#{value} and is_withdraw = 0
 	</select>
 	
 </mapper>

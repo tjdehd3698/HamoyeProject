@@ -141,7 +141,7 @@
 											<h5 id="progressNow" >진행현황</h5> <h4>어려운 이웃을 5번 도와주었어요!</h4><br><br>
 												<progress class="container" value="50" max="100"  id="progress" style="display:block"></progress>
 											</div>
-										</footer>
+										</footer> 
 								 	</c:otherwise>
 								</c:choose> 
 							</section>

@@ -116,6 +116,7 @@
 			<div style="padding:20px"  class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 				<h3>지구를 지키는 당신에게 <br>매년 0.5%의 이자를 더 드려요</h3>
 				<br>
+				
 			 	<c:choose>
 					<c:when test="${!empty userName}">
 			 			<a class="btn btn-outline-primary px-3" href="getUserAllInfo.do" >

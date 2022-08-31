@@ -126,7 +126,14 @@ public class MyPageController {
 	 */
 
 	 @GetMapping("moveDeposit.do") 
-	 public String pageMoveToDeposit() { 
+	 public String pageMoveToDeposit(HttpSession session, Model model) { 
+		 User user;
+		try {
+			user = userService.getMypageInfo((String) session.getAttribute("user"));
+			model.addAttribute("result", user);
+		} catch (SQLException e) {
+			System.out.println("pageMoveToDeposit 에러 : "+ e.getMessage());
+		}
 		 return "mpg/MWPMPGV05M"; 
 	 }
 	

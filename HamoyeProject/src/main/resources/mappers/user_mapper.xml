@@ -121,7 +121,7 @@
 	<select id="getUserByEcoChallenge" parameterType="string" resultType="user">
 		select user_id, user_name, eco_challenge_id, participation_count
 		from users
-		where eco_challegn_id =#{value} and is_withdraw = 0
+		where eco_challenge_id =#{value} and is_withdraw = 0
 	</select>
 	
 </mapper>

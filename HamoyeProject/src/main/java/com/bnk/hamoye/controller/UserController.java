@@ -88,8 +88,7 @@ public class UserController {
 			user.setBirthday(newBirthDay);
 			model.addAttribute("result", user);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("getUserAllInfo 에러 : "+ e.getMessage());
 		}
 		return "chl/MWPCHLV10M";
 	}

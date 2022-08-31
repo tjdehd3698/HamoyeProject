@@ -95,6 +95,7 @@ public class UserTest {
 		System.out.println(user.getEcoChallenge().getEcoChallengeName());
 		System.out.println(user.getPoint().getTotalPoint());
 		System.out.println(user.getEcoChallenge().getTotalCount());
+		System.out.println(user.getEcoChallenge().getEcoChallengeId());
 	}
 	
 	@Test

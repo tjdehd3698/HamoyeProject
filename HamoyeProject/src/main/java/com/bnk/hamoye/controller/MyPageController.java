@@ -58,6 +58,7 @@ public class MyPageController {
 		try {
 			
 			User user = userService.getMypageInfo((String)session.getAttribute("user"));
+			System.out.println(user.getEcoChallenge().getEcoChallengeId());
 			model.addAttribute("result", user);
 	        List<User> userList = userService.getUserByEcoChallenge(user.getEcoChallenge().getEcoChallengeId());
 	        model.addAttribute("totalCnt", userList.size());

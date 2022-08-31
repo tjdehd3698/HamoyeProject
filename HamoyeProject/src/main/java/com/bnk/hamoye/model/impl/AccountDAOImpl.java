@@ -44,4 +44,9 @@ public class AccountDAOImpl implements AccountDAO{
 		return sqlSession.selectOne(NS+"getAccountCntByDate",date);
 	}
 
+	@Override
+	public int getBalanceSum() throws SQLException {
+		return sqlSession.selectOne(NS+"getBalanceSum");
+	}
+
 }

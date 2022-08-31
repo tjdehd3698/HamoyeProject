@@ -35,7 +35,7 @@
     <link href="css/mypage.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="/header.jsp"></jsp:include>
+<jsp:include page="../header.jsp"></jsp:include>
  
  <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -52,8 +52,16 @@
         </div>
     </div>
     <!-- Page Header End -->
-    
- <jsp:include page="/footer.jsp"></jsp:include>
+    <div class="container mb-5 wow fadeIn" data-wow-delay="0.1s">
+	<div class="container">
+		<h1>지금 계좌를 해지하시면</h1>
+		<h1>금리 우대 혜택</h1><h1>과</h1>
+		<h1>잔여 동백포인트</h1><h1>가 사라져요!</h1>
+		<br><br>
+		<h1>그래도 계좌를 해지하시겠어요?</h1>
+	</div>
+	</div>
+ <jsp:include page="../footer.jsp"></jsp:include>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>

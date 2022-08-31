@@ -81,11 +81,11 @@
 											</div>
 											<div>
 											<br><br><br>
-											<h2>${result.eco_challenge.eco_challenge_name} </h2>
+											<h2>${result.ecoChallenge.ecoChallengeName} </h2>
 											<h4> 계좌 </h4><br>
 											</div>
 										</header>
-										<p class="showAccount">계좌번호 : ${result.account.accountName}</p> <br>
+										<p class="showAccount">계좌번호 : ${result.account.accountNumber}</p> <br>
 										<h2 class="showPrice">잔액 : ${result.account.balance}</h2> <br>
 									</div>
 									
@@ -95,7 +95,7 @@
 						<!-- First Section -->
 							<section id="first" class="main special">
 								<c:choose>
-									<c:when test="${result.eco_challenge.eco_challenge_name eq 'transportation'}">
+									<c:when test="${result.ecoChallenge.ecoChallengeName eq 'transportation'}">
 										<header class="major">
 											<h2>대중교통이용 챌린지</h2>
 										</header>
@@ -111,7 +111,7 @@
 																		<h5>629명이 목표달성했어요!</h5>
 										<footer class="major">
 											<ul class="actions special">
-												<li><a href="MWPCHLV01M.jsp" class="button">챌린지 자세히 보기</a></li>
+												<li><a href="/WEB-INF/view/chl/MWPCHLV01M.jsp" class="button">챌린지 자세히 보기</a></li>
 											</ul>
 											<div >
 											<h5 id="progressNow" >진행현황</h5> <h4>지금까지 지구를 15번 지켰어요!</h4><br><br>

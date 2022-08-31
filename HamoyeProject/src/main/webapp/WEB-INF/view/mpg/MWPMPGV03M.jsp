@@ -60,6 +60,17 @@
 		<br><br>
 		<h1>그래도 계좌를 해지하시겠어요?</h1>
 	</div>
+	
+				<div class="mb-5">
+						<div class="mb-3 row">
+							<label for="userId" class="col-sm-2 col-form-label">비밀번호 확인</label>
+							<div class="col-sm-10">
+								<div class="position-relative"> 
+					                <input type="password"  class="form-control" id="textbox" >
+					            </div>
+						    </div>
+						</div>
+				</div>
 	</div>
  <jsp:include page="../footer.jsp"></jsp:include>
 

@@ -38,7 +38,7 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">지구를 지켜요</div>
-                <h1 class="display-6 mb-5">대중교통 이용 챌린지</h1>
+                <h1 class="display-6 mb-5">${eco01.ecoChallengeName}</h1>
             </div>
 			<article class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 			<section class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">

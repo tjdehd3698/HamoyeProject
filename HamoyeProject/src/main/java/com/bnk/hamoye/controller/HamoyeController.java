@@ -47,9 +47,9 @@ public class HamoyeController {
 		return "chl/MWPCHLV00M";
 	}
 
-	@RequestMapping("challegeDetail.do")
-	public String doChallege() {
-		return "chl/MWPCHLV01M";
-	}
+	/*
+	 * @RequestMapping("challegeDetail.do") public String doChallege() { return
+	 * "chl/MWPCHLV01M"; }
+	 */
 	
 }

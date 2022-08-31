@@ -115,7 +115,19 @@ public class UserTest {
 		
 		User findId = (User)session.selectOne("userIdPassword", user);
 		System.out.println(findId.getUserAddress());
+	}
+	
+	@Test
+	public void incrementUser() throws Exception{
+		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
+		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
+		SqlSession session = factory.openSession();
 		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		String nowYear = LocalDate.now().format(formatter);
+		System.out.println(nowYear);
 		
+		int size = session.selectOne("getUserByDate", nowYear);
+		System.out.println(size);
 	}
 }

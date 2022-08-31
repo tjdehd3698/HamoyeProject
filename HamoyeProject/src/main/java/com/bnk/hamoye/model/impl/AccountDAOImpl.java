@@ -39,4 +39,9 @@ public class AccountDAOImpl implements AccountDAO{
 		return sqlSession.selectList(NS+"getAllAcountCnt").size();
 	}
 
+	@Override
+	public int getAccountCntByDate(String date) throws SQLException {
+		return sqlSession.selectOne(NS+"getAccountCntByDate",date);
+	}
+
 }

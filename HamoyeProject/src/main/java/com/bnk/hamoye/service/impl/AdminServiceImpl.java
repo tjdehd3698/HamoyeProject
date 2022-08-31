@@ -1,6 +1,8 @@
 package com.bnk.hamoye.service.impl;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,5 +72,21 @@ public class AdminServiceImpl implements AdminService{
 	public List<Status> getAllTripChallenge() throws Exception {
 		
 		return null;
+	}
+
+	@Override
+	public int getUserCntByDate() throws Exception {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		String nowYear = LocalDate.now().format(formatter);
+		
+		return userDAO.getUserByDate(nowYear);
+	}
+
+	@Override
+	public int getAccountCntByDate() throws Exception {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		String nowYear = LocalDate.now().format(formatter);
+		
+		return accountDAO.getAccountCntByDate(nowYear);
 	}
 }

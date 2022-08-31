@@ -11,4 +11,5 @@ public interface AccountDAO {
 	int deleteAccount(String userId)  throws SQLException;
 	int updateBalance(Map<String, String> map) throws SQLException;
 	int getAllAcountCnt() throws SQLException;
+	int getAccountCntByDate(String date) throws SQLException;
 }

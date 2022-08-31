@@ -143,6 +143,12 @@
 		where eco_challenge_id =#{value} and is_withdraw = 0
 	</select>
 	
+	<select id="getUserByDate" parameterType="string" resultType="int">
+		select count(user_id) 
+		from users
+		where to_char(register_date,'YYYYMMDD') = #{value}
+	</select>
+	
 	
 </mapper>
 

@@ -93,4 +93,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("getMypageInfoWithNoEco",userId);
 	}
 
+	@Override
+	public int getUserByDate(String date) throws SQLException {
+		return sqlSession.selectOne("getUserCntByDate", date);
+	}
+
 }

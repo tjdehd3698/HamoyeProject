@@ -113,8 +113,9 @@ public class MyPageController {
 		return "mpg/MWPMPGV04M";
 	}
 
-	@GetMapping("moveToOut.do") public String pageMoveToOut() { return
-	 "mpg/MWPMPGV02M"; }
+	@GetMapping("moveToOut.do") public String pageMoveToOut() { 
+		return "mpg/MWPMPGV02M"; 
+	}
 	 
 	/*
 	 * @GetMapping("") public String pageMoveToOutOfAcc() { return "mpg/MWPMPGV03M";
@@ -124,6 +125,7 @@ public class MyPageController {
 	 * "mpg/MWPMPGV04M"; }
 	 */
 	 @GetMapping("moveDeposit.do") public String pageMoveToDeposit() { 
-		 return "mpg/MWPMPGV05M"; }
+		 return "mpg/MWPMPGV05M"; 
+		 }
 	
 }

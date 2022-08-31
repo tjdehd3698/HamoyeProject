@@ -114,6 +114,7 @@ public class UserServiceImpl implements UserService{
 		User user = userDAO.getUserAllInfo(userId);
 		if(user.getEcoChallengeId()==null) {
 			return userDAO.getMypageInfoWithNoEco(userId);
+			
 		}
 		return userDAO.getMypageInfo(userId);
 	}

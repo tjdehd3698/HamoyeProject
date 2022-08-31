@@ -41,11 +41,7 @@ public class HamoyeController {
 //		session.setAttribute("login", "T");
 //		return "";
 //	}
-	
-	@RequestMapping("challege.do")
-	public String doChallegeList() {
-		return "chl/MWPCHLV00M";
-	}
+
 
 	/*
 	 * @RequestMapping("challegeDetail.do") public String doChallege() { return

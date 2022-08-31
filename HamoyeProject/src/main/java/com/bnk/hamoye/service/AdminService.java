@@ -2,6 +2,7 @@ package com.bnk.hamoye.service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.Status;
@@ -18,4 +19,5 @@ public interface AdminService {
 	int getAccountCntByDate() throws Exception;
 	int getBalanceSum() throws Exception;
 	int getPointSum() throws Exception;
+	Map<String,Integer> getTripChallengeCntByMonth() throws Exception;
 }

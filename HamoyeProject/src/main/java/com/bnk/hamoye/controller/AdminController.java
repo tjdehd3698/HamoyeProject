@@ -2,6 +2,7 @@ package com.bnk.hamoye.controller;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,7 +26,7 @@ public class AdminController {
 	private final AdminService adminService;
 	
 	@RequestMapping("admin.do")
-	public String adminIndex() {
+	public String adminLoginPage() {
 		return "adm/ADMCMNV00M";
 	}
 	
@@ -46,6 +47,17 @@ public class AdminController {
 			System.out.println("login 에러 : "+ e.getMessage());
 		}
 		return "";
+	}
+	
+	@RequestMapping("adminLogout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "adm/ADMCMNV00M";
+	}
+	
+	@RequestMapping("adminIndex.do")
+	public String adminIndex() {
+		return "adm/ADMCMNV01M";
 	}
 	
 	@GetMapping("getAllUser.do")
@@ -71,6 +83,8 @@ public class AdminController {
 			int accountBalanceSum = adminService.getBalanceSum();
 			int pointSum = adminService.getPointSum();
 			List<TripStatus> tripList = adminService.getAllTripChallenge();
+			Map<String, Integer> challengeDateCnt = adminService.getTripChallengeCntByMonth();
+			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

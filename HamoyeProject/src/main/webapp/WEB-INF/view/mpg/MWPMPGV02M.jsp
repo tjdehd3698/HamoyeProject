@@ -95,7 +95,7 @@ ul{
 		<ul class="statistics">
 		 	<li class="sure">
 				 <font  size="7" >정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font>
-				  <br><br>비밀번호 입력 &nbsp<input type="password"><br><br>
+				  <br><br>비밀번호 입력 &nbsp<input type="password" id="password"><br><br>
 				  <input type="submit" value="회원탈퇴">
 			</li>
 			<li class="cryImg">

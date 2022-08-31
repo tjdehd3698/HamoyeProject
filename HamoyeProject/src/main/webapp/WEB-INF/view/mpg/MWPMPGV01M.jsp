@@ -119,7 +119,7 @@
 							<label for="userId" class="col-sm-2 col-form-label">ID</label>
 							<div class="col-sm-10">
 								<div class="position-relative"> 
-					                <input type="text"  class="form-control" id="textbox" value="\${ID}" disabled="disabled">
+					                <input type="text"  class="form-control" id="id" value="\${ID}" disabled="disabled">
 					            </div>
 						    </div>
 						</div>
@@ -139,7 +139,7 @@
 						<div class="mb-3 row">
 						    <label for="userName" class="col-sm-2 col-form-label">이름</label>
 						    <div class="col-sm-10">
-								<input type="text" class="form-control" id="textbox" value="\${name}" required>
+								<input type="text" class="form-control" id="name" value="\${name}" required>
 						    </div> 
 						</div>
 						<div class="mb-3 row">
@@ -155,7 +155,7 @@
 						<div class="mb-3 row">
 						    <label for="userPhone" class="col-sm-2 col-form-label">전화번호</label>
 						    <div class="col-sm-10">
-								<input type="text" class="form-control" id="textbox" value="\${phone}" >
+								<input type="text" class="form-control" id="phoneNumber" value="\${phone}" >
 						    </div> 
 						</div>
 						<div class="mb-3 row">

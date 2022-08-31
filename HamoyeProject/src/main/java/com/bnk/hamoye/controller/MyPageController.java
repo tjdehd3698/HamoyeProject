@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MyPageController {
 	private final UserService userService;
-	
+
 //	@PostMapping()
 //	public String updateUser(User user) {
 //		try {
@@ -41,8 +41,7 @@ public class MyPageController {
 //		}
 //		return "";
 //	}
-	
-	
+
 //	@PostMapping()
 //	public String withdraw(HttpSession session) {
 //		try {
@@ -52,40 +51,38 @@ public class MyPageController {
 //		}
 //		return "";
 //	}
-	
+
 	@GetMapping("mypage.do")
 	public String getMyPageInfo(HttpSession session, Model model) {
 		try {
-			
-			User user = userService.getMypageInfo((String)session.getAttribute("user"));
-			//System.out.println(user.getEcoChallenge().getEcoChallengeId());
+
+			User user = userService.getMypageInfo((String) session.getAttribute("user"));
+			// System.out.println(user.getEcoChallenge().getEcoChallengeId());
 			model.addAttribute("result", user);
-			System.out.println("user"+user);
-			
-			if(user.getEcoChallenge()==null) {
+			System.out.println("user" + user);
+
+			if (user.getEcoChallenge() == null) {
 				model.addAttribute("totalCnt", null);
 				model.addAttribute("successCnt", null);
-			}
-			else {
+			} else {
 				List<User> userList = userService.getUserByEcoChallenge(user.getEcoChallenge().getEcoChallengeId());
 				model.addAttribute("totalCnt", userList.size());
-				
+
 				int successCnt = 0;
-		        for(User u : userList) {
-		           if(u.getParticipationCount()>=user.getEcoChallenge().getTotalCount())
-		               successCnt++;
-		        }
-		        model.addAttribute("successCnt", successCnt);
+				for (User u : userList) {
+					if (u.getParticipationCount() >= user.getEcoChallenge().getTotalCount())
+						successCnt++;
+				}
+				model.addAttribute("successCnt", successCnt);
 			}
-	        
+
 		} catch (SQLException e) {
-			System.out.println("getMyPageInfo 에러 : "+ e.getMessage());
+			System.out.println("getMyPageInfo 에러 : " + e.getMessage());
 		}
-		
+
 		return "mpg/MWPMPGV00M";
 	}
-	
-//	@PostMapping()
+//	@PostMapping("deposit.do")
 //	public String changePoint(HttpSession session, int amount) {
 //		try {
 //			userService.changePoint((String)session.getAttribute("user"), amount);
@@ -94,7 +91,7 @@ public class MyPageController {
 //		}
 //		return "";
 //	}
-	
+
 //	@PostMapping()
 //	public String expireAccount(HttpSession session) {
 //		try {
@@ -104,17 +101,29 @@ public class MyPageController {
 //		}
 //		return "";
 //	}
-	
-//	@GetMapping()
-//	public String getParticipateChallenge(HttpSession session,Model model) {
-//		try {
-//			List<Participation>list = userService.getParticipateChalleng((String)session.getAttribute("user"));
-//			model.addAttribute("result", list);
-//		} catch (SQLException e) {
-//			
-//		}
-//		return "";
-//	}
-	
+
+	@GetMapping("showpoint.do")
+	public String getParticipateChallenge(HttpSession session, Model model) {
+		try {
+			List<Participation> list = userService.getParticipateChallenge((String) session.getAttribute("user"));
+			model.addAttribute("result", list);
+		} catch (SQLException e) {
+
+		}
+		return "mpg/MWPMPGV04M";
+	}
+
+	@GetMapping("moveToOut.do") public String pageMoveToOut() { return
+	 "mpg/MWPMPGV02M"; }
+	 
+	/*
+	 * @GetMapping("") public String pageMoveToOutOfAcc() { return "mpg/MWPMPGV03M";
+	 * }
+	 * 
+	 * @GetMapping("") public String pageMoveToChangeForm() { return
+	 * "mpg/MWPMPGV04M"; }
+	 */
+	 @GetMapping("moveDeposit.do") public String pageMoveToDeposit() { 
+		 return "mpg/MWPMPGV05M"; }
 	
 }

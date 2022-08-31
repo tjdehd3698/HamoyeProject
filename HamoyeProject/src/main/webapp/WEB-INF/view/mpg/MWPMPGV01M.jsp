@@ -167,7 +167,7 @@
 					</div>
 				<input type="submit" id="submit" value="수정완료!">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type = "button" id="cancel" onclick="location.href='MWPMPGV00M.jsp' " value="돌아가기"> <br><br>
-				<input type = "button" id="userExit" onclick="location.href='MWPMPGV02M.jsp' " value="회원탈퇴"> <br><br>
+				<input type = "button" id="userExit" onclick="location.href='moveToOut.do' " value="회원탈퇴"> <br><br>
 			</form>
     	</div>
 	</div>

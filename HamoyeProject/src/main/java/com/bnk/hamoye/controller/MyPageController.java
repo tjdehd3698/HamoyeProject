@@ -21,26 +21,26 @@ import lombok.RequiredArgsConstructor;
 public class MyPageController {
 	private final UserService userService;
 	
-//	@PostMapping()
+//	@PostMapping("moveToChangeForm.do")
 //	public String updateUser(User user) {
 //		try {
 //			userService.updateUser(user);
 //		} catch (SQLException e) {
 //			System.out.println("updateUser 에러 : "+ e.getMessage());
 //		}
-//		return "";
+//		return "mpg/MWPMPGV01M";
 //	}
-//	
-//	@GetMapping()
-//	public String getUserInfo(Model model, HttpSession session) {
-//		try {
-//			User user = userService.getUserInfo((String)session.getAttribute("user"));
-//			model.addAttribute("result", user);
-//		} catch (SQLException e) {
-//			System.out.println("getUserInfo 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
+	
+	@GetMapping("moveToChangeForm.do")
+	public String getUserInfo(Model model, HttpSession session) {
+		try {
+			User user = userService.getUserInfo((String)session.getAttribute("user"));
+			model.addAttribute("result", user);
+		} catch (SQLException e) {
+			System.out.println("getUserInfo 에러 : "+ e.getMessage());
+		}
+		return "mpg/MWPMPGV01M";
+	}
 
 //	@PostMapping()
 //	public String withdraw(HttpSession session,Model model, String userPassword) {
@@ -141,10 +141,7 @@ public class MyPageController {
 	 @GetMapping("") public String pageMoveToOutOfAcc() { 
 	 return "mpg/MWPMPGV03M";
 	 }
-	 */ 
-	 @GetMapping("moveToChangeForm.do") public String pageMoveToChangeForm() { 
-	 return "mpg/MWPMPGV01M"; }
-	 
+	 */  
 
 	 @GetMapping("moveDeposit.do") 
 	 public String pageMoveToDeposit(HttpSession session, Model model) { 

@@ -32,6 +32,11 @@ public class PointDAOImpl implements PointDAO {
 	public int deletePoint(String userId) throws SQLException {
 		return sqlSession.delete(NS+"deletePoint",userId);
 	}
+
+	@Override
+	public int getPointSum() throws SQLException {
+		return sqlSession.selectOne(NS+"getPointSum");
+	}
 	
 
 }

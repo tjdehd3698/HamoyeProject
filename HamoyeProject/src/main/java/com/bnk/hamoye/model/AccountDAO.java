@@ -12,4 +12,5 @@ public interface AccountDAO {
 	int updateBalance(Map<String, String> map) throws SQLException; //계좌 잔액 수정
 	int getAllAcountCnt() throws SQLException; //총계좌 수 조회
 	int getAccountCntByDate(String date) throws SQLException; //날짜별 새로운 계좌 수 조회
+	int getBalanceSum() throws SQLException; //계좌 총액 조회
 }

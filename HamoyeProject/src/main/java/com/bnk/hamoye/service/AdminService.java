@@ -15,4 +15,6 @@ public interface AdminService {
 	List<Status> getAllTripChallenge() throws Exception;
 	int getUserCntByDate() throws Exception;
 	int getAccountCntByDate() throws Exception;
+	int getBalanceSum() throws Exception;
+	int getPointSum() throws Exception;
 }

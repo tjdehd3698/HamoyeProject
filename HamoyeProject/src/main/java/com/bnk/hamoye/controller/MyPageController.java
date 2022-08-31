@@ -58,7 +58,7 @@ public class MyPageController {
 		try {
 			
 			User user = userService.getMypageInfo((String)session.getAttribute("user"));
-			System.out.println(user.getEcoChallenge().getEcoChallengeId());
+			//System.out.println(user.getEcoChallenge().getEcoChallengeId());
 			model.addAttribute("result", user);
 			
 			if(user.getEcoChallenge().getEcoChallengeId()==null) {

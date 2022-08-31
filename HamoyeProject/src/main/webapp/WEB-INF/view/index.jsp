@@ -11,7 +11,7 @@
 <meta content="" name="description">
 </head>
 <body>
-	<jsp:include page="/header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<script>
 		$(function(){
 		    // Causes progress
@@ -292,11 +292,15 @@
     <div class="container-xxl py-5">
         <div class="container py-5">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-                <h1 class="display-6 mb-5">환경과 금융, 지역과 경제<br>그 사이의 조화를 찾는 우리는 하모예입니다.</h1>
+                <h1 class="display-6 mb-5">환경과 금융, 지역과 경제<br>그 사이의 조화를 찾는 하모예입니다.</h1>
             </div>
             <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-	                <img class="img-fluid mb-4" src="img/main-bnk-logo.png">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+	                <img class="img-fluid mb-1" src="img/main-bnk-logo.png" width="120px"> 과 함께 
+                	<p><b>하고!</b> 도전해보세요. 다양한 챌린지 서비스를 제공합니다.<br>
+					   <b>모으고!</b> 일상 속 작은 실천이 모여 동백 포인트를 꽃피울거예요.<br>
+					   <b>예금하고!</b> 도전에 성공한 당신에게 혜택 가득한 예금상품을 선물할게요.
+					</p>
                 </div>
             </div>
         </div>
@@ -307,6 +311,6 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     
     <!-- Testimonial End -->
-    <jsp:include page="/footer.jsp"></jsp:include>
+    <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

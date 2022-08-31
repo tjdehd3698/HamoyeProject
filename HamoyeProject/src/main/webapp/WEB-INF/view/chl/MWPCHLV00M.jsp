@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,23 +40,18 @@
                     	<div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         	<img class="img-fluid mb-4" src="img/free-icon-earth-globe-921423.png" width="90px" height="90px">
                         	<h4 class="mb-3">지구를 지켜요</h4>
-                        	<div class="mb-4"><b> 대중교통 이용하고 </b><br>
-                        	<a class="btn btn-outline-primary px-3" href="challengeDetail.do">
-                            	이자 더 받기
-                            	<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                	<i class="fa fa-arrow-right"></i>
-                            	</div>
-                        	</a>
-                        	</div>
-                         <div class="mb-4"> <b>봉사활동 참여하고 </b><br>
-                         <a class="btn btn-outline-primary px-3" href="/MWPCHLV02M.jsp">
-                            	이자 더 받기
-                            <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
-                         </a>
-                     	</div> 
-                    </div>
+                        	
+                         	<c:forEach var="ecoChallenge" items="${ecoChallengeList}">
+                        		<div class="mb-4"><b> ${ecoChallengeName}하고 </b><br>
+                        			<a class="btn btn-outline-primary px-3" href="challengeDetail.do/${ecochallenge.challengeId}">
+                            			이자 더 받기
+                            			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                                		<i class="fa fa-arrow-right"></i>
+                            			</div>
+                        			</a>
+                        		</div>
+                        	</c:forEach>
+                    </div> 
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
@@ -142,16 +138,6 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

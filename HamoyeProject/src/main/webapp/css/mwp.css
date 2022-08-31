@@ -5,15 +5,3 @@
 @import url('style.css');  /*레이아웃, 공통 스타일*/
 @import url('font.css');  /*웹폰트*/
 @import url('common.css');  /*main*/
-
-/* challenge css */
-	article{
-		text-align:center;
-		padding-top:10px;
-	}
-	article>h2 {
-		margin:20px 0px;	
-	}
-	article p{
-		padding-top:30px;
-	}

@@ -32,4 +32,19 @@ public class EcoChallengeController {
 		return "chl/MWPCHLV01M";
 	}
 	
+	@GetMapping("challnge.do") 
+    public String getChallengeList(Model model) {
+
+        System.out.println("#%(#%(#%");
+      try {
+          List<EcoChallenge> ecoChallengeList = ecoChallengeService.getEcoChallengeList();
+          System.out.println(ecoChallengeList);
+          for(EcoChallenge eco : ecoChallengeList) {
+              System.out.println(eco);
+          }
+              model.addAttribute("ecoChallengeList", ecoChallengeList);
+      } catch (Exception e) {
+      }
+          return "chl/MWPCHLV00M";
+    }
 }

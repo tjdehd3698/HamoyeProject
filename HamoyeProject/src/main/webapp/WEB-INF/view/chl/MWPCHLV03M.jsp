@@ -34,7 +34,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">떠나요 부산</div>
-                    <h1 class="display-6 mb-5">오늘의 식당 방문하기 챌린지</h1>
+                    <h1 class="display-6 mb-5">오늘의 식당 챌린지</h1>
                     <h3>부산에는 맛집이 많아요<br> 직접 방문하고 식사지원금을 받아보세요</h3>
                     <br>
                     <div>
@@ -88,16 +88,6 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

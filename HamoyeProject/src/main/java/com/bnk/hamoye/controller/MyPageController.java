@@ -52,17 +52,17 @@ public class MyPageController {
 //		return "";
 //	}
 	
-//	@GetMapping()
-//	public String getMyPageInfo(HttpSession session, Model model) {
-//		try {
-//			User user = userService.getMypageInfo((String)session.getAttribute("user"));
-//			model.addAttribute("result", user);
-//		} catch (SQLException e) {
-//			System.out.println("getMyPageInfo 에러 : "+ e.getMessage());
-//		}
-//		
-//		return "";
-//	}
+	@GetMapping("mypage.do")
+	public String getMyPageInfo(HttpSession session, Model model) {
+		try {
+			User user = userService.getMypageInfo((String)session.getAttribute("user"));
+			model.addAttribute("result", user);
+		} catch (SQLException e) {
+			System.out.println("getMyPageInfo 에러 : "+ e.getMessage());
+		}
+		
+		return "MWPMPGV00M";
+	}
 	
 //	@PostMapping()
 //	public String changePoint(HttpSession session, int amount) {

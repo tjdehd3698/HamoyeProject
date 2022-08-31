@@ -124,6 +124,7 @@ public class MyPageController {
 	 * @GetMapping("") public String pageMoveToChangeForm() { return
 	 * "mpg/MWPMPGV04M"; }
 	 */
+
 	 @GetMapping("moveDeposit.do") 
 	 public String pageMoveToDeposit() { 
 		 return "mpg/MWPMPGV05M"; 
@@ -140,5 +141,6 @@ public class MyPageController {
 //		return "";
 //	}
 	
+
 	
 }

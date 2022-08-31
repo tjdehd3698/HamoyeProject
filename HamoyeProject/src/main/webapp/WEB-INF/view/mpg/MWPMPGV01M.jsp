@@ -48,7 +48,7 @@
 								<input type="password" name="userPassword" class="form-control" id="mypage_password" placeholder="비밀번호는 6자리 이상 16자리 이하로 입력해주세요." onchange="check_pw()" required>
 						    </div>
 						</div>
-						<div class="mb-3 row">
+						<div class="mb-3 row"> 
 						    <label id="mypage_text" for="userPass" class="col-sm-2 col-form-label">비밀번호확인</label>
 						    <div class="col-sm-10">
 								<input type="password" name="userPasscheck" class="form-control" id="mypage_passcheck" placeholder="비밀번호는 6자리 이상 16자리 이하로 입력해주세요." onchange="check_pw()" required>

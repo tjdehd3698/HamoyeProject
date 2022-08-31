@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -9,7 +10,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    <link href="css/challenge.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
@@ -28,52 +28,46 @@
         </div>
     </div>
     <!-- Page Header End -->
-    
+
     <!-- Service Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Now On</div>
-               		<h1 class="display-6 mb-5">챌린지에 도전해보세요</h1>
-            	</div>
-            	<div class="row g-4 justify-content-center">
-                	<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    	<div class="service-item bg-white text-center h-100 p-4 p-xl-5">
-                        	<img class="img-fluid mb-4" src="img/free-icon-earth-globe-921423.png" width="90px" height="90px">
-                        	<h4 class="mb-3">지구를 지켜요</h4>
-                        	
-                         	<c:forEach var="ecoChallenge" items="${ecoChallengeList}">
-                        		<div class="mb-4"><b> ${ecoChallengeName}하고 </b><br>
-                        			<a class="btn btn-outline-primary px-3" href="challengeDetail.do/${ecochallenge.challengeId}">
-                            			이자 더 받기
-                            			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                		<i class="fa fa-arrow-right"></i>
-                            			</div>
-                        			</a>
-                        		</div>
-                        	</c:forEach>
+                       <h1 class="display-6 mb-5">챌린지에 도전해보세요</h1>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
+                            <img class="img-fluid mb-4" src="img/free-icon-earth-globe-921423.png" width="90px" height="90px">
+                            <h4 class="mb-3">지구를 지켜요</h4>
+
+                             <c:forEach var="ecoChallenge" items="${ecoChallengeList}">
+                                <div class="mb-4"><b> ${ecoChallenge.ecoChallengeName}하고 </b><br>
+                                    <a class="btn btn-outline-primary px-3" href="challengeDetail.do/${ecochallenge.ecoChallengeId}">
+                                        이자 더 받기
+                                        <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                                        <i class="fa fa-arrow-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </c:forEach>
                     </div> 
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="img/beach.png" alt="" width="90px" height="90px">
                         <h4 class="mb-3">떠나요 부산</h4>
-                 		<div class="mb-4"> <b>오늘의 식당 방문하고 </b><br>
-                        <a class="btn btn-outline-primary px-3" href="/MWPCHLV03M.jsp">
-                            	식사지원금 받기
-                            <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
-                        </a>
-                        </div>
-                         <div class="mb-4"> <b>오늘의 소상공인 만나고</b><br>
-                         <a class="btn btn-outline-primary px-3" href="/MWPCHLV04M.jsp">
-                            	쇼핑지원금 받기
-                            <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
-                        </a>
-                        </div>
+                         <c:forEach var="tripChallenge" items="${tripChallengeList}">
+                                <div class="mb-4"><b> ${tripChallenge.tripChallengeName}하고 </b><br>
+                                    <a class="btn btn-outline-primary px-3" href="challengeDetail.do/${tripChallenge.tripChallengeId}">
+                                        동백포인트 받기 
+                                        <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                                        <i class="fa fa-arrow-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </c:forEach>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -83,7 +77,7 @@
                         <div class="mb-4"><b>요즘 핫해요</b></div>
                         <div style="padding:5px">
                         <a class="btn btn-outline-primary px-3" href="">
-                            	대중교통 챌린지
+                                대중교통 챌린지
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>
                             </div>
@@ -91,7 +85,7 @@
                         </div>
                         <div style="padding:5px">
                         <a class="btn btn-outline-primary px-3" href="">
-                            	오늘의 식당 방문 챌린지
+                                오늘의 식당 방문 챌린지
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>
                             </div>
@@ -103,7 +97,7 @@
         </div>
     </div>
     <!-- Service End -->
-    
+
     <!-- Testimonial Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -112,35 +106,29 @@
                 <h1 class="display-6 mb-5">지난 챌린지</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item text-center" style="color:white">
+                <div class="testimonial-item text-center">
                     <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/free-icon-earth-globe-921423.png" style="width: 100px; height: 100px;">
                     <div class="testimonial-text rounded text-center p-4">
-                    	배달음식 줄이기
+                        지난 챌린지1
                     </div>
                 </div>
-                <div class="testimonial-item text-center" style="color:white">
+                <div class="testimonial-item text-center">
                     <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/free-icon-earth-globe-921423.png" style="width: 100px; height: 100px;">
                     <div class="testimonial-text rounded text-center p-4">
-						전기 요금 줄이기 
+                        지난 챌린지2
                     </div>
                 </div>
-                <div class="testimonial-item text-center" style="color:white">
+                <div class="testimonial-item text-center">
                     <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/beach.png" style="width: 100px; height: 100px;">
                     <div class="testimonial-text rounded text-center p-4">
-						오늘의 관광지
-                    </div>
-                </div>
-                <div class="testimonial-item text-center" style="color:white">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/beach.png" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-						오늘의 부산 특산품
+                        지난 챌린지3
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Testimonial End -->
-  
+
  <jsp:include page="../footer.jsp"></jsp:include>
 
     <!-- Back to Top -->

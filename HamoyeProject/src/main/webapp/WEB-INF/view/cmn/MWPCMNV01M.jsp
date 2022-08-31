@@ -10,7 +10,7 @@
     <meta content="" name="description">
 </head>
 <body>
-<jsp:include page="/header.jsp"></jsp:include>
+<jsp:include page="../header.jsp"></jsp:include>
 	<script type="text/javascript">
 	$(function(){
 		$("#duplicateId").on("click",function(){
@@ -191,7 +191,7 @@
     </div>
     <!-- Service End -->
   
- 	<jsp:include page="/footer.jsp"></jsp:include>
+ 	<jsp:include page="../footer.jsp"></jsp:include>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>

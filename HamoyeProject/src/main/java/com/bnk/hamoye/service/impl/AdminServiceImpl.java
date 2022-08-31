@@ -11,11 +11,14 @@ import org.springframework.stereotype.Service;
 import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.Status;
+import com.bnk.hamoye.domain.TripChallenge;
+import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.model.AccountDAO;
 import com.bnk.hamoye.model.EcoChallengeDAO;
 import com.bnk.hamoye.model.ParticipationDAO;
 import com.bnk.hamoye.model.PointDAO;
+import com.bnk.hamoye.model.TripChallengeDAO;
 import com.bnk.hamoye.model.UserDAO;
 import com.bnk.hamoye.service.AdminService;
 
@@ -29,6 +32,7 @@ public class AdminServiceImpl implements AdminService{
 	private final EcoChallengeDAO ecoChallengeDAO;
 	private final ParticipationDAO participationDAO;
 	private final PointDAO pointDAO;
+	private final TripChallengeDAO tripChallengeDAO;
 	
 	@Override
 	public List<User> getAllUser() throws SQLException {
@@ -71,9 +75,28 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public List<Status> getAllTripChallenge() throws Exception {
+	public List<TripStatus> getAllTripChallenge() throws Exception {
+		List<TripStatus> result = new ArrayList<TripStatus>();
 		
-		return null;
+		List<TripChallenge> tripList = tripChallengeDAO.getTripChallengeList();
+		for(TripChallenge t: tripList) {
+			
+			List<Participation> list = participationDAO.getAllUserByTripChallenge(t.getTripChallengeId());
+			int participateCnt = 0;
+			for(Participation p : list) {
+				if(p.getIsSuccess()==1)
+					participateCnt++;
+			}
+			
+			TripStatus status = new TripStatus();
+			status.setChallengeId(t.getTripChallengeId());
+			status.setChallengeName(t.getTripChallengeName());
+			status.setHits(t.getHits());
+			status.setUserCnt(list.size());
+			status.setSuccessPercent(participateCnt/list.size()*100);
+			result.add(status);
+		}
+		return result;
 	}
 
 	@Override

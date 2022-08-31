@@ -1,0 +1,11 @@
+/* challenge css */
+	.chlarticle{
+		text-align:center;
+		padding-top:10px;
+	}
+	.chlarticle>h2 {
+		margin:20px 0px;	
+	}
+	.chlarticle p{
+		padding-top:30px;
+	}

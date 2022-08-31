@@ -42,7 +42,8 @@
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">가입하기</div>
                 <h1 class="display-6 mb-5">지구를 지켜요</h1>
             </div>
-			<article class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <article class="chlarticle">
+			<div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 				<h2><b>지구를 지키기 위한 "한 걸음"</b></h2>
 				<form id="frm">
             		<div class="row g-3">
@@ -129,8 +130,8 @@
                  
                  	</div>
               	</form>
+              </div>
               </article>
-              
               <div class="mb-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div align="center">아래 약관에 동의해주세요</div>
             </div>
@@ -204,7 +205,7 @@
 				    </div>
 				  </div>
 				</div>
-				<article>
+				<article class="chlarticle">
 				<button class="btn btn-primary px-5" style="height: 46px; margin-bottom:5px">
                    		 모두 동의합니다.
                 </button>
@@ -225,15 +226,6 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

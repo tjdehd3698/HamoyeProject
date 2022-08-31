@@ -4,13 +4,13 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="sql.hamoye.tripChallenge_mapper">
-	<insert id="registerTripChallenge" parameterType="tripChallenge">		
+	<insert id="registerTripChallenge" parameterType="TripChallenge">		
 		insert into 
 		trip_challenge(trip_challenge_id, trip_challenge_name, start_date, end_date, hits, reward_point)
 		values(trip_seq.nextval,#{tripChallengeName},#{startDate},#{endDate},#{hits},#{rewardPoint})
 	</insert>
 	
-	<update id="updateTripChallenge" parameterType="tripChallenge">
+	<update id="updateTripChallenge" parameterType="TripChallenge">
 		update trip_challenge
 		trip_challenge_name = #{tripChallengeName},
 		start_date = #{startDate},
@@ -27,20 +27,20 @@
 		where trip_challege_id = #{value}
 	</update>
 	
-	<select id="searchTripChallenge" parameterType="string" resultType="tripChallenge">
+	<select id="searchTripChallenge" parameterType="string" resultType="TripChallenge">
 		select trip_challenge_id, prime_rate, trip_challenge_name, start_date,
 		end_date, limited_people, is_delete, challenge_image
 		from trip_challenge
 		where trip_challenge_name like '%' || #{value} || '%'
 	</select>
 	
-	<select id="getTripChallengeStatus" parameterType="string" resultType="tripChallenge">
+	<select id="getTripChallengeStatus" parameterType="string" resultType="TripChallenge">
 		select trip_challenge_id, trip_challenge_name, start_date,
 		end_date, hits, reward_point, challenge_image
 		from trip_challenge
 	</select>
 	
-	<select id="getTripChallengeDetail" parameterType="string" resultType="tripChallenge">
+	<select id="getTripChallengeDetail" parameterType="string" resultType="TripChallenge">
 		select trip_challenge_id, trip_challenge_name, start_date,
 		end_date, hits, reward_point, challenge_image
 		from trip_challenge
@@ -54,11 +54,11 @@
 		where trip_challenge_id=
 	</select> -->
 	
-	<select id="getAllTripChallenge" resultType="tripChallenge">
+	<select id="getTripChallengeList" resultType="TripChallenge">
 		select trip_challenge_id, trip_challenge_name, start_date,
-		end_date, hits, reward_point, challenge_image,is_deleted
+		end_date, hits, reward_point, challenge_image,is_delete
 		from trip_challenge
-		where is_delete = 1 
+		where is_delete = 0
 	</select>
 	
 </mapper>

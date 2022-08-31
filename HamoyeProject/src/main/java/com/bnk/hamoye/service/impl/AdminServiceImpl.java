@@ -47,12 +47,10 @@ public class AdminServiceImpl implements AdminService{
 		List<Status> result = new ArrayList<>();
 		List<EcoChallenge> list1 = ecoChallengeDAO.getEcoChallengeList();
 		for(EcoChallenge e : list1) {
+			if(e.getIsDelete()==1) continue;
 			
-//			List<Participation> list2 = participationDAO.getAllUserByEcoChallenge(e.getEcoChallengeId());
-//			int usercnt = list2.
-//			for(Participation p : list2) {
-//				
-//			}
+			
+				
 		}
 		return result;
 	}

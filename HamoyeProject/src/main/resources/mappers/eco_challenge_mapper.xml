@@ -28,21 +28,22 @@
 	
 	<select id="searchEcoChallenge" parameterType="string" resultType="EcoChallenge">
 		select eco_challenge_id, prime_rate, eco_challenge_name, start_date,
-		end_date, limited_people, is_delete, challenge_image
+		end_date, limited_people, is_delete, challenge_image, total_count
 		from eco_challenge
 		where eco_challenge_name like '%' || #{value} || '%'
 	</select>
 	
 	<select id="getEcoChallengeStatus" parameterType="string" resultType="EcoChallenge">
 		select eco_challenge_id, prime_rate, eco_challenge_name, start_date,
-		end_date, limited_people, is_delete, challenge_image
+		end_date, limited_people, is_delete, challenge_image, total_count
 		from eco_challenge
 	</select>
 	
 	<select id="getEcoChallengeList" resultType="EcoChallenge">
 		select eco_challenge_id, eco_challenge_name, prime_rate, start_date,
-		end_date, limited_people, is_delete, challenge_image
+		end_date, limited_people, is_delete, challenge_image, total_count
 		from eco_challenge
+		
 	</select>
 	
 	<select id="getEcoChallengeDetail" parameterType="string" resultType="EcoChallenge">

@@ -38,19 +38,11 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">지구를 지켜요</div>
-                <h1 class="display-6 mb-5">${eco01.ecoChallengeName}</h1>
+                <h1 class="display-6 mb-5">${eco01.ecoChallengeName} 챌린지</h1>
             </div>
 			<article class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-			<section class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-			<h2><b>지구, 쉽게 지킬 수 있어요</b></h2>
-				대중교통을 이용해보세요<br>
-				1주일에 한번, 1년이면 <br>
-				<span style="color: green">소나무 72그루</span>를 심는 것과 같아요
-			</section>
-			<section class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-			<h2><b>지구는 지금</b></h2>
-				심각해지는 기후위기에 아파하고 있어요
-			</section>
+			<h2><b>NOW ON</b></h2>
+			<!-- 사진, 사진이름, 사진내용 db에서 받아와야함 -->
  			<div class="row g-4">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item position-relative rounded overflow-hidden">
@@ -105,18 +97,20 @@
                     </div>
                 </div>
               </div>
-			 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-			 <p>
-				주 3회 이상 대중교통을 이용하여<br>
-				온실가스 배출을 줄여보세요<br>
-				환경을 지키고 생명을 구하는 일<br>
-				<b>당신도 할 수 있어요</b>
-			</p>
-			</div>
+			 <section class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="margin-top:50px">
+			 	<h2><b>지구, 쉽게 지킬 수 있어요</b></h2>
+			 	<p> <!-- db에서 챌린지 콘텐트로 받아와야함 -->
+					주 3회 이상 대중교통을 이용하여<br>
+					온실가스 배출을 줄여보세요<br>
+					환경을 지키고 생명을 구하는 일<br>
+					<b>당신도 할 수 있어요</b>
+				</p>
+			 </section>
+		
 			<div style="padding:20px"  class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-				<h3>지구를 지키는 당신에게 <br>매년 0.5%의 이자를 더 드려요</h3>
+				<h3>지구를 지키는 당신에게 <br>매년 %의 이자를 더 드려요</h3>
 				<br>
-				
+				<!-- 이율도 challengeRate로 받아와야함 -->
 			 	<c:choose>
 					<c:when test="${!empty userName}">
 			 			<a class="btn btn-outline-primary px-3" href="getUserAllInfo.do" >
@@ -127,7 +121,7 @@
              			</a>
              		</c:when>
              		<c:otherwise>
-             			<a class="btn btn-outline-primary px-3" href="login.do" >
+             			<a class="btn btn-outline-primary px-3" href="#none" data-bs-toggle="modal" data-bs-target="#loginModal" >
                                	로그인하고 챌린지 참여하기
              			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
              				<i class="fa fa-arrow-right"></i>
@@ -158,16 +152,6 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

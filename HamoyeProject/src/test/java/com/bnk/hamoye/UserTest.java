@@ -89,13 +89,15 @@ public class UserTest {
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
 		SqlSession session = factory.openSession();
 		
-		User user = (User)session.selectOne("getMypageInfo","aaa");
-		System.out.println(user.getUserName());
-		System.out.println(user.getAccount().getBalance());
-		System.out.println(user.getEcoChallenge().getEcoChallengeName());
-		System.out.println(user.getPoint().getTotalPoint());
-		System.out.println(user.getEcoChallenge().getTotalCount());
-		System.out.println(user.getEcoChallenge().getEcoChallengeId());
+		User user = (User)session.selectOne("getMypageInfoWithNoEco","a");
+		System.out.println(user.getUserId());
+		
+//		System.out.println(user.getUserName());
+//		System.out.println(user.getAccount().getBalance());
+//		System.out.println(user.getEcoChallenge().getEcoChallengeName());
+//		System.out.println(user.getPoint().getTotalPoint());
+//		System.out.println(user.getEcoChallenge().getTotalCount());
+//		System.out.println(user.getEcoChallenge().getEcoChallengeId());
 	}
 	
 	@Test

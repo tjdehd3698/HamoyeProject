@@ -60,6 +60,7 @@ public class MyPageController {
 			User user = userService.getMypageInfo((String)session.getAttribute("user"));
 			//System.out.println(user.getEcoChallenge().getEcoChallengeId());
 			model.addAttribute("result", user);
+			System.out.println("user"+user);
 			
 			if(user.getEcoChallenge().getEcoChallengeId()==null) {
 				model.addAttribute("totalCnt", null);

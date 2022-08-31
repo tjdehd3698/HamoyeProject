@@ -111,6 +111,11 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User getMypageInfo(String userId) throws SQLException {
+		User user = userDAO.getUserAllInfo(userId);
+		if(user.getEcoChallengeId()==null) {
+			return userDAO.getMypageInfoWithNoEco(userId);
+			
+		}
 		return userDAO.getMypageInfo(userId);
 	}
 

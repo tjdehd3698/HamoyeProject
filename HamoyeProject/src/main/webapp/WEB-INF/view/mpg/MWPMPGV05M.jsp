@@ -101,7 +101,7 @@
 					<label for="userId" class="col-md-3 col-form-label">계좌번호</label>
 					<div class="col-sm-10">
 						<div class="position-relative"> 
-				        	<input type="text"  class="form-control" id="accountNum" placeholder="계좌번호를 기재해주세요." required="required">
+				        	<input type="text"  class="form-control" id="accountNum" value="${result.account.accountNumber}" disabled="disabled">
 				        </div>
 				    	&nbsp<span class="icon solid style4 fas fa-exclamation-circle" />
 				        <p style="display:inline">&nbsp '-'를 제외하고 숫자만 입력해주세요!</p>	

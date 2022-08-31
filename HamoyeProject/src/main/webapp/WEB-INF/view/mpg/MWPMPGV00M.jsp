@@ -9,31 +9,20 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
-
-<!-- Favicon -->
-<link href="img/favicon.ico" rel="icon">
-
-<!-- Google Web Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
-
-<!-- Icon Font Stylesheet -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Libraries Stylesheet -->
-<link href="lib/animate/animate.min.css" rel="stylesheet">
-<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-<!-- Customized Bootstrap Stylesheet -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Template Stylesheet -->
-<link href="css/style.css" rel="stylesheet">
-
-<!-- MyPage Stylesheet -->    
-<link rel="stylesheet" href="css/mypage1.css" />
+ 
+<script type="text/javascript">
+$(function() {
+	$('#depositBtn').click(function () { 
+    	if(${result.account != null}){
+    		return ;
+    	}else{
+    		alert('챌린지 계좌가 있어야 입금 가능합니다!');  
+    		$('#makeAccount').focus();
+    		return false;	
+    	} 
+    });
+});
+</script>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -102,13 +91,21 @@
 									<h4 >님은</h4>
 								</div>
 								<div><br><br><br><br>
-									<h2>아직 계좌가 없어요!</h2><br><br><br><br>
-									<a class="btn btn-outline-primary px-3" href="challege.do" >
-                            		계좌 만들고 메인 챌린지 참여하기!
-                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                		<i class="fa fa-arrow-right"></i>
-                            		</div>
-                       				</a>
+									<h2>아직, 챌린지 계좌가 없습니다!</h2><br><br><br><br>
+									<div id="intro_btn">
+										<a id="makeAccount" class="btn btn-outline-primary px-3" href="challege.do" >
+	                            		계좌 만들고 챌린지 참여하기!
+	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+	                                		<i class="fa fa-arrow-right"></i>
+	                            		</div>
+	                       				</a><br><br>
+	                       				<a class="btn btn-outline-primary px-3" href="challege.do" >
+	                            		회원정보수정
+	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+	                                		<i class="fa fa-arrow-right"></i>
+	                            		</div>
+                       					</a>
+                       				</div>
 								</div>
 							</header>	
 						</c:otherwise>
@@ -207,9 +204,9 @@
                        			<div>
                        			<br><br>
                        			<h5 id="text">5,000 P 이상 모았다면 </h3>		
-                       			<a class="btn btn-outline-primary px-3" href="moveDeposit.do" >
+                       			<a id="depositBtn" class="btn btn-outline-primary px-3" href="moveDeposit.do" >
                             		계좌입금하기
-                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                            		<div  class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 		<i class="fa fa-arrow-right"></i>
                             		</div>
                        			</a>
@@ -273,7 +270,7 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-
+	
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -282,7 +279,7 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/parallax/parallax.min.js"></script>
-
+	
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>

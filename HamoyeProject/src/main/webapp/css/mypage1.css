@@ -81,6 +81,9 @@ input, select, textarea {
 .image ,.img{
 	float:left;	
 }
+#intro_btn{
+	margin-left:10%;
+}
 #button {
 	border: 0;
 	width:30px;

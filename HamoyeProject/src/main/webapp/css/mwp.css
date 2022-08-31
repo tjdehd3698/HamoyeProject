@@ -5,6 +5,7 @@
 @import url('style.css');  /*레이아웃, 공통 스타일*/
 @import url('font.css');  /*웹폰트*/
 @import url('common.css');  /*main*/
+@import url('mypage1.css');  /*mypageMain*/
 
 /* challenge css */
 	article{

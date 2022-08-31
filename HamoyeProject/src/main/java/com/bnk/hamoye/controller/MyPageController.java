@@ -92,15 +92,24 @@ public class MyPageController {
 
 		return "mpg/MWPMPGV00M";
 	}
-//	@PostMapping("deposit.do")
-//	public String changePoint(HttpSession session, int amount) {
-//		try {
-//			userService.changePoint((String)session.getAttribute("user"), amount);
-//		} catch (SQLException e) {
-//			System.out.println("changePoint 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
+	@PostMapping("deposit.do")
+	public String changePoint(HttpSession session,Model model, int amount, String userPassword) {
+		try {
+			User user = new User();
+			user.setUserId((String)session.getAttribute("user"));
+			user.setUserPassword(userPassword);
+			
+			User findUser = userService.login(user);
+			if(findUser!=null) {
+				userService.changePoint((String)session.getAttribute("user"), amount);
+				model.addAttribute("result", "T");
+			}
+			else model.addAttribute("result", "F");
+		} catch (SQLException e) {
+			System.out.println("changePoint 에러 : "+ e.getMessage());
+		}
+		return "mpg/MWPMPGV05M";
+	}
 	
 //	@PostMapping()
 //	public String expireAccount(HttpSession session, String userPassword, Model model) {
@@ -149,6 +158,7 @@ public class MyPageController {
 		try {
 			user = userService.getMypageInfo((String) session.getAttribute("user"));
 			model.addAttribute("result", user);
+			
 		} catch (SQLException e) {
 			System.out.println("pageMoveToDeposit 에러 : "+ e.getMessage());
 		}

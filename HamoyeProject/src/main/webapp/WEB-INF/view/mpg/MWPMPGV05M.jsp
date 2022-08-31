@@ -85,7 +85,7 @@
 
 	<h1 style="text-align:center" class="container mb-5 wow fadeIn" data-wow-delay="0.1s">동백 포인트 계좌 입금</h1>
 	<div class="container mb-5 wow fadeIn" data-wow-delay="0.1s" id="frm" style="background-color:#FAFAFA " > 
-		<form action="deposit.do" id = Deposit>
+		<form action="deposit.do" method="post" id = "Deposit">
 			<div class="mb-5">
 				<div class="mb-3 row">
 					<label for="userId" class="col-md-3 col-form-label">입금은행</label>
@@ -108,10 +108,10 @@
 				    </div>
 				</div>
 				<div class="mb-3 row">
-					<label for="userId" class="col-md-3 col-form-label">입금할 포인트</label>
+					<label for="userId" class="col-md-3 col-form-label">입금할 포인트 <h5>현재포인트 : ${result.point.totalPoint}</h5></label>
 					<div class="col-sm-10">
 						<div class="position-relative"> 
-					    	<input type="text"  class="form-control" id="DBPoint" placeholder="입금할 포인트를 숫자로 입력해주세요." required="required">
+					    	<input type="number"  class="form-control" name ="amount" id="DBPoint" placeholder="입금할 포인트를 숫자로 입력해주세요." required="required" max="${result.point.totalPoint}" >
 					    </div>
 					    &nbsp<span class="icon solid style4 fas fa-exclamation-circle" />
 					    <p style="display:inline">&nbsp 3,000원 이상부터 입금이 가능해요!</p>
@@ -121,7 +121,7 @@
 					<label for="userId" class="col-md-3 col-form-label">비밀번호확인</label>
 					<div class="col-sm-10">
 						<div class="position-relative"> 
-							<input type="password"  class="form-control" id="password" required="required">
+							<input type="password"  class="form-control" name="userPassword" id="password" required="required">
 				    	</div>
 					</div>
 				</div> 

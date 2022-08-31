@@ -62,7 +62,7 @@ public class MyPageController {
 			model.addAttribute("result", user);
 			System.out.println("user"+user);
 			
-			if(user==null) {
+			if(user.getEcoChallenge()==null) {
 				model.addAttribute("totalCnt", null);
 				model.addAttribute("successCnt", null);
 			}

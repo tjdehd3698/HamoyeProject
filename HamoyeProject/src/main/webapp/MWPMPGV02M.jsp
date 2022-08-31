@@ -66,8 +66,11 @@ ul{
 }
 .cryImg{
 	float:right;
-}
 
+}
+.cryImg img {
+	 box-shadow: inset 0 0 20px #E8E7DF;
+}
 </style>
 </head>
 <body>

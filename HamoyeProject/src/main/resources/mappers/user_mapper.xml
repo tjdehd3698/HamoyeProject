@@ -81,7 +81,7 @@
 	</update>
 	
 	<update id="withdrawUser" parameterType="string">
-		update users
+		update users 
 		set is_withdraw=1
 		where user_id = #{value}
 	</update>

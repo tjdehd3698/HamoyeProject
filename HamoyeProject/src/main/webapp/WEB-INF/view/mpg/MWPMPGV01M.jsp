@@ -38,7 +38,7 @@
 							<label id="mypage_text" for="userId" class="col-sm-2 col-form-label">ID</label>
 							<div class="col-sm-10">
 								<div class="position-relative"> 
-					                <input type="text" name="userId" class="form-control" id="mypage_id" value="${result.userId}" disabled="disabled">
+					                <input type="text" name="userId" class="form-control" id="mypage_id" value="${result.userId}" readonly="readonly">
 					            </div>
 						    </div>
 						</div>

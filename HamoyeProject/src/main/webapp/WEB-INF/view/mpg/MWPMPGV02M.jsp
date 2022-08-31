@@ -36,7 +36,8 @@
     <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
 font {
-	font-family: 'Jeju Hallasan', cursive;
+	 font-family: 'Jeju Hallasan', cursive; 
+	color:#2b3886;
 }
 body {
 	text-align : center;  

@@ -40,7 +40,7 @@
                         	<img class="img-fluid mb-4" src="img/free-icon-earth-globe-921423.png" width="90px" height="90px">
                         	<h4 class="mb-3">지구를 지켜요</h4>
                         	<div class="mb-4"><b> 대중교통 이용하고 </b><br>
-                        	<a class="btn btn-outline-primary px-3" href="/MWPCHLV01M.jsp">
+                        	<a class="btn btn-outline-primary px-3" href="challegeDetail.do">
                             	이자 더 받기
                             	<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 	<i class="fa fa-arrow-right"></i>

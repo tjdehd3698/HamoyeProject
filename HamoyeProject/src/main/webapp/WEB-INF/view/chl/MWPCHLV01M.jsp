@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,12 +116,25 @@
 			<div style="padding:20px"  class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 				<h3>지구를 지키는 당신에게 <br>매년 0.5%의 이자를 더 드려요</h3>
 				<br>
-			 	<a class="btn btn-outline-primary px-3" href="getUserAllInfo.do" >
+			 	<c:choose>
+					<c:when test="${!empty userName}">
+			 			<a class="btn btn-outline-primary px-3" href="getUserAllInfo.do" >
                                	챌린지 참여하고 우대이율 받기
-             		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-             			<i class="fa fa-arrow-right"></i>
-            		 </div>
-             	</a>
+             			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+             				<i class="fa fa-arrow-right"></i>
+            		 	</div>
+             			</a>
+             		</c:when>
+             		<c:otherwise>
+             			<a class="btn btn-outline-primary px-3" href="login.do" >
+                               	로그인하고 챌린지 참여하기
+             			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+             				<i class="fa fa-arrow-right"></i>
+            		 	</div>
+             			</a>
+             		</c:otherwise>
+             	</c:choose>
+
              </div>
 			</article>
 			<article style="border: 1px solid #2b3886">

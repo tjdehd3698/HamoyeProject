@@ -21,15 +21,15 @@ import lombok.RequiredArgsConstructor;
 public class MyPageController {
 	private final UserService userService;
 	
-//	@PostMapping("moveToChangeForm.do")
-//	public String updateUser(User user) {
-//		try {
-//			userService.updateUser(user);
-//		} catch (SQLException e) {
-//			System.out.println("updateUser 에러 : "+ e.getMessage());
-//		}
-//		return "mpg/MWPMPGV01M";
-//	}
+	@PostMapping("change.do")
+	public String updateUser(User user) {
+		try {
+			userService.updateUser(user);
+		} catch (SQLException e) {
+			System.out.println("updateUser 에러 : "+ e.getMessage());
+		}
+		return "mpg/MWPMPGV01M";
+	}
 	
 	@GetMapping("moveToChangeForm.do")
 	public String getUserInfo(Model model, HttpSession session) {

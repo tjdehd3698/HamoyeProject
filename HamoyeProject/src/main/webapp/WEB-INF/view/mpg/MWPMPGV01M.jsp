@@ -8,6 +8,8 @@
  <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    
+   <script src="js/mypage.js"></script> 
 </head>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
@@ -30,55 +32,55 @@
     <div class="container">
     	<div id = UserInfoForm class="mb-5 wow fadeIn" data-wow-delay="0.1s">
 			<h1 class="maintext">회원님의 정보를 수정합니다.</h1>
-				<form action="change.do" id = ChangeUserInfo>
+				<form action="change.do" method="post" id= ChangeUserInfo>
 					<div class="mb-5">
 						<div class="mb-3 row">
-							<label for="userId" class="col-sm-2 col-form-label">ID</label>
+							<label id="mypage_text" for="userId" class="col-sm-2 col-form-label">ID</label>
 							<div class="col-sm-10">
 								<div class="position-relative"> 
-					                <input type="text"  class="form-control" id="mypage_id" value="\${ID}" disabled="disabled">
+					                <input type="text" name="userId" class="form-control" id="mypage_id" value="${result.userId}" disabled="disabled">
 					            </div>
 						    </div>
 						</div>
 						<div class="mb-3 row">
-						    <label for="userPass" class="col-sm-2 col-form-label">비밀번호</label>
+						    <label id="mypage_text" for="userPass" class="col-sm-2 col-form-label">비밀번호</label>
 						    <div class="col-sm-10">
-								<input type="password" class="form-control" id="mypage_password" placeholder="비밀번호는 6자리 이상 16자리 이하로 입력해주세요." onchange="check_pw()" required>
+								<input type="password" name="userPassword" class="form-control" id="mypage_password" placeholder="비밀번호는 6자리 이상 16자리 이하로 입력해주세요." onchange="check_pw()" required>
 						    </div>
 						</div>
 						<div class="mb-3 row">
-						    <label for="userPass" class="col-sm-2 col-form-label">비밀번호확인</label>
+						    <label id="mypage_text" for="userPass" class="col-sm-2 col-form-label">비밀번호확인</label>
 						    <div class="col-sm-10">
-								<input type="password" class="form-control" id="mypage_passcheck" placeholder="비밀번호는 6자리 이상 16자리 이하로 입력해주세요." onchange="check_pw()" required>
+								<input type="password" name="userPasscheck" class="form-control" id="mypage_passcheck" placeholder="비밀번호는 6자리 이상 16자리 이하로 입력해주세요." onchange="check_pw()" required>
 						    </div>
-						    <span id="check"></span>
+						    <span id="mypage_check"></span>
 						</div>
 						<div class="mb-3 row">
-						    <label for="userName" class="col-sm-2 col-form-label">이름</label>
+						    <label id="mypage_text" for="userName" class="col-sm-2 col-form-label">이름</label>
 						    <div class="col-sm-10">
-								<input type="text" class="form-control" id="mypage_name" value="\${name}" required>
+								<input type="text" name="userName" class="form-control" id="mypage_name" value="${result.userName}" disabled="disabled">
 						    </div> 
 						</div>
 						<div class="mb-3 row">
-						    <label for="userAddr" class="col-sm-2 col-form-label">주소</label>
+						    <label id="mypage_text" for="userPhone" class="col-sm-2 col-form-label">생년월일 / 성별</label>
 						    <div class="col-sm-10">
-						    	<input type="button"  id="mypage_postcodebtn" onclick="mypage_execDaumPostcode()" value="우편번호찾기">
+								<input type="text" name="birthday" class="form-control" id="mypage_birthday_gender" value="${result.birthday} / ${result.gender}" disabled="disabled">
+						    </div> 
+						</div>
+						<div class="mb-3 row">
+						    <label id="mypage_text" for="userAddr" class="col-sm-2 col-form-label">주소</label>
+						    <div class="col-sm-10">
+						    	<!-- <input type="button"  id="mypage_postcodebtn" onclick="mypage_execDaumPostcode()" value="우편번호찾기">
 								<input type="text" class="form-control" id="mypage_postcode" value="\${postcode}"  disabled="disabled"><br>
 								<input type="text" class="form-control" id="mypage_roadAddress" value="\${roadAddress}" disabled="disabled"><br>
-								<input type="text" class="form-control" id="mypage_jibunAddress" value="\${jibunAddress}" disabled="disabled"><br>
-								<input type="text" class="form-control" id="mypage_detailAddress" placeholder="\${detailAddress}"><br>
+								<input type="text" class="form-control" id="mypage_jibunAddress" value="\${jibunAddress}" disabled="disabled"><br> -->
+								<input type="text" name ="userAddress"class="form-control" id="mypage_address" value="${result.userAddress}">
 						    </div>  
 						</div>
 						<div class="mb-3 row">
-						    <label for="userPhone" class="col-sm-2 col-form-label">전화번호</label>
+						    <label id="mypage_text"  for="userEmail" class="col-sm-2 col-form-label">E-mail</label>
 						    <div class="col-sm-10">
-								<input type="text" class="form-control" id="mypage_phoneNumber" value="\${phone}" >
-						    </div> 
-						</div>
-						<div class="mb-3 row">
-						    <label for="userEmail" class="col-sm-2 col-form-label">E-mail</label>
-						    <div class="col-sm-10">
-								<input type="text" class="form-control" id="mypage_email" value="\${email}" >
+								<input type="text" name="email" class="form-control" id="mypage_email" value="${result.email}" >
 						    </div> 
 						</div>
 					</div>

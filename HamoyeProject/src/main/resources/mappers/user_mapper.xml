@@ -71,13 +71,13 @@
 	<update id="updateUserPassword" parameterType="user">
 		update users
 		set user_password=#{userPassword}
-		where user_id =#{user_id} and email=#{email} and user_name=#{user_name}
+		where user_id =#{userId} and email=#{email} and user_name=#{userName}
 	</update>
 	
 	<update id="updateUser" parameterType="user">
 		update users
 		set user_password=#{userPassword}, email=#{email}, user_address =#{userAddress}
-		where user_id =#{value}
+		where user_id =#{userId}
 	</update>
 	
 	<update id="withdrawUser" parameterType="string">
@@ -88,7 +88,7 @@
 	
 	<select id="getUserInfo" parameterType="string" resultType="user">
 		select 
-		user_id, user_password, birthday, email, user_name, user_address, register_date
+		user_id, user_password, birthday, email, user_name, user_address, register_date, gender
 		from users
 		where user_id =#{value}
 	</select>

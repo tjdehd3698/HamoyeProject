@@ -15,7 +15,7 @@
 			<result column="total_point" property="totalPoint"/>
 		</association>
 		<association property="account" javaType="account">
-			<id column="account_id" property="accountId"/>
+			<id column="account_number" property="accountNumber"/>
 			<result column="balance" property="balance"/>
 			<result column="prime_rate" property="primeRate"/>
 		</association>
@@ -90,7 +90,7 @@
 	
 	<select id="getMypageInfo" parameterType="string" resultMap="userWithPointAndAccountAndEcoChallenge">
 		select 
-		u.user_id, a.account_number, a.balance, p.point_id, p.total_point, e.eco_challenge_id, e.eco_challenge_name
+		u.user_id, a.account_number, a.balance, p.point_id, p.total_point, e.eco_challenge_id, e.eco_challenge_name,u.participation_count, e.total_count
 		from users u 
 		join account a on u.account_number =a.account_number
 		join point p on u.point_id = p.point_id
@@ -115,6 +115,10 @@
 		select user_id,user_name, register_date
 		from users
 		where is_admin=0 and is_withdraw=0
+	</select>
+	
+	<select id="getUserByEcoChallenge" parameterType="string" resultType="user">
+		select user_id, user_name, 
 	</select>
 	
 </mapper>

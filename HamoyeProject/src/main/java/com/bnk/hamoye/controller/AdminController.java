@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bnk.hamoye.domain.Status;
+import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.AdminService;
 
@@ -69,7 +70,7 @@ public class AdminController {
 			int accountIncrement = adminService.getAccountCntByDate();
 			int accountBalanceSum = adminService.getBalanceSum();
 			int pointSum = adminService.getPointSum();
-			
+			List<TripStatus> tripList = adminService.getAllTripChallenge();
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

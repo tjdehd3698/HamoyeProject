@@ -40,7 +40,8 @@
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">지구를 지켜요</div>
                 <h1 class="display-6 mb-5">${eco01.ecoChallengeName} 챌린지</h1>
             </div>
-			<article class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <article class="chlarticle">
+			<div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 			<h2><b>NOW ON</b></h2>
 			<!-- 사진, 사진이름, 사진내용 db에서 받아와야함 -->
  			<div class="row g-4">
@@ -131,8 +132,9 @@
              	</c:choose>
 
              </div>
+			</div>
 			</article>
-			<article style="border: 1px solid #2b3886">
+			<article class="chlarticle" style="border: 1px solid #2b3886">
 				<h5>※챌린지 참여 주의사항※</h5>
 				<p>
 				1. 지구를 지켜요 챌린지에 참여하기 위해서는 새로운 부산은행 정기예금계좌를 개설해야합니다.<br>

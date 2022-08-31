@@ -37,6 +37,7 @@ public class EcoChallengeController {
 		return "chl/MWPCHLV01M";
 	}
 	
+<<<<<<< HEAD
 	@GetMapping("challenge.do")
 	public String getChallengeList(Model model) {
 		
@@ -54,4 +55,21 @@ public class EcoChallengeController {
 		
 	}
 	
+=======
+	@GetMapping("challnge.do") 
+    public String getChallengeList(Model model) {
+
+        System.out.println("#%(#%(#%");
+      try {
+          List<EcoChallenge> ecoChallengeList = ecoChallengeService.getEcoChallengeList();
+          System.out.println(ecoChallengeList);
+          for(EcoChallenge eco : ecoChallengeList) {
+              System.out.println(eco);
+          }
+              model.addAttribute("ecoChallengeList", ecoChallengeList);
+      } catch (Exception e) {
+      }
+          return "chl/MWPCHLV00M";
+    }
+>>>>>>> branch 'main_test' of https://github.com/tjdehd3698/HamoyeProject
 }

@@ -34,6 +34,7 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Now On</div>
+<<<<<<< HEAD
                        <h1 class="display-6 mb-5">챌린지에 도전해보세요</h1>
                 </div>
                 <div class="row g-4 justify-content-center">
@@ -52,6 +53,26 @@
                                     </a>
                                 </div>
                             </c:forEach>
+=======
+               		<h1 class="display-6 mb-5">챌린지에 도전해보세요</h1>
+            	</div>
+            	<div class="row g-4 justify-content-center">
+                	<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    	<div class="service-item bg-white text-center h-100 p-4 p-xl-5">
+                        	<img class="img-fluid mb-4" src="img/free-icon-earth-globe-921423.png" width="90px" height="90px">
+                        	<h4 class="mb-3">지구를 지켜요</h4>
+                        	
+                         	<c:forEach var="ecoChallenge" items="${ecoChallengeList}">
+                        		<div class="mb-4"><b> ${ecoChallengeName}하고 </b><br>
+                        			<a class="btn btn-outline-primary px-3" href="challengeDetail.do/${ecochallenge.challengeId}">
+                            			이자 더 받기
+                            			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                                		<i class="fa fa-arrow-right"></i>
+                            			</div>
+                        			</a>
+                        		</div>
+                        	</c:forEach>
+>>>>>>> branch 'main_test' of https://github.com/tjdehd3698/HamoyeProject
                     </div> 
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">

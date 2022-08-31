@@ -35,7 +35,8 @@
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">지구를 지켜요</div>
                 <h1 class="display-6 mb-5">봉사활동 참여 챌린지</h1>
             </div>
-			<article class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <article class="chlarticle">
+			<div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 			<section class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
 			<h2><b>함께, 노력해봐요</b></h2>
 				<span>부산은행과 함께하는</span>
@@ -130,8 +131,9 @@
              		</c:otherwise>
              	</c:choose>
             </div>
+		</div>
 		</article>
-		<article style="border: 1px solid #2b3886">
+		<article class="chlarticle" style="border: 1px solid #2b3886">
 				<h5>※챌린지 참여 주의사항※</h5>
 				<p>
 				1. 지구를 지켜요 챌린지에 참여하기 위해서는 새로운 부산은행 정기예금계좌를 개설해야합니다.<br>
@@ -151,16 +153,6 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

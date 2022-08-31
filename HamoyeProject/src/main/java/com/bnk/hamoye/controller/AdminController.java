@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bnk.hamoye.domain.Status;
+import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.AdminService;
 

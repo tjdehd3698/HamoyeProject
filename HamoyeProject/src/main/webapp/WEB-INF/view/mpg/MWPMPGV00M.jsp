@@ -217,7 +217,7 @@ $(function(){
                        			<div>
                        			<br><br>
                        			<h5 id="text">5,000 P 이상 모았다면 </h3>
-								<div id="asd" value=${result.account}/>
+								<input id="asd" type="hidden" value = "${result.accountNumber}">
                        			<a id="depositBtn" class="btn btn-outline-primary px-3" href="moveDeposit.do" >
                             		계좌입금하기
                             		<div  class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">

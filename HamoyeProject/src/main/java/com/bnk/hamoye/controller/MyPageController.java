@@ -56,6 +56,7 @@ public class MyPageController {
 	@GetMapping("mypage.do")
 	public String getMyPageInfo(HttpSession session, Model model) {
 		try {
+			
 			User user = userService.getMypageInfo((String)session.getAttribute("user"));
 			model.addAttribute("result", user);
 		} catch (SQLException e) {

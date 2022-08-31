@@ -81,11 +81,11 @@
 											</div>
 											<div>
 											<br><br><br>
-											<h2>${result.eco_challenge.eco_challenge_name} </h2>
+											<h2>${result.ecoChallenge.ecoChallengeName} </h2>
 											<h4> 계좌 </h4><br>
 											</div>
 										</header>
-										<p class="showAccount">계좌번호 : ${result.account.accountName}</p> <br>
+										<p class="showAccount">계좌번호 : ${result.account.accountNumber}</p> <br>
 										<h2 class="showPrice">잔액 : ${result.account.balance}</h2> <br>
 									</div>
 									
@@ -95,7 +95,7 @@
 						<!-- First Section -->
 							<section id="first" class="main special">
 								<c:choose>
-									<c:when test="${result.eco_challenge.eco_challenge_name eq 'transportation'}">
+									<c:when test="${result.ecoChallenge.ecoChallengeName eq 'transportation'}">
 										<header class="major">
 											<h2>대중교통이용 챌린지</h2>
 										</header>

@@ -156,7 +156,7 @@ public class MyPageController {
 			System.out.println("pageMoveToDeposit 에러 : "+ e.getMessage());
 		}
 		 return "mpg/MWPMPGV05M"; 
-	 }
+	 } 
 	
 //	@GetMapping()
 //	public String getParticipateChallenge(HttpSession session,Model model) {

@@ -28,6 +28,17 @@
 		</association>
 	</resultMap>
 	
+	<resultMap type="user" id="userWithPoint">
+		<id column="user_id" property="userId"/>
+		<result column="user_name" property="userName"/>
+		<result column="point_id" property ="pointId"/>
+		<result column="participation_count" property ="participationCount"/>
+		<association property="point" javaType="point">
+			<id column="point_id" property="pointId"/>
+			<result column="total_point" property="totalPoint"/>
+		</association>
+	</resultMap>	
+	
 
 	<!--회원 아이디 중복 검사 + 회원/관리자 로그인 -->
 	<select id="userIdPassword" parameterType="user" resultType="user">
@@ -84,19 +95,27 @@
 	
 	<select id="getUserAllInfo" parameterType="string" resultType="user">
 		select
-		user_id, user_name, user_age, user_address,birthday, gender,email
+		user_id, user_name, user_age, user_address,birthday, gender,email,eco_challenge_id, account_number,point_id
 		from users
 		where user_id =#{value}
 	</select>
 	
 	<select id="getMypageInfo" parameterType="string" resultMap="userWithPointAndAccountAndEcoChallenge">
 		select 
-		u.user_id,u.user_name, a.account_number, a.balance, p.point_id, p.total_point, e.eco_challenge_id, e.eco_challenge_name,u.participation_count, e.total_count
+		u.user_id, u.user_name, a.account_number, a.balance, p.point_id, p.total_point, e.eco_challenge_id, e.eco_challenge_name,u.participation_count, e.total_count
 		from users u 
 		join account a on u.account_number =a.account_number
 		join point p on u.point_id = p.point_id
 		join eco_challenge e on u.eco_challenge_id = e.eco_challenge_id
 		where e.is_delete = 0 and u.user_id = #{value}
+	</select>
+	
+	<select id="getMypageInfoWithNoEco" parameterType="string" resultMap="userWithPointAndAccountAndEcoChallenge">
+		select 
+		u.user_id, u.user_name, p.point_id, p.total_point, u.participation_count
+		from users u 
+		join point p on u.point_id = p.point_id
+		where u.user_id = #{value}
 	</select>
 	
 	<select id="checkEcoChallenge" parameterType="string" resultType="string">
@@ -123,6 +142,13 @@
 		from users
 		where eco_challenge_id =#{value} and is_withdraw = 0
 	</select>
+	
+	<select id="getUserCntByDate" parameterType="string" resultType="int">
+		select count(user_id) 
+		from users
+		where to_char(register_date,'YYYYMMDD') = #{value}
+	</select>
+	
 	
 </mapper>
 

@@ -25,6 +25,11 @@
 		where point_id = (select point_id from users where user_id = #{value})
 	</delete>
 	
+	<select id="getPointSum" resultType="int">
+		select sum(total_point)
+		from point
+	</select>
+	
 	
 </mapper>
 

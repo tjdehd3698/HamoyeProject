@@ -26,6 +26,18 @@
 		from account
 	</select>
 	
+	<select id="getAccountCntByDate" parameterType="string" resultType="int">
+		select count(account_id)
+		from account
+		where to_char(create_date) = #{value}
+	</select>
+	
+	<select id="getBalanceSum" resultType="int">
+		select sum(balance)
+		from account
+	</select>
+	
+	
 	
 </mapper>
 

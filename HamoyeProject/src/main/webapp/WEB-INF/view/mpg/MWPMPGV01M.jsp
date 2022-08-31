@@ -119,7 +119,7 @@
 							<label for="userId" class="col-sm-2 col-form-label">ID</label>
 							<div class="col-sm-10">
 								<div class="position-relative"> 
-					                <input type="text"  class="form-control" id="textbox" value="\${ID}" disabled="disabled">
+					                <input type="text"  class="form-control" id="id" value="\${ID}" disabled="disabled">
 					            </div>
 						    </div>
 						</div>
@@ -139,7 +139,7 @@
 						<div class="mb-3 row">
 						    <label for="userName" class="col-sm-2 col-form-label">이름</label>
 						    <div class="col-sm-10">
-								<input type="text" class="form-control" id="textbox" value="\${name}" required>
+								<input type="text" class="form-control" id="name" value="\${name}" required>
 						    </div> 
 						</div>
 						<div class="mb-3 row">
@@ -150,12 +150,12 @@
 								<input type="text" class="form-control" id="sample4_roadAddress" value="\${roadAddress}" disabled="disabled"><br>
 								<input type="text" class="form-control" id="sample4_jibunAddress" value="\${jibunAddress}" disabled="disabled"><br>
 								<input type="text" class="form-control" id="sample4_detailAddress" placeholder="\${detailAddress}"><br>
-						    </div> 
+						    </div>  
 						</div>
 						<div class="mb-3 row">
 						    <label for="userPhone" class="col-sm-2 col-form-label">전화번호</label>
 						    <div class="col-sm-10">
-								<input type="text" class="form-control" id="textbox" value="\${phone}" >
+								<input type="text" class="form-control" id="phoneNumber" value="\${phone}" >
 						    </div> 
 						</div>
 						<div class="mb-3 row">
@@ -167,7 +167,7 @@
 					</div>
 				<input type="submit" id="submit" value="수정완료!">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type = "button" id="cancel" onclick="location.href='MWPMPGV00M.jsp' " value="돌아가기"> <br><br>
-				<input type = "button" id="userExit" onclick="location.href='MWPMPGV02M.jsp' " value="회원탈퇴"> <br><br>
+				<input type = "button" id="userExit" onclick="location.href='moveToOut.do' " value="회원탈퇴"> <br><br>
 			</form>
     	</div>
 	</div>

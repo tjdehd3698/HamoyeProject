@@ -89,13 +89,15 @@ public class UserTest {
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
 		SqlSession session = factory.openSession();
 		
-		User user = (User)session.selectOne("getMypageInfo","aaa");
-		System.out.println(user.getUserName());
-		System.out.println(user.getAccount().getBalance());
-		System.out.println(user.getEcoChallenge().getEcoChallengeName());
-		System.out.println(user.getPoint().getTotalPoint());
-		System.out.println(user.getEcoChallenge().getTotalCount());
-		System.out.println(user.getEcoChallenge().getEcoChallengeId());
+		User user = (User)session.selectOne("getMypageInfoWithNoEco","a");
+		System.out.println(user.getUserId());
+		
+//		System.out.println(user.getUserName());
+//		System.out.println(user.getAccount().getBalance());
+//		System.out.println(user.getEcoChallenge().getEcoChallengeName());
+//		System.out.println(user.getPoint().getTotalPoint());
+//		System.out.println(user.getEcoChallenge().getTotalCount());
+//		System.out.println(user.getEcoChallenge().getEcoChallengeId());
 	}
 	
 	@Test
@@ -113,7 +115,19 @@ public class UserTest {
 		
 		User findId = (User)session.selectOne("userIdPassword", user);
 		System.out.println(findId.getUserAddress());
+	}
+	
+	@Test
+	public void incrementUser() throws Exception{
+		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
+		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
+		SqlSession session = factory.openSession();
 		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		String nowYear = LocalDate.now().format(formatter);
+		System.out.println(nowYear);
 		
+		int size = session.selectOne("getUserCntByDate", nowYear);
+		System.out.println(size);
 	}
 }

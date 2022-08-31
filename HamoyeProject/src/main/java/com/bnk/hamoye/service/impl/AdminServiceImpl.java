@@ -1,6 +1,8 @@
 package com.bnk.hamoye.service.impl;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,7 @@ import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.model.AccountDAO;
 import com.bnk.hamoye.model.EcoChallengeDAO;
 import com.bnk.hamoye.model.ParticipationDAO;
+import com.bnk.hamoye.model.PointDAO;
 import com.bnk.hamoye.model.UserDAO;
 import com.bnk.hamoye.service.AdminService;
 
@@ -25,6 +28,7 @@ public class AdminServiceImpl implements AdminService{
 	private final AccountDAO accountDAO;
 	private final EcoChallengeDAO ecoChallengeDAO;
 	private final ParticipationDAO participationDAO;
+	private final PointDAO pointDAO;
 	
 	@Override
 	public List<User> getAllUser() throws SQLException {
@@ -70,5 +74,31 @@ public class AdminServiceImpl implements AdminService{
 	public List<Status> getAllTripChallenge() throws Exception {
 		
 		return null;
+	}
+
+	@Override
+	public int getUserCntByDate() throws Exception {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		String nowYear = LocalDate.now().format(formatter);
+		
+		return userDAO.getUserCntByDate(nowYear);
+	}
+
+	@Override
+	public int getAccountCntByDate() throws Exception {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		String nowYear = LocalDate.now().format(formatter);
+		
+		return accountDAO.getAccountCntByDate(nowYear);
+	}
+
+	@Override
+	public int getBalanceSum() throws Exception {
+		return accountDAO.getBalanceSum();
+	}
+
+	@Override
+	public int getPointSum() throws Exception {
+		return pointDAO.getPointSum();
 	}
 }

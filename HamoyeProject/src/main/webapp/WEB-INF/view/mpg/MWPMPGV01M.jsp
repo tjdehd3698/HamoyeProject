@@ -8,89 +8,6 @@
  <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- MyPage Stylesheet -->    
-    <link href="css/mypage2.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-
-<style type="text/css"> 
-#UserInfoForm {
-	text-align: center;
-}
-#textbox, #password, #passcheck{
-	height:40px; 	
-	margin : 10px;
-	border-radius: 5px;
-	flex-grow: 1;
-}
-#sample4_postcode{
-	margin : 10px 0 0 10px ;
-	border-radius: 5px; 
-	height:35px;
-	}
-#sample4_postcodebtn{
-	float:left;
-	padding : 10px 20px;
-	border-radius: 5px;
-	background-color: #2b3886;
-	color: #e6ebff;
-	margin : 10px 20px 10px 20px;
-}
-#sample4_roadAddress,#sample4_jibunAddress {
-	margin-left:10px;
-	border-radius: 5px;
-} 
-#sample4_detailAddress{
-	margin : 0 0 10px 10px;
-	border-radius: 5px;
-}
-#sample4_roadAddress, #sample4_jibunAddress, #sample4_detailAddress {
-	height:35px;
-	
-}
-#submit, #cancel{
-	padding : 20px 50px;
-	border-radius: 5px;
-	background-color: #2b3886;
-	color: #e6ebff;
-	margin : 10px 20px 10px 20px;
-}
-#userExit {
-	padding : 7px 16px;
-	border-radius: 5px;
-	background-color: #6B6B6C;
-	color: #e6ebff; 
-}
-.maintext {
-	padding : 5%;
-}
-</style>	     
-    
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="js/mypage.js"></script>
-      
-
 </head>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
@@ -119,55 +36,55 @@
 							<label for="userId" class="col-sm-2 col-form-label">ID</label>
 							<div class="col-sm-10">
 								<div class="position-relative"> 
-					                <input type="text"  class="form-control" id="id" value="\${ID}" disabled="disabled">
+					                <input type="text"  class="form-control" id="mypage_id" value="\${ID}" disabled="disabled">
 					            </div>
 						    </div>
 						</div>
 						<div class="mb-3 row">
 						    <label for="userPass" class="col-sm-2 col-form-label">비밀번호</label>
 						    <div class="col-sm-10">
-								<input type="password" class="form-control" id="password" placeholder="비밀번호는 6자리 이상 16자리 이하로 입력해주세요." onchange="check_pw()" required>
+								<input type="password" class="form-control" id="mypage_password" placeholder="비밀번호는 6자리 이상 16자리 이하로 입력해주세요." onchange="check_pw()" required>
 						    </div>
 						</div>
 						<div class="mb-3 row">
 						    <label for="userPass" class="col-sm-2 col-form-label">비밀번호확인</label>
 						    <div class="col-sm-10">
-								<input type="password" class="form-control" id="passcheck" placeholder="비밀번호는 6자리 이상 16자리 이하로 입력해주세요." onchange="check_pw()" required>
+								<input type="password" class="form-control" id="mypage_passcheck" placeholder="비밀번호는 6자리 이상 16자리 이하로 입력해주세요." onchange="check_pw()" required>
 						    </div>
 						    <span id="check"></span>
 						</div>
 						<div class="mb-3 row">
 						    <label for="userName" class="col-sm-2 col-form-label">이름</label>
 						    <div class="col-sm-10">
-								<input type="text" class="form-control" id="name" value="\${name}" required>
+								<input type="text" class="form-control" id="mypage_name" value="\${name}" required>
 						    </div> 
 						</div>
 						<div class="mb-3 row">
 						    <label for="userAddr" class="col-sm-2 col-form-label">주소</label>
 						    <div class="col-sm-10">
-						    	<input type="button"  id="sample4_postcodebtn" onclick="sample4_execDaumPostcode()" value="우편번호찾기">
-								<input type="text" class="form-control" id="sample4_postcode" value="\${postcode}"  disabled="disabled"><br>
-								<input type="text" class="form-control" id="sample4_roadAddress" value="\${roadAddress}" disabled="disabled"><br>
-								<input type="text" class="form-control" id="sample4_jibunAddress" value="\${jibunAddress}" disabled="disabled"><br>
-								<input type="text" class="form-control" id="sample4_detailAddress" placeholder="\${detailAddress}"><br>
+						    	<input type="button"  id="mypage_postcodebtn" onclick="mypage_execDaumPostcode()" value="우편번호찾기">
+								<input type="text" class="form-control" id="mypage_postcode" value="\${postcode}"  disabled="disabled"><br>
+								<input type="text" class="form-control" id="mypage_roadAddress" value="\${roadAddress}" disabled="disabled"><br>
+								<input type="text" class="form-control" id="mypage_jibunAddress" value="\${jibunAddress}" disabled="disabled"><br>
+								<input type="text" class="form-control" id="mypage_detailAddress" placeholder="\${detailAddress}"><br>
 						    </div>  
 						</div>
 						<div class="mb-3 row">
 						    <label for="userPhone" class="col-sm-2 col-form-label">전화번호</label>
 						    <div class="col-sm-10">
-								<input type="text" class="form-control" id="phoneNumber" value="\${phone}" >
+								<input type="text" class="form-control" id="mypage_phoneNumber" value="\${phone}" >
 						    </div> 
 						</div>
 						<div class="mb-3 row">
 						    <label for="userEmail" class="col-sm-2 col-form-label">E-mail</label>
 						    <div class="col-sm-10">
-								<input type="text" class="form-control" id="textbox" value="\${email}" >
+								<input type="text" class="form-control" id="mypage_email" value="\${email}" >
 						    </div> 
 						</div>
 					</div>
-				<input type="submit" id="submit" value="수정완료!">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type = "button" id="cancel" onclick="location.href='MWPMPGV00M.jsp' " value="돌아가기"> <br><br>
-				<input type = "button" id="userExit" onclick="location.href='moveToOut.do' " value="회원탈퇴"> <br><br>
+				<input type="submit" id="mypage_submit" value="수정완료">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type = "button" id="mypage_cancel" onclick="location.href='MWPMPGV00M.jsp' " value="돌아가기"> <br><br>
+				<input type = "button" id="mypage_userExit" onclick="location.href='moveToOut.do' " value="회원탈퇴"> <br><br>
 			</form>
     	</div>
 	</div>

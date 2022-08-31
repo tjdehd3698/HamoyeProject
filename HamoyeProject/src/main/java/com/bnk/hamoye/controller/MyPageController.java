@@ -138,12 +138,13 @@ public class MyPageController {
 	}
 	 
 	/*
-	 * @GetMapping("") public String pageMoveToOutOfAcc() { return "mpg/MWPMPGV03M";
-	 * }
-	 * 
-	 * @GetMapping("") public String pageMoveToChangeForm() { return
-	 * "mpg/MWPMPGV04M"; }
-	 */
+	 @GetMapping("") public String pageMoveToOutOfAcc() { 
+	 return "mpg/MWPMPGV03M";
+	 }
+	 */ 
+	 @GetMapping("moveToChangeForm.do") public String pageMoveToChangeForm() { 
+	 return "mpg/MWPMPGV01M"; }
+	 
 
 	 @GetMapping("moveDeposit.do") 
 	 public String pageMoveToDeposit(HttpSession session, Model model) { 

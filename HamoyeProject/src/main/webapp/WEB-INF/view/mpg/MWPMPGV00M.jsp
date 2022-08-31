@@ -8,8 +8,7 @@
 <title>하모예 - 마이페이지</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
-<meta content="" name="description">
- 
+<meta content="" name="description"> 
 <script type="text/javascript"> 
 $(function() {
 	$('#depositBtn').click(function () { 
@@ -24,7 +23,7 @@ $(function() {
 });
 </script>
 </head>
-<body>
+<body id="mypage_main_body">
 	<jsp:include page="../header.jsp" />
 	
 	<!-- Spinner Start -->
@@ -43,10 +42,10 @@ $(function() {
     <!-- Page Header End --> 
 		
 	<!-- Wrapper -->
-	<div id="wrapper"  class="is-preload mb-5 wow fadeIn" data-wow-delay="0.1s">
+	<div id="mypage_wrapper"  class="is-preload mb-5 wow fadeIn" data-wow-delay="0.1s">
 				 
 		<!-- Nav -->
-		<nav id="nav">
+		<nav id="mypage_nav">
 			<ul>
 				<li><a href="#intro" class="active">계좌정보</a></li>
 				<c:choose>
@@ -62,7 +61,7 @@ $(function() {
 		</nav>
 
 		<!-- Main -->
-		<div id="main">
+		<div id="mypage_main">
 
 		<!-- Introduction -->
 		<section id="intro" class="main">
@@ -71,7 +70,7 @@ $(function() {
 				<div class="content">
 					 <c:choose>
 						<c:when test="${result.account != null}">
-							<header id="introText" class="major" style="display:block"><br>
+							<header id="introText" class="mypage_major" style="display:block"><br>
 								<div class="mypage_account_text">
 									<h1>${userName}</h1>
 									<h4 >님의</h4>
@@ -83,9 +82,17 @@ $(function() {
 							</header>
 							<p class="showAccount">계좌번호 : ${result.account.accountNumber}</p> <br>
 							<h2 class="showPrice">잔액 : ${result.account.balance}</h2> <br>
+							<div id="intro_btn">
+										<a class="btn btn-outline-primary px-3" href="moveToChangeForm.do" >
+	                            		회원정보수정
+	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+	                                		<i class="fa fa-arrow-right"></i>
+	                            		</div>
+                       					</a>
+                       				</div>
 						</c:when>
 						<c:otherwise>
-							<header id="introText" class="major" style="display:block"><br>
+							<header id="introText" class="mypage_major" style="display:block"><br>
 								<div>
 									<h1>${userName}</h1>
 									<h4 >님은</h4>
@@ -99,7 +106,7 @@ $(function() {
 	                                		<i class="fa fa-arrow-right"></i>
 	                            		</div>
 	                       				</a><br><br>
-	                       				<a class="btn btn-outline-primary px-3" href="challege.do" >
+	                       				<a class="btn btn-outline-primary px-3" href="moveToChangeForm.do" >
 	                            		회원정보수정
 	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
 	                                		<i class="fa fa-arrow-right"></i>
@@ -113,54 +120,60 @@ $(function() {
 				</div>
 			</div>
 		</section>
- 		<c:choose>
- 			<c:when test="${result.account != null}">
+ 		<%-- <c:choose>
+ 			 <c:when test="${result.account != null}"> --%> 
 				<!-- First Section -->
 				<section id="first" class="main special">
 					<c:choose>
 						<c:when test="\${result.ecoChallenge.ecoChallengeName eq 'transportation'}">
-							<header class="major">
+							<header class="mypage_major">
 								<h2>대중교통이용 챌린지</h2>
 							</header>
-							<ul class="features">
+							<ul class="mypage_features">
 								<li>
-									<span class="icon solid major style1 fa-bus-alt"></span> 
+									<span class="mypage_icon solid mypage_major style1 fa-bus-alt"></span> 
 								</li>
 								<li>
-									<span class="icon solid major style3 fa-subway"></span> 
+									<span class="mypage_icon solid mypage_major style3 fa-subway"></span> 
 								</li> 
 							</ul>
 							<h5>현재 함께하는 1,743 명 가운데</h5>
 							<h5>629명이 목표달성했어요!</h5>
-							<footer class="major">
-								<ul class="actions special">
-									<li><a href="challengeDetail.do" class="button">챌린지 자세히 보기</a></li>
-								</ul>
-								<div >
+							<footer class="mypage_major">
+								<a class="btn btn-outline-primary px-3" href="challengeDetail.do">
+			                         	챌린지 자세히보기
+			                            <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+			                            	<i class="fa fa-arrow-right"></i>
+			                            </div>
+			                	</a>
+											<div><br>
 								<h5 id="progressNow" >진행현황</h5> <h4>지금까지 지구를 15번 지켰어요!</h4><br><br>
 									<progress class="container" value="50" max="100"  id="progress" style="display:block"></progress>
 								</div>
 										</footer>
 									</c:when>
 								<c:otherwise>
-										<header class="major">
+										<header class="mypage_major">
 											<h2>BNK 봉사활동 챌린지</h2>
 										</header>
-										<ul class="features">
+										<ul class="mypage_features">
 											<li>
-												<span class="icon solid major style1 	fas fa-hand-holding-heart"></span> 
+												<span class="mypage_icon solid mypage_major style1 	fas fa-hand-holding-heart"></span> 
 											</li>
 											<li>
-												<span class="icon solid major style3 fas fa-globe"></span> 
+												<span class="mypage_icon solid mypage_major style3 fas fa-globe"></span> 
 											</li> 
 										</ul>
 										<h5>현재 함께하는 ${totalCnt} 명 가운데</h5>
 																		<h5>${successCnt}명이 목표달성했어요!</h5>
-										<footer class="major">
-											<ul class="actions special">
-												<li><a href="MWPCHLV02M.jsp" class="button">챌린지 자세히 보기</a></li>
-											</ul>
-											<div >
+										<footer class="mypage_major">
+											<a class="btn btn-outline-primary px-3" href="challengeDetail.do">
+			                            		챌린지 자세히보기
+			                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+			                                		<i class="fa fa-arrow-right"></i>
+			                            		</div>
+			                       			</a>
+											<div><br>
 											<h5 id="progressNow" >진행현황</h5> <h4>어려운 이웃을 5번 도와주었어요!</h4><br><br>
 												<progress class="container" value="50" max="100"  id="progress" style="display:block"></progress>
 											</div>
@@ -168,17 +181,17 @@ $(function() {
 								 	</c:otherwise>
 								</c:choose> 
 							</section>
-							</c:when>
+							<%-- </c:when>
 							<c:otherwise> 
 							</c:otherwise>
-				</c:choose> 
+				</c:choose>  --%>
 							 
 						<!-- Second Section -->
 							<section id="second" class="main special">
 							<div class="spotlight">
 							<span class="img"><img id ="img" src="img/unnamed.png" alt="" /></span>
 								<div class="content">
-								<header id="introText" class="major">
+								<header id="introText" class="mypage_major">
 									<div >
 										<h1>${userName}</h1>
 										<h4 >님의</h4> 
@@ -218,13 +231,13 @@ $(function() {
 
 						<!-- Get Started -->
 							<section id="cta" class="main special">
-								<header class="major">
+								<header class="mypage_major">
 									<h1>떠나요 부산!</h1>
 									<h2></h2>
 									<p>서브챌린지</p>
 								</header>
 								<ul class="statistics">
-									<li><span class="icon solid major style3 fas fa-utensils" /></li>
+									<li><span class="mypage_icon solid mypage_major style3 fas fa-utensils" /></li>
 									<li>
 										<h2>오늘의 식당</h2>
 										<h5>맛있게 밥 먹고 포인트 쌓기!</h5>
@@ -239,7 +252,7 @@ $(function() {
 									</li>	
 								</ul>
 								<ul class="statistics">
-									<li><span class="icon solid major style5 far fa-user-circle" /></li>
+									<li><span class="mypage_icon solid mypage_major style5 far fa-user-circle" /></li>
 									<li>
 										<h2>오늘의 인물</h2>
 										<h5>소상공인 홍보보고 포인트 쌓기!</h5>
@@ -253,13 +266,6 @@ $(function() {
                        					</a>
 									</li>	
 								</ul>
-								  
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button primary">Get Started</a></li>
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer>
 							</section>
 
 					</div> 

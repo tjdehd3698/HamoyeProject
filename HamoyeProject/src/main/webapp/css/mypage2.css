@@ -1,19 +1,18 @@
-
 #UserInfoForm {
 	text-align: center;
 }
-#textbox, #password, #passcheck{
+#mypage_id, #mypage_password, #mypage_passcheck, #mypage_name, #mypage_phoneNumber, #mypage_email{
 	height:40px; 	
 	margin : 10px;
 	border-radius: 5px;
 	flex-grow: 1;
 }
-#sample4_postcode{
+#mypage_postcode{
 	margin : 10px 0 0 10px ;
 	border-radius: 5px; 
 	height:35px;
 	}
-#sample4_postcodebtn{
+#mypage_postcodebtn{
 	float:left;
 	padding : 10px 20px;
 	border-radius: 5px;
@@ -21,26 +20,26 @@
 	color: #e6ebff;
 	margin : 10px 20px 10px 20px;
 }
-#sample4_roadAddress,#sample4_jibunAddress {
+#mypage_roadAddress,#mypage_jibunAddress {
 	margin-left:10px;
 	border-radius: 5px;
 } 
-#sample4_detailAddress{
+#mypage_detailAddress{
 	margin : 0 0 10px 10px;
 	border-radius: 5px;
 }
-#sample4_roadAddress, #sample4_jibunAddress, #sample4_detailAddress {
+#mypage_roadAddress, #mypage_jibunAddress, #mypage_detailAddress {
 	height:35px;
 	
 }
-#submit, #cancel{
+#mypage_submit, #mypage_cancel{
 	padding : 20px 50px;
 	border-radius: 5px;
 	background-color: #2b3886;
 	color: #e6ebff;
 	margin : 10px 20px 10px 20px;
 }
-#userExit {
+#mypage_userExit {
 	padding : 7px 16px;
 	border-radius: 5px;
 	background-color: #6B6B6C;

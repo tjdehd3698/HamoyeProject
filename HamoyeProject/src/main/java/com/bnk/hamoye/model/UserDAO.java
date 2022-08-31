@@ -21,5 +21,6 @@ public interface UserDAO {
 	List<User> getAllUser() throws SQLException;
 	User getUserAllInfo(String userId) throws SQLException;
 	List<User> getUserByEcoChallenge(String ecoChallengeId) throws SQLException;
+	User getMypageInfoWithNoEco(String userId) throws SQLException;
 }
  

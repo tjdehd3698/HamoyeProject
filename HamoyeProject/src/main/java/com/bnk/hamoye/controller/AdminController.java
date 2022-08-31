@@ -17,6 +17,7 @@ import com.bnk.hamoye.domain.Status;
 import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.AdminService;
+import com.bnk.hamoye.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,6 +25,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AdminController {
 	private final AdminService adminService;
+	private final UserService userService;
 	
 	@RequestMapping("admin.do")
 	public String adminLoginPage() {
@@ -60,8 +62,18 @@ public class AdminController {
 		return "adm/ADMCMNV01M";
 	}
 	
-	@GetMapping("getAllUser.do")
-	public String getAllUser(Model model) {
+	@PostMapping("adminUpdateUser.do")
+	public String adminUpdateUser(User user) {
+		try {
+			userService.updateUser(user);
+		} catch (SQLException e) {
+			System.out.println("updateUser 에러 : "+ e.getMessage());
+		}
+		return "mpg/MWPMPGV01M";
+	}
+	
+	@GetMapping("adminGetAllUser.do")
+	public String adminGetAllUser(Model model) {
 		try {
 			List<User> list = adminService.getAllUser();
 			model.addAttribute("result",list);
@@ -101,4 +113,6 @@ public class AdminController {
 		}
 		return "";	
 	}
+
+	
 }

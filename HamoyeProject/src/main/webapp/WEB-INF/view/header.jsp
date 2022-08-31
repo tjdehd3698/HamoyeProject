@@ -109,7 +109,7 @@ $(function(){
                 <div class="nav-item dropdown">
                     <a href="#none" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">챌린지</a>
                     <div class="dropdown-menu m-0">
-                        <a href="challege.do" class="dropdown-item">전체보기</a>
+                        <a href="challenge.do" class="dropdown-item">전체보기</a>
                         <a href="#none" class="dropdown-item">지구를 지켜요</a>
                         <a href="#none" class="dropdown-item">챌린지명</a>
                         <a href="#none" class="dropdown-item">챌린지명</a>

@@ -20,5 +20,6 @@ public interface UserDAO {
 	int expireAccount(String userId) throws SQLException;
 	List<User> getAllUser() throws SQLException;
 	User getUserAllInfo(String userId) throws SQLException;
+	List<User> getUserByEcoChallenge(String ecoChallengeId) throws SQLException;
 }
  

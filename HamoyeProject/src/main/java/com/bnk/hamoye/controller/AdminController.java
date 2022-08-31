@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bnk.hamoye.domain.Status;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.AdminService;
 
@@ -63,8 +64,8 @@ public class AdminController {
 		try {
 			int totalUserCnt = adminService.getAllUser().size();
 			int totalAccountCnt = adminService.getAllAcountCnt();
-			
-		} catch (SQLException e) {
+			List<Status> ecoList = adminService.getAllEcoChallenge();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

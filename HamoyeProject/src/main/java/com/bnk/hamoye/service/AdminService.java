@@ -12,4 +12,5 @@ public interface AdminService {
 	List<User> getAllUser() throws SQLException;
 	int getAllAcountCnt() throws SQLException;
 	List<Status> getAllEcoChallenge() throws Exception;
+	List<Status> getAllTripChallenge() throws Exception;
 }

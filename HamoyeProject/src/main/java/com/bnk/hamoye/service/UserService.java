@@ -22,4 +22,5 @@ public interface UserService {
 	int changePoint(String userId, int amount) throws SQLException;
 	List<Participation> getParticipateChallenge(String userId) throws SQLException; 
 	User getUserAllInfo(String userId) throws SQLException;
+	List<User> getUserByEcoChallenge(String ecoChallengeId) throws SQLException;
 }

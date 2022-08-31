@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bnk.hamoye.domain.Status;
-import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.AdminService;
 
@@ -25,7 +24,7 @@ public class AdminController {
 	private final AdminService adminService;
 	
 	@RequestMapping("admin.do")
-	public String adminIndex() {
+	public String adminLoginPage() {
 		return "adm/ADMCMNV00M";
 	}
 	
@@ -46,6 +45,17 @@ public class AdminController {
 			System.out.println("login 에러 : "+ e.getMessage());
 		}
 		return "";
+	}
+	
+	@RequestMapping("adminLogout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "adm/ADMCMNV00M";
+	}
+	
+	@RequestMapping("adminIndex.do")
+	public String adminIndex() {
+		return "adm/ADMCMNV01M";
 	}
 	
 	@GetMapping("getAllUser.do")

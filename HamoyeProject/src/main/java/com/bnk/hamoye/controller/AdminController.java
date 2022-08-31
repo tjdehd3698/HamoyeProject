@@ -67,6 +67,8 @@ public class AdminController {
 			List<Status> ecoList = adminService.getAllEcoChallenge();
 			int userIncrement = adminService.getUserCntByDate();
 			int accountIncrement = adminService.getAccountCntByDate();
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

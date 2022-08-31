@@ -54,7 +54,7 @@
 		where trip_challenge_id=
 	</select> -->
 	
-	<select id="getTripChallenge" resultType="tripChallenge">
+	<select id="getAllTripChallenge" resultType="tripChallenge">
 		select trip_challenge_id, trip_challenge_name, start_date,
 		end_date, hits, reward_point, challenge_image,is_deleted
 		from trip_challenge

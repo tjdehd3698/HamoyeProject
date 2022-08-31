@@ -127,7 +127,7 @@ public class UserTest {
 		String nowYear = LocalDate.now().format(formatter);
 		System.out.println(nowYear);
 		
-		int size = session.selectOne("getUserByDate", nowYear);
+		int size = session.selectOne("getUserCntByDate", nowYear);
 		System.out.println(size);
 	}
 }

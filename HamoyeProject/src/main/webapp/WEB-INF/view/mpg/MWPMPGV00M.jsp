@@ -10,7 +10,7 @@
 <meta content="" name="keywords">
 <meta content="" name="description">
  
-<script type="text/javascript">
+<script type="text/javascript"> 
 $(function() {
 	$('#depositBtn').click(function () { 
     	if(${result.account != null}){

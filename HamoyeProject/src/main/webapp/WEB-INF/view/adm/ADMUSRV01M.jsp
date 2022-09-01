@@ -33,6 +33,7 @@
 	                        </div>
 	                        <div class="card-body">
 	                        	<form method="post" name="FrmRegister" action="adminUpdateUser.do">
+	                        		<input type="hidden" id="userId" name="userId" value="${result.userId}"/>
 									<div class="mb-5">
 										<div class="mb-3 row">
 										    <p class="col-sm-2 col-form-label">ID</p>
@@ -94,7 +95,7 @@
 								        </div>
 								        <div class="my-3 row">
 											<p class="col-sm-2 col-form-label">챌린지</p>
-										    <p class="col-sm-10 col-form-label">${result.ecoChallenge}</p>
+										    <p class="col-sm-10 col-form-label">${result.ecoChallenge.ecoChallengeName}</p>
 								        </div>
 								        <div class="my-3 row">
 										    <label for="participationCount" class="col-sm-2 col-form-label">참여횟수</label>
@@ -121,6 +122,8 @@
    	<script type="text/javascript">
 		$(document).ready(function() {
 			$(".nav-item:eq(1)").addClass("active");
+			
+// 			$("#nextPage").ㅐㅜ
 		});
 	</script>
 </body>

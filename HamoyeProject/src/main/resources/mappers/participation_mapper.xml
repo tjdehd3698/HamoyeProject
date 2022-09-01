@@ -38,7 +38,7 @@
 		where to_char(participation_date, 'yyyyMM') = #{value}
 	</select>
 	
-	<select id="getParticipationCntByTripChallenge" parameterType="string" resultType="particiapation">
+	<select id="getParticipationCntByTripChallenge" parameterType="string" resultType="participation">
 		select participation_id, participation_date, achievement_rate, is_success, user_id, trip_challenge_id
 		from participation
 		where trip_challenge_id = #{value}

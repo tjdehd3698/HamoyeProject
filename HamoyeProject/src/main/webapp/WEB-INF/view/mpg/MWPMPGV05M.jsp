@@ -48,7 +48,7 @@ $(function(){
 		var userPassword = "&userPassword="+$("#password").val();
 		var point = "&amount="+$("#DBPoint").val();
 		
-		if(confirm($(userName)+"님의 "+$("#accountNumber").val()+"계좌로 "+$("#DBPoint").val()+"원을 입급합니다.")) {
+		if(confirm("${userName}님의  ${accountNumber}계좌로 "+$("#DBPoint").val()+"원을 입급합니다.")) {
 			if(${totalPoint}<3000){
 				alert("보유 포인트가 3000포인트 이상이 되어야 가능합니다.");
 				$("#password").val("");

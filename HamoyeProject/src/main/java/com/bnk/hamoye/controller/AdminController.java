@@ -32,7 +32,7 @@ public class AdminController {
 		return "adm/ADMCMNV00M";
 	}
 
-	@PostMapping("adminLogin.do")
+	@PostMapping("adminLogin.do") //관리자 로그인
 	@ResponseBody
 	public String adminLogin(User user, HttpSession session) {
 		try {
@@ -57,7 +57,7 @@ public class AdminController {
 		return "adm/ADMCMNV00M";
 	}
 	
-	@RequestMapping("adminIndex.do")
+	@RequestMapping("adminIndex.do")	//관리자 메인 페이지
 	public String adminIndex(Model model) {
 		try {
 			//전체 회원 수 조회
@@ -108,7 +108,7 @@ public class AdminController {
 		return "adm/ADMUSRV00M";
 	}
 	
-	@PostMapping("adminUpdateUser.do")
+	@PostMapping("adminUpdateUser.do") //관리자 user정보 업데이트
 	public String adminUpdateUser(User user) {
 		try {
 			userService.updateUser(user);
@@ -118,7 +118,7 @@ public class AdminController {
 		return "adm/ADMUSRV00M";
 	}
 	
-	@GetMapping("adminGetAllUser.do")
+	@GetMapping("adminGetAllUser.do") //모든 유저 리스트 조회
 	public String adminGetAllUser(Model model) {
 		try {
 			List<User> list = adminService.getAllUser();
@@ -130,7 +130,7 @@ public class AdminController {
 		return "adm/ADMUSRV00M";
 	}
 	
-	@GetMapping("adminGetUser.do")
+	@GetMapping("adminGetUser.do") //관리자 특정 유저 정보 조회
 	public String getUserInfoByAdmin(Model model, String userId) {
 		try {
 			User user = adminService.getUserInfoByAdmin(userId);

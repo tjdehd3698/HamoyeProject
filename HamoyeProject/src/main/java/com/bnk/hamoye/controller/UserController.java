@@ -25,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 	private final UserService userService;
 	
-	@PostMapping("register.do")
+	@PostMapping("register.do") //회원가입
 	public String registerUser(User user, Model model) {
 		try {
 			userService.registerUser(user);
@@ -36,7 +36,7 @@ public class UserController {
 		}
 	}
 	
-	@PostMapping("duplicateId.do")
+	@PostMapping("duplicateId.do") //아이디 중복 확인
 	@ResponseBody
 	public String duplicateId( User user,Model model) {
 		boolean result;
@@ -50,7 +50,7 @@ public class UserController {
 		return "";
 	}
 	
-	@PostMapping("login.do")
+	@PostMapping("login.do") //로그인
 	@ResponseBody
 	public String login(User user, HttpSession session) {
 		try {
@@ -70,7 +70,7 @@ public class UserController {
 		return "";
 	}
 	
-	@RequestMapping("logout.do")
+	@RequestMapping("logout.do") //로그아웃
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "index";
@@ -119,27 +119,7 @@ public class UserController {
 //		}
 //		return "";
 //	}
-//	
-//	@PostMapping()
-//	public String updateUser(User user) {
-//		try {
-//			userService.updateUser(user);
-//		} catch (SQLException e) {
-//			System.out.println("updateUser 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
 
-//	
-//	@PostMapping()
-//	public String withdraw(HttpSession session) {
-//		try {
-//			userService.withdrawUser((String)session.getAttribute("user"));
-//		} catch (SQLException e) {
-//			System.out.println("withdraw 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
 	
 //	@GetMapping()
 //	public String checkEcoChallenge(HttpSession session, Model model) {

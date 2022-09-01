@@ -22,6 +22,7 @@ import com.bnk.hamoye.model.ParticipationDAO;
 import com.bnk.hamoye.model.PointDAO;
 import com.bnk.hamoye.model.TripChallengeDAO;
 import com.bnk.hamoye.model.UserDAO;
+import com.bnk.hamoye.model.impl.UserDAOImpl;
 import com.bnk.hamoye.service.AdminService;
 
 import lombok.RequiredArgsConstructor;
@@ -67,13 +68,17 @@ public class AdminServiceImpl implements AdminService{
 			
 			int count = 0;
 			for(User u : list2) {
+				System.out.println(u.getUserId()+"/"+u.getParticipationCount()+"/"+e.getTotalCount());
 				if(e.getTotalCount()<=u.getParticipationCount()) count++;
 			}
 			
-			if(list2.size()==0)
+			if(list2.size()==0) {
 				status.setSuccessPercent(0);
-			else
+			}else {
+				System.out.println("list2size : "+count+"/"+list2.size());
 				status.setSuccessPercent((count/list2.size())*100);
+			}
+			
 			result.add(status);
 		}
 		return result;
@@ -156,5 +161,10 @@ public class AdminServiceImpl implements AdminService{
 			return userDAO.getUserInfoByAdminWithNoEco(userId);
 		}
 		return userDAO.getUserInfoByAdmin(userId);
+	}
+
+	@Override
+	public int updateUserByAdmin(User user) throws Exception {
+		return userDAO.updateUserByAdmin(user);
 	}
 }

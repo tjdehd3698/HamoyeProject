@@ -113,9 +113,9 @@ public class AdminController {
 	@PostMapping("adminUpdateUser.do")
 	public String adminUpdateUser(User user) {
 		try {
-			userService.updateUser(user);
-		} catch (SQLException e) {
-			System.out.println("updateUser 에러 : "+ e.getMessage());
+			adminService.updateUserByAdmin(user);
+		} catch (Exception e) {
+			System.out.println("adminUpdateUser 에러 : "+ e.getMessage());
 		}
 		return "adm/ADMUSRV00M";
 	}

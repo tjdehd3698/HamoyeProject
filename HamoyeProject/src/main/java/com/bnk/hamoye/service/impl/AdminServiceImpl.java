@@ -68,18 +68,20 @@ public class AdminServiceImpl implements AdminService{
 			
 			int count = 0;
 			for(User u : list2) {
-				System.out.println(u.getUserId()+"/"+u.getParticipationCount()+"/"+e.getTotalCount());
 				if(e.getTotalCount()<=u.getParticipationCount()) count++;
 			}
 			
 			if(list2.size()==0) {
 				status.setSuccessPercent(0);
 			}else {
-				System.out.println("list2size : "+count+"/"+list2.size());
-				status.setSuccessPercent((count/list2.size())*100);
+				status.setSuccessPercent((double)count/(double)list2.size()*100.0);
 			}
 			
 			result.add(status);
+			
+			for(Status s : result) {
+				System.out.println(s);
+			}
 		}
 		return result;
 	}
@@ -109,7 +111,7 @@ public class AdminServiceImpl implements AdminService{
 			if(list.size()==0)
 				status.setSuccessPercent(0);
 			else
-				status.setSuccessPercent(participateCnt/list.size()*100);
+				status.setSuccessPercent((double)participateCnt/(double)list.size()*100.0);
 			result.add(status);
 		}
 		return result;

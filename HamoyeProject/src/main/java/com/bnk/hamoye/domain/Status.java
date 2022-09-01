@@ -7,5 +7,5 @@ public class Status {
 	private String challengeId;
 	private String challengeName;
 	private int userCnt;
-	private int successPercent;
+	private double successPercent;
 }

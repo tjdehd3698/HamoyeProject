@@ -8,6 +8,6 @@ public class TripStatus {
 	private String challengeId;
 	private String challengeName;
 	private int userCnt;
-	private int successPercent;
+	private double successPercent;
 	private int totalPoint;
 }

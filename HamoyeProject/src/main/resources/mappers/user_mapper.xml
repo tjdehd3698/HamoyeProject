@@ -47,6 +47,7 @@
 		<result column="email" property ="email"/>
 		<result column="gender" property ="gender"/>
 		<result column="user_address" property ="userAddress"/>
+		<result column="account_number" property='accountNumber'/>
 		<result column="register_date" property ="registerDate"/>
 		<result column="eco_challenge_id" property ="ecoChallengeId"/>
 		<result column="participation_count" property ="participationCount"/>

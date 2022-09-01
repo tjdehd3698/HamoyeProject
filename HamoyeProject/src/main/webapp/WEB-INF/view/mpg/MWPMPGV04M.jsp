@@ -37,14 +37,16 @@ tbody>tr>td:first-child:before {
     <!-- Page Header End -->
     <div class="container mb-5 wow fadeIn" data-wow-delay="0.1s">
 		<div class="container">
-		<h1 style="text-align: center;">동백 포인트 적립/사용 내역</h1>
+		<h1 style="text-align: center;">챌린지 참여 내역</h1>
 	  	<table class="rwd-table">
 	    <tbody> 
 	      <tr>
 	        <th>순번</th>
 	        <th>항목</th> 
 	        <th>포인트</th>
-	        <th>적립일자</th> 
+	        <th>시작일자</th>
+	        <th>달성률</th>
+	        <th>성공여부</th> 
 	      </tr> 
 	      <c:forEach var="item" items="${result}" varStatus="status"> 
 		      <tr>
@@ -57,8 +59,14 @@ tbody>tr>td:first-child:before {
 	        	<td data-th="포인트">
 	        	  	${item.tripChallenge.rewardPoint}
 	        	</td>
-	        	<td data-th="적립일자">
+	        	<td data-th="시작일자">
 	        	  	${item.participationDate}
+	        	</td> 
+	        	<td data-th="달성률">
+	        	  	${item.achievementRate}
+	        	</td> 
+	        	<td data-th="성공여부">
+	        	  	${item.isSuccess}
 	        	</td> 
 	      	</tr>
 	      </c:forEach>

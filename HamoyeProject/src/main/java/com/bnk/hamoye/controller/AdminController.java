@@ -31,7 +31,7 @@ public class AdminController {
 	public String adminLoginPage() {
 		return "adm/ADMCMNV00M";
 	}
-	
+
 	@PostMapping("adminLogin.do")
 	@ResponseBody
 	public String adminLogin(User user, HttpSession session) {
@@ -62,6 +62,11 @@ public class AdminController {
 		return "adm/ADMCMNV01M";
 	}
 	
+	@RequestMapping("adminUser.do")
+	public String adminUserPage() {
+		return "adm/ADMUSRV00M";
+	}
+	
 	@PostMapping("adminUpdateUser.do")
 	public String adminUpdateUser(User user) {
 		try {
@@ -77,11 +82,25 @@ public class AdminController {
 		try {
 			List<User> list = adminService.getAllUser();
 			model.addAttribute("result",list);
+			System.out.println(list);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "";
+		return "adm/ADMUSRV00M";
+	}
+	
+	@GetMapping("adminGetUser.do")
+	public String getUserInfoByAdmin(Model model, String userId) {
+		System.out.println("==================="+userId);
+		try {
+			User user = adminService.getUserInfoByAdmin(userId);
+			model.addAttribute("result", user);
+			System.out.println(user);
+		} catch (Exception e) {
+			System.out.println("getUserInfoByAdmin 에러 : "+ e.getMessage());
+		}
+		return "adm/ADMUSRV01M";
 	}
 	
 	@GetMapping("getAdminPageInfo.do")
@@ -114,5 +133,9 @@ public class AdminController {
 		return "";	
 	}
 
+	@RequestMapping("adminChallenge.do")
+	public String adminChallengePage() {
+		return "adm/ADMCHLV00M";
+	}
 	
 }

@@ -23,5 +23,6 @@ public interface UserDAO {
 	List<User> getUserByEcoChallenge(String ecoChallengeId) throws SQLException; //해당 에코챌린지 가입 중인 유저 조회
 	User getMypageInfoWithNoEco(String userId) throws SQLException; //에코챌린지 가입 안한 회원 마이페이지 정보 조회
 	int getUserCntByDate(String date) throws SQLException; //날짜별 유저가져오기
+	User getUserInfoByAdmin(String userId) throws SQLException;	//관리자가 회원 정보 조회
 }
  

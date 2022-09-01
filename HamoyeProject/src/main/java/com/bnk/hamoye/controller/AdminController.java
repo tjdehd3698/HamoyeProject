@@ -58,53 +58,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping("adminIndex.do")
-	public String adminIndex() {
-		return "adm/ADMCMNV01M";
-	}
-	
-	@RequestMapping("adminUser.do")
-	public String adminUserPage() {
-		return "adm/ADMUSRV00M";
-	}
-	
-	@PostMapping("adminUpdateUser.do")
-	public String adminUpdateUser(User user) {
-		try {
-			userService.updateUser(user);
-		} catch (SQLException e) {
-			System.out.println("updateUser 에러 : "+ e.getMessage());
-		}
-		return "mpg/MWPMPGV01M";
-	}
-	
-	@GetMapping("adminGetAllUser.do")
-	public String adminGetAllUser(Model model) {
-		try {
-			List<User> list = adminService.getAllUser();
-			model.addAttribute("result",list);
-			System.out.println(list);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return "adm/ADMUSRV00M";
-	}
-	
-	@GetMapping("adminGetUser.do")
-	public String getUserInfoByAdmin(Model model, String userId) {
-		System.out.println("==================="+userId);
-		try {
-			User user = adminService.getUserInfoByAdmin(userId);
-			model.addAttribute("result", user);
-			System.out.println(user);
-		} catch (Exception e) {
-			System.out.println("getUserInfoByAdmin 에러 : "+ e.getMessage());
-		}
-		return "adm/ADMUSRV01M";
-	}
-	
-	@GetMapping("getAdminPageInfo.do")
-	public String getAdminPageInfo(Model model) {
+	public String adminIndex(Model model) {
 		try {
 			int totalUserCnt = adminService.getAllUser().size();
 			model.addAttribute("totalUserCnt", totalUserCnt);
@@ -125,12 +79,49 @@ public class AdminController {
 			Map<String, Integer> challengeDateCnt = adminService.getTripChallengeCntByMonth();
 			model.addAttribute("challengeDateCnt", challengeDateCnt);
 			
-			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "";	
+		return "adm/ADMCMNV01M";
+	}
+	
+	@RequestMapping("adminUser.do")
+	public String adminUserPage() {
+		return "adm/ADMUSRV00M";
+	}
+	
+	@PostMapping("adminUpdateUser.do")
+	public String adminUpdateUser(User user) {
+		try {
+			userService.updateUser(user);
+		} catch (SQLException e) {
+			System.out.println("updateUser 에러 : "+ e.getMessage());
+		}
+		return "adm/ADMUSRV00M";
+	}
+	
+	@GetMapping("adminGetAllUser.do")
+	public String adminGetAllUser(Model model) {
+		try {
+			List<User> list = adminService.getAllUser();
+			model.addAttribute("result",list);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "adm/ADMUSRV00M";
+	}
+	
+	@GetMapping("adminGetUser.do")
+	public String getUserInfoByAdmin(Model model, String userId) {
+		try {
+			User user = adminService.getUserInfoByAdmin(userId);
+			model.addAttribute("result", user);
+		} catch (Exception e) {
+			System.out.println("getUserInfoByAdmin 에러 : "+ e.getMessage());
+		}
+		return "adm/ADMUSRV01M";
 	}
 
 	@RequestMapping("adminChallenge.do")

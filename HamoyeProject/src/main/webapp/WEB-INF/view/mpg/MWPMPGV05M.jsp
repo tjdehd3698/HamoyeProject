@@ -71,7 +71,7 @@ $(function(){
 					}
 					
 				});
-			}
+			} 
 			else{
 				alert("금액은 3000원 이상 ${totalPoint}이하여야 합니다.");
 				$("#DBPoint").val("");

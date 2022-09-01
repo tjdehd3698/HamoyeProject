@@ -36,8 +36,18 @@
 			}
 		});
   }); 
+  $(function(){
+		$("#userout_totheback").on("click",function(){
+			window.location.href ="mypage.do";
+		});
+  });
   </script>
-  
+   <style>@font-face {
+    font-family: 'ParkYongJun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/ParkYongJun.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}</style>
 </head>
 <body id="userout_body">
 
@@ -61,11 +71,15 @@
      <div class="container-fluid mb-5 wow fadeIn" data-wow-delay="0.3s">
 		<ul class="mypage_statistics">
 		 	<li class="mypage_sure">
-				 <font id="userout_font" size="7" >정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font>
-				 <form   action="userout.do" method="post">
-				  <br><br>비밀번호 입력 &nbsp<input type="password" id="password" name="userPassword"><br><br>
-				  <input id="userout_submit" type="button" value="계좌해지">
-				  </form>
+				 <font id="userout_font" size="7" >정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font> 
+				  <br><div class="mb-3 row">
+						   <font id="userout_font" size="4" > 비밀번호 확인 </font> 
+						    <div class="col-sm-12">
+								<input type="password"  name="userPassword" class="form-control" id="password" >
+						    </div>  
+						</div>
+				   <input id="userout_submit" type="button" value="계좌해지">  
+				   <input id="userout_totheback" type="button" value="돌아가기">  
 			</li>
 			<li class="cryImg">
 				<img class="display-4 text-white animated slideInUp mb-4" src="img/cry.jpg" alt="" /> 

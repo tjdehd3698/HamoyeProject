@@ -101,14 +101,14 @@
 			border: solid 1px;
 			border-radius: 100%;
 		}
-			.mypage_icon.alt:before {
+			/* .mypage_icon.alt:before {
 				display: block;
 				font-size: 1.25em;
 				width: 2em;
 				height: 2em;
 				text-align: center;
 				line-height: 2em;
-			}
+			} */
 		.mypage_icon.style1 {
 			color: #efa8b0;
 		}
@@ -135,10 +135,10 @@
 			}
 		}
 		@media screen and (max-width: 736px) {
-			.mypage_icon.mypage_major {
+			/* .mypage_icon.mypage_major {
 				margin: 0 0 1.5em 0;
 				padding: 0.35em;
-			}
+			} */
 				.mypage_icon.mypage_major:before {
 					font-size: 3.5rem;
 				}
@@ -851,9 +851,19 @@
 /*////////////////////////////////////////////////////MWPMPGV02M.jsp///////////////////////////////////////////////////////////*/
 
 #userout_font {
-	 font-family: 'Jeju Hallasan', cursive; 
-	color:#2b3886;
+	 /* font-family: 'Jeju Hallasan', cursive;*/ 
+	color:#2b3886; 
+    font-family: 'ParkYongJun'; 
 }
+#userout_submit, #userout_totheback{
+	padding : 10px 15px;
+	border-radius: 10px;
+	background-color:#2b3886;
+	color:#e6ebff;
+}
+ #userout_totheback{
+ 	margin-left : 10em;
+ }
 /* #userout_body {
 	text-align : center;    
 } */

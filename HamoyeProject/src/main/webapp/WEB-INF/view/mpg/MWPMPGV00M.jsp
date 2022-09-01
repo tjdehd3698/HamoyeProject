@@ -182,9 +182,9 @@ $(function(){
 			                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
 			                                		<i class="fa fa-arrow-right"></i>
 			                            		</div>
-			                       			</a>
-											<div><br>
-												<h5 id="progressNow" >진행현황</h5>
+			                       			</a><br>
+			                       			<p id="progressNow"><b  style="color:gray">진행현황</b></p>
+											<div><br><br>
 													<div style=" position: relative; height: 40px;">
 														<progress class="container" value="${result.participationCount}" max="${result.ecoChallenge.totalCount}"  id="progress"></progress>
 		    											<p style="position: absolute; top: 10px; right: 35px; margin-bottom: 10px;">목표횟수 ${result.ecoChallenge.totalCount} 회 중, ${result.participationCount}회 달성! </p>
@@ -277,11 +277,9 @@ $(function(){
                        					</a>
 									</li>	
 								</ul>
-							</section>
-
+							</section> 
 					</div> 
-			</div>
- 
+			</div> 
  <jsp:include page="../footer.jsp"></jsp:include>
 
     <!-- Back to Top -->

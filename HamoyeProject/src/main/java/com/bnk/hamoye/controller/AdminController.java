@@ -60,22 +60,39 @@ public class AdminController {
 	@RequestMapping("adminIndex.do")
 	public String adminIndex(Model model) {
 		try {
+			//전체 회원 수 조회
 			int totalUserCnt = adminService.getAllUser().size();
 			model.addAttribute("totalUserCnt", totalUserCnt);
+			
+			//전체 계좌 수 조회
 			int totalAccountCnt = adminService.getAllAcountCnt();
 			model.addAttribute("totalAccountCnt", totalAccountCnt);
+			
+			//모든 지구를 떠나요 통계 조회
 			List<Status> ecoList = adminService.getAllEcoChallenge();
 			model.addAttribute("ecoList", ecoList);
+			
+			//오늘 회원 수 증가 조회
 			int userIncrement = adminService.getUserCntByDate();
 			model.addAttribute("userIncrement", userIncrement);
+			
+			//오늘 계좌 수 증가 조회
 			int accountIncrement = adminService.getAccountCntByDate();
 			model.addAttribute("accountIncrement", accountIncrement);
+			
+			//전체 계좌 금액 조회
 			int accountBalanceSum = adminService.getBalanceSum();
 			model.addAttribute("accountBalanceSum", accountBalanceSum);
+			
+			//전체 포인트 금액 조회
 			int pointSum = adminService.getPointSum();
 			model.addAttribute("pointSum", pointSum);
+			
+			//부산으로 떠나요 챌린지 통계 조회
 			List<TripStatus> tripList = adminService.getAllTripChallenge();
 			model.addAttribute("tripList", tripList);
+			
+			//부산을 떠나요 챌린지 최근 12개월 증가량 조회
 			Map<String, Integer> challengeDateCnt = adminService.getTripChallengeCntByMonth();
 			model.addAttribute("challengeDateCnt", challengeDateCnt);
 			

@@ -35,7 +35,7 @@
 	<select id="getParticipationCntByDate" parameterType = "string" resultType="int">
 		select count(participation_id)
 		from participation
-		where to_char(participation_date, YYYYMM) = #{value}
+		where to_char(participation_date, 'yyyyMM') = #{value}
 	</select>
 	
 </mapper>

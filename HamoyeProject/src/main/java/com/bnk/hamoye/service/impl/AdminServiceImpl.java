@@ -70,7 +70,10 @@ public class AdminServiceImpl implements AdminService{
 				if(e.getTotalCount()<=u.getParticipationCount()) count++;
 			}
 			
-			status.setSuccessPercent((count/list2.size())*100);
+			if(list2.size()==0)
+				status.setSuccessPercent(0);
+			else
+				status.setSuccessPercent((count/list2.size())*100);
 			result.add(status);
 		}
 		return result;
@@ -95,7 +98,10 @@ public class AdminServiceImpl implements AdminService{
 			status.setChallengeName(t.getTripChallengeName());
 			status.setHits(t.getHits());
 			status.setUserCnt(list.size());
-			status.setSuccessPercent(participateCnt/list.size()*100);
+			if(list.size()==0)
+				status.setSuccessPercent(0);
+			else
+				status.setSuccessPercent(participateCnt/list.size()*100);
 			result.add(status);
 		}
 		return result;

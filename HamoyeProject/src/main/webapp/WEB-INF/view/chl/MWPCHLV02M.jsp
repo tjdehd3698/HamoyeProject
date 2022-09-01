@@ -8,6 +8,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <link href="css/challenge.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>

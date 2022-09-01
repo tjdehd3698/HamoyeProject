@@ -19,7 +19,7 @@ public class EcoChallengeDAOImpl implements EcoChallengeDAO {
 	
 	@Override
 	public int registerEcoChallenge(EcoChallenge ecoChallenge) throws Exception {
-		return sqlSession.update(NS+"registerEcoChallenge", ecoChallenge);
+		return sqlSession.insert(NS+"registerEcoChallenge", ecoChallenge);
 	}
 	
 	@Override

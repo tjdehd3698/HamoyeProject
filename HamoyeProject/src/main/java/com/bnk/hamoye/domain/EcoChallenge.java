@@ -16,4 +16,5 @@ public class EcoChallenge{
 	private int isDelete;
 	private String content;
 	private int totalCount;
+	private String challengeImage;
 }

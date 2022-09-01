@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.Status;
+import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.AdminService;
@@ -173,6 +175,22 @@ public class AdminController {
 		} catch (Exception e) {
 			System.out.println("adminTripChallengeList 에러 : "+ e.getMessage());
 		}
+		return "";
+	}
+	
+	@PostMapping("updateEcoChallenge.do")
+	public String updateEcoChallenge(EcoChallenge ecoChallenge) {
+		try {
+			ecoChallengeService.updateEcoChallenge(ecoChallenge);
+		} catch (Exception e) {
+			System.out.println("updateEcoChallenge 에러 : "+ e.getMessage());
+		}
+		
+		return "";
+	}
+	
+	@PostMapping("updateTripChallenge.do")
+	public String updateTripChallenge(TripChallenge tripChallenge) {
 		return "";
 	}
 	

@@ -14,9 +14,10 @@
 		update eco_challenge
 		set eco_challenge_name = #{ecoChallengeName},
 		prime_rate = #{primeRate},
-		start_date = #{startDate},
 		end_date = #{endDate},
-		limited_people = #{limitedPeople}
+		limited_people = #{limitedPeople},
+		content = #{content},
+		challenge_image =#{challengeImage}
 		where eco_challenge_id = #{ecoChallengeId}
 	</update>
 	

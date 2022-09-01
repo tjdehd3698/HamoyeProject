@@ -15,5 +15,5 @@ public class TripChallenge{
 	private int rewardPoint;
 	private int isDelete;
 	private String content;
-	
+	private String challengeImage;
 }

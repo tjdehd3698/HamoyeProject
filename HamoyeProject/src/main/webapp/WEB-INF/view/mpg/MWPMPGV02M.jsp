@@ -64,7 +64,7 @@
 				 <font id="userout_font" size="7" >정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font>
 				 <form   action="userout.do" method="post">
 				  <br><br>비밀번호 입력 &nbsp<input type="password" id="password" name="userPassword"><br><br>
-				  <input id="userout_submit" type="button" value="회원탈퇴">
+				  <input id="userout_submit" type="button" value="계좌해지">
 				  </form>
 			</li>
 			<li class="cryImg">

@@ -118,8 +118,8 @@ public class MyPageController {
 		}
 		return "";
 	}*/
-	
-	@PostMapping() //계좌 해지
+	 
+	@PostMapping("expireAccount.do") //계좌 해지
 	@ResponseBody
 	public String expireAccount(HttpSession session, String userPassword, Model model) {
 		try {
@@ -130,9 +130,9 @@ public class MyPageController {
 			User findUser = userService.login(user);
 			if(findUser!= null) {
 				userService.expireAccount((String)session.getAttribute("user"));
-				model.addAttribute("result", "T");
+				return "T";
 			}
-			else model.addAttribute("result", "F");
+			else return "F";
 			
 		} catch (SQLException e) {
 			System.out.println("expireAccount 에러 : "+ e.getMessage());

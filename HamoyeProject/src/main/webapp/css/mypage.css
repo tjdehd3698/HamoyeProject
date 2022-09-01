@@ -17,12 +17,16 @@
 		-webkit-appearance: none;
         -moz-appearance: none;
         appearance: none; 
+        display:block; 
+        
 }
 #progress::-webkit-progress-bar {  
     background:#f0f0f0;
     border-radius:10px;
     box-shadow: inset 3px 3px 10px #ccc;
     margin: auto; 
+    height:40px;
+    
 }
 #progress::-webkit-progress-value {  
     border-radius:10px;
@@ -141,7 +145,7 @@
 		}
 	.mypage_account_text{
 		margin : 0 10%;
-	}
+	} 
 	.mypage_icon.mypage_major {
 		border-color: rgba(255, 255, 255, 0.35);
 	}
@@ -408,30 +412,40 @@
 			.spotlight .content header.mypage_major {
 				margin: 0 0 2em 0;
 			}
-.mypage_major>div>h1 , .mypage_major>div>h2 {
+.mypage_major>div>h1 , .mypage_major>div>h2,.mypage_major>div>h3 {
 	float:left;
 	padding-left:10%;
-	display:inline;
+	display:inline; 
 }
-.mypage_major>div>h4 {
-	float:right;
-	padding=right:10%;
+.mypage_major>div>h4 , .mypage_major>div>h5 {
+	float:right; 
 	display : inline;
+} .mypage_major>div>h5{
+	padding-top:2%;
 }
-.showPrice, .showAccount {
-	float:right;
-}
+ 
+ .showAccount,.showPrice {
+ 	color:gray;
+ 	float:right;
+	margin-right: 20%;
+ }
+ .showPrice {
+ 	
+
+ }
+ 
 		.spotlight .image {
 			display: inline-block;
 			margin-left: 1em;
+			margin-bottom:20%;
 			padding: 0.65em;
 			border-radius: 100%;
 			border: solid 1px;
-		}
+			}
 			.spotlight .image img {
 				display: block;
 				border-radius: 100%;
-				width: 16em;
+				width: 16em; 
 			}
 		@media screen and (max-width: 980px) {
 			.spotlight {
@@ -874,6 +888,9 @@
 .accOut {
 	text-align: center;
 }
+.accOut>h1 {
+	display:inline;
+}
 /*////////////////////////////////////////////////////MWPMPGV04M.jsp///////////////////////////////////////////////////////////*/
  
 .rwd-table {
@@ -1037,11 +1054,11 @@ background: linear-gradient(to left, #f4f8fb , #ebf2f8);
   	padding-left: 12%; 
 }
 #deposit_submit, #deposit_cancel{
-	padding : 20px 50px;
+	padding : 10px 25px;
 	border-radius: 5px;
 	background-color: #2b3886;
 	color: #e6ebff;
-	margin : 10px 20px 10px 20px;
+	margin : 5px 10px 5px 10px;
 }
 #deposit_submit {
 	float:left;
@@ -1051,4 +1068,7 @@ background: linear-gradient(to left, #f4f8fb , #ebf2f8);
 }
 #deposit_hrline {
 	padding-right:17%;
+}
+#pinfo{
+	display:inline;
 }

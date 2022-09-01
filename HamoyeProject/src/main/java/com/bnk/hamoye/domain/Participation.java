@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 public class Participation {
-	private String parcitipationId;
-	private Date parcitipationDate;
+	private String participationId;
+	private Date participationDate;
 	private int achievementRate;
 	private int isSuccess;
 	private String tripChallengId;

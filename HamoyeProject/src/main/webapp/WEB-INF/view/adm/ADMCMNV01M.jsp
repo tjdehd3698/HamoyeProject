@@ -37,7 +37,7 @@
 	                                        <div class="col mr-2">
 	                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 	                                                전체회원수</div>
-	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${totalUserCnt} 명</div>
+	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${totalUserCnt} 명<span class="small ml-2 text-danger">↑${userIncrement}</span></div>
 	                                        </div>
 	                                        <div class="col-auto">
 	                                            <i class="fas fa fa-users fa-2x text-gray-300"></i>
@@ -56,7 +56,7 @@
 	                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
 	                                                지구계좌수
 	                                            </div>
-	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${totalAccountCnt}</div>
+	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${totalAccountCnt}<span class="small ml-2 text-danger">↑${accountIncrement}</span></div>
 	                                        </div>
 	                                        <div class="col-auto">
 	                                            <i class="fas fa-globe fa-2x text-gray-300"></i>
@@ -113,7 +113,7 @@
 	                            <div class="card shadow mb-4">
 	                                <!-- Card Header - Dropdown -->
 	                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-	                                    <h6 class="m-0 font-weight-bold text-primary">동백포인트 월별 금액</h6>
+	                                    <h6 class="m-0 font-weight-bold text-primary">부산을 떠나요 챌린지 월별 증가량</h6>
 	                                </div>
 	                                <!-- Card Body -->
 	                                <div class="card-body">
@@ -183,12 +183,12 @@
 	                        <!-- Content Column -->
 	                        <c:forEach var="item" items="${tripList}">
 	                        <div class="col-lg-6 mb-4">
-								<div class="card shadow mb-4">
+								<div class="card shadow">
 	                                <div class="card-header py-3">
 	                                    <h6 class="m-0 font-weight-bold text-primary">${item.challengeName}</h6>
 	                                </div>
 	                                <div class="card-body text-gray-800">
-	                                	<div class="row align-items-center mb-3">
+	                                	<div class="row align-items-center mb-2">
 										    <div class="col">
 										      참여수
 										    </div>
@@ -206,32 +206,12 @@
 										</div>
 										<h4 class="small font-weight-bold">달성비율 <span class="float-right">${item.successPercent} %</span></h4>
 	                                    <div class="progress mb-2">
-                                        	<div class="progress-bar" role="progressbar" style="width:${item.successPercent}%" aria-valuenow="${item.successPercent}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        	<div class="progress-bar bg-success" role="progressbar" style="width:${item.successPercent}%" aria-valuenow="${item.successPercent}" aria-valuemin="0" aria-valuemax="100"></div>
 	                                    </div>
 	                                </div>
 	                            </div><!-- //card -->
 	                        </div>
 							</c:forEach>
-							
-	                        <div class="col-lg-6 mb-4">
-								<div class="card shadow mb-4">
-	                                <div class="card-header py-3">
-	                                    <h6 class="m-0 font-weight-bold text-primary">소상공인홍보</h6>
-	                                </div>
-	                                <div class="card-body text-gray-800">
-	                                	<div class="row align-items-center">
-										    <div class="col">
-										      클릭수
-										    </div>
-										    <div class="col text-right">
-										      <strong>0</strong>
-										    </div>
-										</div>
-	                                </div>
-	                            </div><!-- //card -->
-	                        </div>
-	                        
-	                        
 	                    </div>
 	                    
 	                </div>

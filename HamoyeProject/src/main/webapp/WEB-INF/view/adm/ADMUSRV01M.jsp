@@ -32,7 +32,7 @@
 	                            <h6 class="m-0 font-weight-bold text-primary">회원 상세내역</h6>
 	                        </div>
 	                        <div class="card-body">
-	                        	<form method="post" name="FrmRegister" action="adminUpdateUser.do">
+	                        	<form method="post" name="frmUpdateUser">
 	                        		<input type="hidden" id="userId" name="userId" value="${result.userId}"/>
 									<div class="mb-5">
 										<div class="mb-3 row">
@@ -106,8 +106,8 @@
 								        </div>
 									</div>
 									<div class="text-center">
-										<button class="btn btn-secondary px-5" style="height: 50px;" type="button" onclick="history.back()">목록</button>
-										<button class="btn btn-primary px-5" style="height: 50px;" type="submit" id="nextPage">수정</button>
+										<button class="btn btn-secondary px-5" style="height: 50px;" type="button" onclick="window.location.href='adminGetAllUser.do'">목록</button>
+										<button class="btn btn-primary px-5" style="height: 50px;" type="button" id="nextPage">수정</button>
 									</div>
 								</form>
 	                        </div>
@@ -123,7 +123,22 @@
 		$(document).ready(function() {
 			$(".nav-item:eq(1)").addClass("active");
 			
-// 			$("#nextPage").ㅐㅜ
+			$("#nextPage").on("click",function(){
+				
+				var queryString = $("form[name=frmUpdateUser]").serialize();
+
+				$.ajax({
+					type : "post",
+					url : "adminUpdateUser.do",
+					data : queryString,
+					success : function(result){
+						if(result=="T") alert("수정 완료되었습니다.");
+					},error: function(request, status, error){
+						alert("다시 시도해주세요.");
+// 					 	alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);
+					}
+				});
+			});
 		});
 	</script>
 </body>

@@ -5,8 +5,8 @@
 
 <mapper namespace="sql.hamoye.participation_mapper">
 	<resultMap type="participation" id="participationWithUserAndChallenge">
-		<id column="parcitipation_id" property="parcitipationId"/>
-		<result column="parcitipation_date" property ="parcitipationDate"/>
+		<id column="participation_id" property="participationId"/>
+		<result column="participation_date" property ="participationDate"/>
 		<result column="achievement_rate" property ="achievementRate"/>
 		<result column="is_success" property ="isSuccess"/>
 		<association property="tripChallenge" javaType="tripChallenge">
@@ -23,7 +23,7 @@
 		from participation p
 		join users u on p.user_id = u.user_id
 		join trip_challenge t on p.trip_challenge_id = t.trip_challenge_id
-		where p.user_id = #{value} and is_success = 1
+		where p.user_id = #{value}
 	</select>
 	
 	<select id="getAllUserByTripChallenge" parameterType= "string" resultType="participation">

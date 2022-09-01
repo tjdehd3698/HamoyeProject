@@ -10,4 +10,5 @@ public class TripStatus {
 	private int userCnt;
 	private int successPercent;
 	private int hits;
+	private int totalPoint;
 }

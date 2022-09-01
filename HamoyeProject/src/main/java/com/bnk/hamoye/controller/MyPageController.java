@@ -30,8 +30,8 @@ public class MyPageController {
 		} catch (SQLException e) {
 			System.out.println("updateUser 에러 : "+ e.getMessage());
 		}
-		return "mpg/MWPMPGV01M";
-	}
+		return "mpg/MWPMPGV00M";
+	} 
 	
 	@GetMapping("moveToChangeForm.do")
 	public String getUserInfo(Model model, HttpSession session) {

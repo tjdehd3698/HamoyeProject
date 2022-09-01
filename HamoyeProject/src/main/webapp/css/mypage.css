@@ -873,10 +873,7 @@
 /*////////////////////////////////////////////////////MWPMPGV03M.jsp///////////////////////////////////////////////////////////*/
 
 /*////////////////////////////////////////////////////MWPMPGV04M.jsp///////////////////////////////////////////////////////////*/
-/* @charset "UTF-8";
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
-* {font-family: 'Open Sans', sans-serif;}
- */
+ 
 .rwd-table {
   margin: auto;
   min-width: 300px;
@@ -1021,3 +1018,35 @@ background: linear-gradient(to left, #f4f8fb , #ebf2f8);
   100%  { transform: translateX(0)}
 } 
 /*////////////////////////////////////////////////////MWPMPGV05M.jsp///////////////////////////////////////////////////////////*/
+#deposit_title{
+	text-align:center;
+}
+#deposit_pinfo{
+	display:inline;
+}
+#deposit_frm {
+    border-radius:5px;
+ 	width: 80%;
+  	height: 40em;
+  	background-color: #f2f2f2;
+  	box-shadow: 1px 1px 20px 2px #c0c0c0;
+  	padding-top : 4%;
+  	margin-top:5%;
+  	padding-left: 12%; 
+}
+#deposit_submit, #deposit_cancel{
+	padding : 20px 50px;
+	border-radius: 5px;
+	background-color: #2b3886;
+	color: #e6ebff;
+	margin : 10px 20px 10px 20px;
+}
+#deposit_submit {
+	float:left;
+}
+#deposit_cancel {
+	float: right;
+}
+#deposit_hrline {
+	padding-right:17%;
+}

@@ -9,7 +9,15 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
     
-   <script src="js/mypage.js"></script> 
+   <script src="js/mypage.js"></script>  
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script type="text/javascript">
+  $(function(){
+		$("#mypage_submit").on("click",function(){
+			 alert("회원 수정되었습니다."); 
+		});
+  }); 
+  </script>
 </head>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
@@ -85,7 +93,7 @@
 						</div>
 					</div>
 				<input type="submit" id="mypage_submit" value="수정완료">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type = "button" id="mypage_cancel" onclick="location.href='MWPMPGV00M.jsp' " value="돌아가기"> <br><br>
+				<input type = "button" id="mypage_cancel" onclick="location.href='mypage.do' " value="돌아가기"> <br><br>
 				<input type = "button" id="mypage_userExit" onclick="location.href='moveToOut.do' " value="회원탈퇴"> <br><br>
 			</form>
     	</div>

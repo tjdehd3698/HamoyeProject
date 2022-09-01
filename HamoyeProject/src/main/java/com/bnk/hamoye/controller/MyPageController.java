@@ -31,7 +31,7 @@ public class MyPageController {
 			System.out.println("updateUser 에러 : "+ e.getMessage());
 		}
 		return "mpg/MWPMPGV00M";
-	}
+	} 
 	
 	@GetMapping("moveToChangeForm.do")
 	public String getUserInfo(Model model, HttpSession session) {

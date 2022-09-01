@@ -42,25 +42,25 @@ public class MyPageController {
 		return "mpg/MWPMPGV01M";
 	}
 
-//	@PostMapping()
-//	public String withdraw(HttpSession session,Model model, String userPassword) {
-//		try {
-//			User user = new User();
-//			user.setUserId((String)session.getAttribute("user"));
-//			user.setUserPassword(userPassword);
-//			
-//			User findUser = userService.login(user);
-//			if(findUser!=null) {
-//				userService.withdrawUser((String)session.getAttribute("user"));
-//				model.addAttribute("result", "T");
-//				session.invalidate();
-//			}
-//			else model.addAttribute("result", "F");
-//		} catch (SQLException e) {
-//			System.out.println("withdraw 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
+	@PostMapping("userout.do")
+	public String withdraw(HttpSession session,Model model, String userPassword) {
+		try {
+			User user = new User();
+			user.setUserId((String)session.getAttribute("user"));
+			user.setUserPassword(userPassword);
+			
+			User findUser = userService.login(user);
+			if(findUser!=null) {
+				userService.withdrawUser((String)session.getAttribute("user"));
+				model.addAttribute("result", "T");
+				session.invalidate();
+			}
+			else model.addAttribute("result", "F");
+		} catch (SQLException e) {
+			System.out.println("withdraw 에러 : "+ e.getMessage());
+		}
+		return "index";
+	}
 
 	@GetMapping("mypage.do")
 	public String getMyPageInfo(HttpSession session, Model model) {
@@ -157,7 +157,9 @@ public class MyPageController {
 		 User user;
 		try {
 			user = userService.getMypageInfo((String) session.getAttribute("user"));
-			model.addAttribute("result", user);
+			
+			model.addAttribute("accountNumber", user.getAccount().getAccountNumber());
+			model.addAttribute("totalPoint", user.getPoint().getTotalPoint());
 			
 		} catch (SQLException e) {
 			System.out.println("pageMoveToDeposit 에러 : "+ e.getMessage());

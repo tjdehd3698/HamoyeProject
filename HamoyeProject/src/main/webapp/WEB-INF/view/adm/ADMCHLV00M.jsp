@@ -75,6 +75,8 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$(".nav-item:eq(2)").addClass("active");
+			$(".nav-item:eq(2) .collapse").addClass("show");
+			$(".nav-item:eq(2) .collapse a:eq(0)").addClass("active");
 // 			$('#dataTable').DataTable();
 		});
 	</script>

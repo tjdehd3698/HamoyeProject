@@ -45,9 +45,23 @@ $(function(){
         <a class="nav-link" href="adminGetAllUser.do"><i class="fas fa fa-users"></i><span>회원관리</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="adminChallenge.do"><i class="fas fa-fw fa-list"></i><span>챌린지관리</span></a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#challengePages" aria-expanded="true" aria-controls="challengePages">
+            <i class="fas fa-fw fa-list"></i>
+            <span>챌린지관리</span>
+        </a>
+        <div id="challengePages" class="collapse" aria-labelledby="headingPages" data-parent="#challengePages">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">eco</h6>
+                <a class="collapse-item" href="adminChallenge.do">지구를 지켜요</a>
+                <div class="collapse-divider"></div>
+                <h6 class="collapse-header">trip</h6>
+                <a class="collapse-item" href="#none">떠나요 부산</a>
+            </div>
+        </div>
     </li>
+    
     <hr class="sidebar-divider">
+    
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>

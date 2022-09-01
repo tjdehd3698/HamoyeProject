@@ -35,7 +35,7 @@ $(function(){
         <div class="sidebar-brand-text mx-3">HAMOYE<br>관리시스템</div>
     </a>
     <hr class="sidebar-divider my-0">
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="adminIndex.do"><i class="fas fa-fw fa-chart-area"></i><span>대시보드</span></a>
     </li>
     <hr class="sidebar-divider">

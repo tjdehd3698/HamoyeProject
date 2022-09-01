@@ -75,7 +75,7 @@
 	                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
 	                                            	지구계좌 총예치금
 	                                            </div>
-	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">11,180,000</div>
+	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${accountBalanceSum}</div>
 	                                        </div>
 	                                        <div class="col-auto">
 	                                            <i class="fas fa fa-university fa-2x text-gray-300"></i>
@@ -153,82 +153,67 @@
 	                    </div>
 	                    <!-- Content Row -->
 	                    
-	                     <div class="row">
-	
-	                        <!-- Content Column -->
-	                        <div class="col-lg-6 mb-4">
-	                            <div class="card shadow mb-4">
+						<div class="row">
+		                    <!-- Content Column -->
+							<c:forEach var="item" items="${ecoList}">
+	                     	<div class="col-lg-6 mb-4">
+	                            <div class="card shadow">
 	                                <div class="card-header py-3">
-	                                    <h6 class="m-0 font-weight-bold text-primary">대중교통</h6>
+	                                    <h6 class="m-0 font-weight-bold text-primary">${item.challengeName}</h6>
 	                                </div>
-	                                <div class="card-body text-gray-800">
+	                            	<div class="card-body text-gray-800">
 	                                	<div class="row align-items-center mb-3">
 										    <div class="col">
 										      참여자수
 										    </div>
 										    <div class="col text-right">
-										      <strong>0</strong> 명
+										      <strong>${item.userCnt}</strong> 명
 										    </div>
 										</div>
-	                                    <h4 class="small font-weight-bold">달성비율 <span class="float-right">60%</span></h4>
+	                                    <h4 class="small font-weight-bold">달성비율 <span class="float-right">${item.successPercent} %</span></h4>
 	                                    <div class="progress mb-2">
-	                                        <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                        	<div class="progress-bar" role="progressbar" style="width:${item.successPercent}%" aria-valuenow="${item.successPercent}" aria-valuemin="0" aria-valuemax="100"></div>
 	                                    </div>
 	                                </div>
-	                            </div><!-- //card -->
+                            	</div><!-- //card -->
+                        	</div>
+							</c:forEach>
+	                        
+	
+	                        <!-- Content Column -->
+	                        <c:forEach var="item" items="${tripList}">
+	                        <div class="col-lg-6 mb-4">
 								<div class="card shadow mb-4">
 	                                <div class="card-header py-3">
-	                                    <h6 class="m-0 font-weight-bold text-primary">여행</h6>
+	                                    <h6 class="m-0 font-weight-bold text-primary">${item.challengeName}</h6>
 	                                </div>
 	                                <div class="card-body text-gray-800">
 	                                	<div class="row align-items-center mb-3">
 										    <div class="col">
-										      방문자수
+										      참여수
 										    </div>
 										    <div class="col text-right">
-										      <strong>0</strong> 명
+										      <strong>${userCnt}</strong> 명
 										    </div>
 										</div>
-	                                    <div class="row align-items-center mb-3">
+										<div class="row align-items-center mb-3">
 										    <div class="col">
-										      남은인원
+										      받은 동백포인트
 										    </div>
 										    <div class="col text-right">
-										      <strong>0</strong> 명
+										      <strong>${totalPoint}</strong>
 										    </div>
 										</div>
-										<div class="row align-items-center">
-										    <div class="col">
-										      총매출
-										    </div>
-										    <div class="col text-right">
-										      <strong>0</strong> 원
-										    </div>
-										</div>
+										<h4 class="small font-weight-bold">달성비율 <span class="float-right">${item.successPercent} %</span></h4>
+	                                    <div class="progress mb-2">
+                                        	<div class="progress-bar" role="progressbar" style="width:${item.successPercent}%" aria-valuenow="${item.successPercent}" aria-valuemin="0" aria-valuemax="100"></div>
+	                                    </div>
 	                                </div>
 	                            </div><!-- //card -->
 	                        </div>
-	
+							</c:forEach>
+							
 	                        <div class="col-lg-6 mb-4">
-	                            <div class="card shadow mb-4">
-	                                <div class="card-header py-3">
-	                                    <h6 class="m-0 font-weight-bold text-primary">봉사참여</h6>
-	                                </div>
-	                                <div class="card-body text-gray-800">
-	                                	<div class="row align-items-center mb-3">
-										    <div class="col">
-										      참여자수
-										    </div>
-										    <div class="col text-right">
-										      <strong>0</strong> 명
-										    </div>
-										</div>
-	                                    <h4 class="small font-weight-bold">달성비율<span class="float-right">10%</span></h4>
-	                                    <div class="progress mb-2">
-	                                        <div class="progress-bar bg-success" role="progressbar" style="width: 10%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-	                                    </div>
-	                                </div>
-	                            </div><!-- //card -->
 								<div class="card shadow mb-4">
 	                                <div class="card-header py-3">
 	                                    <h6 class="m-0 font-weight-bold text-primary">소상공인홍보</h6>
@@ -245,6 +230,8 @@
 	                                </div>
 	                            </div><!-- //card -->
 	                        </div>
+	                        
+	                        
 	                    </div>
 	                    
 	                </div>
@@ -261,6 +248,11 @@
 	<!-- Page level custom scripts -->
 	<script src="js/chart-area-admin.js"></script>
 	<script src="js/chart-pie-admin.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".nav-item:eq(0)").addClass("active");
+		});
+	</script>
 </body>
 </html>
 </c:when>

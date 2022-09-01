@@ -96,6 +96,8 @@ public class AdminController {
 			Map<String, Integer> challengeDateCnt = adminService.getTripChallengeCntByMonth();
 			model.addAttribute("challengeDateCnt", challengeDateCnt);
 			
+			
+			System.out.println(tripList);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -134,6 +136,7 @@ public class AdminController {
 	public String getUserInfoByAdmin(Model model, String userId) {
 		try {
 			User user = adminService.getUserInfoByAdmin(userId);
+			System.out.println(user.getAccountNumber());
 			model.addAttribute("result", user);
 		} catch (Exception e) {
 			System.out.println("getUserInfoByAdmin 에러 : "+ e.getMessage());

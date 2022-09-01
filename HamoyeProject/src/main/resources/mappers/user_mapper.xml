@@ -105,7 +105,7 @@
 	
 	<update id="updateUserByAdmin" parameterType="user">
 		update users
-		set user_name={userName}, birthday={birthday}, email=#{email}, user_address =#{userAddress}, participation_count={participationCount}
+		set user_name=#{userName}, birthday=#{birthday}, email=#{email}, user_address =#{userAddress}, participation_count=#{participationCount}
 		where user_id =#{userId}
 	</update>
 	

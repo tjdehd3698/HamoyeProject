@@ -137,7 +137,6 @@ public class AdminServiceImpl implements AdminService{
 			System.out.println("date : "+date);
 			result.put(date,participationDAO.getParticipationCntByDate(date));
 		}
-		
 		return result;
 	}
 

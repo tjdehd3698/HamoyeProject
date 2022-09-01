@@ -181,9 +181,11 @@
 		where user_id = #{value}
 	</update>
 	
-	<select id="getAllUser" resultType="user">
-		select user_id,user_name, register_date
-		from users
+	<select id="getAllUser" resultMap="userWithPointAndEcoChallenge">
+		select u.user_id, u.user_name, u.register_date, u.birthday, u.account_number, u.participation_count,
+		p.total_point
+		from users u
+		join point p on u.point_id = p.point_id
 		where is_admin=0 and is_withdraw=0
 	</select>
 	

@@ -2,6 +2,7 @@ package com.bnk.hamoye.controller;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +17,7 @@ import com.bnk.hamoye.domain.Status;
 import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.AdminService;
+import com.bnk.hamoye.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,9 +25,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AdminController {
 	private final AdminService adminService;
+	private final UserService userService;
 	
 	@RequestMapping("admin.do")
-	public String adminIndex() {
+	public String adminLoginPage() {
 		return "adm/ADMCMNV00M";
 	}
 	
@@ -48,8 +51,29 @@ public class AdminController {
 		return "";
 	}
 	
-	@GetMapping("getAllUser.do")
-	public String getAllUser(Model model) {
+	@RequestMapping("adminLogout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "adm/ADMCMNV00M";
+	}
+	
+	@RequestMapping("adminIndex.do")
+	public String adminIndex() {
+		return "adm/ADMCMNV01M";
+	}
+	
+	@PostMapping("adminUpdateUser.do")
+	public String adminUpdateUser(User user) {
+		try {
+			userService.updateUser(user);
+		} catch (SQLException e) {
+			System.out.println("updateUser 에러 : "+ e.getMessage());
+		}
+		return "mpg/MWPMPGV01M";
+	}
+	
+	@GetMapping("adminGetAllUser.do")
+	public String adminGetAllUser(Model model) {
 		try {
 			List<User> list = adminService.getAllUser();
 			model.addAttribute("result",list);
@@ -64,13 +88,24 @@ public class AdminController {
 	public String getAdminPageInfo(Model model) {
 		try {
 			int totalUserCnt = adminService.getAllUser().size();
+			model.addAttribute("totalUserCnt", totalUserCnt);
 			int totalAccountCnt = adminService.getAllAcountCnt();
+			model.addAttribute("totalAccountCnt", totalAccountCnt);
 			List<Status> ecoList = adminService.getAllEcoChallenge();
+			model.addAttribute("ecoList", ecoList);
 			int userIncrement = adminService.getUserCntByDate();
+			model.addAttribute("userIncrement", userIncrement);
 			int accountIncrement = adminService.getAccountCntByDate();
+			model.addAttribute("accountIncrement", accountIncrement);
 			int accountBalanceSum = adminService.getBalanceSum();
+			model.addAttribute("accountBalanceSum", accountBalanceSum);
 			int pointSum = adminService.getPointSum();
+			model.addAttribute("pointSum", pointSum);
 			List<TripStatus> tripList = adminService.getAllTripChallenge();
+			model.addAttribute("tripList", tripList);
+			Map<String, Integer> challengeDateCnt = adminService.getTripChallengeCntByMonth();
+			model.addAttribute("challengeDateCnt", challengeDateCnt);
+			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -78,4 +113,6 @@ public class AdminController {
 		}
 		return "";	
 	}
+
+	
 }

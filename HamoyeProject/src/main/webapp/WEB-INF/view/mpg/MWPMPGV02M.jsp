@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,72 +9,37 @@
  <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- MyPage Stylesheet -->    
-    <link href="css/mypage.css" rel="stylesheet">
-    <style type="text/css">
-@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
-font {
-	font-family: 'Jeju Hallasan', cursive;
-}
-body {
-	text-align : center;  
-	 
-}
-.outMain {
-	background-color: #E8E7DF;
-	background-image:   -moz-linear-gradient(45deg, #E8E7DF 15%, #E8E7DF 85%);
-	background-image:  -webkit-linear-gradient(45deg, #E8E7DF 15%, #E8E7DF 85%);
-		background-image:   -ms-linear-gradient(45deg, #E8E7DF 15%, #E8E7DF 85%);
-		background-image:   linear-gradient(45deg, #E8E7DF 15%, #E8E7DF 85%);
-}
-.statistics{
-	width: 50em;
-    height: 50em;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 5%;
-    
-}
-.sure , .outform{
-	float:left;
-	padding-top:5%;
-}
-ul{
-	list-style: none;
-}
-.cryImg{
-	float:right;
-
-}
-.cryImg img {
-	 box-shadow: inset 0 0 20px #E8E7DF;
-}
-</style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(function(){
+		$("#userout_submit").on("click",function(){
+			var password = "&userPassword="+$('#password').val();
+			$.ajax({
+				type:'post',
+				url:'userout.do',
+				data:password,
+				
+				success:function(result) {
+					if(result=="T"){
+						/* if(confirm('정말 회원탈퇴 하시겠습니까?')) { */
+							alert("회원탈퇴 되었습니다. 이용해주셔서 감사합니다.");
+							window.location.href ="index.jsp";
+						//}
+					}else{
+						alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+					}
+				},error:function(){ 
+					alert("다시 시도해주세요.");
+					
+				}
+			});
+		});
+  }); 
+  </script>
+  
 </head>
-<body>
+<body id="userout_body">
+
 <jsp:include page="../header.jsp"></jsp:include>
  <div class="outMain">
  <!-- Spinner Start -->
@@ -91,19 +57,19 @@ ul{
         </div>
     </div>
     <!-- Page Header End -->
-    
-		<ul class="statistics">
-		 	<li class="sure">
-				 <font  size="7" >정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font>
-				  <br><br>비밀번호 입력 &nbsp<input type="password" id="password"><br><br>
-				  <input type="submit" value="회원탈퇴">
+    <input type="hidden" id=pass value="${T}">
+		<ul class="mypage_statistics">
+		 	<li class="mypage_sure">
+				 <font id="userout_font" size="7" >정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font>
+				 <form   action="userout.do" method="post">
+				  <br><br>비밀번호 입력 &nbsp<input type="password" id="password" name="userPassword"><br><br>
+				  <input id="userout_submit" type="button" value="회원탈퇴">
+				  </form>
 			</li>
 			<li class="cryImg">
 				<img  src="img/cry.jpg" alt="" /> 
 			</li>	
-		</ul>
-	
-			
+		</ul> 
 			
 		 <jsp:include page="../footer.jsp"></jsp:include>
 

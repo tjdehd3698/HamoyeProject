@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,32 +9,6 @@
  <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- MyPage Stylesheet -->    
-    <link href="css/mypage.css" rel="stylesheet">
-    
     <style type="text/css">
  
     #frm {
@@ -66,6 +41,34 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
+
+<script type="text/javascript">
+$(function(){
+	$("#submit").on('click',function(){
+		var userPassword = "&userPassword="+$("#password").val();
+		var point = "&amount="+$("#DBPoint").val();
+		
+		if($("#DBPoint").val()>=3000 && $("#DBPoint").val()<=${totalPoint}){
+			$.ajax({
+				type:'post',
+				url:'deposit.do',
+				data: userPassword+point,
+				success:function(result) {
+					if(result=='F'){
+						alert("비밀번호가 맞지 않습니다.");
+						$("#password").focus();
+					}
+					else{
+						alert("성공하였습니다");
+					}
+				}
+				
+			});
+		}
+	});
+});
+
+</script>
  
  <!-- Spinner Start -->
     <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -85,7 +88,7 @@
 
 	<h1 style="text-align:center" class="container mb-5 wow fadeIn" data-wow-delay="0.1s">동백 포인트 계좌 입금</h1>
 	<div class="container mb-5 wow fadeIn" data-wow-delay="0.1s" id="frm" style="background-color:#FAFAFA " > 
-		<form action="deposit.do" id = Deposit>
+		<form action="#" method="post" id = "Deposit">
 			<div class="mb-5">
 				<div class="mb-3 row">
 					<label for="userId" class="col-md-3 col-form-label">입금은행</label>
@@ -93,42 +96,42 @@
 						<div class="position-relative"> 
 					        <input type="text"  class="form-control" id="bank" value="부산은행" disabled="disabled">
 					    </div>
-						&nbsp<span class="icon solid style4 fas fa-exclamation-circle" />
-						<p style="display:inline">&nbsp 동백포인트 전환은 부산은행으로의 이체만 가능해요!</p>
+						&nbsp;<span class="icon solid style4 fas fa-exclamation-circle" />
+						<p style="display:inline">&nbsp; 동백포인트 전환은 부산은행으로의 이체만 가능해요!</p>
 			    	</div>
 				</div>
 				<div class="mb-3 row">
 					<label for="userId" class="col-md-3 col-form-label">계좌번호</label>
 					<div class="col-sm-10">
 						<div class="position-relative"> 
-				        	<input type="text"  class="form-control" id="accountNum" value="${result.account.accountNumber}" disabled="disabled">
+				        	<input type="text"  class="form-control" id="accountNum" value="${accountNumber}" readonly="readonly">
 				        </div>
-				    	&nbsp<span class="icon solid style4 fas fa-exclamation-circle" />
-				        <p style="display:inline">&nbsp '-'를 제외하고 숫자만 입력해주세요!</p>	
+				    	&nbsp;<span class="icon solid style4 fas fa-exclamation-circle" />
+				        <p style="display:inline">&nbsp; '-'를 제외하고 숫자만 입력해주세요!</p>	
 				    </div>
 				</div>
 				<div class="mb-3 row">
-					<label for="userId" class="col-md-3 col-form-label">입금할 포인트</label>
+					<label for="userId" class="col-md-3 col-form-label">입금할 포인트 <h5>현재포인트 : ${totalPoint}</h5></label>
 					<div class="col-sm-10">
 						<div class="position-relative"> 
-					    	<input type="text"  class="form-control" id="DBPoint" placeholder="입금할 포인트를 숫자로 입력해주세요." required="required">
+					    	<input type="number" min ="3000" max="${totalPoint}" class="form-control" name ="amount" id="DBPoint" placeholder="입금할 포인트를 숫자로 입력해주세요." required="required" >
 					    </div>
-					    &nbsp<span class="icon solid style4 fas fa-exclamation-circle" />
-					    <p style="display:inline">&nbsp 3,000원 이상부터 입금이 가능해요!</p>
+					    &nbsp;<span class="icon solid style4 fas fa-exclamation-circle" />
+					    <p style="display:inline">&nbsp; 3,000원 이상부터 입금이 가능해요!</p>
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label for="userId" class="col-md-3 col-form-label">비밀번호확인</label>
 					<div class="col-sm-10">
 						<div class="position-relative"> 
-							<input type="password"  class="form-control" id="password" required="required">
+							<input type="password"  class="form-control" name="userPassword" id="password" required="required">
 				    	</div>
 					</div>
 				</div> 
 			</div>
 			<div id="hrline">
 				<hr>
-				<input type="submit" id="submit" value="계좌입금"> 
+				<input type="button" id="submit" value="계좌입금"> 
 				<input type = "button" id="cancel" onclick="location.href='MWPMPGV00M.jsp' " value="돌아가기"> <br><br>
 			</div>
 		</form>

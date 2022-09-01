@@ -12,24 +12,24 @@
 	
 	<delete id="deleteAccount" parameterType="string">
 		delete from account
-		where account_id =(select account_id from users where user_id=#{value})
+		where account_number =(select account_number from users where user_id=#{value})
 	</delete>
 	
 	<update id="updateBalance" parameterType="Map">
 		update account
 		set balance=balance+#{amount}
-		where account_id = (select account_id from users where user_id =#{id})
+		where account_number = (select account_number from users where user_id =#{userId})
 	</update>
 	
 	<select id="getAllAcountCnt" resultType="account">
-		select account_id
+		select account_number
 		from account
 	</select>
 	
 	<select id="getAccountCntByDate" parameterType="string" resultType="int">
-		select count(account_id)
+		select count(account_number)
 		from account
-		where to_char(create_date) = #{value}
+		where to_char(create_date, 'YYYYMMDD') = #{value}
 	</select>
 	
 	<select id="getBalanceSum" resultType="int">

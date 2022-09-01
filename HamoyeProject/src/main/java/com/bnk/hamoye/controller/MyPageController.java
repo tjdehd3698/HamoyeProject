@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.User;
@@ -21,15 +23,15 @@ import lombok.RequiredArgsConstructor;
 public class MyPageController {
 	private final UserService userService;
 	
-//	@PostMapping("moveToChangeForm.do")
-//	public String updateUser(User user) {
-//		try {
-//			userService.updateUser(user);
-//		} catch (SQLException e) {
-//			System.out.println("updateUser 에러 : "+ e.getMessage());
-//		}
-//		return "mpg/MWPMPGV01M";
-//	}
+	@PostMapping("change.do")
+	public String updateUser(User user) {
+		try {
+			userService.updateUser(user);
+		} catch (SQLException e) {
+			System.out.println("updateUser 에러 : "+ e.getMessage());
+		}
+		return "mpg/MWPMPGV01M";
+	}
 	
 	@GetMapping("moveToChangeForm.do")
 	public String getUserInfo(Model model, HttpSession session) {
@@ -42,25 +44,26 @@ public class MyPageController {
 		return "mpg/MWPMPGV01M";
 	}
 
-//	@PostMapping()
-//	public String withdraw(HttpSession session,Model model, String userPassword) {
-//		try {
-//			User user = new User();
-//			user.setUserId((String)session.getAttribute("user"));
-//			user.setUserPassword(userPassword);
-//			
-//			User findUser = userService.login(user);
-//			if(findUser!=null) {
-//				userService.withdrawUser((String)session.getAttribute("user"));
-//				model.addAttribute("result", "T");
-//				session.invalidate();
-//			}
-//			else model.addAttribute("result", "F");
-//		} catch (SQLException e) {
-//			System.out.println("withdraw 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
+	@PostMapping("userout.do")
+	@ResponseBody
+	public String withdraw(HttpSession session,Model model, String userPassword) {
+		try {
+			User user = new User();
+			user.setUserId((String)session.getAttribute("user"));
+			user.setUserPassword(userPassword);
+			
+			User findUser = userService.login(user);
+			if(findUser!=null) {
+				userService.withdrawUser((String)session.getAttribute("user"));
+				session.invalidate();
+				return "T";
+			}
+			else return "F";
+		} catch (SQLException e) {
+			System.out.println("withdraw 에러 : "+ e.getMessage());
+		}
+		return "";
+	}
 
 	@GetMapping("mypage.do")
 	public String getMyPageInfo(HttpSession session, Model model) {
@@ -92,15 +95,29 @@ public class MyPageController {
 
 		return "mpg/MWPMPGV00M";
 	}
-//	@PostMapping("deposit.do")
-//	public String changePoint(HttpSession session, int amount) {
-//		try {
-//			userService.changePoint((String)session.getAttribute("user"), amount);
-//		} catch (SQLException e) {
-//			System.out.println("changePoint 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
+	
+	@PostMapping("deposit.do")
+	@ResponseBody
+	public String changePoint(HttpSession session,int amount, String userPassword) {
+		try {
+			System.out.println("aaa");
+			User user = new User();
+			user.setUserId((String)session.getAttribute("user"));
+			user.setUserPassword(userPassword);
+			
+			User findUser = userService.login(user);
+			if(findUser!=null) {
+				System.out.println("t");
+				userService.changePoint((String)session.getAttribute("user"), amount);
+				return "T";
+				
+			}
+			else return "F";
+		} catch (SQLException e) {
+			System.out.println("changePoint 에러 : "+ e.getMessage());
+		}
+		return "";
+	}
 	
 //	@PostMapping()
 //	public String expireAccount(HttpSession session, String userPassword, Model model) {
@@ -148,7 +165,10 @@ public class MyPageController {
 		 User user;
 		try {
 			user = userService.getMypageInfo((String) session.getAttribute("user"));
-			model.addAttribute("result", user);
+			
+			model.addAttribute("accountNumber", user.getAccount().getAccountNumber());
+			model.addAttribute("totalPoint", user.getPoint().getTotalPoint());
+			
 		} catch (SQLException e) {
 			System.out.println("pageMoveToDeposit 에러 : "+ e.getMessage());
 		}

@@ -4,7 +4,9 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -123,5 +125,19 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public int getPointSum() throws Exception {
 		return pointDAO.getPointSum();
+	}
+
+	@Override
+	public Map<String, Integer> getTripChallengeCntByMonth() throws Exception {
+		Map<String,Integer> result = new HashMap<String, Integer>();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYYMM");
+		
+		for(int i=0;i<12;i++) {
+			String date = LocalDate.now().minusMonths(1).format(formatter);
+			System.out.println("date : "+date);
+			result.put(date,participationDAO.getParticipationCntByDate(date));
+		}
+		
+		return result;
 	}
 }

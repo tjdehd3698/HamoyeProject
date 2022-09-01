@@ -165,4 +165,17 @@ public class AdminServiceImpl implements AdminService{
 	public int updateUserByAdmin(User user) throws Exception {
 		return userDAO.updateUserByAdmin(user);
 	}
+
+	@Override
+	public Map<String, Integer> getUserCntByEcoChallenge() throws Exception {
+		Map<String, Integer> result = new HashMap<String, Integer>();
+		List<EcoChallenge> ecoChallengeList = ecoChallengeDAO.getEcoChallengeList();
+		
+		for(EcoChallenge e : ecoChallengeList) {
+			List<User> userList = userDAO.getUserByEcoChallenge(e.getEcoChallengeId());
+			result.put(e.getEcoChallengeId(), userList.size());
+		}
+		
+		return result;
+	}
 }

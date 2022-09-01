@@ -22,4 +22,5 @@ public interface AdminService {
 	Map<String,Integer> getTripChallengeCntByMonth() throws Exception;
 	User getUserInfoByAdmin(String userId) throws Exception;
 	int updateUserByAdmin(User user) throws Exception;
+	Map<String, Integer> getUserCntByEcoChallenge() throws Exception;
 }

@@ -17,6 +17,7 @@ import com.bnk.hamoye.domain.Status;
 import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.AdminService;
+import com.bnk.hamoye.service.EcoChallengeService;
 import com.bnk.hamoye.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 public class AdminController {
 	private final AdminService adminService;
 	private final UserService userService;
+	private final EcoChallengeService ecoChallengeService;
 	
 	@RequestMapping("admin.do")
 	public String adminLoginPage() {
@@ -148,6 +150,18 @@ public class AdminController {
 	@RequestMapping("adminChallenge.do")
 	public String adminChallengePage() {
 		return "adm/ADMCHLV00M";
+	}
+	
+	@GetMapping("adminEcoChallengeList.do")
+	public String adminEcoChallengeList(Model model) {
+		try {
+			model.addAttribute("ecoChallengeList", ecoChallengeService.getEcoChallengeList());
+			model.addAttribute("userCount", adminService.getUserCntByEcoChallenge());
+		} catch (Exception e) {
+			System.out.println("adminEcoChallengeList 에러 : "+ e.getMessage());
+		}
+		
+		return "";
 	}
 	
 }

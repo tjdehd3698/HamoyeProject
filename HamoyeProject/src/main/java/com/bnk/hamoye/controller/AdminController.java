@@ -136,6 +136,7 @@ public class AdminController {
 	public String getUserInfoByAdmin(Model model, String userId) {
 		try {
 			User user = adminService.getUserInfoByAdmin(userId);
+			System.out.println(user.getAccountNumber());
 			model.addAttribute("result", user);
 		} catch (Exception e) {
 			System.out.println("getUserInfoByAdmin 에러 : "+ e.getMessage());

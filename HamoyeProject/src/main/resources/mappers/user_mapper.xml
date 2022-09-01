@@ -49,6 +49,7 @@
 		<result column="register_date" property ="registerDate"/>
 		<result column="eco_challenge_id" property ="ecoChallengeId"/>
 		<result column="participation_count" property ="participationCount"/>
+		<result column="user_age" property ="userAge"/>
 		<association property="point" javaType="point">
 			<id column="point_id" property="pointId"/>
 			<result column="total_point" property="totalPoint"/>
@@ -121,7 +122,7 @@
 	
 	<select id="getUserInfoByAdmin" parameterType="string" resultMap="userWithPointAndEcoChallenge">
 		select 
-		u.user_name, u.birthday, u.email, u.user_address, u.register_date, u.gender, u.point_id, u.participation_count,
+		u.user_name, u.birthday, u.email, u.user_address, u.register_date, u.gender, u.point_id, u.participation_count,u.user_age
 		u.eco_challenge_id, p.total_point, e.eco_challenge_name, e.total_count
 		from users u 
 		join eco_challeng e on u.eco_challenge_id=e.eco_challenge_id
@@ -132,7 +133,7 @@
 	<select id="getUserInfoByAdminWithNoEco" parameterType="string" resultMap="userWithPointAndEcoChallenge">
 		select 
 		u.user_name, u.birthday, u.email, u.user_address, u.register_date, u.gender, u.point_id, u.participation_count,
-		u.eco_challenge_id, p.total_point
+		u.eco_challenge_id, p.total_point,u.user_age
 		from users u 
 		join point p on u.point_id =p.point_id
 		where user_id =#{value}

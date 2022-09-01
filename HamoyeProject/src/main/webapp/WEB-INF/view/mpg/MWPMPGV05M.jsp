@@ -9,42 +9,13 @@
  <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    <style type="text/css">
- 
-    #frm {
-    border-radius:5px;
- 	width: 80%;
-  	height: 40em;
-  	background-color: #f2f2f2;
-  	box-shadow: 1px 1px 20px 2px #c0c0c0;
-  	padding-top : 4%;
-  	margin-top:5%;
-  	padding-left: 12%; 
-    }
-    #submit, #cancel{
-	padding : 20px 50px;
-	border-radius: 5px;
-	background-color: #2b3886;
-	color: #e6ebff;
-	margin : 10px 20px 10px 20px;
-	}
-	#submit {
-		float:left;
-	}
-	#cancel {
-		float: right;
-	}
-	#hrline {
-		padding-right:17%;
-	}
-	</style>
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
 
 <script type="text/javascript">
 $(function(){
-	$("#submit").on('click',function(){
+	$("#deposit_submit").on('click',function(){
 		var userPassword = "&userPassword="+$("#password").val();
 		var point = "&amount="+$("#DBPoint").val();
 		
@@ -53,8 +24,7 @@ $(function(){
 				alert("보유 포인트가 3000포인트 이상이 되어야 가능합니다.");
 				$("#password").val("");
 				$("#DBPoint").val("");
-			}
-			else if($("#DBPoint").val()>=3000 && $("#DBPoint").val()<=${totalPoint}){
+			} else if($("#DBPoint").val()>=3000 && $("#DBPoint").val()<=${totalPoint}){
 				$.ajax({
 					type:'post',
 					url:'deposit.do',
@@ -68,11 +38,9 @@ $(function(){
 							alert("성공하였습니다");
 							location.reload();
 						}
-					}
-					
+					} 
 				});
-			} 
-			else{
+			}  else{
 				alert("금액은 3000원 이상 ${totalPoint}이하여야 합니다.");
 				$("#DBPoint").val("");
 			}
@@ -98,8 +66,8 @@ $(function(){
     </div>
     <!-- Page Header End -->
 
-	<h1 style="text-align:center" class="container mb-5 wow fadeIn" data-wow-delay="0.1s">동백 포인트 계좌 입금</h1>
-	<div class="container mb-5 wow fadeIn" data-wow-delay="0.1s" id="frm" style="background-color:#FAFAFA " > 
+	<h1 id="deposit_title" class="container mb-5 wow fadeIn" data-wow-delay="0.1s">동백 포인트 계좌 입금</h1>
+	<div class="container mb-5 wow fadeIn" data-wow-delay="0.1s" id="deposit_frm" > 
 		<form action="#" method="post" id = "Deposit">
 			<div class="mb-5">
 				<div class="mb-3 row">
@@ -109,7 +77,7 @@ $(function(){
 					        <input type="text"  class="form-control" id="bank" value="부산은행" disabled="disabled">
 					    </div>
 						&nbsp;<span class="icon solid style4 fas fa-exclamation-circle" />
-						<p style="display:inline">&nbsp; 동백포인트 전환은 부산은행으로의 이체만 가능해요!</p>
+						<p id="pinfo">&nbsp; 동백포인트 전환은 부산은행으로의 이체만 가능해요!</p>
 			    	</div>
 				</div>
 				<div class="mb-3 row">
@@ -119,7 +87,7 @@ $(function(){
 				        	<input type="text"  class="form-control" id="accountNum" value="${accountNumber}" readonly="readonly">
 				        </div>
 				    	&nbsp;<span class="icon solid style4 fas fa-exclamation-circle" />
-				        <p style="display:inline">&nbsp; '-'를 제외하고 숫자만 입력해주세요!</p>	
+				        <p id="pinfo">&nbsp; '-'를 제외하고 숫자만 입력해주세요!</p>	
 				    </div>
 				</div>
 				<div class="mb-3 row">
@@ -129,7 +97,7 @@ $(function(){
 					    	<input type="number" min ="3000" max="${totalPoint}" class="form-control" name ="amount" id="DBPoint" placeholder="입금할 포인트를 숫자로 입력해주세요." required="required" >
 					    </div>
 					    &nbsp;<span class="icon solid style4 fas fa-exclamation-circle" />
-					    <p style="display:inline">&nbsp; 3,000원 이상부터 입금이 가능해요!</p>
+					    <p id="pinfo">&nbsp; 3,000원 이상부터 입금이 가능해요!</p>
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -141,10 +109,10 @@ $(function(){
 					</div>
 				</div> 
 			</div>
-			<div id="hrline">
+			<div id="deposit_hrline">
 				<hr>
-				<input type="button" id="submit" value="계좌입금"> 
-				<input type = "button" id="cancel" onclick="location.href='MWPMPGV00M.jsp' " value="돌아가기"> <br><br>
+				<input type="button" id="deposit_submit" value="계좌입금"> 
+				<input type = "button" id="deposit_cancel" onclick="location.href='MWPMPGV00M.jsp' " value="돌아가기"> <br><br>
 			</div>
 		</form>
 	<!-- <input type="text" class="input" value="부산은행" disabled="disabled"><br><br>

@@ -103,4 +103,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne(NS+"getUserInfoByAdmin", userId);
 	}
 
+	@Override
+	public User getUserInfoByAdminWithNoEco(String userId) throws SQLException {
+		return sqlSession.selectOne("getUserInfoByAdminWithNoEco",userId);
+	}
+
 }

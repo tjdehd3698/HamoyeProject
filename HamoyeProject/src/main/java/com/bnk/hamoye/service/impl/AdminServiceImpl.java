@@ -143,6 +143,10 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public User getUserInfoByAdmin(String userId) throws Exception {
+		User user = userDAO.getUserAllInfo(userId);
+		if(user.getEcoChallengeId()==null) {
+			return userDAO.getUserInfoByAdminWithNoEco(userId);
+		}
 		return userDAO.getUserInfoByAdmin(userId);
 	}
 }

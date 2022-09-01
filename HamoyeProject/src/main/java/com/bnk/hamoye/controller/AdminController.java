@@ -112,6 +112,7 @@ public class AdminController {
 	
 	@PostMapping("adminUpdateUser.do")
 	public String adminUpdateUser(User user) {
+		
 		try {
 			adminService.updateUserByAdmin(user);
 		} catch (Exception e) {

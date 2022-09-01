@@ -9,6 +9,14 @@
  <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <style>
+tbody>tr {
+  counter-increment: aaa;
+}
+tbody>tr>td:first-child:before {
+  content: counter(aaa) " ";
+}
+</style>
 </head>
 <body id="dongbaek">
 	<jsp:include page="../header.jsp"></jsp:include>
@@ -28,51 +36,51 @@
     </div>
     <!-- Page Header End -->
     <div class="container mb-5 wow fadeIn" data-wow-delay="0.1s">
-	<div class="container">
-	<h1>동백 포인트 적립/사용 내역</h1>
-  	<table class="rwd-table">
-    <tbody>
-      <tr>
-        <th>순번</th>
-        <th>항목</th> 
-        <th>포인트</th>
-        <th>적립일자</th> 
-      </tr>
-      <c:forEach var="item" items="${list}">
+		<div class="container">
+		<h1 style="text-align: center;">동백 포인트 적립/사용 내역</h1>
+	  	<table class="rwd-table">
+	    <tbody> 
 	      <tr>
-    	    <td data-th="순번">
-        	  	1
-        	</td>
-        	<td data-th="항목">
- 				${result.tripChallenge.tripChallengeName}
-        	</td>
-        	<td data-th="포인트">
-        	  	${result.tripChallenge.rewardPoint}
-        	</td>
-        	<td data-th="적립일자">
-        	  	${result.paticipationDate}
-        	</td> 
-      	</tr>
-      </c:forEach>
-      <tr>
-        <td data-th="Supplier Code">
-          UPS3449
-        </td>
-        <td data-th="Supplier Name">
-          UPS South Inc.
-        </td>
-        <td data-th="Invoice Number">
-          ASDF29301
-        </td>
-       
-        <td data-th="Due Date">
-          12/25/2016
-        </td> 
-      </tr>
-          </tbody>
-  </table>
-  <h3 id="resize">Resize Me</h3>
-</div>  
+	        <th>순번</th>
+	        <th>항목</th> 
+	        <th>포인트</th>
+	        <th>적립일자</th> 
+	      </tr> 
+	      <c:forEach var="item" items="${list}" varStatus="status"> 
+		      <tr>
+	    	    <td data-th="순번">
+	        	
+	        	</td>
+	        	<td data-th="항목">
+	 				${result.tripChallenge.tripChallengeName}
+	        	</td>
+	        	<td data-th="포인트">
+	        	  	${result.tripChallenge.rewardPoint}
+	        	</td>
+	        	<td data-th="적립일자">
+	        	  	${result.paticipationDate}
+	        	</td> 
+	      	</tr>
+	      </c:forEach>
+	      <tr>
+	        <td data-th="Supplier Code">
+	          
+	        </td>
+	        <td data-th="Supplier Name">
+	          UPS South Inc.
+	        </td>
+	        <td data-th="Invoice Number">
+	          ASDF29301
+	        </td>
+	       
+	        <td data-th="Due Date">
+	          12/25/2016
+	        </td> 
+	      </tr>
+	          </tbody>
+	  </table>
+	  <h3 style="text-align: center" id="resize"></h3>
+	</div>  
 </div>
  <jsp:include page="../footer.jsp"></jsp:include>
 

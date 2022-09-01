@@ -40,6 +40,7 @@
 	</resultMap>	
 	
 		<resultMap type="user" id="userWithPointAndEcoChallenge">
+		<id column="user_id" property="userId"/>
 		<result column="user_name" property="userName"/>
 		<result column="point_id" property ="pointId"/>
 		<result column="birthday" property ="birthday"/>
@@ -124,7 +125,7 @@
 	
 	<select id="getUserInfoByAdmin" parameterType="string" resultMap="userWithPointAndEcoChallenge">
 		select 
-		u.user_name, u.birthday, u.email, u.user_address, u.register_date, u.gender, u.point_id, u.participation_count,u.user_age,
+		u.user_id,u.user_name, u.birthday, u.email, u.user_address, u.register_date, u.gender, u.point_id, u.participation_count,u.user_age,
 		u.account_number,u.eco_challenge_id, p.total_point, e.eco_challenge_name, e.total_count
 		from users u 
 		join eco_challenge e on u.eco_challenge_id=e.eco_challenge_id
@@ -134,7 +135,7 @@
 	
 	<select id="getUserInfoByAdminWithNoEco" parameterType="string" resultMap="userWithPointAndEcoChallenge">
 		select 
-		u.user_name, u.birthday, u.email, u.user_address, u.register_date, u.gender, u.point_id, u.participation_count,
+		u.user_id, u.user_name, u.birthday, u.email, u.user_address, u.register_date, u.gender, u.point_id, u.participation_count,
 		u.eco_challenge_id, p.total_point,u.user_age
 		from users u 
 		join point p on u.point_id =p.point_id

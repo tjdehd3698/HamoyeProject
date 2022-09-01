@@ -78,10 +78,6 @@ public class AdminServiceImpl implements AdminService{
 			}
 			
 			result.add(status);
-			
-			for(Status s : result) {
-				System.out.println(s);
-			}
 		}
 		return result;
 	}

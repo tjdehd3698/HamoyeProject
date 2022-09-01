@@ -95,7 +95,7 @@ public class MyPageController {
 
 		return "mpg/MWPMPGV00M";
 	}
-	
+	/*
 	@PostMapping("deposit.do")
 	@ResponseBody
 	public String changePoint(HttpSession session,int amount, String userPassword) {
@@ -117,27 +117,28 @@ public class MyPageController {
 			System.out.println("changePoint 에러 : "+ e.getMessage());
 		}
 		return "";
-	}
+	}*/
 	
-//	@PostMapping()
-//	public String expireAccount(HttpSession session, String userPassword, Model model) {
-//		try {
-//			User user = new User();
-//			user.setUserId((String)session.getAttribute("user"));
-//			user.setUserPassword(userPassword);
-//			
-//			User findUser = userService.login(user);
-//			if(findUser!= null) {
-//				userService.expireAccount((String)session.getAttribute("user"));
-//				model.addAttribute("result", "T");
-//			}
-//			else model.addAttribute("result", "F");
-//			
-//		} catch (SQLException e) {
-//			System.out.println("expireAccount 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
+	@PostMapping()
+	@ResponseBody
+	public String expireAccount(HttpSession session, String userPassword, Model model) {
+		try {
+			User user = new User();
+			user.setUserId((String)session.getAttribute("user"));
+			user.setUserPassword(userPassword);
+			
+			User findUser = userService.login(user);
+			if(findUser!= null) {
+				userService.expireAccount((String)session.getAttribute("user"));
+				model.addAttribute("result", "T");
+			}
+			else model.addAttribute("result", "F");
+			
+		} catch (SQLException e) {
+			System.out.println("expireAccount 에러 : "+ e.getMessage());
+		}
+		return "";
+	}
 
 	@GetMapping("showpoint.do")
 	public String getParticipateChallenge(HttpSession session, Model model) {
@@ -154,11 +155,10 @@ public class MyPageController {
 		return "mpg/MWPMPGV02M"; 
 	}
 	 
-	/*
-	 @GetMapping("") public String pageMoveToOutOfAcc() { 
-	 return "mpg/MWPMPGV03M";
+	
+	 @GetMapping("moveToAccountOut.do") public String pageMoveToOutOfAcc() { 
+		 return "mpg/MWPMPGV03M";
 	 }
-	 */  
 
 	 @GetMapping("moveDeposit.do") 
 	 public String pageMoveToDeposit(HttpSession session, Model model) { 

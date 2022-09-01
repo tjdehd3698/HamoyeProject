@@ -78,12 +78,18 @@ $(function(){
 									<h2>${result.ecoChallenge.ecoChallengeName} </h2>
 									<h4> 계좌 </h4><br>
 								</div>
-							</header>
+							</header><br><br>
 							<p class="showAccount">계좌번호 : ${result.account.accountNumber}</p> <br>
-							<h2 class="showPrice">잔액 : ${result.account.balance}</h2> <br>
-							<div id="intro_btn">
+							<h2 class="showPrice">잔액  ${result.account.balance} 원</h2> <br>
+							<div id="intro_btn"><br><br><br><br>
 										<a class="btn btn-outline-primary px-3" href="moveToChangeForm.do" >
 	                            		회원정보수정
+	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+	                                		<i class="fa fa-arrow-right"></i>
+	                            		</div>
+                       					</a><br><br>
+                       					<a class="btn btn-outline-primary px-3" href="moveToAccountOut.do" >
+	                            		계좌해지하기
 	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
 	                                		<i class="fa fa-arrow-right"></i>
 	                            		</div>
@@ -119,8 +125,8 @@ $(function(){
 				</div>
 			</div>
 		</section>
- 		<%-- <c:choose>
- 			 <c:when test="${result.account != null}"> --%> 
+ 		 <c:choose>
+ 			 <c:when test="${result.account != null}">
 				<!-- First Section -->
 				<section id="first" class="main special">
 					<c:choose>
@@ -153,7 +159,7 @@ $(function(){
 									</c:when>
 								<c:otherwise>
 										<header class="mypage_major">
-											<h2>BNK 봉사활동 챌린지</h2>
+											<h2>${result.ecoChallenge.ecoChallengeName} 챌린지</h2>
 										</header>
 										<ul class="mypage_features">
 											<li>
@@ -173,17 +179,17 @@ $(function(){
 			                            		</div>
 			                       			</a>
 											<div><br>
-											<h5 id="progressNow" >진행현황</h5> <h4>어려운 이웃을 5번 도와주었어요!</h4><br><br>
-												<progress class="container" value="50" max="100"  id="progress" style="display:block"></progress>
+											<h5 id="progressNow" >진행현황</h5> <h4>어려운 이웃을 ${result.participationCount}번 도와주었어요!</h4><br><br>
+												<progress class="container" value="${result.participationCount}" max="${result.ecoChallenge.totalCount}"  id="progress" style="display:block"></progress>
 											</div>
 										</footer> 
 								 	</c:otherwise>
 								</c:choose> 
 							</section>
-							<%-- </c:when>
+							 </c:when>
 							<c:otherwise> 
 							</c:otherwise>
-				</c:choose>  --%>
+				</c:choose>  
 							 
 						<!-- Second Section -->
 							<section id="second" class="main special">
@@ -195,12 +201,9 @@ $(function(){
 										<h1>${userName}</h1>
 										<h4 >님의</h4> 
 									</div>
-									<div >
-										<br><br><br>
+									<div> <br><br><br>
 										<h2>동백포인트 </h2>
-										<h4>${result.point.totalPoint} P </h4>
-										<br>
-										<br>
+										<h4>${result.point.totalPoint} P </h4> <br> <br>
 									</div>
 								</header>
 								<div><br><br><br>

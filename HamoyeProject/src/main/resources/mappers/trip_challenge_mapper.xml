@@ -44,7 +44,7 @@
 		select trip_challenge_id, trip_challenge_name, start_date,
 		end_date, hits, reward_point, challenge_image
 		from trip_challenge
-		where trip_challenge_id = #{ChallengeId}
+		where trip_challenge_id = #{value}
 	</select>
 	
 	<!-- <select id="getRtripmmendedChallengeList" parameterType="User" resultType="Challenge">

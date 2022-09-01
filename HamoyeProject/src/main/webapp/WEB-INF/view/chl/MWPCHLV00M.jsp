@@ -44,7 +44,7 @@
 
                              <c:forEach var="ecoChallenge" items="${ecoChallengeList}">
                                 <div class="mb-4"><b> ${ecoChallenge.ecoChallengeName}하고 </b><br>
-                                    <a class="btn btn-outline-primary px-3" href="challengeDetail.do/${ecochallenge.ecoChallengeId}">
+                                    <a class="btn btn-outline-primary px-3" href="challengeDetail.do?challengeType=eco&challengeId=${ecoChallenge.ecoChallengeId}">
                                         이자 더 받기
                                         <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                         <i class="fa fa-arrow-right"></i>
@@ -60,7 +60,7 @@
                         <h4 class="mb-3">떠나요 부산</h4>
                          <c:forEach var="tripChallenge" items="${tripChallengeList}">
                                 <div class="mb-4"><b> ${tripChallenge.tripChallengeName}하고 </b><br>
-                                    <a class="btn btn-outline-primary px-3" href="challengeDetail.do/${tripChallenge.tripChallengeId}">
+                                    <a class="btn btn-outline-primary px-3" href="challengeDetail.do?challengeType=trip&challengeId=${tripChallenge.tripChallengeId}">
                                         동백포인트 받기 
                                         <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                         <i class="fa fa-arrow-right"></i>

@@ -86,6 +86,11 @@ public class UserController {
 			String day = birthday.substring(6,8);
 			String newBirthDay = year+"-"+month+"-"+day;
 			user.setBirthday(newBirthDay);
+			if(user.getGender().equals("m")) {
+				user.setGender("남자");
+			}else {
+				user.setGender("여자");
+			}
 			model.addAttribute("result", user);
 		} catch (SQLException e) {
 			System.out.println("getUserAllInfo 에러 : "+ e.getMessage());

@@ -20,40 +20,52 @@ public class EcoChallengeController {
 	private final EcoChallengeService ecoChallengeService;
 	private final TripChallengeService tripChallengeService;
 
-	@GetMapping("challengeDetail.do/ecoChallengeId")
-	public String getChallengeDetail(@PathVariable String ecoChallengeId, Model model) {
+	@GetMapping("challengeDetail.do")
+	public String getChallengeDetail(String challengeType, String challengeId, Model model) {
+		
+		String path = "index.jsp";
 		
 		try {
-//			EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(ecoChallengeId);
 			
-			EcoChallenge ecoChallenge = new EcoChallenge();
-			ecoChallenge.setEcoChallengeId("100");
-			ecoChallenge.setEcoChallengeName("대중교통 이용");
-			System.out.println(ecoChallenge);
-			model.addAttribute("eco01", ecoChallenge);
+			if (challengeType.equals("eco")) {
+				EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(challengeId);
+				model.addAttribute("ecoChallenge", ecoChallenge);
+				ecoChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
+				String content = ecoChallenge.getContent();
+				String[] newContent = content.split("@@");
+				model.addAttribute("newContent", newContent);
+				path = "chl/MWPCHLV01M";
+			} 
+			else if (challengeType.equals("trip")) {
+				TripChallenge tripChallenge = tripChallengeService.getTripChallengeDetail(challengeId);
+				model.addAttribute("tripChallenge", tripChallenge);
+				tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
+				String content = tripChallenge.getContent();
+				String[] newContent = content.split("@@");
+				model.addAttribute("newContent", newContent);
+				path = "chl/MWPCHLV02M";
+			}
 		} catch (Exception e) {
 		}
-		
-		return "chl/MWPCHLV01M";
+
+		return path;
 	}
-	
 
 	@GetMapping("challenge.do")
 	public String getChallengeList(Model model) {
-		
+
 		try {
 			List<EcoChallenge> ecoChallengeList = ecoChallengeService.getEcoChallengeList();
 			List<TripChallenge> tripChallengeList = tripChallengeService.getTripChallengeList();
-			
+
 			model.addAttribute("ecoChallengeList", ecoChallengeList);
 			model.addAttribute("tripChallengeList", tripChallengeList);
-		}catch(Exception e) {
-			
+		} catch (Exception e) {
+
 		}
-		
+
 		return "chl/MWPCHLV00M";
-		
+
 	}
-	
 
 }

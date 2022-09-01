@@ -49,7 +49,7 @@ public class EcoChallengeDAOImpl implements EcoChallengeDAO {
 
 	@Override
 	public EcoChallenge getEcoChallengeDetail(String ecoChallengeId) throws Exception {
-		return sqlSession.selectOne(NS+"getChallengeDetail", ecoChallengeId);
+		return sqlSession.selectOne(NS+"getEcoChallengeDetail", ecoChallengeId);
 	}
 
 	@Override

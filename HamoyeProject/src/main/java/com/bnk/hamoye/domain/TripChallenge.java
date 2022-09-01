@@ -13,5 +13,6 @@ public class TripChallenge{
 	private int hits;
 	private int rewardPoint;
 	private int isDelete;
+	private String content;
 	
 }

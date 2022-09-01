@@ -38,7 +38,7 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">지구를 지켜요</div>
-                <h1 class="display-6 mb-5">${eco01.ecoChallengeName} 챌린지</h1>
+                <h1 class="display-6 mb-5">${ecoChallenge.ecoChallengeName} 챌린지</h1>
             </div>
             <article class="chlarticle">
 			<div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -101,15 +101,14 @@
 			 <section class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="margin-top:50px">
 			 	<h2><b>지구, 쉽게 지킬 수 있어요</b></h2>
 			 	<p> <!-- db에서 챌린지 콘텐트로 받아와야함 -->
-					주 3회 이상 대중교통을 이용하여<br>
-					온실가스 배출을 줄여보세요<br>
-					환경을 지키고 생명을 구하는 일<br>
-					<b>당신도 할 수 있어요</b>
+					<c:forEach var="content" items="${newContent}">
+					${content}<br>
+					</c:forEach>
 				</p>
 			 </section>
 		
 			<div style="padding:20px"  class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-				<h3>지구를 지키는 당신에게 <br>매년 %의 이자를 더 드려요</h3>
+				<h3>지구를 지키는 당신에게 <br>매년 ${ecoChallenge.primeRate}%의 이자를 더 드려요</h3>
 				<br>
 				<!-- 이율도 challengeRate로 받아와야함 -->
 			 	<c:choose>

@@ -55,10 +55,16 @@
 	</select> -->
 	
 	<select id="getTripChallengeList" resultType="TripChallenge">
-		select trip_challenge_id, trip_challenge_name, start_date,
+		select trip_challenge_id, trip_challenge_name, start_date, trip_challenge_type
 		end_date, hits, reward_point, challenge_image,is_delete
 		from trip_challenge
 		where is_delete = 0
+	</select>
+	
+	<select id="getTripChallengeListByAdmin" resultType="TripChallenge">
+		select trip_challenge_id, trip_challenge_name, start_date, trip_challenge_type,
+		end_date, hits, reward_point, challenge_image, is_delete,content
+		from trip_challenge
 	</select>
 	
 </mapper>

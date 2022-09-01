@@ -31,4 +31,9 @@ public class ParticipationDAOImpl implements ParticipationDAO {
 		return sqlSession.selectOne(NS+"getParticipationCntByDate", date);
 	}
 
+	@Override
+	public List<Participation> getParticipationCntByTripChallenge(String tripChallengeId) throws SQLException {
+		return sqlSession.selectList(NS+"getParticipationCntByTripChallenge", tripChallengeId);
+	}
+
 }

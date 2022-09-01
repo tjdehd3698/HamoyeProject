@@ -178,4 +178,17 @@ public class AdminServiceImpl implements AdminService{
 		
 		return result;
 	}
+
+	@Override
+	public Map<String, Integer> getUSerCntByTripChallenge() throws Exception {
+		Map<String, Integer> result = new HashMap<String, Integer>();
+		List<TripChallenge> tripChallengeList = tripChallengeDAO.getTripChallengeListByAdmin();
+		
+		for(TripChallenge t : tripChallengeList) {
+			List<Participation> participationList = participationDAO.getParticipationCntByTripChallenge(t.getTripChallengeId());
+			result.put(t.getTripChallengeId(), participationList.size());
+		}
+		
+		return result;
+	}
 }

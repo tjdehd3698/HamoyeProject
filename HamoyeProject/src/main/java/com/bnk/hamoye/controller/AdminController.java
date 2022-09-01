@@ -18,6 +18,7 @@ import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.AdminService;
 import com.bnk.hamoye.service.EcoChallengeService;
+import com.bnk.hamoye.service.TripChallengeService;
 import com.bnk.hamoye.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,7 @@ public class AdminController {
 	private final AdminService adminService;
 	private final UserService userService;
 	private final EcoChallengeService ecoChallengeService;
+	private final TripChallengeService tripChallengeService;
 	
 	@RequestMapping("admin.do")
 	public String adminLoginPage() {
@@ -162,14 +164,14 @@ public class AdminController {
 		}
 		return "";
 	}
-	
-	@GetMapping("adminEcoChallengeDetail.do")
-	public String adminEcoChallengeDetail(Model model,String ecoChallengeId) {
+
+	@GetMapping("adminTripChallengeList.do")
+	public String adminTripChallengeList(Model model) {
 		try {
-			model.addAttribute("ecoChallengeList", ecoChallengeService.getEcoChallengeList());
-			model.addAttribute("userCount", adminService.getUserCntByEcoChallenge());
+			model.addAttribute("tripChallengeList", tripChallengeService.getTripChallengeListByAdmin());
+			model.addAttribute("userCount", adminService.getUSerCntByTripChallenge());
 		} catch (Exception e) {
-			System.out.println("adminEcoChallengeDetail 에러 : "+ e.getMessage());
+			System.out.println("adminTripChallengeList 에러 : "+ e.getMessage());
 		}
 		return "";
 	}

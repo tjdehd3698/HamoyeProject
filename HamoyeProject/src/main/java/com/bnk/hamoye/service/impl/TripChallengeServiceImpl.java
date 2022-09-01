@@ -65,4 +65,9 @@ public class TripChallengeServiceImpl implements TripChallengeService {
 		return tripChallengeDAO.getRecommendedTripChallengeList(user);
 	}
 
+	@Override
+	public List<TripChallenge> getTripChallengeListByAdmin() throws Exception {
+		return tripChallengeDAO.getTripChallengeListByAdmin();
+	}
+
 }

@@ -45,6 +45,7 @@ public class MyPageController {
 	}
 
 	@PostMapping("userout.do")
+	@ResponseBody
 	public String withdraw(HttpSession session,Model model, String userPassword) {
 		try {
 			User user = new User();
@@ -54,14 +55,14 @@ public class MyPageController {
 			User findUser = userService.login(user);
 			if(findUser!=null) {
 				userService.withdrawUser((String)session.getAttribute("user"));
-				model.addAttribute("result", "T");
 				session.invalidate();
+				return "T";
 			}
-			else model.addAttribute("result", "F");
+			else return "F";
 		} catch (SQLException e) {
 			System.out.println("withdraw 에러 : "+ e.getMessage());
 		}
-		return "index";
+		return "";
 	}
 
 	@GetMapping("mypage.do")

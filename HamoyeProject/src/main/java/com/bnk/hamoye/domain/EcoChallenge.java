@@ -8,6 +8,7 @@ import lombok.Data;
 public class EcoChallenge{
 	private String ecoChallengeId;
 	private String ecoChallengeName;
+	private String ecoChallengeType;
 	private double primeRate;
 	private Date startDate;
 	private Date endDate;

@@ -31,11 +31,13 @@ public class UserServiceImpl implements UserService{
 	private final ParticipationDAO participationDAO;
 	
 	@Override
-	public int registerUser(User user) throws SQLException {
+	public int registerUser(User user) throws SQLException { //회원 가입
+		//포인트 생성 후 등록
 		Point point = new Point();
 		int row = pointDAO.insertPoint(point);
 		
 		if(row==1) {
+			//나이 계산
 			LocalDate now = LocalDate.now();     
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
 			String nowYear = now.format(formatter);
@@ -58,13 +60,14 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
-	public boolean duplicateId(User user) throws SQLException {
+	public boolean duplicateId(User user) throws SQLException { //아이디 중복 검사
 		if(userDAO.duplicateId(user)==null) return false;
 		else return true;
 	}
 
 	@Override
-	public String findPassword(User user) throws SQLException {
+	public String findPassword(User user) throws SQLException { //비밀번호 찾기
+		//비밀번호 변경 후 업데이트
 		user.changePassword();
 		int row = userDAO.updateUserPassword(user);
 		
@@ -83,7 +86,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public int withdrawUser(String userId) throws SQLException {
+	public int withdrawUser(String userId) throws SQLException { //회원 탈퇴
 		pointDAO.deletePoint(userId);
 		return userDAO.withdrawUser(userId);
 	}

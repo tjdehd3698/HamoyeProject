@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class AdminController {
+public class AdminController { //관리자 화면 Controller
 	private final AdminService adminService;
 	private final UserService userService;
 	

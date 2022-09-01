@@ -160,7 +160,17 @@ public class AdminController {
 		} catch (Exception e) {
 			System.out.println("adminEcoChallengeList 에러 : "+ e.getMessage());
 		}
-		
+		return "";
+	}
+	
+	@GetMapping("adminEcoChallengeDetail.do")
+	public String adminEcoChallengeDetail(Model model,String ecoChallengeId) {
+		try {
+			model.addAttribute("ecoChallengeList", ecoChallengeService.getEcoChallengeList());
+			model.addAttribute("userCount", adminService.getUserCntByEcoChallenge());
+		} catch (Exception e) {
+			System.out.println("adminEcoChallengeDetail 에러 : "+ e.getMessage());
+		}
 		return "";
 	}
 	

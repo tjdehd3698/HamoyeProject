@@ -48,7 +48,12 @@ $(function(){
 		var userPassword = "&userPassword="+$("#password").val();
 		var point = "&amount="+$("#DBPoint").val();
 		
-		if($("#DBPoint").val()>=3000 && $("#DBPoint").val()<=${totalPoint}){
+		if(${totalPoint}<3000){
+			alert("보유 포인트가 3000포인트 이상이 되어야 가능합니다.");
+			$("#password").val("");
+			$("#DBPoint").val("");
+		}
+		else if($("#DBPoint").val()>=3000 && $("#DBPoint").val()<=${totalPoint}){
 			$.ajax({
 				type:'post',
 				url:'deposit.do',
@@ -60,10 +65,15 @@ $(function(){
 					}
 					else{
 						alert("성공하였습니다");
+						location.reload();
 					}
 				}
 				
 			});
+		}
+		else{
+			alert("금액은 3000원 이상 ${totalPoint}이하여야 합니다.");
+			$("#DBPoint").val("");
 		}
 	});
 });

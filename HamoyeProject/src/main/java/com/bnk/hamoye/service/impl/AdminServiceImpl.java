@@ -99,7 +99,6 @@ public class AdminServiceImpl implements AdminService{
 			TripStatus status = new TripStatus();
 			status.setChallengeId(t.getTripChallengeId());
 			status.setChallengeName(t.getTripChallengeName());
-			status.setHits(t.getHits());
 			status.setUserCnt(list.size());
 			status.setTotalPoint(totalPoint);
 			if(list.size()==0)

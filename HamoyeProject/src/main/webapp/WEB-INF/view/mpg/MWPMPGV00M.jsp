@@ -17,8 +17,7 @@ $(function(){
 			alert('챌린지 계좌가 있어야 입금 가능합니다!');
 			$('#makeAccount').focus();
 			return false;
-		}
-			 
+		} 
 	}); 
 });
 </script>

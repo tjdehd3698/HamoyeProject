@@ -8,6 +8,7 @@ import lombok.Data;
 public class TripChallenge{
 	private String tripChallengeId;
 	private String tripChallengeName;
+	private String tripChallengeType;
 	private Date startDate;
 	private Date endDate;
 	private int hits;

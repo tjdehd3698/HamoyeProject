@@ -8,7 +8,34 @@
  <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
- 
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  	<script type="text/javascript">
+  $(function(){
+		$("#accout_submit").on("click",function(){
+			var password = "&userPassword="+$('#password').val();
+			if(confirm('금리우대혜택과 동백포인트가 소멸됩니다. \n그래도 계좌를 해지하시겠습니까?')){
+			$.ajax({
+				type:'post',
+				url:'expireAccount.do',
+				data:password,
+				
+				success:function(result) {
+					if(result=="T"){
+						alert("계좌가 해지되었습니다.");
+							window.location.href ="mypage.do";
+						}else{
+						alert("비밀번호가 일치하지 않습니다.");
+						$('#password').val('');
+						$('#password').focus();
+					}
+				},error:function(){ 
+					alert("다시 시도해주세요."); 
+				}
+			});
+			}
+		});
+  }); 
+  </script>
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
@@ -30,9 +57,9 @@
     <!-- Page Header End -->
     <div class="container mb-5 wow fadeIn" data-wow-delay="0.1s">
 	<div class="container accOut">
-		<h1>지금 계좌를 해지하시면</h1>
-		<h1>금리 우대 혜택</h1><h1>과</h1>
-		<h1>잔여 동백포인트</h1><h1>가 사라져요!</h1>
+		<h1>지금 계좌를 해지하시면</h1><br>
+		<h1 style="color:blue">금리 우대 혜택</h1><h1>과</h1><br>
+		<h1 style="color:blue">잔여 동백포인트</h1><h1>가</h1><br> <h1 style="color:red">사라져요!</h1>
 		<br><br>
 		<h1>그래도 계좌를 해지하시겠어요?</h1>
 	</div>
@@ -41,8 +68,9 @@
 						<div class="mb-3 row">
 							<label for="userId" class="col-sm-2 col-form-label">비밀번호 확인</label>
 							<div class="col-sm-10">
-								<div class="position-relative"> 
-					                <input type="password"  class="form-control" id="password" >
+								<div class="position-relative">  
+					                <input type="password"  class="form-control" id="password" name="userPassword">
+					                <input id="accout_submit" type="button" value="회원탈퇴"> 
 					            </div>
 						    </div>
 						</div>

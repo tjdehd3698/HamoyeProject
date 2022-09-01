@@ -68,20 +68,25 @@ $(function(){
 				<span class="image"><img src="img/carousel-1.png" alt="" /></span>
 				<div class="content">
 					 <c:choose>
-						<c:when test="${result.account != null}">
-							<header id="introText" class="mypage_major" style="display:block"><br>
+						<c:when test="${result.account != null}">  
+						<p class="showAccount">계좌번호 : ${result.account.accountNumber}</p><br> 
+							<header id="introText" class="mypage_major" style="display:block"><br> 
+								
 								<div class="mypage_account_text">
-									<h1>${userName}</h1>
-									<h4 >님의</h4>
+									<h1 style="color:#2b3886">${userName}</h1>
+									<h5>님의</h5>
 								</div>
 								<div class="mypage_account_text"><br><br><br>
-									<h2>${result.ecoChallenge.ecoChallengeName} </h2>
-									<h4> 계좌 </h4><br>
+									<h3 style="color:#2b3886">${result.ecoChallenge.ecoChallengeName} </h3>
+									<h5> 챌린지 </h5><br><br><br>
+									
+									<h4 style="">잔액 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${result.account.balance} 원</h4><br>
+									<h2 />
 								</div>
-							</header><br><br>
-							<p class="showAccount">계좌번호 : ${result.account.accountNumber}</p> <br>
-							<h2 class="showPrice">잔액  ${result.account.balance} 원</h2> <br>
-							<div id="intro_btn"><br><br><br><br>
+								
+							</header>
+							<br>
+							<div id="intro_btn"><br><br>
 										<a class="btn btn-outline-primary px-3" href="moveToChangeForm.do" >
 	                            		회원정보수정
 	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
@@ -172,16 +177,19 @@ $(function(){
 										<h5>현재 함께하는 ${totalCnt} 명 가운데</h5>
 																		<h5>${successCnt}명이 목표달성했어요!</h5>
 										<footer class="mypage_major">
-											<a class="btn btn-outline-primary px-3" href="challengeDetail.do">
+											<a class="btn btn-outline-primary px-3" href="challenge.do">
 			                            		챌린지 자세히보기
 			                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
 			                                		<i class="fa fa-arrow-right"></i>
 			                            		</div>
 			                       			</a>
 											<div><br>
-											<h5 id="progressNow" >진행현황</h5> <h4>어려운 이웃을 ${result.participationCount}번 도와주었어요!</h4><br><br>
-												<progress class="container" value="${result.participationCount}" max="${result.ecoChallenge.totalCount}"  id="progress" style="display:block"></progress>
-											</div>
+												<h5 id="progressNow" >진행현황</h5>
+													<div style=" position: relative; height: 40px;">
+														<progress class="container" value="${result.participationCount}" max="${result.ecoChallenge.totalCount}"  id="progress"></progress>
+		    											<p style="position: absolute; top: 10px; right: 35px; margin-bottom: 10px;">목표횟수 ${result.ecoChallenge.totalCount} 회 중, ${result.participationCount}회 달성! </p>
+													</div> 
+												</div>
 										</footer> 
 								 	</c:otherwise>
 								</c:choose> 

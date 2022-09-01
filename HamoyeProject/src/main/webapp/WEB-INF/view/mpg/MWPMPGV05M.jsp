@@ -76,8 +76,9 @@ $(function(){
 						<div class="position-relative"> 
 					        <input type="text"  class="form-control" id="bank" value="부산은행" disabled="disabled">
 					    </div>
-						&nbsp;<span class="icon solid style4 fas fa-exclamation-circle" />
-						<p id="pinfo">&nbsp; 동백포인트 전환은 부산은행으로의 이체만 가능해요!</p>
+						&nbsp; <span class="icon solid fas fa-exclamation-circle"></span>
+						<p id="pinfo" style="display:inline">&nbsp; 동백포인트 전환은 부산은행으로의 이체만 가능해요!</p>
+						
 			    	</div>
 				</div>
 				<div class="mb-3 row">
@@ -86,17 +87,17 @@ $(function(){
 						<div class="position-relative"> 
 				        	<input type="text"  class="form-control" id="accountNum" value="${accountNumber}" readonly="readonly">
 				        </div>
-				    	&nbsp;<span class="icon solid style4 fas fa-exclamation-circle" />
+				    	&nbsp; <span class="icon solid fas fa-exclamation-circle"></span>
 				        <p id="pinfo">&nbsp; '-'를 제외하고 숫자만 입력해주세요!</p>	
 				    </div>
 				</div>
-				<div class="mb-3 row">
-					<label for="userId" class="col-md-3 col-form-label">입금할 포인트 <h5>현재포인트 : ${totalPoint}</h5></label>
+				<div class="mb-3 row" >
+					<label for="userId" class="col-md-3 col-form-label">금액 &nbsp;(현재포인트 : ${totalPoint})</label>  
 					<div class="col-sm-10">
 						<div class="position-relative"> 
 					    	<input type="number" min ="3000" max="${totalPoint}" class="form-control" name ="amount" id="DBPoint" placeholder="입금할 포인트를 숫자로 입력해주세요." required="required" >
 					    </div>
-					    &nbsp;<span class="icon solid style4 fas fa-exclamation-circle" />
+					   &nbsp; <span class="icon solid fas fa-exclamation-circle"></span>
 					    <p id="pinfo">&nbsp; 3,000원 이상부터 입금이 가능해요!</p>
 					</div>
 				</div>
@@ -112,16 +113,9 @@ $(function(){
 			<div id="deposit_hrline">
 				<hr>
 				<input type="button" id="deposit_submit" value="계좌입금"> 
-				<input type = "button" id="deposit_cancel" onclick="location.href='MWPMPGV00M.jsp' " value="돌아가기"> <br><br>
+				<input type = "button" id="deposit_cancel" onclick="location.href='mypage.do' " value="돌아가기"> <br><br>
 			</div>
-		</form>
-	<!-- <input type="text" class="input" value="부산은행" disabled="disabled"><br><br>
-	<h5>계좌번호</h5>
-	<input type="text" class="input"><br><br>
-	<h5>입금할 포인트</h5>
-	<input type="text" class="input"><br><br>
-	<h5>비밀번호</h5>
-	<input type="password" class="input"> -->
+		</form> 
 </div>    
 
  <jsp:include page="../footer.jsp"></jsp:include>

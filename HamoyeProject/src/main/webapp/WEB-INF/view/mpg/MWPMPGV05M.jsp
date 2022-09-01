@@ -48,34 +48,36 @@ $(function(){
 		var userPassword = "&userPassword="+$("#password").val();
 		var point = "&amount="+$("#DBPoint").val();
 		
-		if(${totalPoint}<3000){
-			alert("보유 포인트가 3000포인트 이상이 되어야 가능합니다.");
-			$("#password").val("");
-			$("#DBPoint").val("");
-		}
-		else if($("#DBPoint").val()>=3000 && $("#DBPoint").val()<=${totalPoint}){
-			$.ajax({
-				type:'post',
-				url:'deposit.do',
-				data: userPassword+point,
-				success:function(result) {
-					if(result=='F'){
-						alert("비밀번호가 맞지 않습니다.");
-						$("#password").focus();
+		if(confirm($(userName)+"님의 "+$("#accountNumber").val()+"계좌로 "+$("#DBPoint").val()+"원을 입급합니다.")) {
+			if(${totalPoint}<3000){
+				alert("보유 포인트가 3000포인트 이상이 되어야 가능합니다.");
+				$("#password").val("");
+				$("#DBPoint").val("");
+			}
+			else if($("#DBPoint").val()>=3000 && $("#DBPoint").val()<=${totalPoint}){
+				$.ajax({
+					type:'post',
+					url:'deposit.do',
+					data: userPassword+point,
+					success:function(result) {
+						if(result=='F'){
+							alert("비밀번호가 맞지 않습니다.");
+							$("#password").focus();
+						}
+						else{
+							alert("성공하였습니다");
+							location.reload();
+						}
 					}
-					else{
-						alert("성공하였습니다");
-						location.reload();
-					}
-				}
-				
-			});
+					
+				});
+			}
+			else{
+				alert("금액은 3000원 이상 ${totalPoint}이하여야 합니다.");
+				$("#DBPoint").val("");
+			}
 		}
-		else{
-			alert("금액은 3000원 이상 ${totalPoint}이하여야 합니다.");
-			$("#DBPoint").val("");
-		}
-	});
+		});
 });
 
 </script>

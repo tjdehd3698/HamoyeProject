@@ -14,6 +14,7 @@
   $(function(){
 		$("#userout_submit").on("click",function(){
 			var password = "&userPassword="+$('#password').val();
+			if(confirm('정말 회원탈퇴 하시겠습니까?')){
 			$.ajax({
 				type:'post',
 				url:'userout.do',
@@ -21,18 +22,18 @@
 				
 				success:function(result) {
 					if(result=="T"){
-						/* if(confirm('정말 회원탈퇴 하시겠습니까?')) { */
-							alert("회원탈퇴 되었습니다. 이용해주셔서 감사합니다.");
+						alert("회원탈퇴 되었습니다. 이용해주셔서 감사합니다.");
 							window.location.href ="index.jsp";
-						//}
-					}else{
+						}else{
 						alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+						$('#password').val('');
+						$('#password').focus();
 					}
 				},error:function(){ 
-					alert("다시 시도해주세요.");
-					
+					alert("다시 시도해주세요."); 
 				}
 			});
+			}
 		});
   }); 
   </script>
@@ -56,8 +57,8 @@
             </nav>
         </div>
     </div>
-    <!-- Page Header End -->
-    <input type="hidden" id=pass value="${T}">
+    <!-- Page Header End --> 
+     <div class="container-fluid mb-5 wow fadeIn" data-wow-delay="0.3s">
 		<ul class="mypage_statistics">
 		 	<li class="mypage_sure">
 				 <font id="userout_font" size="7" >정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font>
@@ -67,10 +68,10 @@
 				  </form>
 			</li>
 			<li class="cryImg">
-				<img  src="img/cry.jpg" alt="" /> 
+				<img class="display-4 text-white animated slideInUp mb-4" src="img/cry.jpg" alt="" /> 
 			</li>	
 		</ul> 
-			
+	</div>
 		 <jsp:include page="../footer.jsp"></jsp:include>
 
     <!-- Back to Top -->

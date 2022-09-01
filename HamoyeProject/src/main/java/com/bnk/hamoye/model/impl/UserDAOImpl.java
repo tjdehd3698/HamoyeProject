@@ -98,4 +98,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne(NS+"getUserCntByDate", date);
 	}
 
+	@Override
+	public User getUserInfoByAdmin(String userId) throws SQLException {
+		return sqlSession.selectOne(NS+"getUserInfoByAdmin", userId);
+	}
+
 }

@@ -23,7 +23,7 @@
 		from participation p
 		join users u on p.user_id = u.user_id
 		join trip_challenge t on p.trip_challenge_id = t.trip_challenge_id
-		where p.user_id = #{value}
+		where p.user_id = #{value} and is_success = 1
 	</select>
 	
 	<select id="getAllUserByTripChallenge" parameterType= "string" resultType="participation">

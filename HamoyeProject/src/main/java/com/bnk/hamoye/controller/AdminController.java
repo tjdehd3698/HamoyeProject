@@ -91,14 +91,14 @@ public class AdminController {
 	}
 	
 	@GetMapping("adminGetUser.do")
-	public String getUserInfo(Model model, String userId) {
+	public String getUserInfoByAdmin(Model model, String userId) {
 		System.out.println("==================="+userId);
 		try {
-			User user = userService.getUserInfo(userId);
+			User user = adminService.getUserInfoByAdmin(userId);
 			model.addAttribute("result", user);
 			System.out.println(user);
-		} catch (SQLException e) {
-			System.out.println("getUserInfo 에러 : "+ e.getMessage());
+		} catch (Exception e) {
+			System.out.println("getUserInfoByAdmin 에러 : "+ e.getMessage());
 		}
 		return "adm/ADMUSRV01M";
 	}

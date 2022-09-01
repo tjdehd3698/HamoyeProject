@@ -140,4 +140,9 @@ public class AdminServiceImpl implements AdminService{
 		
 		return result;
 	}
+
+	@Override
+	public User getUserInfoByAdmin(String userId) throws Exception {
+		return userDAO.getUserInfoByAdmin(userId);
+	}
 }

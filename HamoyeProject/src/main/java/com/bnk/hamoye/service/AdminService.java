@@ -20,4 +20,5 @@ public interface AdminService {
 	int getBalanceSum() throws Exception;
 	int getPointSum() throws Exception;
 	Map<String,Integer> getTripChallengeCntByMonth() throws Exception;
+	User getUserInfoByAdmin(String userId) throws Exception;
 }

@@ -41,6 +41,34 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
+
+<script type="text/javascript">
+$(function(){
+	$("#submit").on('click',function(){
+		var userPassword = "&userPassword="+$("#password").val();
+		var point = "&amount="+$("#DBPoint").val();
+		
+		if($("#DBPoint").val()>=3000 && $("#DBPoint").val()<=${totalPoint}){
+			$.ajax({
+				type:'post',
+				url:'deposit.do',
+				data: userPassword+point,
+				success:function(result) {
+					if(result=='F'){
+						alert("비밀번호가 맞지 않습니다.");
+						$("#password").focus();
+					}
+					else{
+						alert("성공하였습니다");
+					}
+				}
+				
+			});
+		}
+	});
+});
+
+</script>
  
  <!-- Spinner Start -->
     <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -60,7 +88,7 @@
 
 	<h1 style="text-align:center" class="container mb-5 wow fadeIn" data-wow-delay="0.1s">동백 포인트 계좌 입금</h1>
 	<div class="container mb-5 wow fadeIn" data-wow-delay="0.1s" id="frm" style="background-color:#FAFAFA " > 
-		<form action="deposit.do" method="post" id = "Deposit">
+		<form action="#" method="post" id = "Deposit">
 			<div class="mb-5">
 				<div class="mb-3 row">
 					<label for="userId" class="col-md-3 col-form-label">입금은행</label>
@@ -86,7 +114,7 @@
 					<label for="userId" class="col-md-3 col-form-label">입금할 포인트 <h5>현재포인트 : ${totalPoint}</h5></label>
 					<div class="col-sm-10">
 						<div class="position-relative"> 
-					    	<input type="number"  class="form-control" name ="amount" id="DBPoint" placeholder="입금할 포인트를 숫자로 입력해주세요." required="required" max="${totalPoint}" >
+					    	<input type="number" min ="3000" max="${totalPoint}" class="form-control" name ="amount" id="DBPoint" placeholder="입금할 포인트를 숫자로 입력해주세요." required="required" >
 					    </div>
 					    &nbsp;<span class="icon solid style4 fas fa-exclamation-circle" />
 					    <p style="display:inline">&nbsp; 3,000원 이상부터 입금이 가능해요!</p>
@@ -103,7 +131,7 @@
 			</div>
 			<div id="hrline">
 				<hr>
-				<input type="submit" id="submit" value="계좌입금"> 
+				<input type="button" id="submit" value="계좌입금"> 
 				<input type = "button" id="cancel" onclick="location.href='MWPMPGV00M.jsp' " value="돌아가기"> <br><br>
 			</div>
 		</form>

@@ -34,10 +34,10 @@ public class PointTest {
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
 		SqlSession session = factory.openSession();
 		
-		Map<String,String> map = new HashMap<String,String>();
-		map.put("id", "aaa");
+		HashMap<String,String> map = new HashMap<String,String>();
+		map.put("user_id", "aaa");
 		map.put("amount","-100");
-		System.out.println(session.update("sql.hamoye.point_mapper.updatePoint",map));
+		System.out.println(session.update("sql.hamoye.point_mapper.updateTotalPoint",map));
 		session.commit();
 	}
 	

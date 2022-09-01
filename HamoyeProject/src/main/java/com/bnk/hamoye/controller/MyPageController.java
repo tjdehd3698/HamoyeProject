@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.User;
@@ -92,24 +94,28 @@ public class MyPageController {
 
 		return "mpg/MWPMPGV00M";
 	}
+	
 	@PostMapping("deposit.do")
-	public String changePoint(HttpSession session,Model model, int amount, String userPassword) {
+	@ResponseBody
+	public String changePoint(HttpSession session,int amount, String userPassword) {
 		try {
+			System.out.println("aaa");
 			User user = new User();
 			user.setUserId((String)session.getAttribute("user"));
 			user.setUserPassword(userPassword);
 			
 			User findUser = userService.login(user);
 			if(findUser!=null) {
+				System.out.println("t");
 				userService.changePoint((String)session.getAttribute("user"), amount);
-				model.addAttribute("result", "T");
+				return "T";
 				
 			}
-			else model.addAttribute("result", "F");
+			else return "F";
 		} catch (SQLException e) {
 			System.out.println("changePoint 에러 : "+ e.getMessage());
 		}
-		return "mpg/MWPMPGV05M";
+		return "";
 	}
 	
 //	@PostMapping()

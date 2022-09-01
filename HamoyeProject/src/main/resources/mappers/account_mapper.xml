@@ -18,7 +18,7 @@
 	<update id="updateBalance" parameterType="Map">
 		update account
 		set balance=balance+#{amount}
-		where account_number = (select account_number from users where user_id =#{id})
+		where account_number = (select account_number from users where user_id =#{userId})
 	</update>
 	
 	<select id="getAllAcountCnt" resultType="account">

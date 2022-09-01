@@ -121,7 +121,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public int changePoint(String userId, int amount) throws SQLException {
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("id", userId);
+		map.put("userId", userId);
 		map.put("amount", Integer.toString(-amount));
 		
 		pointDAO.updateTotalPoint(map);

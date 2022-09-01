@@ -55,7 +55,7 @@
 	                                            <td>${item.accountNumber}</td>
 	                                            <td>${item.ecoChallenge}</td>
 	                                            <td>${item.participationCount}</td>
-	                                            <td>${item.point}</td>
+	                                            <td>${item.point.totalPoint}</td>
 	                                            <td>${item.registerDate}</td>
 	                                        </tr>
 	                                        </c:forEach>

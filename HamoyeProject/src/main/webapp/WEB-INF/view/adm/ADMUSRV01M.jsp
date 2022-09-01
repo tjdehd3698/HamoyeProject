@@ -118,6 +118,11 @@
 	        <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
+   	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".nav-item:eq(1)").addClass("active");
+		});
+	</script>
 </body>
 </html>
 </c:when>

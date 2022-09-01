@@ -96,6 +96,8 @@ public class AdminController {
 			Map<String, Integer> challengeDateCnt = adminService.getTripChallengeCntByMonth();
 			model.addAttribute("challengeDateCnt", challengeDateCnt);
 			
+			
+			System.out.println(tripList);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

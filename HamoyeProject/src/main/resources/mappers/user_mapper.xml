@@ -122,10 +122,10 @@
 	
 	<select id="getUserInfoByAdmin" parameterType="string" resultMap="userWithPointAndEcoChallenge">
 		select 
-		u.user_name, u.birthday, u.email, u.user_address, u.register_date, u.gender, u.point_id, u.participation_count,u.user_age
+		u.user_name, u.birthday, u.email, u.user_address, u.register_date, u.gender, u.point_id, u.participation_count,u.user_age,
 		u.eco_challenge_id, p.total_point, e.eco_challenge_name, e.total_count
 		from users u 
-		join eco_challeng e on u.eco_challenge_id=e.eco_challenge_id
+		join eco_challenge e on u.eco_challenge_id=e.eco_challenge_id
 		join point p on u.point_id =p.point_id
 		where user_id =#{value}
 	</select>

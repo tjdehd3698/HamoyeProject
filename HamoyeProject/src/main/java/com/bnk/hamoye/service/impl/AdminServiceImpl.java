@@ -88,16 +88,19 @@ public class AdminServiceImpl implements AdminService{
 			
 			List<Participation> list = participationDAO.getAllUserByTripChallenge(t.getTripChallengeId());
 			int participateCnt = 0;
+			int totalPoint =0;
 			for(Participation p : list) {
-				if(p.getIsSuccess()==1)
+				if(p.getIsSuccess()==1) {
+					totalPoint+=t.getRewardPoint();
 					participateCnt++;
+				}
 			}
 			
 			TripStatus status = new TripStatus();
 			status.setChallengeId(t.getTripChallengeId());
 			status.setChallengeName(t.getTripChallengeName());
-			status.setHits(t.getHits());
 			status.setUserCnt(list.size());
+			status.setTotalPoint(totalPoint);
 			if(list.size()==0)
 				status.setSuccessPercent(0);
 			else

@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class MyPageController {
 	private final UserService userService;
 	
-	@PostMapping("change.do")
+	@PostMapping("change.do") //회원 정보 업데이트(비밀번호/이메일/주소)
 	public String updateUser(User user) {
 		try {
 			userService.updateUser(user);
@@ -33,7 +33,7 @@ public class MyPageController {
 		return "mpg/MWPMPGV00M";
 	} 
 	
-	@GetMapping("moveToChangeForm.do")
+	@GetMapping("moveToChangeForm.do") //회원 정보 변경 페이지 이동
 	public String getUserInfo(Model model, HttpSession session) {
 		try {
 			User user = userService.getUserInfo((String)session.getAttribute("user"));
@@ -44,7 +44,7 @@ public class MyPageController {
 		return "mpg/MWPMPGV01M";
 	}
 
-	@PostMapping("userout.do")
+	@PostMapping("userout.do") //회원 탈퇴(비동기)
 	@ResponseBody
 	public String withdraw(HttpSession session,Model model, String userPassword) {
 		try {
@@ -65,7 +65,7 @@ public class MyPageController {
 		return "";
 	}
 
-	@GetMapping("mypage.do")
+	@GetMapping("mypage.do") //마이페이지 화면 정보
 	public String getMyPageInfo(HttpSession session, Model model) {
 		try {
 
@@ -119,7 +119,7 @@ public class MyPageController {
 		return "";
 	}*/
 	
-	@PostMapping()
+	@PostMapping() //계좌 해지
 	@ResponseBody
 	public String expireAccount(HttpSession session, String userPassword, Model model) {
 		try {
@@ -140,7 +140,7 @@ public class MyPageController {
 		return "";
 	}
 
-	@GetMapping("showpoint.do")
+	@GetMapping("showpoint.do") //포인트 적립 내역 조회
 	public String getParticipateChallenge(HttpSession session, Model model) {
 		try {
 			List<Participation> list = userService.getParticipateChallenge((String) session.getAttribute("user"));
@@ -160,7 +160,7 @@ public class MyPageController {
 		 return "mpg/MWPMPGV03M";
 	 }
 
-	 @GetMapping("moveDeposit.do") 
+	 @GetMapping("moveDeposit.do")  //포인트->계좌 변경 페이지
 	 public String pageMoveToDeposit(HttpSession session, Model model) { 
 		 User user;
 		try {

@@ -103,6 +103,7 @@ public class MyPageController {
 			if(findUser!=null) {
 				userService.changePoint((String)session.getAttribute("user"), amount);
 				model.addAttribute("result", "T");
+				
 			}
 			else model.addAttribute("result", "F");
 		} catch (SQLException e) {

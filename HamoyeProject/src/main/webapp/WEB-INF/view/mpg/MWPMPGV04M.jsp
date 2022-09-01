@@ -62,21 +62,7 @@ tbody>tr>td:first-child:before {
 	        	</td> 
 	      	</tr>
 	      </c:forEach>
-	      <tr>
-	        <td data-th="Supplier Code">
-	          
-	        </td>
-	        <td data-th="Supplier Name">
-	          UPS South Inc.
-	        </td>
-	        <td data-th="Invoice Number">
-	          ASDF29301
-	        </td>
-	       
-	        <td data-th="Due Date">
-	          12/25/2016
-	        </td> 
-	      </tr>
+	      
 	          </tbody>
 	  </table>
 	  <h3 style="text-align: center" id="resize"></h3>

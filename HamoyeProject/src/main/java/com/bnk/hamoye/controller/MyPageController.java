@@ -95,7 +95,7 @@ public class MyPageController {
 
 		return "mpg/MWPMPGV00M";
 	}
-	/*
+	
 	@PostMapping("deposit.do")
 	@ResponseBody
 	public String changePoint(HttpSession session,int amount, String userPassword) {
@@ -117,7 +117,7 @@ public class MyPageController {
 			System.out.println("changePoint 에러 : "+ e.getMessage());
 		}
 		return "";
-	}*/
+	}
 	 
 	@PostMapping("expireAccount.do") //계좌 해지
 	@ResponseBody
@@ -144,6 +144,8 @@ public class MyPageController {
 	public String getParticipateChallenge(HttpSession session, Model model) {
 		try {
 			List<Participation> list = userService.getParticipateChallenge((String) session.getAttribute("user"));
+			for(Participation p :list)
+				System.out.println(p);
 			model.addAttribute("result", list);
 		} catch (SQLException e) {
 

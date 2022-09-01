@@ -46,19 +46,19 @@ tbody>tr>td:first-child:before {
 	        <th>포인트</th>
 	        <th>적립일자</th> 
 	      </tr> 
-	      <c:forEach var="item" items="${list}" varStatus="status"> 
+	      <c:forEach var="item" items="${result}" varStatus="status"> 
 		      <tr>
 	    	    <td data-th="순번">
-	        	
+	        		<c:out value= "${status.count}" />
 	        	</td>
 	        	<td data-th="항목">
-	 				${result.tripChallenge.tripChallengeName}
+	 				${item.tripChallenge.tripChallengeName}
 	        	</td>
 	        	<td data-th="포인트">
-	        	  	${result.tripChallenge.rewardPoint}
+	        	  	${item.tripChallenge.rewardPoint}
 	        	</td>
 	        	<td data-th="적립일자">
-	        	  	${result.paticipationDate}
+	        	  	${item.participationDate}
 	        	</td> 
 	      	</tr>
 	      </c:forEach>

@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class AdminController { //관리자 화면 Controller
+public class AdminController {
 	private final AdminService adminService;
 	private final UserService userService;
 	
@@ -32,7 +32,7 @@ public class AdminController { //관리자 화면 Controller
 		return "adm/ADMCMNV00M";
 	}
 
-	@PostMapping("adminLogin.do") //관리자 로그인
+	@PostMapping("adminLogin.do")
 	@ResponseBody
 	public String adminLogin(User user, HttpSession session) {
 		try {
@@ -57,7 +57,7 @@ public class AdminController { //관리자 화면 Controller
 		return "adm/ADMCMNV00M";
 	}
 	
-	@RequestMapping("adminIndex.do")	//관리자 메인 페이지
+	@RequestMapping("adminIndex.do")
 	public String adminIndex(Model model) {
 		try {
 			//전체 회원 수 조회
@@ -96,6 +96,8 @@ public class AdminController { //관리자 화면 Controller
 			Map<String, Integer> challengeDateCnt = adminService.getTripChallengeCntByMonth();
 			model.addAttribute("challengeDateCnt", challengeDateCnt);
 			
+			
+			System.out.println(tripList);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -108,7 +110,7 @@ public class AdminController { //관리자 화면 Controller
 		return "adm/ADMUSRV00M";
 	}
 	
-	@PostMapping("adminUpdateUser.do") //관리자 user정보 업데이트
+	@PostMapping("adminUpdateUser.do")
 	public String adminUpdateUser(User user) {
 		try {
 			userService.updateUser(user);
@@ -118,7 +120,7 @@ public class AdminController { //관리자 화면 Controller
 		return "adm/ADMUSRV00M";
 	}
 	
-	@GetMapping("adminGetAllUser.do") //모든 유저 리스트 조회
+	@GetMapping("adminGetAllUser.do")
 	public String adminGetAllUser(Model model) {
 		try {
 			List<User> list = adminService.getAllUser();
@@ -130,7 +132,7 @@ public class AdminController { //관리자 화면 Controller
 		return "adm/ADMUSRV00M";
 	}
 	
-	@GetMapping("adminGetUser.do") //관리자 특정 유저 정보 조회
+	@GetMapping("adminGetUser.do")
 	public String getUserInfoByAdmin(Model model, String userId) {
 		try {
 			User user = adminService.getUserInfoByAdmin(userId);

@@ -51,5 +51,5 @@ function init() {
     }, 1000, 'easeInOutExpo');
     e.preventDefault();
   });
-
+  
 }

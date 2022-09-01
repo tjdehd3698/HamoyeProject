@@ -74,6 +74,7 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
+			$(".nav-item:eq(1)").addClass("active");
 			$('#dataTable').DataTable();
 		});
 	</script>

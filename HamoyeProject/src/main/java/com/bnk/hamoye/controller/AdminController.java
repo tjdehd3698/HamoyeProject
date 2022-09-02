@@ -218,23 +218,33 @@ public class AdminController {
 	@PostMapping("updateEcoChallenge.do") //ecoChallenge 수정(사진 업로드)
 	public String updateEcoChallenge(EcoChallenge ecoChallenge, MultipartFile img1, MultipartFile img2,  MultipartFile img3) {
 		try {
+			System.out.println("aa");
 			String ecoChallengeImge = ""; //이미지 경로 담을 변수
 			if(img1!=null) {
-				File file1 = new File("eco\\"+ecoChallenge.getEcoChallengeId()+"\\"+img1.getOriginalFilename());
+				File file1 = new File("src/main/webapp/img/eco/"+ecoChallenge.getEcoChallengeId(),img1.getOriginalFilename());
 				ecoChallengeImge+= (img1.getOriginalFilename()+"@@");
+				if (!file1.exists()) {
+					file1.mkdirs();
+                }
 				img1.transferTo(file1);
 			}
 			if(img2!=null) {
-				File file2 = new File("eco\\"+ecoChallenge.getEcoChallengeId()+"\\"+img2.getOriginalFilename());
+				File file2 = new File("src/main/webapp/img/eco/"+ecoChallenge.getEcoChallengeId(),img2.getOriginalFilename());
 				ecoChallengeImge+= (img2.getOriginalFilename()+"@@");
+				if (!file2.exists()) {
+					file2.mkdirs();
+                }
 				img2.transferTo(file2);
 			}
 			if(img3!=null) {
-				File file3 = new File("eco\\"+ecoChallenge.getEcoChallengeId()+"\\"+img3.getOriginalFilename());
+				File file3 = new File("src/main/webapp/img/eco/"+ecoChallenge.getEcoChallengeId(),img3.getOriginalFilename());
 				ecoChallengeImge+= (img3.getOriginalFilename()+"@@");
+				if (!file3.exists()) {
+					file3.mkdirs();
+                }
 				img3.transferTo(file3);
 			}
-			
+			System.out.println("aa");
 			ecoChallenge.setChallengeImage(ecoChallengeImge);			
 			
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);

@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bnk.hamoye.domain.Participation;
+import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.User;
+import com.bnk.hamoye.model.impl.TripChallengeDAOImpl;
+import com.bnk.hamoye.service.TripChallengeService;
 import com.bnk.hamoye.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -22,6 +25,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MyPageController {
 	private final UserService userService;
+	private final TripChallengeService tripChallengeService;
 	
 	@PostMapping("change.do") //회원 정보 업데이트(비밀번호/이메일/주소)
 	public String updateUser(User user) {
@@ -72,7 +76,9 @@ public class MyPageController {
 			User user = userService.getMypageInfo((String) session.getAttribute("user"));
 			// System.out.println(user.getEcoChallenge().getEcoChallengeId());
 			model.addAttribute("result", user);
-			System.out.println("user" + user);
+			
+			List<TripChallenge> tripList = tripChallengeService.getTripChallengeList();
+			model.addAttribute("tripList", tripList);
 
 			if (user.getEcoChallenge() == null) {
 				model.addAttribute("totalCnt", null);
@@ -89,7 +95,7 @@ public class MyPageController {
 				model.addAttribute("successCnt", successCnt);
 			}
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("getMyPageInfo 에러 : " + e.getMessage());
 		}
 

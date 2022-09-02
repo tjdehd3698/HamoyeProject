@@ -110,7 +110,7 @@ window.addEventListener('scroll', function() {
 		}, 500, function() {
 			$( this ).animate( {
 				value: '${result.participationCount}'
-			}, 500 );
+			}, 500 ); 
 		} );
 	}
 });

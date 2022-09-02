@@ -123,16 +123,16 @@ public class AdminController {
 	@PostMapping("adminUpdateUser.do")
 	@ResponseBody
 	public String adminUpdateUser(User user) {
-		String flag = "F";
+		String result = "F";
 		try {
 			int row = adminService.updateUserByAdmin(user);
 			System.out.println(row);
-			if(row>0) flag="T";
+			if(row>0) result="T";
 		} catch (Exception e) {
 			System.out.println("adminUpdateUser 에러 : "+ e.getMessage());
 		}
 		
-		return flag;
+		return result;
 	}
 	
 	@GetMapping("adminGetAllUser.do")
@@ -217,7 +217,9 @@ public class AdminController {
 	}
 	
 	@PostMapping("updateEcoChallenge.do") //ecoChallenge 수정(사진 업로드)
+	@ResponseBody
 	public String updateEcoChallenge(EcoChallenge ecoChallenge, MultipartFile img1, MultipartFile img2,  MultipartFile img3) {
+		String result = "F";
 		try {
 			String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구
 			String ecoChallengeImge = ""; //이미지 경로 담을 변수
@@ -248,10 +250,15 @@ public class AdminController {
 			ecoChallenge.setChallengeImage(ecoChallengeImge);			
 			
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
+			result="T";
 		} catch (Exception e) {
 			System.out.println("updateEcoChallenge 에러 : "+ e.getMessage());
 		}
+<<<<<<< HEAD
 		return "adm/ADMCHLV11M";
+=======
+		return result;
+>>>>>>> branch 'main_test' of https://github.com/tjdehd3698/HamoyeProject.git
 	}
 	
 	@PostMapping("updateTripChallenge.do") //tripChallenge 수정

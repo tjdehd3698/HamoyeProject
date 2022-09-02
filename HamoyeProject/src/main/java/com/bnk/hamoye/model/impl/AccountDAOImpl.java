@@ -22,7 +22,7 @@ public class AccountDAOImpl implements AccountDAO{
 	@Override
 	public int registerAccount(Account account) throws SQLException {
 		System.out.println("hi");
-		System.out.println(account);
+		System.out.println(sqlSession.insert(NS+"registerAccount",account));
 		return sqlSession.insert(NS+"registerAccount",account);
 	}
 	

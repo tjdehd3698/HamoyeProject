@@ -57,9 +57,9 @@
 	</select>
 	
 	<select id="getEcoChallengeType" resultType="string">
-		select distinct challenge_type
+		select distinct eco_challenge_type
 		from eco_challenge
-		order by challenge_type asc
+		order by eco_challenge_type asc
 	</select>
 	
 	<!-- <select id="getRecommendedChallengeList" parameterType="User" resultType="Challenge">

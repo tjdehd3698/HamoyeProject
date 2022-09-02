@@ -57,6 +57,7 @@ public class EcoChallengeController {
 				participation.setUserId(userId);
 				participation.setTripChallengeId(challengeId);
 				int value = tripChallengeService.checkParticipationTripChallenge(participation);
+				System.out.println("hi");
 				if(value>0) {
 					flag="T";
 				}

@@ -36,4 +36,19 @@ public class ParticipationDAOImpl implements ParticipationDAO {
 		return sqlSession.selectList(NS+"getParticipationCntByTripChallenge", tripChallengeId);
 	}
 
+	@Override
+	public int doParticipateEcoChallenge(String userId) throws SQLException {
+		return sqlSession.insert(NS+"doParticipateEcoChallenge", userId);
+	}
+
+	@Override
+	public int doParticipateTripChallenge(Participation participation) throws SQLException {
+		return sqlSession.insert(NS+"doParticipateTripChallenge", participation);
+	}
+
+	@Override
+	public int checkParticipateTripChallenge(Participation participation) throws Exception {
+		return sqlSession.selectOne(NS+"checkParticipateTripChallenge", participation);
+	}
+
 }

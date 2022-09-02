@@ -1,73 +1,65 @@
-package com.bnk.hamoye.service.impl;
+package com.bnk.hamoye.model.impl;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.User;
-import com.bnk.hamoye.model.AccountDAO;
 import com.bnk.hamoye.model.EcoChallengeDAO;
-import com.bnk.hamoye.model.ParticipationDAO;
-import com.bnk.hamoye.model.PointDAO;
-import com.bnk.hamoye.model.UserDAO;
-import com.bnk.hamoye.service.EcoChallengeService;
 
-import lombok.RequiredArgsConstructor;
+@Repository
+public class EcoChallengeDAOImpl implements EcoChallengeDAO {
 
-@Service
-@RequiredArgsConstructor
-public class EcoChallengeServiceImpl implements EcoChallengeService {
-
-	private final UserDAO userDAO;
-	private final PointDAO pointDAO;
-	private final AccountDAO accountDAO;
-	private final ParticipationDAO participationDAO;
-	private final EcoChallengeDAO ecoChallengeDAO;
+	private final String NS = "sql.hamoye.ecoChallenge_mapper.";
+	@Autowired
+	private SqlSession sqlSession;
 	
 	@Override
 	public int registerEcoChallenge(EcoChallenge ecoChallenge) throws Exception {
-		return ecoChallengeDAO.registerEcoChallenge(ecoChallenge);
+		return sqlSession.insert(NS+"registerEcoChallenge", ecoChallenge);
 	}
-
+	
 	@Override
 	public int updateEcoChallenge(EcoChallenge ecoChallenge) throws Exception {
-		return ecoChallengeDAO.updateEcoChallenge(ecoChallenge);
+		return sqlSession.update(NS+"updateEcoChallenge", ecoChallenge);
 	}
 
 	@Override
-	public int deleteEcoChallenge(String challengeId) throws Exception {
-		return ecoChallengeDAO.deleteEcoChallenge(challengeId);
+	public int deleteEcoChallenge(String ecoChallengeId) throws Exception {
+		return sqlSession.update(NS+"deleteEcoChallenge", ecoChallengeId);
 	}
 
 	@Override
 	public List<EcoChallenge> searchEcoChallenge(String word) throws Exception {
-		return ecoChallengeDAO.searchEcoChallenge(word);
+		return sqlSession.selectList(NS+"searchEcoChallenge", word);
 	}
 
 	@Override
 	public EcoChallenge getEcoChallengeStatus(String ecoChallengeId) throws Exception {
-		return ecoChallengeDAO.getEcoChallengeStatus(ecoChallengeId);
+		return null;
 	}
 
 	@Override
 	public List<EcoChallenge> getEcoChallengeList() throws Exception {
-		return ecoChallengeDAO.getEcoChallengeList();
+		return sqlSession.selectList(NS+"getEcoChallengeList");
 	}
 
 	@Override
 	public EcoChallenge getEcoChallengeDetail(String ecoChallengeId) throws Exception {
-		return ecoChallengeDAO.getEcoChallengeDetail(ecoChallengeId);
+		return sqlSession.selectOne(NS+"getEcoChallengeDetail", ecoChallengeId);
 	}
 
 	@Override
 	public List<EcoChallenge> getRecommendedEcoChallengeList(User user) throws Exception {
-		return ecoChallengeDAO.getRecommendedEcoChallengeList(user);
+		return sqlSession.selectOne(NS+"getRecommendedEcoChallengeList", user);
 	}
 
 	@Override
 	public List<String> getEcoChallengeType() throws Exception {
-		return ecoChallengeDAO.getEcoChallengeType();
+		return sqlSession.selectList(NS+"getEcoChallengeType");
 	}
 
 }

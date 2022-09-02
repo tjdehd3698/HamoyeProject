@@ -65,4 +65,9 @@ public class EcoChallengeServiceImpl implements EcoChallengeService {
 		return ecoChallengeDAO.getRecommendedEcoChallengeList(user);
 	}
 
+	@Override
+	public List<String> getEcoChallengeType() throws Exception {
+		return ecoChallengeDAO.getEcoChallengeType();
+	}
+
 }

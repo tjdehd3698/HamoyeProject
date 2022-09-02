@@ -1,9 +1,11 @@
 package com.bnk.hamoye.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.model.AccountDAO;
@@ -68,6 +70,24 @@ public class TripChallengeServiceImpl implements TripChallengeService {
 	@Override
 	public List<TripChallenge> getTripChallengeListByAdmin() throws Exception {
 		return tripChallengeDAO.getTripChallengeListByAdmin();
+	}
+
+	@Override
+	public int participateTripChallenge(Participation participation) throws Exception {
+		return participationDAO.doParticipateTripChallenge(participation);
+	}
+
+	@Override
+	public int checkParticipationTripChallenge(Participation participation) throws Exception {
+		return participationDAO.checkParticipateTripChallenge(participation);
+	}
+
+	@Override
+	public int addPoint(String userId, int rewardPoint) throws Exception {
+		HashMap<String, String> map = new HashMap<>();
+		map.put("amount", String.valueOf(rewardPoint));
+		map.put("userId", userId);
+		return pointDAO.updateTotalPoint(map);
 	}
 
 }

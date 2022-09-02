@@ -13,11 +13,10 @@
 	<update id="updateTripChallenge" parameterType="TripChallenge">
 		update trip_challenge
 		trip_challenge_name = #{tripChallengeName},
-		start_date = #{startDate},
 		end_date = #{endDate},
-		limited_people = #{limitedPeople},
-		hits = #{hits},
-		reward_point = #{rewardPoint}
+		reward_point = #{rewardPoint},
+		content= #{content},
+		challenge_image = #{challengeImage}
 		where trip_challenge_id = #{tripChallengeId}
 	</update>
 	
@@ -29,7 +28,7 @@
 	
 	<select id="searchTripChallenge" parameterType="string" resultType="TripChallenge">
 		select trip_challenge_id, prime_rate, trip_challenge_name, start_date,
-		end_date, limited_people, is_delete, challenge_image
+		end_date, is_delete, challenge_image
 		from trip_challenge
 		where trip_challenge_name like '%' || #{value} || '%'
 	</select>
@@ -41,15 +40,15 @@
 	</select>
 	
 	<select id="getTripChallengeDetail" parameterType="string" resultType="TripChallenge">
-		select trip_challenge_id, trip_challenge_name, start_date,
-		end_date, hits, reward_point, challenge_image
+		select trip_challenge_id, trip_challenge_name, start_date, trip_challenge_type,
+		end_date, hits, reward_point, challenge_image, is_delete, content
 		from trip_challenge
 		where trip_challenge_id = #{value}
 	</select>
 	
 	<!-- <select id="getRtripmmendedChallengeList" parameterType="User" resultType="Challenge">
 		select trip_challenge_id, prime_rate, trip_challenge_name, start_date,
-		end_date, limited_people, is_delete, challenge_image
+		end_date, is_delete, challenge_image
 		from trip_challenge
 		where trip_challenge_id=
 	</select> -->

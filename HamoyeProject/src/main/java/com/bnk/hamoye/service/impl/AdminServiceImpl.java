@@ -191,4 +191,16 @@ public class AdminServiceImpl implements AdminService{
 		
 		return result;
 	}
+
+	@Override
+	public int getUserCntByEcoChallengeById(String ecoChallengeId) throws Exception {
+		List<User> userList = userDAO.getUserByEcoChallenge(ecoChallengeId);
+		return userList.size();
+	}
+
+	@Override
+	public int getUSerCntByTripChallengeById(String tripChallengeId) throws Exception {
+		List<Participation> participationList = participationDAO.getParticipationCntByTripChallenge(tripChallengeId);
+		return participationList.size();
+	}
 }

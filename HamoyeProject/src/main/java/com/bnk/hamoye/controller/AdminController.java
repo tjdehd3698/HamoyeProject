@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.Status;
@@ -213,8 +214,12 @@ public class AdminController {
 	}
 	
 	@PostMapping("updateEcoChallenge.do") //ecoChallenge 수정
-	public String updateEcoChallenge(EcoChallenge ecoChallenge) {
+	public String updateEcoChallenge(EcoChallenge ecoChallenge, MultipartFile[] uploadfile) {
 		try {
+			for (MultipartFile file : uploadfile) {	
+				file.getOriginalFilename();
+			}
+			
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
 		} catch (Exception e) {
 			System.out.println("updateEcoChallenge 에러 : "+ e.getMessage());

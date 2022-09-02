@@ -5,9 +5,10 @@
 
 <mapper namespace="sql.hamoye.ecoChallenge_mapper">
 	<insert id="registerEcoChallenge" parameterType="EcoChallenge">
-	<selectKey keyProperty="ecoChallengeId" resultType="string" order="BEFORE">
+		<selectKey keyProperty="ecoChallengeId" resultType="string" order="BEFORE">
 			select 'eco'||eco_seq.nextval from dual
 		</selectKey>
+		
 		insert into 
 		eco_challenge(eco_challenge_id, eco_challenge_name, prime_rate, start_date, end_date, limited_people)
 		values(#{ecoChallengeId}, #{ecoChallengeName},#{primeRate},#{startDate},#{endDate},#{limitedPeople})
@@ -20,7 +21,8 @@
 		end_date = #{endDate},
 		limited_people = #{limitedPeople},
 		content = #{content},
-		challenge_image =#{challengeImage}
+		challenge_image =#{challengeImage},
+		is_delete = #{is_delete}
 		where eco_challenge_id = #{ecoChallengeId}
 	</update>
 	

@@ -20,7 +20,8 @@
 		end_date = #{endDate},
 		limited_people = #{limitedPeople},
 		hits = #{hits},
-		reward_point = #{rewardPoint}
+		reward_point = #{rewardPoint},
+		is_delete = #{is_delete}
 		where trip_challenge_id = #{tripChallengeId}
 	</update>
 	

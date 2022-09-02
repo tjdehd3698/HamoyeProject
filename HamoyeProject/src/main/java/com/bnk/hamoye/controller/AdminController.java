@@ -151,6 +151,7 @@ public class AdminController {
 		try {
 			User user = adminService.getUserInfoByAdmin(userId);
 			model.addAttribute("result", user);
+			
 		} catch (Exception e) {
 			System.out.println("getUserInfoByAdmin 에러 : "+ e);
 		}

@@ -10,6 +10,7 @@
 		values(#{accountNumber},to_date(TO_CHAR(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD'),to_date(TO_CHAR(#{matureDate},'YYYY-MM-DD'),'YYYY-MM-DD'),#{purpose},#{incomeSource},#{balance},#{primeRate})
 	</insert>	
 	
+	
 	<delete id="deleteAccount" parameterType="string">
 		delete from account
 		where account_number =(select account_number from users where user_id=#{value})

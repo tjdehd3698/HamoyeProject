@@ -113,4 +113,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.update(NS+"updateUserByAdmin",user);
 	}
 
+	@Override
+	public List<User> getUserByEcoChallengeType(String ecoChallengeId) throws SQLException {
+		return sqlSession.selectList(NS+"getUserByEcoChallengeType", ecoChallengeId);
+	}
+
 }

@@ -203,4 +203,17 @@ public class AdminServiceImpl implements AdminService{
 		List<Participation> participationList = participationDAO.getParticipationCntByTripChallenge(tripChallengeId);
 		return participationList.size();
 	}
+
+	@Override
+	public Map<String, Integer> getUserCntByEcoChallengeType() throws Exception {
+		Map<String,Integer> result = new HashMap<String, Integer>();
+		
+		List<String> typeList = ecoChallengeDAO.getEcoChallengeType();
+		for(String type : typeList) {
+			List<User> userList = userDAO.getUserByEcoChallengeType(type);
+			result.put(type, userList.size());
+		}
+		
+		return result;
+	}
 }

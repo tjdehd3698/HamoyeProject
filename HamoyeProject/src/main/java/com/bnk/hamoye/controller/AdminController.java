@@ -102,6 +102,9 @@ public class AdminController {
 			Map<String, Integer> challengeDateCnt = adminService.getTripChallengeCntByMonth();
 			model.addAttribute("challengeDateCnt", challengeDateCnt);
 			
+			//지구를 떠나요 챌린지 별 참여자 수  pie chart 데이터 
+//			for(TripStatus t : tripLi
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -228,5 +231,4 @@ public class AdminController {
 		}
 		return "";
 	}
-	
 }

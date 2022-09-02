@@ -8,12 +8,12 @@ import lombok.Data;
 @Data
 public class Account {
 	private String accountNumber;
+	private double primeRate;
 	private Date createDate;
 	private Date matureDate;
 	private String purpose;
 	private String incomeSource;
 	private int balance;
-	private double primeRate;
 	
 	public Account(){
 		this.primeRate = 0.5;

@@ -28,6 +28,7 @@ public class Account {
         	if(i==4||i==8) newNumber+="-";
         	newNumber+=(random.nextInt(9));
         }
+        
         this.accountNumber = newNumber;
 	}
 }

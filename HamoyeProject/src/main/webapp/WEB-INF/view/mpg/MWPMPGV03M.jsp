@@ -57,24 +57,35 @@
     <!-- Page Header End -->
     <div class="container mb-5 wow fadeIn" data-wow-delay="0.1s">
 	<div class="container accOut">
-		<h1>지금 계좌를 해지하시면</h1><br>
-		<h1 style="color:blue">금리 우대 혜택</h1><h1>과</h1><br>
-		<h1 style="color:blue">잔여 동백포인트</h1><h1>가</h1><br> <h1 style="color:red">사라져요!</h1>
-		<br><br>
-		<h1>그래도 계좌를 해지하시겠어요?</h1>
-	</div>
-	
-				<div class="mb-5">
-						<div class="mb-3 row">
-							<label for="userId" class="col-sm-2 col-form-label">비밀번호 확인</label>
-							<div class="col-sm-10">
-								<div class="position-relative">  
-					                <input type="password"  class="form-control" id="password" name="userPassword">
-					                <input id="accout_submit" type="button" value="회원탈퇴"> 
-					            </div>
-						    </div>
-						</div>
+		<div class="container PartTop my-3 px-3">
+				<div class="PartA">
+					<span class="icon solid fas fa-exclamation-triangle fa-10x"></span>
 				</div>
+				<div class="PartB">
+					<h2>계좌를 해지하시면</h2><br>
+					<h2 style="color:blue">금리 우대 혜택</h2><h2>과</h2><br>
+					<h2 style="color:blue">잔여 동백포인트</h2><h2>가</h2><br> <h2 style="color:red">사라져요!</h2> 
+				</div>
+		
+		<br> <br>
+		<div class="container PartMid">
+			<h1>그래도 계좌를 해지하시겠어요?</h1>
+		</div>
+		<div class="container PartBottom">
+			<div class="Accout">
+				<div class="mb-5">
+					<div class="mb-2 row"> 
+						<div class="position-relative">  
+						<label for="userId" class="col-sm-2 col-form-label mt-3" >비밀번호</label>
+				        	<input type="password"  class="accOutInput" id="password" name="userPassword"> 
+						</div> 
+				    </div>
+				    <a id="accout_submit" class="btn btn-outline-primary py-2 px-3">계좌해지 </a> 
+				</div>
+			</div>
+		 </div>
+		</div> 
+	</div>
 	</div>
  <jsp:include page="../footer.jsp"></jsp:include>
 

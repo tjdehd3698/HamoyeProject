@@ -92,9 +92,12 @@
 						    </div> 
 						</div>
 					</div>
-				<input type="submit" id="mypage_submit" value="수정완료">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type = "button" id="mypage_cancel" onclick="location.href='mypage.do' " value="돌아가기"> <br><br>
-				<input type = "button" id="mypage_userExit" onclick="location.href='moveToOut.do' " value="회원탈퇴"> <br><br>
+				<input type="submit" id="mypage_submit" class="btn btn-outline-primary py-2 px-3 mx-5" value="수정완료"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type = "button" id="mypage_cancel" class="btn btn-outline-primary py-2 px-3 mx-5" onclick="location.href='mypage.do' " value="돌아가기"><br><br>
+				<!-- <input type="submit" id="mypage_submit" value="수정완료">
+				<input type = "button" id="mypage_cancel" onclick="location.href='mypage.do' " value="돌아가기"> 
+				 -->
+				 <input type = "button" id="mypage_userExit" onclick="location.href='moveToOut.do' " value="회원탈퇴"> <br><br>
 			</form>
     	</div>
 	</div>

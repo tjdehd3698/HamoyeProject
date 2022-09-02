@@ -20,6 +20,101 @@ $(function(){
 		} 
 	}); 
 });
+window.onload = function(){
+new RollingNum('mypage_balance','${result.account.balance}','slide');
+}
+function RollingNum(id, number, type) {
+  var $cntBox = document.getElementById(id);
+  var $cntNum = number;
+  var $cntLen = $cntNum.length;
+  var $numArr=$cntNum.split('');
+  var delay = 300;
+  var speed = 100; 
+  
+  // 카운트
+  for ( var i=0; i<$cntLen; i++){ 
+    var bckI = ($cntLen - i*1) -1;
+    var num = document.createElement('span');
+    num.classList.add('num', 'idx'+bckI);
+    num.setAttribute('data-num',$numArr[i]);
+    
+    $cntBox.append(num);
+    setNum (num, i);
+  }
+  
+  //,처리
+  if ($cntLen>3) {
+    for (var i=1; i<=Math.floor($cntLen/3); i++) {
+      var idx3n = $cntBox.querySelector('.idx'+i*3);
+      var pointEl = document.createElement('span');
+      pointEl.classList.add('point');
+      idx3n.after(pointEl);
+    }
+    setTimeout(function(){
+      var point = $cntBox.querySelectorAll('.point');
+      point.forEach(el => {
+        el.innerText=','
+      });
+    },(speed*10) + ($cntLen * delay) + speed);
+  };
+
+  function setNum (el, n){
+    if (type == 'slide') {
+      setTimeout(function(){
+        var no=0;
+        var numHeight = 30;
+        // style 추가
+        var style = document.createElement('style');
+        style.innerHTML=
+          ".num, .point {display: inline-block;vertical-align: middle;}\
+          .num {overflow: hidden;}\
+          .numList {display: inline-block;margin-top:0;text-align: center;transition: all "+(speed/1000)+"s;}"
+        document.body.appendChild(style);
+
+        var numbersDiv = document.createElement('span');
+        var numbers = '0\n1\n2\n3\n4\n5\n6\n7\n8\n9';
+        el.style='height:'+numHeight+'px;line-height:'+numHeight+'px;';
+        numbersDiv.classList.add('numList');
+        numbersDiv.innerText = numbers;
+        el.append(numbersDiv);
+
+        var intervalNo = setInterval(function(){
+          no++;
+          numbersDiv.style='margin-top:'+(no * numHeight * -1)+'px;';
+          if(no == 10) {
+            clearInterval(intervalNo);
+            numbersDiv.style='margin-top:'+(el.getAttribute('data-num') * numHeight * -1)+'px';
+          }
+        },speed);
+      }, delay*i);
+    }else {
+      setTimeout(function(){
+        var no=0;
+        var intervalNo = setInterval(function(){
+          el.innerText = no++;
+          if(no == 10) {
+            clearInterval(intervalNo);
+            el.innerText = el.getAttribute('data-num');
+          }
+        },speed);
+      }, delay*i);
+    }
+  }
+}
+let isVisible = false;
+window.addEventListener('scroll', function() { 
+	if ( checkVisible($('#second')) && !isVisible) {
+		 isVisible=true;
+		$('#progress').animate( {
+			value: '${result.ecoChallenge.totalCount}'
+		}, 500, function() {
+			$( this ).animate( {
+				value: '${result.participationCount}'
+			}, 500 );
+		} );
+	}
+});
+ 
 </script>
 </head>
 <body id="mypage_main_body">
@@ -65,13 +160,12 @@ $(function(){
 		<!-- Introduction -->
 		<section id="intro" class="main">
 			<div class="spotlight">
-				<span class="image"><img src="img/carousel-1.png" alt="" /></span>
-				<div class="content">
 					 <c:choose>
 						<c:when test="${result.account != null}">  
+						<span class="image"><img src="img/img-fpm-bf-31@3x.png" alt="" /></span>
+						<div class="content">
 						<p class="showAccount">계좌번호 : ${result.account.accountNumber}</p><br> 
-							<header id="introText" class="mypage_major" style="display:block"><br> 
-								
+							<header id="introText" class="mypage_major" style="display:block"><br>  
 								<div class="mypage_account_text">
 									<h1 style="color:#2b3886">${userName}</h1>
 									<h5>님의</h5>
@@ -79,11 +173,10 @@ $(function(){
 								<div class="mypage_account_text"><br><br><br>
 									<h3 style="color:#2b3886">${result.ecoChallenge.ecoChallengeName} </h3>
 									<h5> 챌린지 </h5><br><br><br>
-									
-									<h4 style="">잔액 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${result.account.balance} 원</h4><br>
+									<!-- 잔액 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 원 ${result.account.balance} -->
+									<h4>원</h4> <h4 id="mypage_balance"></h4> <h4>잔액 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4><br> 
 									<h2 />
-								</div>
-								
+								</div> 
 							</header>
 							<br>
 							<div id="intro_btn"><br><br>
@@ -100,16 +193,23 @@ $(function(){
 	                            		</div>
                        					</a>
                        				</div>
+                       				</div>
 						</c:when>
 						<c:otherwise>
+						<span class="image"><img src="img/img-fpm-bf-12@3x.png" alt="" /></span>
+						<div class="content">
 							<header id="introText" class="mypage_major" style="display:block"><br>
-								<div>
-									<h1>${userName}</h1>
-									<h4 >님은</h4>
+								<div class="mypage_account_text">
+									<h1 style="color:#2b3886">${userName}</h1>
+									<h5>님은</h5>
 								</div>
-								<div><br><br><br><br>
-									<h2>아직, 챌린지 계좌가 없습니다!</h2><br><br><br><br>
-									<div id="intro_btn">
+									<div class="mypage_account_text"><br><br><br>
+									<h3 style="color:#2b3886">아직, 챌린지 계좌가 없습니다!</h3>
+									<h2 />
+									</div> 
+							</header>
+							<br>
+									<div id="intro_btn"><br><br><br><br>
 										<a id="makeAccount" class="btn btn-outline-primary px-3" href="challege.do" >
 	                            		계좌 만들고 챌린지 참여하기!
 	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
@@ -122,12 +222,11 @@ $(function(){
 	                                		<i class="fa fa-arrow-right"></i>
 	                            		</div>
                        					</a>
-                       				</div>
-								</div>
-							</header>	
+                       				</div> 
+							</div>
 						</c:otherwise>
 					</c:choose> 
-				</div>
+				
 			</div>
 		</section>
  		 <c:choose>
@@ -186,7 +285,7 @@ $(function(){
 			                       			<p id="progressNow"><b  style="color:gray">진행현황</b></p>
 											<div><br><br>
 													<div style=" position: relative; height: 40px;">
-														<progress class="container" value="${result.participationCount}" max="${result.ecoChallenge.totalCount}"  id="progress"></progress>
+														<progress class="container" value="0%" max="${result.ecoChallenge.totalCount}"  id="progress"></progress>
 		    											<p style="position: absolute; top: 10px; right: 35px; margin-bottom: 10px;">목표횟수 ${result.ecoChallenge.totalCount} 회 중, ${result.participationCount}회 달성! </p>
 													</div> 
 												</div>

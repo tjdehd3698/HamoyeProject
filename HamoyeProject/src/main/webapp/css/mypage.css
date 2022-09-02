@@ -63,11 +63,11 @@
 /* Basic */
  
 	#mypage_main_body {
-		background-color: #2b3886;
-		background-image: -moz-linear-gradient(45deg, #4356c2 15%, #5f4d93 85%);
-		background-image: -webkit-linear-gradient(45deg, #919cdb 15%, #5f4d93 85%);
-		background-image: -ms-linear-gradient(45deg, #e6ebff 15%, #5f4d93 85%);
-		background-image: linear-gradient(45deg, #e6ebff 15%, #5f4d93 85%);
+		background-color:  #e6ebff;
+		background-image: -moz-linear-gradient(right, #e6ebff 15%, #F8F8F9 85%);
+		background-image: -webkit-linear-gradient(right, #e6ebff 15%, #F8F8F9 85%);
+		background-image: -ms-linear-gradient(right, #e6ebff 15%, #919cdb 85%);
+		/* background-image: linear-gradient(45deg, #e6ebff 15%, #e6ebff 85%); */ 
 	}
   
 /* Mypage_Icon */
@@ -449,10 +449,10 @@
 			}
 		@media screen and (max-width: 980px) {
 			.spotlight {
-				-moz-flex-direction: column-reverse;
-				-webkit-flex-direction: column-reverse;
-				-ms-flex-direction: column-reverse;
-				flex-direction: column-reverse;
+				-moz-flex-direction: column;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
 				text-align: center;
 			}
 				.spotlight .content {
@@ -828,18 +828,16 @@
 	height:35px;
 	
 }
-#mypage_submit, #mypage_cancel{
-	padding : 20px 50px;
-	border-radius: 5px;
-	background-color: #2b3886;
-	color: #e6ebff;
-	margin : 10px 20px 10px 20px;
+#mypage_submit, #mypage_cancel{ 
+	font-weight: 500;
+    transition: .5s;
 }
 #mypage_userExit {
 	padding : 7px 16px;
 	border-radius: 5px;
 	background-color: #6B6B6C;
 	color: #e6ebff; 
+	    border: hidden;
 }
 .maintext {
 	padding : 5%;
@@ -850,16 +848,13 @@
 
 /*////////////////////////////////////////////////////MWPMPGV02M.jsp///////////////////////////////////////////////////////////*/
 
-#userout_font {
-	 /* font-family: 'Jeju Hallasan', cursive;*/ 
+#userout_font { 
 	color:#2b3886; 
     font-family: 'ParkYongJun'; 
 }
 #userout_submit, #userout_totheback{
-	padding : 10px 15px;
-	border-radius: 10px;
-	background-color:#2b3886;
-	color:#e6ebff;
+	font-weight: 500;
+    transition: .5s;
 }
  #userout_totheback{
  	margin-left : 10em;
@@ -868,11 +863,7 @@
 	text-align : center;    
 } */
 .outMain {
-	background-color: #E8E7DF;
-	background-image:   -moz-linear-gradient(45deg, #E8E7DF 15%, #E8E7DF 85%);
-	background-image:  -webkit-linear-gradient(45deg, #E8E7DF 15%, #E8E7DF 85%);
-		background-image:   -ms-linear-gradient(45deg, #E8E7DF 15%, #E8E7DF 85%);
-		background-image:   linear-gradient(45deg, #E8E7DF 15%, #E8E7DF 85%);
+	background-color: #E8E7DF; 
 }
 .mypage_statistics{
 	width: 50em;
@@ -885,6 +876,7 @@
 .mypage_sure{
 	float:left;
 	padding-top:7%;
+	
 } 
 .cryImg{
 	float:right; 
@@ -896,16 +888,51 @@
 
 /*////////////////////////////////////////////////////MWPMPGV03M.jsp///////////////////////////////////////////////////////////*/
 .accOut {
+	border-radius:5px;
+ 	width: 80%; 
+  	background-color: #f2f2f2;
+  	box-shadow: 1px 1px 20px 2px #c0c0c0;
+  	padding : 5% 15% 3% 15%;}
+.PartTop{  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+.PartMid{
 	text-align: center;
 }
-.accOut>h1 {
+.PartBottom{
+	text-align:center;
+}
+ 
+ .PartB>h2{
 	display:inline;
 }
+#accout_submit {
+    font-weight: 500;
+    transition: .5s;
+}
+.accOut ::Before {
+	display:inline;
+	float:left;
+}
+.accOut ::After {
+	display:inline;
+	float:right;
+}
+.accOut>h1 , .accOut>h2 { 
+	display:inline;
+} 
+.accOutInput{
+	width:50%;
+}
+ 
 /*////////////////////////////////////////////////////MWPMPGV04M.jsp///////////////////////////////////////////////////////////*/
  
 .rwd-table {
   margin: auto;
-  min-width: 300px;
+  min-width: 85%;
   max-width: 100%;
   border-collapse: collapse;
 }
@@ -1064,11 +1091,8 @@ background: linear-gradient(to left, #f4f8fb , #ebf2f8);
   	padding-left: 12%; 
 }
 #deposit_submit, #deposit_cancel{
-	padding : 10px 25px;
-	border-radius: 5px;
-	background-color: #2b3886;
-	color: #e6ebff;
-	margin : 5px 10px 5px 10px;
+		font-weight: 500;
+    transition: .5s;
 }
 #deposit_submit {
 	float:left;

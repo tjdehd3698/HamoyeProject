@@ -63,10 +63,17 @@ tbody>tr>td:first-child:before {
 	        	  	${item.participationDate}
 	        	</td> 
 	        	<td data-th="달성률">
-	        	  	${item.achievementRate}
+	        	  	${item.achievementRate}%
 	        	</td> 
 	        	<td data-th="성공여부">
-	        	  	${item.isSuccess}
+	        	  	<c:choose>
+						<c:when test="${item.isSuccess eq '1'}">
+							성공
+						</c:when>
+						<c:otherwise>
+							진행중
+						</c:otherwise>
+					</c:choose>
 	        	</td> 
 	      	</tr>
 	      </c:forEach>

@@ -78,8 +78,10 @@
 								<input type="password"  name="userPassword" class="form-control" id="password" >
 						    </div>  
 						</div>
-				   <input id="userout_submit" type="button" value="계좌해지">  
-				   <input id="userout_totheback" type="button" value="돌아가기">  
+				    <a id="userout_submit" class="btn btn-outline-primary py-2 px-3">회원탈퇴 </a> 
+				     <a id="userout_totheback" class="btn btn-outline-primary py-2 px-3">돌아가기</a> <!-- 
+				     <input id="userout_submit" type="button" value="계좌해지">  
+				   <input id="userout_totheback" type="button" value="돌아가기">   -->
 			</li>
 			<li class="cryImg">
 				<img class="display-4 text-white animated slideInUp mb-4" src="img/cry.jpg" alt="" /> 

@@ -151,11 +151,6 @@ public class AdminController {
 		return "adm/ADMUSRV01M";
 	}
 
-	@RequestMapping("adminChallenge.do")
-	public String adminChallengePage() {
-		return "adm/ADMCHLV00M";
-	}
-	
 	@GetMapping("adminEcoChallengeList.do") //관리자 화면 ecoChallenge리스트 조회
 	public String adminEcoChallengeList(Model model) {
 		try {

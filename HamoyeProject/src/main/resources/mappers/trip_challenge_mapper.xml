@@ -4,19 +4,23 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="sql.hamoye.tripChallenge_mapper">
-	<insert id="registerTripChallenge" parameterType="TripChallenge">		
+	<insert id="registerTripChallenge" parameterType="TripChallenge">
+	<selectKey keyProperty="tripChallengeId" resultType="string" order="BEFORE">
+			select 'trp'||trip_seq.nextval from dual
+		</selectKey>	
 		insert into 
 		trip_challenge(trip_challenge_id, trip_challenge_name, start_date, end_date, hits, reward_point)
-		values(trip_seq.nextval,#{tripChallengeName},#{startDate},#{endDate},#{hits},#{rewardPoint})
+		values(#{tripChallengeId}, #{tripChallengeName},#{startDate},#{endDate},#{hits},#{rewardPoint})
 	</insert>
 	
 	<update id="updateTripChallenge" parameterType="TripChallenge">
 		update trip_challenge
 		trip_challenge_name = #{tripChallengeName},
+		start_date = #{startDate},
 		end_date = #{endDate},
-		reward_point = #{rewardPoint},
-		content= #{content},
-		challenge_image = #{challengeImage}
+		limited_people = #{limitedPeople},
+		hits = #{hits},
+		reward_point = #{rewardPoint}
 		where trip_challenge_id = #{tripChallengeId}
 	</update>
 	
@@ -28,7 +32,7 @@
 	
 	<select id="searchTripChallenge" parameterType="string" resultType="TripChallenge">
 		select trip_challenge_id, prime_rate, trip_challenge_name, start_date,
-		end_date, is_delete, challenge_image
+		end_date, limited_people, is_delete, challenge_image
 		from trip_challenge
 		where trip_challenge_name like '%' || #{value} || '%'
 	</select>
@@ -40,31 +44,31 @@
 	</select>
 	
 	<select id="getTripChallengeDetail" parameterType="string" resultType="TripChallenge">
-		select trip_challenge_id, trip_challenge_name, start_date, trip_challenge_type,
-		end_date, hits, reward_point, challenge_image, is_delete, content
+		select trip_challenge_id, trip_challenge_name, start_date,
+		end_date, hits, reward_point, challenge_image
 		from trip_challenge
 		where trip_challenge_id = #{value}
 	</select>
 	
 	<!-- <select id="getRtripmmendedChallengeList" parameterType="User" resultType="Challenge">
 		select trip_challenge_id, prime_rate, trip_challenge_name, start_date,
-		end_date, is_delete, challenge_image
+		end_date, limited_people, is_delete, challenge_image
 		from trip_challenge
 		where trip_challenge_id=
 	</select> -->
 	
 	<select id="getTripChallengeList" resultType="TripChallenge">
-		select trip_challenge_id, trip_challenge_name, start_date, trip_challenge_type
+		select trip_challenge_id, trip_challenge_name, start_date,
 		end_date, hits, reward_point, challenge_image,is_delete
 		from trip_challenge
 		where is_delete = 0
 	</select>
 	
-	<select id="getTripChallengeListByAdmin" resultType="TripChallenge">
-		select trip_challenge_id, trip_challenge_name, start_date, trip_challenge_type,
-		end_date, hits, reward_point, challenge_image, is_delete,content
-		from trip_challenge
-	</select>
+	<update id="updateView" parameterType="string">
+		update trip_challege
+		set hits = hits + 1
+		where trip_challenge_id = #{value}
+	</update>
 	
 </mapper>
 

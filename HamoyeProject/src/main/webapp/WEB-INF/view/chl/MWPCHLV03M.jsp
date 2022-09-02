@@ -1,5 +1,6 @@
-/<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,8 +36,11 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">떠나요 부산</div>
-                    <h1 class="display-6 mb-5">오늘의 식당 챌린지</h1>
-                    <h3>부산에는 맛집이 많아요<br> 직접 방문하고 식사지원금을 받아보세요</h3>
+                    <h1 class="display-6 mb-5">${tripChallenge.tripChallengeName} 챌린지</h1>
+                    <h3><c:forEach var="content" items="${newContent}" >
+                    	${content}<br>
+                    </c:forEach>
+                    </h3>
                     <br>
                     <div>
                     <!-- 식당 이름 받아와서 넣고, 100원 받기 누르면  alert로 적립확인 하고 챌린지 리스트로 넘어가도록... -->

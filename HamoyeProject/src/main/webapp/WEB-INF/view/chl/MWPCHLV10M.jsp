@@ -15,6 +15,8 @@
 <jsp:include page="../header.jsp"></jsp:include>
  <script>
 	$(document).ready(function() {
+		flag = false;
+		
 		$(".form-check .form-check-input").on("click", function() {
 			var target = $(this).attr("id");
 			
@@ -36,13 +38,57 @@
 		});
 		
 		$("input[type=checkbox]").on("click", function() {
-			if($("#agreeChk1").is(":checked")){
+			var flag = true;
+			
+			var list = $("select[name=1]");
+			for(var i=0; i<list.length; i++){
+				if(list.get(i).value==0){
+					flag = false;
+					break;
+				}
+			}
+			if(flag === true && $("#agreeChk1").is(":checked")){
 				$("#nextPage").removeAttr("disabled");
-			}else{
+			}
+			else{
 				$("#nextPage").attr("disabled","disabled");
 			}
 		});
-
+		
+		$("select[name=1]").change(function(){
+			
+			var flag = true;
+			
+			var list = $("select[name=1]");
+			for(var i=0; i<list.length; i++){
+				if(list.get(i).value==0){
+					flag = false;
+					break;
+				}
+			}
+			
+			if(flag === true && $("#agreeChk1").is(":checked")){
+				$("#nextPage").removeAttr("disabled");
+			}
+			else{
+				$("#nextPage").attr("disabled","disabled");
+			}
+		});
+		
+		$("#nextPage").on("click", function() {
+			
+			var mainChallenge = $("#challenge-main option:selected").text();
+			var subChallenge = $("#challenge-sub option:selected").text();
+			var purposeOfMakingAccount = $("#purpose-of-opening-account option:selected").text();
+			var resourceOfIncome = $("#resource-of-income option:selected").text();
+			
+			window.localStorage.setItem('mainChallenge', mainChallenge);
+			window.localStorage.setItem('subChallenge', subChallenge);
+			window.localStorage.setItem('purposeOfMakingAccount', purposeOfMakingAccount);
+			window.localStorage.setItem('resourceOfIncome', resourceOfIncome);
+			
+			window.location.href = "nextPage.do";
+		});
 		
 	});
 	</script>
@@ -55,7 +101,7 @@
   <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center">
-            <h1 class="display-4 text-white animated slideInDown mb-4">Challenge Sing Up</h1>
+            <h1 class="display-4 text-white animated slideInDown mb-4">Challenge Sign Up</h1>
             <nav aria-label="breadcrumb animated slideInDown">
             </nav>
         </div>
@@ -78,18 +124,19 @@
             			<p align="center" style="padding-top:30px">참여할 챌린지를 선택해 주세요</p>
             			<div class="col-6">
             				<div class="form-floating">
-            					<select class="form-select">
-            						<option value="disabled selected"> 챌린지 대분류</option>
-            						<option value=""> 지구를 지켜요 </option>
+            					<select class="form-select" id="challenge-main" name="1">
+            						<option value="0"> 챌린지 대분류</option>
+            						<option value="chl01"> 지구를 지켜요 </option>
             					</select>
             				</div>
             			</div>
             			<div class="col-6">
             				<div class="form-floating">
-            					<select class="form-select">
-            						<option value="disabled selected"> 챌린지 소분류</option>
-            						<option value=""> 대중교통 이용 챌린지</option>
-            						<option value=""> 자원봉사 참여 챌린지 </option>
+            					<select class="form-select" id="challenge-sub" name="1">
+            						<option value="0"> 챌린지 소분류</option>
+            						<c:forEach var ="type" items="${ecoChallengeMap}">
+            						<option value="${type.key}">${type.value}</option>
+            						</c:forEach>
             					</select>
             				</div>
             			</div>
@@ -133,24 +180,24 @@
                      	<p align="center" style="padding-top:30px"> 챌린지에 참여하기 위해 부산은행 계좌를 개설할게요</p>
                      	<div class="col-6">
             				<div class="form-floating">
-            					<select class="form-select">
-            						<option value="disabled selected"> 계좌 개설 목적 </option>
-            						<option value=""> 급여 계좌</option>
-            						<option value=""> 법인(사업자) 계좌 </option>
-            						<option value=""> 모임 계좌 </option>
-            						<option value=""> 아르바이트 계좌 </option>
-            						<option value=""> 공과금이체 계좌 </option>
-            						<option value=""> 기타 증빙 가능 목적의 계좌 </option>
+            					<select class="form-select" id="purpose-of-opening-account" name="1">
+            						<option value="0"> 계좌 개설 목적 </option>
+            						<option value="acc01"> 급여 계좌</option>
+            						<option value="acc02"> 법인(사업자) 계좌 </option>
+            						<option value="acc03"> 모임 계좌 </option>
+            						<option value="acc04"> 아르바이트 계좌 </option>
+            						<option value="acc05"> 공과금이체 계좌 </option>
+            						<option value="acc06"> 기타 증빙 가능 목적의 계좌 </option>
             					</select>
             				</div>
             			</div>
                      	<div class="col-6">
             				<div class="form-floating">
-            					<select class="form-select">
-            						<option value="disabled selected"> 수입원 </option>
-            						<option value=""> 급여</option>
-            						<option value=""> 용돈 </option>
-            						<option value=""> 투자수익 </option>
+            					<select class="form-select" id="resource-of-income" name="1">
+            						<option value="0"> 수입원 </option>
+            						<option value="soi01"> 급여</option>
+            						<option value="soi02"> 용돈 </option>
+            						<option value="soi03"> 투자수익 </option>
             					</select>
             				</div>
             			</div>
@@ -232,7 +279,13 @@
 				</div>
 				</div>
 				<div align="center">
-            		<input type="submit" id="nextPage" value="챌린지 가입하기" class="btn btn-outline-primary px-3" style="height: 46px; width:202.93px; margin-bottom:5px">			
+            		<button class="btn btn-primary px-5" style="height: 60px;" id="nextPage" disabled="disabled">
+                    	챌린지 가입하기
+                    <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+                        <i class="fa fa-arrow-right"></i>
+                    </div>
+                </button>
+            				
 				</div>
 				</form>
 			</div>

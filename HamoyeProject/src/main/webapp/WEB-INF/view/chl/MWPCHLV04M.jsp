@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,17 +11,35 @@
     <meta content="" name="description">
     <link href="css/challenge.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
- 		$(function(){
-			$('a').click(function(){
-				/* 동백포인트에 돈 넣어주는 로직 */
-				alert("동백포인트가 100원 적립되었습니다");
-			});//on
-    	});//ready
-    </script>
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
+	<script type="text/javascript">
+	$(function(){
+		
+		$("#getPoint").on("click",function(){
+			
+			$.ajax({
+				type:'post',
+				url:'clickChallenge.do',
+				dataType : "text",
+				data:{"tripChallengeId" : ${tripChallenge.tripChallengeId},
+					"rewardPoint" : ${tripChallenge.rewardPoint}},
+				success:function(result) {
+					if(result=="F"){
+						/* 동백포인트에 돈 넣어주는 로직 */
+						alert("동백포인트가 ${tripChallenge.rewardPoint}원 적립되었습니다");
+						$("#getPoint").attr("disabled","disabled");
+					}else{
+					}
+				},error:function(){
+					alert("다시 시도해주세요.");
+				}
+			});	
+
+		});
+	});
+	</script>
  <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
@@ -44,17 +63,12 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">떠나요 부산</div>
-                    <h1 class="display-6 mb-5">오늘의 소상공인 만나기 챌린지</h1>
-                    <h3>부산에 사는 000씨</h3>
+                    <h1 class="display-6 mb-5">${tripChallenge.tripChallengeName} 챌린지</h1>
                     <br>
                     <article>
-                    	<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
-                    	The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
-                    	as opposed to using 'Content here, content here', making it look like readable English. 
-                    	Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, 
-                    	and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, 
-                    	sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                    	<br><br>
+                    <c:forEach var="content" items="${newContent}">
+                    ${content}<br>
+                    </c:forEach>
                     </article>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="float:right">
@@ -66,12 +80,13 @@
             <article class="chlarticle">
             <h5 style="padding:20px">이야기를 들어주셔서 감사해요</h5>
              	쇼핑지원금
-             <a class="btn btn-outline-primary px-3" href="/MWPCHLV00M.jsp">
-               100원 받기
+             <button class="btn btn-outline-primary px-3" id="getPoint"
+             <c:if test="${flag=='T'}">disabled</c:if>>
+               ${tripChallenge.rewardPoint}원 받기
              	<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                 	<i class="fa fa-arrow-right"></i>
                 </div>
-             </a>
+             </button>
            </article>				
         </div>
     </div>

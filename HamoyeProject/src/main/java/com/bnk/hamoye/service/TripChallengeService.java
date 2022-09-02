@@ -2,6 +2,7 @@ package com.bnk.hamoye.service;
 
 import java.util.List;
 
+import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.User;
 
@@ -9,6 +10,9 @@ public interface TripChallengeService {
 	int registerTripChallenge(TripChallenge tripChallenge) throws Exception; // 챌린지 등록
 	int updateTripChallenge(TripChallenge tripChallenge) throws Exception; // 챌린지 수정
 	int deleteTripChallenge(String challengeId) throws Exception; // 챌린지 삭제
+	int participateTripChallenge(Participation participation) throws Exception; // 챌린지 참가
+	int checkParticipationTripChallenge(Participation participation) throws Exception; // 챌린지 참가 여부
+	int addPoint(String userId, int rewardPoint) throws Exception; // 챌린지 보상 지급
 	List<TripChallenge> searchTripChallenge(String word) throws Exception; // 챌린지 단어 일부 검색
 	TripChallenge getTripChallengeStatus(String tripChallengeId) throws Exception; // 챌린지 현황 조회
 	List<TripChallenge> getTripChallengeList() throws Exception; // 전체 챌린지 리스트 표출

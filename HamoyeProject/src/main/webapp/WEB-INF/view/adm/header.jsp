@@ -52,7 +52,7 @@ $(function(){
         <div id="challengePages" class="collapse" aria-labelledby="headingPages" data-parent="#challengePages">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">eco</h6>
-                <a class="collapse-item" href="adminChallenge.do">지구를 지켜요</a>
+                <a class="collapse-item" href="adminEcoChallengeList.do">지구를 지켜요</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">trip</h6>
                 <a class="collapse-item" href="#none">떠나요 부산</a>

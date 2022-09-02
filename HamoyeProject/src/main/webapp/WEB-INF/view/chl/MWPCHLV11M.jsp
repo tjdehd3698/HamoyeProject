@@ -12,6 +12,37 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
+	<script>
+		$(document).ready(function() {
+			
+			$("#joinChallenge").on("click", function() {
+				
+				var purpose = window.localStorage.getItem('purpose');
+				var incomeSource = window.localStorage.getItem('incomeSource');
+				var maturity = window.localStorage.getItem('maturity');
+				var ecoChallengeId = window.localStorage.getItem('ecoChallengeId');
+				
+				$.ajax({
+					type:'post',
+					url:'joinChallenge.do',
+					dataType : "text",
+					data:{
+						"purpose" : purpose,
+						"incomeSource" : incomeSource,
+						"maturity" : maturity,
+						"ecoChallengeId" : ecoChallengeId},
+					success:function(result) {
+							window.localStroage.clear(); // 로컬 스토리지 리셋
+					},
+					error:function(){
+						alert("다시 시도해주세요.");
+					}
+				});	
+				
+			});
+		});
+	</script>
+
  <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
@@ -44,7 +75,7 @@
 			<article class="chlarticle" style="border: 1px solid #2b3886">
 				<h4>서약서</h4>
 				<section>
-					나, 챌린지 참여자 000은 거짓없이 성실하게 챌린지에 참여할 것을 다짐하면서 다음과 같이 서약합니다.
+					나, 챌린지 참여자 <h6 style="display:inline">${userName}</h6>은 거짓없이 성실하게 챌린지에 참여할 것을 다짐하면서 다음과 같이 서약합니다.
 						<br><br>
 					1. 챌린지에 참여하여 환경을 지키기 위한 노력을 할것입니다.<br>
 					2. 진행중인 챌린지 이외에도 환경을 보호하기 위해 앞장서겠습니다. <br>
@@ -52,18 +83,18 @@
 					4. 보상을 위해 허위로 결과를 조작하지 않을 것입니다.<br>
 					5. 서약서를 작성함으로써, 챌린지 이외에 0.5%의 우대이율을 추가로 제공받는데 동의합니다.<br>
 					<br><br>
-					20XX년 XX월 XX일<br>
-					챌린지 참여자 &nbsp;<h6 style="display:inline">000</h6>  &nbsp;(인)
+					${year}년 ${month}월 ${day}일<br>
+					챌린지 참여자 &nbsp;<h6 style="display:inline">${userName}</h6>  &nbsp;
 				</section>
 			</article>
 				<br>
 				<div class="col-12">
-            	 	<a class="btn btn-outline-primary px-3" href="MWPCHLV12M.jsp" >
-               			서약서 제출하기
-             			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                		<i class="fa fa-arrow-right"></i>
-                		</div>
-             		</a>
+            	 	<button class="btn btn-primary px-5" type="button" style="height: 60px;" id="joinChallenge">
+                    	서약서 제출하기
+                    <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+                        <i class="fa fa-arrow-right"></i>
+                    </div>
+                </button>
             	</div>
         	</div>
         </div>

@@ -82,7 +82,7 @@ public class UserController {
 	}
 
 	@GetMapping("getUserAllInfo.do")
-	public String getUserAllInfo(HttpSession session, Model model) throws Exception {
+	public String getUserAllInfo(HttpSession session, String challengeId, Model model) throws Exception {
 		try {
 			User user = userService.getUserAllInfo((String) session.getAttribute("user"));
 			String birthday = user.getBirthday();
@@ -105,6 +105,7 @@ public class UserController {
 			}
 
 			model.addAttribute("ecoChallengeMap", ecoChallengeMap);
+			model.addAttribute("ecoChallengeId", challengeId);
 
 			if (user.getGender().equals("m")) {
 				user.setGender("남자");

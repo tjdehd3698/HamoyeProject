@@ -15,7 +15,7 @@ import com.bnk.hamoye.domain.Point;
 public class AccountTest {
 	
 	@Test
-	public void insertAccount() throws Exception {
+	public void registerAccount() throws Exception {
 		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
 		
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
@@ -25,7 +25,7 @@ public class AccountTest {
 		account.setPrimeRate(0.5);
 		account.makeAccountNumber();
 		
-		int row = session.insert("sql.hamoye.account_mapper.insertAccount",account);
+		int row = session.insert("sql.hamoye.account_mapper.registerAccount",account);
 		System.out.println();
 		session.commit();
 	}

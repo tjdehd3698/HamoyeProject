@@ -23,4 +23,5 @@ public interface UserService {
 	List<Participation> getParticipateChallenge(String userId) throws SQLException;  //회원 참여 중인 tripChallenge리스트 조회
 	User getUserAllInfo(String userId) throws SQLException;
 	List<User> getUserByEcoChallenge(String ecoChallengeId) throws SQLException; //특정 EcoChallenge 참며중인 회원 리스트 조회
+	int joinEcoChallenge(User user) throws SQLException; // joinEcoChallenge
 }

@@ -27,5 +27,6 @@ public interface UserDAO {
 	User getUserInfoByAdminWithNoEco(String userId) throws SQLException; //관리자가 에코챌린지 가입 안한 회원 정보 조회
 	int updateUserByAdmin(User user) throws SQLException; //관리자 회원 정보 수정
 	List<User> getUserByEcoChallengeType(String ecoChallengeId) throws SQLException; //에코챌린지 타입 별 유저 수 조회
+	int joinEcoChallenge(User user) throws SQLException; // 에코 챌린지 가입
 }
  

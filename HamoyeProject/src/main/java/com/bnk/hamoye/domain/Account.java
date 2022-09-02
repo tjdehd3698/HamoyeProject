@@ -9,6 +9,7 @@ import lombok.Data;
 public class Account {
 	private String accountNumber;
 	private Date createDate;
+	private Date matureDate;
 	private String purpose;
 	private String incomeSource;
 	private int balance;

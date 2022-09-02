@@ -19,12 +19,13 @@
 			<id column="account_number" property="accountNumber"/>
 			<result column="balance" property="balance"/>
 			<result column="prime_rate" property="primeRate"/>
+			<result column="mature_date" property="matureDate"/>
 		</association>
 		<association property="ecoChallenge" javaType="ecoChallenge">
 			<id column="eco_challenge_id" property="ecoChallengeId"/>
 			<result column="eco_challenge_name" property="ecoChallengeName"/>
 			<result column="prime_rate" property="primeRate"/>
-			<result column="tota l_count" property ="totalCount"/>
+			<result column="total_count" property ="totalCount"/>
 		</association>
 	</resultMap>
 	
@@ -152,7 +153,7 @@
 	
 	<select id="getMypageInfo" parameterType="string" resultMap="userWithPointAndAccountAndEcoChallenge">
 		select 
-		u.user_id, u.user_name, a.prime_rate, a.account_number, a.balance, p.point_id, p.total_point,
+		u.user_id, u.user_name, a.prime_rate, a.account_number, a.balance, p.point_id, p.total_point, a.mature_date,
 		 e.eco_challenge_id, e.eco_challenge_name, u.participation_count, e.total_count, e.prime_rate
 		from users u 
 		join account a on u.account_number =a.account_number

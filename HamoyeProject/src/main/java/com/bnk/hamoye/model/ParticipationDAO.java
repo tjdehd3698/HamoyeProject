@@ -11,6 +11,6 @@ public interface ParticipationDAO {
 	int getParticipationCntByDate(String date) throws SQLException; //날짜별 여행챌린지 참가자 수 조회
 	int doParticipateEcoChallenge(String userId) throws SQLException; // 환경 챌린지 참가
 	int doParticipateTripChallenge(Participation participation) throws SQLException; // 여행 챌린지 참가
-	int checkParticipateTripChallenge(Participation participation) throws Exception; // 여행 챌린지 참가 중인지 체크
+	int checkParticipationTripChallenge(Participation participation) throws Exception; // 여행 챌린지 참가 중인지 체크
 	List<Participation> getParticipationCntByTripChallenge(String tripChallengeId) throws SQLException; //여행챌린지 별 참여 목록 조회
 }

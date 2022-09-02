@@ -47,8 +47,8 @@ public class ParticipationDAOImpl implements ParticipationDAO {
 	}
 
 	@Override
-	public int checkParticipateTripChallenge(Participation participation) throws Exception {
-		return sqlSession.selectOne(NS+"checkParticipateTripChallenge", participation);
+	public int checkParticipationTripChallenge(Participation participation) throws Exception {
+		return sqlSession.selectOne(NS+"checkParticipationTripChallenge", participation);
 	}
 
 }

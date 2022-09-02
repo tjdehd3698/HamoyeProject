@@ -57,10 +57,10 @@ public class EcoChallengeController {
 				participation.setUserId(userId);
 				participation.setTripChallengeId(challengeId);
 				int value = tripChallengeService.checkParticipationTripChallenge(participation);
-				System.out.println("hi");
 				if(value>0) {
 					flag="T";
 				}
+				
 				model.addAttribute("flag", flag);
 				
 				path = "chl/MWPCHLV04M";
@@ -77,9 +77,10 @@ public class EcoChallengeController {
 		try {
 			List<EcoChallenge> ecoChallengeList = ecoChallengeService.getEcoChallengeList();
 			List<TripChallenge> tripChallengeList = tripChallengeService.getTripChallengeList();
-
+			
 			model.addAttribute("ecoChallengeList", ecoChallengeList);
 			model.addAttribute("tripChallengeList", tripChallengeList);
+			
 		} catch (Exception e) {
 
 		}
@@ -91,7 +92,7 @@ public class EcoChallengeController {
 	@PostMapping("clickChallenge.do")
 	@ResponseBody
 	public String getPoint(HttpSession session, String tripChallengeId, int rewardPoint, Model model) {
-		String flag = "T";
+		String flag = "F";
 		
 		try {
 			String userId = (String)session.getAttribute("user");
@@ -104,7 +105,7 @@ public class EcoChallengeController {
 			int value = tripChallengeService.checkParticipationTripChallenge(participation);
 			
 			if(value>0) {
-				flag="F";
+				flag="T";
 			}
 		}
 		catch(Exception e) {

@@ -17,6 +17,21 @@
 		</association>
 	</resultMap>
 	
+	<insert id="doParticipateTripChallenge" parameterType="participation">
+	<selectKey keyProperty="participationId" resultType="string" order="BEFORE">
+			select 'par' || PARTICIPATION_seq.nextval from dual
+		</selectKey>
+		insert into 
+		participation(participation_id, trip_challenge_id, user_id, participation_date, achivement_rate, is_success)
+		values(#{participationId}, #{tripChallengeId},#{userId},to_date(to_char(sysdate, 'yyyy-mm-dd')),0,0)
+	</insert>
+	
+	<select id="checkParticipationTripChallenge" parameterType="participation" resultType="int">
+		select count(*)
+		from participation
+		where trip_challenge_Id = #{tripChallengeId} and user_Id = #{userId}
+	</select>
+	
 	<select id="getParticipateChallenge" parameterType="user" resultMap="participationWithUserAndChallenge">
 		select p.participation_id, p.participation_date, p.achievement_rate, p.is_success, t.trip_challenge_id,
 		t.trip_challenge_name, t.reward_point, t.hits

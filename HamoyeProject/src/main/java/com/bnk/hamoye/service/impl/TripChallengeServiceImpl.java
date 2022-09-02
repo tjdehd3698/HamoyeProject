@@ -79,7 +79,7 @@ public class TripChallengeServiceImpl implements TripChallengeService {
 
 	@Override
 	public int checkParticipationTripChallenge(Participation participation) throws Exception {
-		return participationDAO.checkParticipateTripChallenge(participation);
+		return participationDAO.checkParticipationTripChallenge(participation);
 	}
 
 	@Override

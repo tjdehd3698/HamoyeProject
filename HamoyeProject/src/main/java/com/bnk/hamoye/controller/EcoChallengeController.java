@@ -3,7 +3,7 @@ package com.bnk.hamoye.controller;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -128,7 +128,7 @@ public class EcoChallengeController {
 			EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(ecoChallengeId);
 			
 			Account account = new Account();
-			Date now = new Date();
+			Date now = new Date(0);
 			
 			Calendar cal = Calendar.getInstance(); 
 			cal.setTime(now);
@@ -137,7 +137,7 @@ public class EcoChallengeController {
 		    System.out.println(userService.getUserInfo(userId));
 			
 		    account.setIncomeSource(incomeSource);
-			account.setMatureDate(cal.getTime());
+			account.setMatureDate((Date) cal.getTime());
 			account.setPrimeRate(ecoChallenge.getPrimeRate());
 			account.setPurpose(purpose);
 			

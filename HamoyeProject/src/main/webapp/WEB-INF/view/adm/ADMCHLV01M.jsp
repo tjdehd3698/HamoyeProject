@@ -65,9 +65,9 @@
 											<p class="col-sm-2 col-form-label">종료일</p>
 											<div class="col-sm-2">
 											    <div class="form-group">
-											        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-											            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" name="endDate" value="${ecoChallenge.endDate}">
-											            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+											        <div class="input-group date" id="endDate" data-target-input="nearest">
+											            <input type="text" class="form-control datetimepicker-input" data-target="endDate" name="endDate" value="${ecoChallenge.endDate}">
+											            <div class="input-group-append" data-target="#endDate" data-toggle="datetimepicker">
 											                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
 											            </div>
 											        </div>
@@ -161,10 +161,10 @@
 				});
 			});
 			
-			$('#datetimepicker1').datetimepicker({ 
+			$('#endDate').datetimepicker({ 
 				format: 'YYYY-MM-DD',
 				minDate: new Date($("#startDate").text()),
-			})
+			});
 			
 		});
 	</script>

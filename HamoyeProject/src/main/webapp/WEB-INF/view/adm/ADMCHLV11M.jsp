@@ -55,7 +55,16 @@
 								        </div>
 										<div class="my-3 row">
 											<p class="col-sm-2 col-form-label">종료일</p>
-										    <p class="col-sm-10 col-form-label">${tripChallenge.endDate}</p>
+											<div class="col-sm-2">
+											    <div class="form-group">
+											        <div class="input-group date" id="endDate" data-target-input="nearest">
+											            <input type="text" class="form-control datetimepicker-input" data-target="endDate" name="endDate" value="${tripChallenge.endDate}">
+											            <div class="input-group-append" data-target="#endDate" data-toggle="datetimepicker">
+											                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+											            </div>
+											        </div>
+											    </div>
+											</div>
 								        </div>
 								        <div class="my-3 row">
 											<p class="col-sm-2 col-form-label">참가인원</p>
@@ -138,6 +147,11 @@
 // 					 	alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);
 					}
 				});
+			});
+			
+			$('#endDate').datetimepicker({ 
+				format: 'YYYY-MM-DD',
+				minDate: new Date($("#startDate").text()),
 			});
 		});
 	</script>

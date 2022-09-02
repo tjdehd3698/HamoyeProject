@@ -50,7 +50,7 @@
 	                                        <c:forEach var="item" items="${ecoChallengeList}">
 	                                        <tr>
 	                                            <td>${item.ecoChallengeId}</td>
-	                                            <td><a href="adminGetUser.do?userId=${item.ecoChallengeId}">${item.ecoChallengeName}</a></td>
+	                                            <td><a href="adminEcoChallengeDetail.do?ecoChallengeId=${item.ecoChallengeId}">${item.ecoChallengeName}</a></td>
 	                                            <td>${item.ecoChallengeType}</td>
 	                                            <td>${item.primeRate}</td>
 	                                            <td>${item.startDate}</td>
@@ -84,10 +84,6 @@
 			$('#dataTable').DataTable();
 			
 		});
-		
-		function sendData() {
-			document.f.submit();
-		}
 	</script>
 </body>
 </html>

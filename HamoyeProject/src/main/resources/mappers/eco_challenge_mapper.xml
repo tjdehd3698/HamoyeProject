@@ -53,7 +53,7 @@
 	
 	<select id="getEcoChallengeDetail" parameterType="string" resultType="EcoChallenge">
 		select eco_challenge_id, eco_challenge_name, prime_rate, start_date,
-		end_date, limited_people, is_delete, challenge_image,eco_chllenge_type
+		end_date, limited_people, is_delete, challenge_image,eco_challenge_type
 		from eco_challenge
 		where eco_challenge_id = #{value}
 	</select>

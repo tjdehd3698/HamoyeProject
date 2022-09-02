@@ -37,6 +37,21 @@ window.addEventListener('scroll', function() {
 window.onload = function(){
 	new RollingNum('mypage_balance','${result.account.balance}','slide'); 
 }
+$(function(){
+	var rate = 0.5+${result.ecoChallenge.primeRate};
+	var balance= ${result.account.balance};
+	var participationRate = ${result.participationCount}/${result.ecoChallenge.totalCount};
+	var nowBalance = balance*rate/100*participationRate;
+	alert(nowBalance);
+	$('#winInterest').append(nowBalance); 
+});
+$(function(){
+	var rate = 0.5+${result.ecoChallenge.primeRate};
+	var balance= ${result.account.balance};
+	
+	
+	('#winInterest') */
+});
 /* let isVisiblebal = false; 
 window.addEventListener('scroll', function() {
 if (checkVisible($('#mypage_balance')) && !isVisiblebal) {
@@ -46,7 +61,10 @@ if (checkVisible($('#mypage_balance')) && !isVisiblebal) {
 	}
 }
 }); */
- 
+$(document).ready(function(){
+    var now = new Date();
+    $("p").eq(0).text(now);
+  });
 </script>
 </head>
 <body id="mypage_main_body">
@@ -108,7 +126,10 @@ if (checkVisible($('#mypage_balance')) && !isVisiblebal) {
 									<h4>원</h4> <h4 id="mypage_balance"></h4> <h4>잔액 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4><br> 
 									<h2 />
 								</div> 
-								<div style="display:inline-flex; flex-wrap:wrap"><br><br><h3>만기시 이자 ${result.account.primeRate} </h3><br><br><br><h3>현재까지의 이자</h3> </div>
+								<div style="display:inline-flex; flex-wrap:wrap"><br><br>
+									<h3>만기시 이자</h3><h3 id="winInterest"> ${result.account.balance}  </h3><br><br><br>
+									<h3>현재까지의 이자</h3><h3> ${result.ecoChallenge.primeRate}</h3>
+								</div>
 							</header>
 							<br>
 							

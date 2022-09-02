@@ -178,7 +178,16 @@
                      		</div>
                      	</div>
                      	<p align="center" style="padding-top:30px"> 챌린지에 참여하기 위해 부산은행 계좌를 개설할게요</p>
-                     	<div class="col-6">
+                     	<div class="col-4">
+            				<div class="form-floating">
+            					<select class="form-select" id="maturity" name="1">
+            						<option value="0"> 만기 </option>
+            						<option value="soi01"> 6개월 </option>
+            						<option value="soi02"> 12개월 </option>
+            					</select>
+            				</div>
+            			</div>
+                     	<div class="col-4">
             				<div class="form-floating">
             					<select class="form-select" id="purpose-of-opening-account" name="1">
             						<option value="0"> 계좌 개설 목적 </option>
@@ -191,7 +200,7 @@
             					</select>
             				</div>
             			</div>
-                     	<div class="col-6">
+                     	<div class="col-4">
             				<div class="form-floating">
             					<select class="form-select" id="resource-of-income" name="1">
             						<option value="0"> 수입원 </option>

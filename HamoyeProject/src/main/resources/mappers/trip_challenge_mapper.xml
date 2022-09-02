@@ -21,7 +21,7 @@
 		limited_people = #{limitedPeople},
 		hits = #{hits},
 		reward_point = #{rewardPoint},
-		is_delete = #{is_delete}
+		is_delete = #{isDelete}
 		where trip_challenge_id = #{tripChallengeId}
 	</update>
 	

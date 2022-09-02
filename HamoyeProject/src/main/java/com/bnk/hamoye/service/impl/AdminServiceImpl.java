@@ -165,4 +165,42 @@ public class AdminServiceImpl implements AdminService{
 	public int updateUserByAdmin(User user) throws Exception {
 		return userDAO.updateUserByAdmin(user);
 	}
+
+	@Override
+	public Map<String, Integer> getUserCntByEcoChallenge() throws Exception {
+		Map<String, Integer> result = new HashMap<String, Integer>();
+		List<EcoChallenge> ecoChallengeList = ecoChallengeDAO.getEcoChallengeList();
+		
+		for(EcoChallenge e : ecoChallengeList) {
+			List<User> userList = userDAO.getUserByEcoChallenge(e.getEcoChallengeId());
+			result.put(e.getEcoChallengeId(), userList.size());
+		}
+		
+		return result;
+	}
+
+	@Override
+	public Map<String, Integer> getUSerCntByTripChallenge() throws Exception {
+		Map<String, Integer> result = new HashMap<String, Integer>();
+		List<TripChallenge> tripChallengeList = tripChallengeDAO.getTripChallengeListByAdmin();
+		
+		for(TripChallenge t : tripChallengeList) {
+			List<Participation> participationList = participationDAO.getParticipationCntByTripChallenge(t.getTripChallengeId());
+			result.put(t.getTripChallengeId(), participationList.size());
+		}
+		
+		return result;
+	}
+
+	@Override
+	public int getUserCntByEcoChallengeById(String ecoChallengeId) throws Exception {
+		List<User> userList = userDAO.getUserByEcoChallenge(ecoChallengeId);
+		return userList.size();
+	}
+
+	@Override
+	public int getUSerCntByTripChallengeById(String tripChallengeId) throws Exception {
+		List<Participation> participationList = participationDAO.getParticipationCntByTripChallenge(tripChallengeId);
+		return participationList.size();
+	}
 }

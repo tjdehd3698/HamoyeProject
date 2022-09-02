@@ -14,4 +14,5 @@ public interface TripChallengeDAO {
 	List<TripChallenge> getTripChallengeList() throws Exception; // 전체 챌린지 리스트 표출
 	TripChallenge getTripChallengeDetail(String tripChallengeId) throws Exception; // 챌린지 상세 내역 표출
 	List<TripChallenge> getRecommendedTripChallengeList(User user) throws Exception; // 추천 챌린지 표출
+	List<TripChallenge> getTripChallengeListByAdmin() throws Exception; //관리자 챌린지 전체 조회
 }

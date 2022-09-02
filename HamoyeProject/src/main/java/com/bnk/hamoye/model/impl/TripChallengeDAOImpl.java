@@ -57,4 +57,9 @@ public class TripChallengeDAOImpl implements TripChallengeDAO {
 		return sqlSession.selectOne(NS+"getRecommendedTripChallengeList", user);
 	}
 
+	@Override
+	public List<TripChallenge> getTripChallengeListByAdmin() throws Exception {
+		return sqlSession.selectList(NS+"getTripChallengeListByAdmin");
+	}
+
 }

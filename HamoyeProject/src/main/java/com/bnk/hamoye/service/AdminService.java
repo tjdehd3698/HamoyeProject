@@ -22,4 +22,8 @@ public interface AdminService {
 	Map<String,Integer> getTripChallengeCntByMonth() throws Exception;
 	User getUserInfoByAdmin(String userId) throws Exception;
 	int updateUserByAdmin(User user) throws Exception;
+	Map<String, Integer> getUserCntByEcoChallenge() throws Exception; //에코 챌린지 별 참여자 수 조회
+	Map<String, Integer> getUSerCntByTripChallenge() throws Exception; //Trip 챌린지 별 참여자 수 조회
+	int getUserCntByEcoChallengeById(String ecoChallengeId) throws Exception; //특정 에코 챌린지 참여자 수 조회
+	int getUSerCntByTripChallengeById(String tripChallengeId) throws Exception; //특정 Trip 챌린지 참여자 수 조회
 }

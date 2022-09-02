@@ -19,7 +19,7 @@ public class EcoChallengeDAOImpl implements EcoChallengeDAO {
 	
 	@Override
 	public int registerEcoChallenge(EcoChallenge ecoChallenge) throws Exception {
-		return sqlSession.update(NS+"registerEcoChallenge", ecoChallenge);
+		return sqlSession.insert(NS+"registerEcoChallenge", ecoChallenge);
 	}
 	
 	@Override
@@ -55,6 +55,11 @@ public class EcoChallengeDAOImpl implements EcoChallengeDAO {
 	@Override
 	public List<EcoChallenge> getRecommendedEcoChallengeList(User user) throws Exception {
 		return sqlSession.selectOne(NS+"getRecommendedEcoChallengeList", user);
+	}
+
+	@Override
+	public List<String> getEcoChallengeType() throws Exception {
+		return sqlSession.selectList(NS+"getEcoChallengeType");
 	}
 
 }

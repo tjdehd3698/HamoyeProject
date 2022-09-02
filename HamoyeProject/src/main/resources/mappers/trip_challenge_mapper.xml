@@ -4,10 +4,13 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="sql.hamoye.tripChallenge_mapper">
-	<insert id="registerTripChallenge" parameterType="TripChallenge">		
+	<insert id="registerTripChallenge" parameterType="TripChallenge">
+	<selectKey keyProperty="tripChallengeId" resultType="string" order="BEFORE">
+			select 'trp'||trip_seq.nextval from dual
+		</selectKey>	
 		insert into 
 		trip_challenge(trip_challenge_id, trip_challenge_name, start_date, end_date, hits, reward_point)
-		values(trip_seq.nextval,#{tripChallengeName},#{startDate},#{endDate},#{hits},#{rewardPoint})
+		values(#{tripChallengeId}, #{tripChallengeName},#{startDate},#{endDate},#{hits},#{rewardPoint})
 	</insert>
 	
 	<update id="updateTripChallenge" parameterType="TripChallenge">
@@ -60,6 +63,12 @@
 		from trip_challenge
 		where is_delete = 0
 	</select>
+	
+	<update id="updateView" parameterType="string">
+		update trip_challege
+		set hits = hits + 1
+		where trip_challenge_id = #{value}
+	</update>
 	
 </mapper>
 

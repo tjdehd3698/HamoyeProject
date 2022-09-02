@@ -1,21 +1,22 @@
 package com.bnk.hamoye.controller;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bnk.hamoye.domain.Account;
 import com.bnk.hamoye.domain.User;
+import com.bnk.hamoye.service.EcoChallengeService;
+import com.bnk.hamoye.service.TripChallengeService;
 import com.bnk.hamoye.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,80 +25,100 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserController {
 	private final UserService userService;
-	
-	@PostMapping("register.do") //회원가입
+	private final EcoChallengeService ecoChallengeService;
+	private final TripChallengeService tripChallengeService;
+
+	@PostMapping("register.do") // 회원가입
 	public String registerUser(User user, Model model) {
 		try {
 			userService.registerUser(user);
 			return "cmn/MWPCMNV03M";
 		} catch (SQLException e) {
-			System.out.println("registerUser 에러 : "+ e.getMessage());
+			System.out.println("registerUser 에러 : " + e.getMessage());
 			return "";
 		}
 	}
-	
-	@PostMapping("duplicateId.do") //아이디 중복 확인
+
+	@PostMapping("duplicateId.do") // 아이디 중복 확인
 	@ResponseBody
-	public String duplicateId( User user,Model model) {
+	public String duplicateId(User user, Model model) {
 		boolean result;
 		try {
 			result = userService.duplicateId(user);
-			if(result) return "F";
-			else return "T";
+			if (result)
+				return "F";
+			else
+				return "T";
 		} catch (SQLException e) {
-			System.out.println("duplicateId 에러 : "+ e.getMessage());
+			System.out.println("duplicateId 에러 : " + e.getMessage());
 		}
 		return "";
 	}
-	
-	@PostMapping("login.do") //로그인
+
+	@PostMapping("login.do") // 로그인
 	@ResponseBody
 	public String login(User user, HttpSession session) {
 		try {
 			User findUser = userService.login(user);
-			
-			if(findUser!=null){
+
+			if (findUser != null) {
 				session.setAttribute("user", findUser.getUserId());
 				session.setAttribute("userName", findUser.getUserName());
 				System.out.println("로그인 성공");
 				return "T";
-			} 
-			else return "F";
-			
+			} else
+				return "F";
+
 		} catch (SQLException e) {
-			System.out.println("login 에러 : "+ e.getMessage());
+			System.out.println("login 에러 : " + e.getMessage());
 		}
 		return "";
 	}
-	
-	@RequestMapping("logout.do") //로그아웃
+
+	@RequestMapping("logout.do") // 로그아웃
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "index";
 	}
-	
+
 	@GetMapping("getUserAllInfo.do")
-	public String getUserAllInfo(HttpSession session, Model model) {
+	public String getUserAllInfo(HttpSession session, Model model) throws Exception {
 		try {
-			User user = userService.getUserAllInfo((String)session.getAttribute("user"));
+			User user = userService.getUserAllInfo((String) session.getAttribute("user"));
 			String birthday = user.getBirthday();
-			String year = birthday.substring(0,4);
-			String month = birthday.substring(4,6);
-			String day = birthday.substring(6,8);
-			String newBirthDay = year+"-"+month+"-"+day;
+			String year = birthday.substring(0, 4);
+			String month = birthday.substring(4, 6);
+			String day = birthday.substring(6, 8);
+			String newBirthDay = year + "-" + month + "-" + day;
 			user.setBirthday(newBirthDay);
-			if(user.getGender().equals("m")) {
+
+			List<String> tempType = ecoChallengeService.getEcoChallengeType();
+
+			HashMap<String, String> ecoChallengeMap = new HashMap<>();
+			
+			for (String str : tempType) {
+				if(str.equals("1001")) {
+					ecoChallengeMap.put(str, "대중교통");
+				}else if(str.equals("1002")) {
+					ecoChallengeMap.put(str, "환경 봉사");
+				}
+			}
+
+			model.addAttribute("ecoChallengeMap", ecoChallengeMap);
+
+			if (user.getGender().equals("m")) {
 				user.setGender("남자");
-			}else {
+			} else {
 				user.setGender("여자");
 			}
 			model.addAttribute("result", user);
+
 		} catch (SQLException e) {
-			System.out.println("getUserAllInfo 에러 : "+ e.getMessage());
+			System.out.println("getUserAllInfo 에러 : " + e.getMessage());
 		}
 		return "chl/MWPCHLV10M";
 	}
-	
+
 //	@PostMapping()
 //	public String joinAccount(Account account,String ecoChallengeId, HttpSession session) {
 //		try {
@@ -120,7 +141,6 @@ public class UserController {
 //		return "";
 //	}
 
-	
 //	@GetMapping()
 //	public String checkEcoChallenge(HttpSession session, Model model) {
 //		try {

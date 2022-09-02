@@ -4,19 +4,23 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="sql.hamoye.ecoChallenge_mapper">
-	<insert id="registerEcoChallenge" parameterType="EcoChallenge">		
+	<insert id="registerEcoChallenge" parameterType="EcoChallenge">
+	<selectKey keyProperty="ecoChallengeId" resultType="string" order="BEFORE">
+			select 'eco'||eco_seq.nextval from dual
+		</selectKey>
 		insert into 
 		eco_challenge(eco_challenge_id, eco_challenge_name, prime_rate, start_date, end_date, limited_people)
-		values(eco_seq.nextval,#{ecoChallengeName},#{primeRate},#{startDate},#{endDate},#{limitedPeople})
+		values(#{ecoChallengeId}, #{ecoChallengeName},#{primeRate},#{startDate},#{endDate},#{limitedPeople})
 	</insert>
 	
 	<update id="updateEcoChallenge" parameterType="EcoChallenge">
 		update eco_challenge
 		set eco_challenge_name = #{ecoChallengeName},
 		prime_rate = #{primeRate},
-		start_date = #{startDate},
 		end_date = #{endDate},
-		limited_people = #{limitedPeople}
+		limited_people = #{limitedPeople},
+		content = #{content},
+		challenge_image =#{challengeImage}
 		where eco_challenge_id = #{ecoChallengeId}
 	</update>
 	
@@ -40,10 +44,9 @@
 	</select>
 	
 	<select id="getEcoChallengeList" resultType="EcoChallenge">
-		select eco_challenge_id, eco_challenge_name, prime_rate, start_date,
-		end_date, limited_people, is_delete, challenge_image, total_count
+		select eco_challenge_id, eco_challenge_name, prime_rate, start_date, eco_challenge_type,
+		end_date, limited_people, is_delete, content, challenge_image, total_count
 		from eco_challenge
-		
 	</select>
 	
 	<select id="getEcoChallengeDetail" parameterType="string" resultType="EcoChallenge">
@@ -51,6 +54,12 @@
 		end_date, limited_people, is_delete, challenge_image
 		from eco_challenge
 		where eco_challenge_id = #{value}
+	</select>
+	
+	<select id="getEcoChallengeType" resultType="string">
+		select distinct eco_challenge_type
+		from eco_challenge
+		order by eco_challenge_type asc
 	</select>
 	
 	<!-- <select id="getRecommendedChallengeList" parameterType="User" resultType="Challenge">

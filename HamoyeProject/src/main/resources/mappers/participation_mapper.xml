@@ -16,7 +16,7 @@
 			<result column ="hits" property="hits"/>
 		</association>
 	</resultMap>
-
+	
 	<select id="getParticipateChallenge" parameterType="user" resultMap="participationWithUserAndChallenge">
 		select p.participation_id, p.participation_date, p.achievement_rate, p.is_success, t.trip_challenge_id,
 		t.trip_challenge_name, t.reward_point, t.hits
@@ -36,6 +36,12 @@
 		select count(participation_id)
 		from participation
 		where to_char(participation_date, 'yyyyMM') = #{value}
+	</select>
+	
+	<select id="getParticipationCntByTripChallenge" parameterType="string" resultType="participation">
+		select participation_id, participation_date, achievement_rate, is_success, user_id, trip_challenge_id
+		from participation
+		where trip_challenge_id = #{value}
 	</select>
 	
 </mapper>

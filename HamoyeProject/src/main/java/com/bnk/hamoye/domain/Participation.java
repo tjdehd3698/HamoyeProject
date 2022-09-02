@@ -10,7 +10,7 @@ public class Participation {
 	private Date participationDate;
 	private int achievementRate;
 	private int isSuccess;
-	private String tripChallengId;
+	private String tripChallengeId;
 	private TripChallenge tripChallenge;
 	private String userId;
 	private User user;

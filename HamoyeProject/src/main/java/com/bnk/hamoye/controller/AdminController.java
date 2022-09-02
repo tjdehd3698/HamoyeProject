@@ -13,10 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.Status;
+import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.AdminService;
+import com.bnk.hamoye.service.EcoChallengeService;
+import com.bnk.hamoye.service.TripChallengeService;
 import com.bnk.hamoye.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,13 +30,15 @@ import lombok.RequiredArgsConstructor;
 public class AdminController {
 	private final AdminService adminService;
 	private final UserService userService;
+	private final EcoChallengeService ecoChallengeService;
+	private final TripChallengeService tripChallengeService;
 	
 	@RequestMapping("admin.do")
 	public String adminLoginPage() {
 		return "adm/ADMCMNV00M";
 	}
 
-	@PostMapping("adminLogin.do")
+	@PostMapping("adminLogin.do") //관리자 로그인
 	@ResponseBody
 	public String adminLogin(User user, HttpSession session) {
 		try {
@@ -57,7 +63,7 @@ public class AdminController {
 		return "adm/ADMCMNV00M";
 	}
 	
-	@RequestMapping("adminIndex.do")
+	@RequestMapping("adminIndex.do") //관리자 메인 화면 데이터 조회
 	public String adminIndex(Model model) {
 		try {
 			//전체 회원 수 조회
@@ -145,9 +151,82 @@ public class AdminController {
 		return "adm/ADMUSRV01M";
 	}
 
-	@RequestMapping("adminChallenge.do")
-	public String adminChallengePage() {
-		return "adm/ADMCHLV00M";
+	@GetMapping("adminEcoChallengeList.do") //관리자 화면 ecoChallenge리스트 조회
+	public String adminEcoChallengeList(Model model) {
+		try {
+			model.addAttribute("ecoChallengeList", ecoChallengeService.getEcoChallengeList());
+			
+			//챌린지 별 참여자 수 
+			model.addAttribute("userCount", adminService.getUserCntByEcoChallenge());
+		} catch (Exception e) {
+			System.out.println("adminEcoChallengeList 에러 : "+ e.getMessage());
+		}
+		return "";
+	}
+	
+	@GetMapping("adminEcoChallengeDetail.do") //ecoChallenge 상세 페이지 정보 조회
+	public String adminEcoChallengeDetail(Model model, String ecoChallengeId) {
+		try {
+			EcoChallenge e = ecoChallengeService.getEcoChallengeDetail(ecoChallengeId);
+			model.addAttribute("ecoChallenge", e);
+			
+			//해당 EcoChallenge 참가 인원 조회
+			int cnt = adminService.getUserCntByEcoChallengeById(ecoChallengeId);
+			model.addAttribute("userCnt", cnt);
+			
+		} catch (Exception e) {
+			System.out.println("adminEcoChallengeDetail 에러 : "+ e.getMessage());
+		}
+		return "";
+	}
+
+	@GetMapping("adminTripChallengeList.do") //관리자 화면 tripChallenge리스트 조회
+	public String adminTripChallengeList(Model model) {
+		try {
+			model.addAttribute("tripChallengeList", tripChallengeService.getTripChallengeListByAdmin());
+			//챌린지 별 참여자 수
+			model.addAttribute("userCount", adminService.getUSerCntByTripChallenge());
+		} catch (Exception e) {
+			System.out.println("adminTripChallengeList 에러 : "+ e.getMessage());
+		}
+		return "";
+	}
+	
+	@GetMapping("adminTripChallengeDetail.do") //tripChallenge 상세 페이지 정보 조회
+	public String adminTripChallengeDetail(Model model, String tripChallengeId) {
+		try {
+			TripChallenge t = tripChallengeService.getTripChallengeDetail(tripChallengeId);
+			model.addAttribute("tripChallenge", t);
+			
+			//해당 tripChallenge 참가 인원 조회
+			int cnt = adminService.getUSerCntByTripChallengeById(tripChallengeId);
+			model.addAttribute("userCnt", cnt);
+			
+		} catch (Exception e) {
+			System.out.println("adminTripChallengeDetail 에러 : "+ e.getMessage());
+		}
+		return "";
+	}
+	
+	@PostMapping("updateEcoChallenge.do") //ecoChallenge 수정
+	public String updateEcoChallenge(EcoChallenge ecoChallenge) {
+		try {
+			ecoChallengeService.updateEcoChallenge(ecoChallenge);
+		} catch (Exception e) {
+			System.out.println("updateEcoChallenge 에러 : "+ e.getMessage());
+		}
+		
+		return "";
+	}
+	
+	@PostMapping("updateTripChallenge.do") //tripChallenge 수정
+	public String updateTripChallenge(TripChallenge tripChallenge) {
+		try {
+			tripChallengeService.updateTripChallenge(tripChallenge);
+		} catch (Exception e) {
+			System.out.println("updateTripChallenge 에러 : "+ e.getMessage());
+		}
+		return "";
 	}
 	
 }

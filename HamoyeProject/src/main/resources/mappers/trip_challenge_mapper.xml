@@ -46,7 +46,7 @@
 	
 	<select id="getTripChallengeDetail" parameterType="string" resultType="TripChallenge">
 		select trip_challenge_id, trip_challenge_name, start_date,
-		end_date, hits, reward_point, challenge_image
+		end_date, hits, reward_point, challenge_image, trip_challenge_type
 		from trip_challenge
 		where trip_challenge_id = #{value}
 	</select>

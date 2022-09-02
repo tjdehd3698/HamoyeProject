@@ -193,6 +193,7 @@ public class AdminController {
 			model.addAttribute("tripChallengeList", tripChallengeService.getTripChallengeListByAdmin());
 			//챌린지 별 참여자 수
 			model.addAttribute("userCount", adminService.getUSerCntByTripChallenge());
+			
 		} catch (Exception e) {
 			System.out.println("adminTripChallengeList 에러 : "+ e.getMessage());
 		}
@@ -258,12 +259,15 @@ public class AdminController {
 	}
 	
 	@PostMapping("updateTripChallenge.do") //tripChallenge 수정
+	@ResponseBody
 	public String updateTripChallenge(TripChallenge tripChallenge) {
+		String result = "F";
 		try {
 			tripChallengeService.updateTripChallenge(tripChallenge);
+			result="T";
 		} catch (Exception e) {
 			System.out.println("updateTripChallenge 에러 : "+ e.getMessage());
 		}
-		return "";
+		return result;
 	}
 }

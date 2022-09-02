@@ -25,11 +25,11 @@
 	
 	                <!-- Begin Page Content -->
 	                <div class="container-fluid">
-	                    <h1 class="h3 mb-2 text-gray-800">챌린지관리 > 지구를 지켜요</h1>
+	                    <h1 class="h3 mb-2 text-gray-800">챌린지관리 > 떠나요 부산</h1>
 	                    <p class="mb-4"></p>
 	                    <div class="card shadow mb-4">
 	                        <div class="card-header py-3">
-	                            <h6 class="m-0 font-weight-bold text-primary">지구를 지켜요 챌린지 조회</h6>
+	                            <h6 class="m-0 font-weight-bold text-primary">떠나요 부산 챌린지 조회</h6>
 	                        </div>
 	                        <div class="card-body">
 	                            <div class="table-responsive">
@@ -39,23 +39,21 @@
 	                                            <th>챌린지ID</th>
 	                                            <th>챌린지이름</th>
 	                                            <th>챌린지타입</th>
-	                                            <th>우대이율</th>
-	                                            <th>제한인원</th>
-	                                            <th>참가인원</th>
+	                                            <th>리워드포인트</th>
+	                                            <th>참여자 수</th>
 	                                            <th>시작일</th>
 	                                            <th>종료일</th>
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody>
-	                                        <c:forEach var="item" items="${ecoChallengeList}">
+	                                        <c:forEach var="item" items="${tripChallengeList}">
 	                                        <tr>
-	                                            <td>${item.ecoChallengeId}</td>
-	                                            <td><a href="adminEcoChallengeDetail.do?ecoChallengeId=${item.ecoChallengeId}">${item.ecoChallengeName}</a></td>
-	                                            <td>${item.ecoChallengeType}</td>
-	                                            <td>${item.primeRate}</td>
-	                                            <td>${item.limitedPeople}</td>
+	                                            <td>${item.tripChallengeId}</td>
+	                                            <td><a href="adminTripChallengeDetail.do?tripChallengeId=${item.tripChallengeId}">${item.tripChallengeName}</a></td>
+	                                            <td>${item.tripChallengeType}</td>
+	                                            <td>${item.rewardPoint}</td>
 	                                            <c:forEach var="count" items="${userCount}">
-	                                            	<c:if test="${count.key == item.ecoChallengeId}">
+	                                            	<c:if test="${count.key == item.tripChallengeId}">
 		                                            	<td>${count.value}</td>
 	                                            	</c:if>
 	                                            </c:forEach>
@@ -80,9 +78,8 @@
 		$(document).ready(function() {
 			$(".nav-item:eq(2)").addClass("active");
 			$(".nav-item:eq(2) .collapse").addClass("show");
-			$(".nav-item:eq(2) .collapse a:eq(0)").addClass("active");
+			$(".nav-item:eq(2) .collapse a:eq(1)").addClass("active");
 			$('#dataTable').DataTable();
-			
 		});
 	</script>
 </body>

@@ -49,7 +49,6 @@
 											<label for="birthday" class="col-sm-2 col-form-label">생년월일</label>
 											<div class="col-sm-10">
 												<input type="text" class="form-control" id="birthday" name="birthday" placeholder="생년월일 8자리 입력 예) 19951230" maxlength="8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required value="${result.birthday}"/>
-												<div class="form-text text-primary"></div>
 											</div>
 										</div>
 										<div class="my-3 row">
@@ -70,7 +69,6 @@
 											<label for="email" class="col-sm-2 col-form-label">이메일</label>
 											<div class="col-sm-10">
 												<input type="text" class="form-control" id="email" placeholder="hamoye@example.com" name="email" maxlength="50" required value="${result.email}"/>
-												<div class="form-text text-primary"></div>
 											</div>
 										</div>
 										<div class="my-3 row">

@@ -194,6 +194,7 @@ public class AdminController {
 			model.addAttribute("tripChallengeList", tripChallengeService.getTripChallengeListByAdmin());
 			//챌린지 별 참여자 수
 			model.addAttribute("userCount", adminService.getUSerCntByTripChallenge());
+			
 		} catch (Exception e) {
 			System.out.println("adminTripChallengeList 에러 : "+ e.getMessage());
 		}
@@ -254,11 +255,13 @@ public class AdminController {
 		} catch (Exception e) {
 			System.out.println("updateEcoChallenge 에러 : "+ e.getMessage());
 		}
-		return "";
+		return result;
 	}
 	
 	@PostMapping("updateTripChallenge.do") //tripChallenge 수정
+	@ResponseBody
 	public String updateTripChallenge(TripChallenge tripChallenge,MultipartFile img1, MultipartFile img2, MultipartFile img3) {
+		String result = "F";
 		try {
 			String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구
 			String tripChallengeImge = ""; //이미지 경로 담을 변수
@@ -290,9 +293,10 @@ public class AdminController {
 			tripChallenge.setChallengeImage(tripChallengeImge);
 			
 			tripChallengeService.updateTripChallenge(tripChallenge);
+			result="T";
 		} catch (Exception e) {
 			System.out.println("updateTripChallenge 에러 : "+ e.getMessage());
 		}
-		return "";
+		return result;
 	}
 }

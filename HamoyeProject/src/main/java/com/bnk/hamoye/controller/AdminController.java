@@ -254,11 +254,7 @@ public class AdminController {
 		} catch (Exception e) {
 			System.out.println("updateEcoChallenge 에러 : "+ e.getMessage());
 		}
-<<<<<<< HEAD
-		return "adm/ADMCHLV11M";
-=======
-		return result;
->>>>>>> branch 'main_test' of https://github.com/tjdehd3698/HamoyeProject.git
+		return "";
 	}
 	
 	@PostMapping("updateTripChallenge.do") //tripChallenge 수정

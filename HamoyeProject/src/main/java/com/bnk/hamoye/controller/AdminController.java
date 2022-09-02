@@ -128,6 +128,7 @@ public class AdminController {
 		} catch (Exception e) {
 			System.out.println("adminUpdateUser 에러 : "+ e.getMessage());
 		}
+		
 		return flag;
 	}
 	

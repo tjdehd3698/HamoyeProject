@@ -66,7 +66,7 @@
 											<div class="col-sm-2">
 											    <div class="form-group">
 											        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-											            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" nam="endDate" value="${ecoChallenge.endDate}">
+											            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" name="endDate" value="${ecoChallenge.endDate}">
 											            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
 											                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
 											            </div>
@@ -124,7 +124,7 @@
 								        </div>
 									</div>
 									<div class="text-center">
-										<button class="btn btn-secondary px-5" style="height: 50px;" type="button" onclick="window.location.href='adminTripChallengeList.do'">목록</button>
+										<button class="btn btn-secondary px-5" style="height: 50px;" type="button" onclick="window.location.href='adminEcoChallengeList.do'">목록</button>
 										<button class="btn btn-primary px-5" style="height: 50px;" type="button" id="nextPage">수정</button>
 									</div>
 								</form>

@@ -122,16 +122,16 @@ public class AdminController {
 	@PostMapping("adminUpdateUser.do")
 	@ResponseBody
 	public String adminUpdateUser(User user) {
-		String flag = "F";
+		String result = "F";
 		try {
 			int row = adminService.updateUserByAdmin(user);
 			System.out.println(row);
-			if(row>0) flag="T";
+			if(row>0) result="T";
 		} catch (Exception e) {
 			System.out.println("adminUpdateUser 에러 : "+ e.getMessage());
 		}
 		
-		return flag;
+		return result;
 	}
 	
 	@GetMapping("adminGetAllUser.do")
@@ -216,7 +216,9 @@ public class AdminController {
 	}
 	
 	@PostMapping("updateEcoChallenge.do") //ecoChallenge 수정(사진 업로드)
+	@ResponseBody
 	public String updateEcoChallenge(EcoChallenge ecoChallenge, MultipartFile img1, MultipartFile img2,  MultipartFile img3) {
+		String result = "F";
 		try {
 			System.out.println("aa");
 			String ecoChallengeImge = ""; //이미지 경로 담을 변수
@@ -248,10 +250,11 @@ public class AdminController {
 			ecoChallenge.setChallengeImage(ecoChallengeImge);			
 			
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
+			result="T";
 		} catch (Exception e) {
 			System.out.println("updateEcoChallenge 에러 : "+ e.getMessage());
 		}
-		return "";
+		return result;
 	}
 	
 	@PostMapping("updateTripChallenge.do") //tripChallenge 수정

@@ -112,8 +112,8 @@ $(function(){
 			</div>
 			<div id="deposit_hrline">
 				<hr>
-				<input type="button"  class="btn btn-outline-primary py-3 px-5" id="deposit_submit" value="계좌입금"> 
-				<input type = "button"  class="btn btn-outline-primary py-3 px-5" id="deposit_cancel" onclick="location.href='mypage.do' " value="돌아가기"> <br><br>
+				<input type="button"  class="btn btn-outline-primary py-2 px-3" id="deposit_submit" value="계좌입금"> 
+				<input type = "button"  class="btn btn-outline-primary py-2 px-3" id="deposit_cancel" onclick="location.href='mypage.do' " value="돌아가기"> <br><br>
 			</div>
 		</form> 
 </div>    

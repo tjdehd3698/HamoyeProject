@@ -207,7 +207,7 @@
 		select u.user_id, u.user_name, u.eco_challenge_id
 		from users u
 		join eco_challenge e on u.eco_challenge_id = e.eco_challenge_id
-		where e.eco_challenge_type={value} and is_withdraw=0
+		where e.eco_challenge_type=#{value} and u.is_withdraw=0
 	</select>
 	
 </mapper>

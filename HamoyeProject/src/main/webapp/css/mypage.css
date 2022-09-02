@@ -79,9 +79,7 @@
 			font-family: 'Font Awesome 5 Brands';
 		}
 		.mypage_icon.mypage_major {
-			border: solid 1px;
 			display: inline-block;
-			border-radius: 100%;
 			padding: 0.65em;
 			margin: 0 0 2em 0;
 			cursor: default;
@@ -92,14 +90,14 @@
 				width: 2.25em;
 				height: 2.25em;
 				line-height: 2.2em;
-				border-radius: 100%;
-				border: solid 1px;
+				/* border-radius: 100%; */
+				/* border: solid 1px; */
 				text-align: center;
 			}
 		.mypage_icon.alt {
 			display: inline-block;
-			border: solid 1px;
-			border-radius: 100%;
+			/* border: solid 1px;
+			border-radius: 100%; */
 		}
 			/* .mypage_icon.alt:before {
 				display: block;
@@ -439,12 +437,12 @@
 			margin-left: 1em;
 			margin-bottom:20%;
 			padding: 0.65em;
-			border-radius: 100%;
-			border: solid 1px;
+			/* border-radius: 100%;
+			border: solid 1px; */
 			}
 			.spotlight .image img {
 				display: block;
-				border-radius: 100%;
+				/* border-radius: 100%; */
 				width: 16em; 
 			}
 		@media screen and (max-width: 980px) {

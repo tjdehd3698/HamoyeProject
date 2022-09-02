@@ -20,26 +20,32 @@ $(function(){
 			return false;
 		} 
 	}); 
-});
- 
-window.onload = function(){
+}); 
+/* window.onload = function(){
 			new RollingNum('mypage_balance','${result.account.balance}','slide'); 
-}
-
+} */ 
 let isVisible = false; 
+
 window.addEventListener('scroll', function() { 
-	 if ( checkVisible($('#progressNow')) && !isVisible) {
+	if ( checkVisible($('#progressNow')) && !isVisible) {
 		isVisible=true;
-		$('#progress').animate( {
-			value:'${result.ecoChallenge.totalCount}'
-		}, 500, function() {
-		$(this).animate( {
+		$('#progress').animate( { 
 			value:'${result.participationCount}'
 		}, 1000 ); 
-		} );
-	}
+	} 
 });
-
+window.onload = function(){
+	new RollingNum('mypage_balance','${result.account.balance}','slide'); 
+}
+/* let isVisiblebal = false; 
+window.addEventListener('scroll', function() {
+if (checkVisible($('#mypage_balance')) && !isVisiblebal) {
+	isVisiblebal=true;
+	window.onload = function(){
+		new RollingNum('mypage_balance','${result.account.balance}','slide'); 
+	}
+}
+}); */
  
 </script>
 </head>
@@ -98,28 +104,15 @@ window.addEventListener('scroll', function() {
 								</div>
 								<div class="mypage_account_text"><br><br><br>
 									<h3 style="color:#2b3886">${result.ecoChallenge.ecoChallengeName} </h3>
-									<h5> 챌린지 </h5><br><br><br>
-									<!-- 잔액 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 원 ${result.account.balance} -->
+									<h5> 챌린지 </h5><br><br><br> 
 									<h4>원</h4> <h4 id="mypage_balance"></h4> <h4>잔액 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4><br> 
 									<h2 />
 								</div> 
+								<div style="display:inline-flex; flex-wrap:wrap"><br><br><h3>만기시 이자 ${result.ecoChallenge.primeRate} </h3><br><br><br><h3>현재까지의 이자</h3> </div>
 							</header>
 							<br>
-							<div id="intro_btn"><br><br>
-										<a class="btn btn-outline-primary px-3" href="moveToChangeForm.do" >
-	                            		회원정보수정
-	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-	                                		<i class="fa fa-arrow-right"></i>
-	                            		</div>
-                       					</a><br><br>
-                       					<a class="btn btn-outline-primary px-3" href="moveToAccountOut.do" >
-	                            		계좌해지하기
-	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-	                                		<i class="fa fa-arrow-right"></i>
-	                            		</div>
-                       					</a>
-                       				</div>
-                       				</div>
+							
+                       			</div>
 						</c:when>
 						<c:otherwise>
 						<span class="image"><img src="img/img-fpm-bf-12@3x.png" alt="" /></span>
@@ -154,6 +147,20 @@ window.addEventListener('scroll', function() {
 					</c:choose> 
 				
 			</div>
+			<div id="intro_btn"><br><br>
+										<a class="btn btn-outline-primary px-3" href="moveToChangeForm.do" >
+	                            		회원정보수정
+	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+	                                		<i class="fa fa-arrow-right"></i>
+	                            		</div>
+                       					</a> 
+                       					<a class="btn btn-outline-primary px-3" href="moveToAccountOut.do" >
+	                            		계좌해지하기
+	                            		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+	                                		<i class="fa fa-arrow-right"></i>
+	                            		</div>
+                       					</a>
+                       				</div>
 		</section>
  		 <c:choose>
  			 <c:when test="${result.account != null}">

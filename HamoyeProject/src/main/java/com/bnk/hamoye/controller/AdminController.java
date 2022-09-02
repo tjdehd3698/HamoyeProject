@@ -1,5 +1,6 @@
 package com.bnk.hamoye.controller;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -213,18 +214,32 @@ public class AdminController {
 		return "";
 	}
 	
-	@PostMapping("updateEcoChallenge.do") //ecoChallenge 수정
-	public String updateEcoChallenge(EcoChallenge ecoChallenge, MultipartFile[] uploadfile) {
+	@PostMapping("updateEcoChallenge.do") //ecoChallenge 수정(사진 업로드)
+	public String updateEcoChallenge(EcoChallenge ecoChallenge, MultipartFile img1, MultipartFile img2,  MultipartFile img3) {
 		try {
-			for (MultipartFile file : uploadfile) {	
-				file.getOriginalFilename();
+			String ecoChallengeImge = ""; //이미지 경로 담을 변수
+			if(img1!=null) {
+				File file1 = new File("eco\\"+ecoChallenge.getEcoChallengeId()+"\\"+img1.getOriginalFilename());
+				ecoChallengeImge+= (img1.getOriginalFilename()+"@@");
+				img1.transferTo(file1);
 			}
+			if(img2!=null) {
+				File file2 = new File("eco\\"+ecoChallenge.getEcoChallengeId()+"\\"+img2.getOriginalFilename());
+				ecoChallengeImge+= (img2.getOriginalFilename()+"@@");
+				img2.transferTo(file2);
+			}
+			if(img3!=null) {
+				File file3 = new File("eco\\"+ecoChallenge.getEcoChallengeId()+"\\"+img3.getOriginalFilename());
+				ecoChallengeImge+= (img3.getOriginalFilename()+"@@");
+				img3.transferTo(file3);
+			}
+			
+			ecoChallenge.setChallengeImage(ecoChallengeImge);			
 			
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
 		} catch (Exception e) {
 			System.out.println("updateEcoChallenge 에러 : "+ e.getMessage());
 		}
-		
 		return "";
 	}
 	

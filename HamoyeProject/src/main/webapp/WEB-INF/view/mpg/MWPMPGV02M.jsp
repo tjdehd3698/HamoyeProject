@@ -70,8 +70,9 @@
     <!-- Page Header End --> 
      <div class="container-fluid mb-5 wow fadeIn" data-wow-delay="0.3s">
 		<ul class="mypage_statistics">
-		 	<li class="mypage_sure">
-				 <font id="userout_font" size="7" >정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font> 
+		 	<div id="userOut_form">
+		 	<li class="mypage_sure mx-3">
+				 <font id="userout_font" size="7">정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font> 
 				  <br><div class="mb-3 row">
 						   <font id="userout_font" size="4" > 비밀번호 확인 </font> 
 						    <div class="col-sm-12">
@@ -83,9 +84,10 @@
 				     <input id="userout_submit" type="button" value="계좌해지">  
 				   <input id="userout_totheback" type="button" value="돌아가기">   -->
 			</li>
-			<li class="cryImg">
+			<li class="cryImg mx-3">
 				<img class="display-4 text-white animated slideInUp mb-4" src="img/cry.jpg" alt="" /> 
-			</li>	
+			</li>
+			</div>	
 		</ul> 
 	</div>
 		 <jsp:include page="../footer.jsp"></jsp:include>

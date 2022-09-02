@@ -1,6 +1,6 @@
 package com.bnk.hamoye.domain;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Random;
 
 import lombok.Data;

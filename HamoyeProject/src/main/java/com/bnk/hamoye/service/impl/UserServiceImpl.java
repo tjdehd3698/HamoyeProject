@@ -15,6 +15,7 @@ import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.Point;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.model.AccountDAO;
+import com.bnk.hamoye.model.EcoChallengeDAO;
 import com.bnk.hamoye.model.ParticipationDAO;
 import com.bnk.hamoye.model.PointDAO;
 import com.bnk.hamoye.model.UserDAO;
@@ -29,6 +30,7 @@ public class UserServiceImpl implements UserService{
 	private final PointDAO pointDAO;
 	private final AccountDAO accountDAO;
 	private final ParticipationDAO participationDAO;
+	private final EcoChallengeDAO ecoChallengeDAO;
 	
 	@Override
 	public int registerUser(User user) throws SQLException { //회원 가입
@@ -95,12 +97,19 @@ public class UserServiceImpl implements UserService{
 	public int joinAccount(Account account, String userId, String ecoChallengeId) throws SQLException {
 		account.makeAccountNumber();
 		account.setCreateDate(new Date(System.currentTimeMillis()));
-		
-		int result = accountDAO.registerAccount(account);
+		System.out.println(account);
+		int result = accountDAO.checkAccount(account.getAccountNumber());
+		System.out.println(result);
+		accountDAO.registerAccount(account);
+		System.out.println(result);
 		if(result == 1) {
 			User user = new User();
 			user.setUserId(userId);
 			user.setEcoChallengeId(ecoChallengeId);
+			try {
+				user.setEcoChallenge(ecoChallengeDAO.getEcoChallengeDetail(ecoChallengeId));
+			} catch (Exception e) {
+			}
 			user.setAccountNumber(account.getAccountNumber());
 			return userDAO.joinAccount(user);
 		}
@@ -153,6 +162,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<User> getUserByEcoChallenge(String ecoChallengeId) throws SQLException {
 		return userDAO.getUserByEcoChallenge(ecoChallengeId);
+	}
+
+	@Override
+	public int joinEcoChallenge(User user) throws SQLException {
+		return userDAO.joinEcoChallenge(user);
 	}
 
 }

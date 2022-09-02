@@ -77,17 +77,19 @@
 		
 		$("#nextPage").on("click", function() {
 			
-			var mainChallenge = $("#challenge-main option:selected").text();
-			var subChallenge = $("#challenge-sub option:selected").text();
-			var purposeOfMakingAccount = $("#purpose-of-opening-account option:selected").text();
-			var resourceOfIncome = $("#resource-of-income option:selected").text();
+			var purpose = $("#purpose-of-opening-account option:selected").text();
+			var incomeSource = $("#resource-of-income option:selected").text();
+			var maturity = $("#maturity option:selected").text();
+			var ecoChallengeId = "${ecoChallengeId}";
+			let today = new Date();
 			
-			window.localStorage.setItem('mainChallenge', mainChallenge);
-			window.localStorage.setItem('subChallenge', subChallenge);
-			window.localStorage.setItem('purposeOfMakingAccount', purposeOfMakingAccount);
-			window.localStorage.setItem('resourceOfIncome', resourceOfIncome);
+			window.localStorage.setItem('purpose', purpose);
+			window.localStorage.setItem('incomeSource', incomeSource);
+			window.localStorage.setItem('maturity', maturity);
+			window.localStorage.setItem('ecoChallengeId', ecoChallengeId);
+			window.localStorage.setItem('today', today);
 			
-			window.location.href = "nextPage.do";
+			window.location.href = 'nextPage.do';
 		});
 		
 	});
@@ -288,7 +290,7 @@
 				</div>
 				</div>
 				<div align="center">
-            		<button class="btn btn-primary px-5" style="height: 60px;" id="nextPage" disabled="disabled">
+            		<button class="btn btn-primary px-5" type="button" style="height: 60px;" id="nextPage" disabled="disabled">
                     	챌린지 가입하기
                     <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                         <i class="fa fa-arrow-right"></i>

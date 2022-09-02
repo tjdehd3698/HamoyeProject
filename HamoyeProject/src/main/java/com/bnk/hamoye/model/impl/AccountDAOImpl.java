@@ -21,7 +21,14 @@ public class AccountDAOImpl implements AccountDAO{
 	
 	@Override
 	public int registerAccount(Account account) throws SQLException {
-		return sqlSession.insert(NS+"insertAccount",account);
+		System.out.println("hi");
+		System.out.println(account);
+		return sqlSession.insert(NS+"registerAccount",account);
+	}
+	
+	@Override
+	public int checkAccount(String accountNumber) {
+		return sqlSession.selectOne(NS+"checkAccount",accountNumber);
 	}
 
 	@Override
@@ -48,5 +55,6 @@ public class AccountDAOImpl implements AccountDAO{
 	public int getBalanceSum() throws SQLException {
 		return sqlSession.selectOne(NS+"getBalanceSum");
 	}
+
 
 }

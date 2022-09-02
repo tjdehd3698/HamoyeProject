@@ -4,10 +4,10 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="sql.hamoye.account_mapper">
-	<insert id="insertAccount" parameterType="account">		
+	<insert id="registerAccount" parameterType="account">
 		insert into 
-		account(account_number, create_date, purpose, income_source, balance, prime_rate)
-		values(#{accountNumber},to_date(TO_CHAR(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD'),#{purpose},#{incomeSource},#{balance},#{primeRate})
+		account(account_number, create_date, mature_date, purpose, income_source, balance, prime_rate)
+		values(#{accountNumber},to_date(TO_CHAR(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD'),to_date(TO_CHAR(#{matureDate},'YYYY-MM-DD'),'YYYY-MM-DD'),#{purpose},#{incomeSource},#{balance},#{primeRate})
 	</insert>	
 	
 	<delete id="deleteAccount" parameterType="string">
@@ -35,6 +35,12 @@
 	<select id="getBalanceSum" resultType="int">
 		select sum(balance)
 		from account
+	</select>
+	
+	<select id="checkAccount" parameterType="string" resultType="int">
+		select count(*)
+		from account
+		where account_number = #{value}
 	</select>
 	
 	

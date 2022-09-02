@@ -80,7 +80,8 @@
 				        	<input type="password"  class="accOutInput" id="password" name="userPassword"> 
 						</div> 
 				    </div>
-				    <a id="accout_submit" class="btn btn-outline-primary py-2 px-3">계좌해지 </a> 
+				    <a id="accout_submit" class="btn btn-outline-primary py-2 px-2 mx-5">계좌해지 </a> 
+				    <input type = "button"  class="btn btn-outline-primary py-2 px-2 mx-5" id="accout_cancel" onclick="location.href='mypage.do' " value="돌아가기">
 				</div>
 			</div>
 		 </div>

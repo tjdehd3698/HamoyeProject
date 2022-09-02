@@ -20,6 +20,10 @@
 		
 		$("#getPoint").on("click",function(){
 			
+			if("${existUser}"==''){
+				alert("로그인 후 이용 가능합니다.");
+			}
+			
 			$.ajax({
 				type:'post',
 				url:'clickChallenge.do',
@@ -38,7 +42,6 @@
 					alert("다시 시도해주세요.");
 				}
 			});	
-
 		});
 	});
 	</script>

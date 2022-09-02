@@ -1,7 +1,7 @@
 /*////////////////////////////////////////////////////MWPMPGV00M.jsp///////////////////////////////////////////////////////////*/
  
 #intro_btn{
-	margin-left:10%;
+	text-align: center;
 }
 #button {
 	border: 0;
@@ -59,7 +59,9 @@
 	padding-left:5%;
 	padding-top:10px;
 }
-
+#balance_text{
+    margin-top: 3px;
+}
 /* Basic */
  
 	#mypage_main_body {
@@ -415,13 +417,19 @@
 	padding-left:10%;
 	display:inline; 
 }
-.mypage_major>div>h4 , .mypage_major>div>h5 {
+.mypage_major>div>p , .mypage_major>div>h4 , .mypage_major>div>h5 {
 	float:right; 
 	display : inline;
-} .mypage_major>div>h5{
-	padding-top:2%;
 }
- 
+ #nowInterest, #winInterest {
+ 	color:#2b3886;
+ }  
+ #mypage_comment{
+ 	display:flex;
+ 	flex-direction: column;
+ 	width: 100%;
+ 	margin: 0 20%;
+ }
  .showAccount,.showPrice {
  	color:gray;
  	float:right;
@@ -453,32 +461,39 @@
 				flex-direction: column;
 				text-align: center;
 			}
-				.spotlight .content {
-					-moz-flex: 0 1 auto;
-					-webkit-flex: 0 1 auto;
-					-ms-flex: 0 1 auto;
-					flex: 0 1 auto;
-					width: 100%;
-				}
-					.spotlight .content header.mypage_major h2:after {
-						margin-left: auto;
-						margin-right: auto;
-					}
-					.spotlight .content .actions {
-						-moz-justify-content: center;
-						-webkit-justify-content: center;
-						-ms-justify-content: center;
-						justify-content: center;
-						width: calc(100% + 1em);
-					}
-				.spotlight .image {
-					-moz-flex: 0 1 auto;
-					-webkit-flex: 0 1 auto;
-					-ms-flex: 0 1 auto;
-					flex: 0 1 auto;
-					margin-left: 0;
-					margin-bottom: 2em;
-				}
+			.spotlight .content {
+				-moz-flex: 0 1 auto;
+				-webkit-flex: 0 1 auto;
+				-ms-flex: 0 1 auto;
+				flex: 0 1 auto;
+				width: 100%;
+			}
+			.spotlight .content header.mypage_major h2:after {
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.spotlight .content .actions {
+				-moz-justify-content: center;
+				-webkit-justify-content: center;
+				-ms-justify-content: center;
+				justify-content: center;
+				width: calc(100% + 1em);
+			}
+			.spotlight .image {
+				-moz-flex: 0 1 auto;
+				-webkit-flex: 0 1 auto;
+				-ms-flex: 0 1 auto;
+				flex: 0 1 auto;
+				margin-left: 0;
+				margin-bottom: 2em;
+			}
+			 #mypage_comment{
+			 	display:flex;
+			 	flex-direction: column;
+			 	width: 100%;
+			 	margin: 0%;
+			 }
+			 
 		}
 		@media screen and (max-width: 736px) {
 			.spotlight .image {
@@ -845,7 +860,18 @@
 
 
 /*////////////////////////////////////////////////////MWPMPGV02M.jsp///////////////////////////////////////////////////////////*/
-
+#userOut_form {
+	display:flex;
+	justify-content: space-between;
+}
+@media screen and (max-width: 980px) {
+#userOut_form {
+	flex-direction: column-reverse;
+	text-align: center;
+	
+	}
+ 
+}
 #userout_font { 
 	color:#2b3886; 
     font-family: 'ParkYongJun'; 
@@ -864,12 +890,14 @@
 	background-color: #E8E7DF; 
 }
 .mypage_statistics{
+	display:flex;
 	width: 50em;
     height: 35em;
     margin-left: auto;
     margin-right: auto;
     padding-top: 5%;
     list-style: none;
+    justify-content: space-around;
 }
 .mypage_sure{
 	float:left;

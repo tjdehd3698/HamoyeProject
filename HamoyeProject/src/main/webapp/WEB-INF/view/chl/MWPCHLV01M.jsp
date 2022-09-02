@@ -106,32 +106,12 @@
 			 </section>
 		
 			<div style="padding:20px"  class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-				<h3>지구를 지키는 당신에게 <br>매년 이자를 더 드려요</h3>
+				<h3>지구를 지키는 당신에게 <br>매년 ${ecoChallenge.primeRate}%의 이자를 더 드려요</h3>
 				<br>
-				<section>
-			 	<h3>챌린지 상품 상세</h3>
-			 	<table class="table table-bordered" id="info" width="100%" cellspacing="0">
-			 		<thead>
-			 			<tr>
-			 				<th>챌린지 이름</th>
-			 				<th>가입 기간</th>
-			 				<th>우대 이율</th>
-			 			</tr>
-			 		</thead>
-			 		<tbody>
-			 			<c:forEach var="item" items="${ecoChallenge}">
-			 				<tr>
-			 					<td>${item.ecoChallengeName}</td>
-			 					<td>${item.matureDate}</td>
-			 					<td>${item.primerate}</td>
-			 				</tr>
-			 			</c:forEach>
-			 		</tbody>
-			 	</table>
-			 </section>
+				<!-- 이율도 challengeRate로 받아와야함 -->
 			 	<c:choose>
 					<c:when test="${!empty userName}">
-			 			<a class="btn btn-outline-primary px-3" href="getUserAllInfo.do" >
+			 			<a class="btn btn-outline-primary px-3" href="getUserAllInfo.do?challengeId=${ecoChallenge.ecoChallengeId}" >
                                	챌린지 참여하고 우대이율 받기
              			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
              				<i class="fa fa-arrow-right"></i>

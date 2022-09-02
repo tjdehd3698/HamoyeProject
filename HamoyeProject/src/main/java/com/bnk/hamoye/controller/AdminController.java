@@ -152,7 +152,7 @@ public class AdminController {
 			User user = adminService.getUserInfoByAdmin(userId);
 			model.addAttribute("result", user);
 		} catch (Exception e) {
-			System.out.println("getUserInfoByAdmin 에러 : "+ e.getMessage());
+			System.out.println("getUserInfoByAdmin 에러 : "+ e);
 		}
 		return "adm/ADMUSRV01M";
 	}
@@ -167,7 +167,7 @@ public class AdminController {
 		} catch (Exception e) {
 			System.out.println("adminEcoChallengeList 에러 : "+ e.getMessage());
 		}
-		return "";
+		return "adm/ADMCHLV00M";
 	}
 	
 	@GetMapping("adminEcoChallengeDetail.do") //ecoChallenge 상세 페이지 정보 조회
@@ -183,7 +183,7 @@ public class AdminController {
 		} catch (Exception e) {
 			System.out.println("adminEcoChallengeDetail 에러 : "+ e.getMessage());
 		}
-		return "";
+		return "adm/ADMCHLV01M";
 	}
 
 	@GetMapping("adminTripChallengeList.do") //관리자 화면 tripChallenge리스트 조회
@@ -195,7 +195,7 @@ public class AdminController {
 		} catch (Exception e) {
 			System.out.println("adminTripChallengeList 에러 : "+ e.getMessage());
 		}
-		return "";
+		return "adm/ADMCHLV10M";
 	}
 	
 	@GetMapping("adminTripChallengeDetail.do") //tripChallenge 상세 페이지 정보 조회
@@ -211,7 +211,7 @@ public class AdminController {
 		} catch (Exception e) {
 			System.out.println("adminTripChallengeDetail 에러 : "+ e.getMessage());
 		}
-		return "";
+		return "adm/ADMCHLV11M";
 	}
 	
 	@PostMapping("updateEcoChallenge.do") //ecoChallenge 수정(사진 업로드)

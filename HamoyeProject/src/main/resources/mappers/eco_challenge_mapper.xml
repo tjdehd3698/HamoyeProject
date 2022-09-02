@@ -22,7 +22,7 @@
 		limited_people = #{limitedPeople},
 		content = #{content},
 		challenge_image =#{challengeImage},
-		is_delete = #{is_delete}
+		is_delete = #{isDelete}
 		where eco_challenge_id = #{ecoChallengeId}
 	</update>
 	

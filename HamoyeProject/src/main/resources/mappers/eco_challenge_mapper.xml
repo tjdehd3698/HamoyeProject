@@ -17,7 +17,7 @@
 	<update id="updateEcoChallenge" parameterType="EcoChallenge">
 		update eco_challenge
 		set eco_challenge_name = #{ecoChallengeName},
-		prime_rate = #{primeRate},
+<!-- 		prime_rate = #{primeRate}, -->
 		end_date = #{endDate},
 		limited_people = #{limitedPeople},
 		content = #{content},

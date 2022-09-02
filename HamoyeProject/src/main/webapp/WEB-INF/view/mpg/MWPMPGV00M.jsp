@@ -108,7 +108,7 @@ if (checkVisible($('#mypage_balance')) && !isVisiblebal) {
 									<h4>원</h4> <h4 id="mypage_balance"></h4> <h4>잔액 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4><br> 
 									<h2 />
 								</div> 
-								<div style="display:inline-flex; flex-wrap:wrap"><br><br><h3>만기시 이자 ${result.ecoChallenge.primeRate} </h3><br><br><br><h3>현재까지의 이자</h3> </div>
+								<div style="display:inline-flex; flex-wrap:wrap"><br><br><h3>만기시 이자 ${result.account.primeRate} </h3><br><br><br><h3>현재까지의 이자</h3> </div>
 							</header>
 							<br>
 							

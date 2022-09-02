@@ -89,8 +89,8 @@ public class UserTest {
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
 		SqlSession session = factory.openSession();
 		
-		User user = (User)session.selectOne("getMypageInfoWithNoEco","a");
-		System.out.println(user.getUserId());
+		User user = (User)session.selectOne("getMypageInfo","aaa");
+//		System.out.println(user.getUserId());
 		
 //		System.out.println(user.getUserName());
 //		System.out.println(user.getAccount().getBalance());
@@ -98,6 +98,8 @@ public class UserTest {
 //		System.out.println(user.getPoint().getTotalPoint());
 //		System.out.println(user.getEcoChallenge().getTotalCount());
 //		System.out.println(user.getEcoChallenge().getEcoChallengeId());
+		System.out.println(user.getEcoChallenge().getPrimeRate());
+		System.out.println(user.getAccount().getPrimeRate());
 	}
 	
 	@Test

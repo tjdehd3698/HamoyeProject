@@ -8,6 +8,7 @@
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
 <!-- Custom styles for this template-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/sb-admin-2.css" rel="stylesheet">
 <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <!-- Bootstrap core JavaScript-->
@@ -23,7 +24,10 @@
 <script src="js/jquery.dataTables.min.js"></script>
 <script src="js/dataTables.bootstrap4.min.js"></script>
 
-<!-- Page level custom scripts -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+	
 <script>
 $(function(){
 	init();
@@ -55,7 +59,7 @@ $(function(){
                 <a class="collapse-item" href="adminEcoChallengeList.do">지구를 지켜요</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">trip</h6>
-                <a class="collapse-item" href="#none">떠나요 부산</a>
+                <a class="collapse-item" href="adminTripChallengeList.do">떠나요 부산</a>
             </div>
         </div>
     </li>

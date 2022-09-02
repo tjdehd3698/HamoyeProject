@@ -103,7 +103,7 @@ public class AdminController {
 			model.addAttribute("challengeDateCnt", challengeDateCnt);
 			
 			//지구를 떠나요 챌린지 별 참여자 수  pie chart 데이터 
-			Map<String, Integer> pieCharData = adminService.getUserCntByEcoChallengeType(totalUserCnt);
+			Map<String, Double> pieCharData = adminService.getUserCntByEcoChallengeType(totalUserCnt);
 			model.addAttribute("userCntByEcoChallengeType", pieCharData);
 			
 		} catch (Exception e) {

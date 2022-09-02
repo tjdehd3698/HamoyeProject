@@ -51,6 +51,7 @@
 											<p class="col-sm-10 col-form-label">
 											<c:if test="${ecoChallenge.ecoChallengeType == 1001}">대중교통</c:if>
 											<c:if test="${ecoChallenge.ecoChallengeType == 1002}">환경봉사</c:if>
+											</p>
 										</div>
 										<div class="my-3 row">
 											<p class="col-sm-2 col-form-label">우대이율</p>
@@ -88,7 +89,7 @@
 											<div class="col-sm-1">
 										    <select class="form-select" id="isDelete" name="isDelete">
 										    	<c:if test="${ecoChallenge.isDelete == 0}">
-					            					<option value="${ecoChallenge.isDelete} selected="selected"">${ecoChallenge.isDelete}</option>
+					            					<option value="${ecoChallenge.isDelete}" selected="selected">${ecoChallenge.isDelete}</option>
 					            					<option value="1">1</option>
 										    	</c:if>
 										    	<c:if test="${ecoChallenge.isDelete == 1}">

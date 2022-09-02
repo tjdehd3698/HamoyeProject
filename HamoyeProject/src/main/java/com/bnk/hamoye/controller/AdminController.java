@@ -2,6 +2,7 @@ package com.bnk.hamoye.controller;
 
 import java.io.File;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -218,45 +219,73 @@ public class AdminController {
 	@PostMapping("updateEcoChallenge.do") //ecoChallenge 수정(사진 업로드)
 	public String updateEcoChallenge(EcoChallenge ecoChallenge, MultipartFile img1, MultipartFile img2,  MultipartFile img3) {
 		try {
-			System.out.println("aa");
+			String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구
 			String ecoChallengeImge = ""; //이미지 경로 담을 변수
 			if(img1!=null) {
-				File file1 = new File("src/main/webapp/img/eco/"+ecoChallenge.getEcoChallengeId(),img1.getOriginalFilename());
-				ecoChallengeImge+= (img1.getOriginalFilename()+"@@");
+				File file1 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img1.getOriginalFilename());
+				ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
 				if (!file1.exists()) {
 					file1.mkdirs();
                 }
 				img1.transferTo(file1);
 			}
 			if(img2!=null) {
-				File file2 = new File("src/main/webapp/img/eco/"+ecoChallenge.getEcoChallengeId(),img2.getOriginalFilename());
-				ecoChallengeImge+= (img2.getOriginalFilename()+"@@");
+				File file2 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img2.getOriginalFilename());
+				ecoChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
 				if (!file2.exists()) {
 					file2.mkdirs();
                 }
 				img2.transferTo(file2);
 			}
 			if(img3!=null) {
-				File file3 = new File("src/main/webapp/img/eco/"+ecoChallenge.getEcoChallengeId(),img3.getOriginalFilename());
-				ecoChallengeImge+= (img3.getOriginalFilename()+"@@");
+				File file3 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img3.getOriginalFilename());
+				ecoChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
 				if (!file3.exists()) {
 					file3.mkdirs();
                 }
 				img3.transferTo(file3);
 			}
-			System.out.println("aa");
 			ecoChallenge.setChallengeImage(ecoChallengeImge);			
 			
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
 		} catch (Exception e) {
 			System.out.println("updateEcoChallenge 에러 : "+ e.getMessage());
 		}
-		return "";
+		return "adm/ADMCHLV11M";
 	}
 	
 	@PostMapping("updateTripChallenge.do") //tripChallenge 수정
-	public String updateTripChallenge(TripChallenge tripChallenge) {
+	public String updateTripChallenge(TripChallenge tripChallenge,MultipartFile img1, MultipartFile img2, MultipartFile img3) {
 		try {
+			String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구
+			String tripChallengeImge = ""; //이미지 경로 담을 변수
+			if(img1!=null) {
+				File file1 = new File("C:/Users/Public/Pictures/img/eco/"+tripChallenge.getTripChallengeId(), imgTmp+img1.getOriginalFilename());
+				tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
+				if (!file1.exists()) {
+					file1.mkdirs();
+                }
+				img1.transferTo(file1);
+			}
+			if(img2!=null) {
+				File file2 = new File("C:/Users/Public/Pictures/img/eco/"+tripChallenge.getTripChallengeId(), imgTmp+img2.getOriginalFilename());
+				tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
+				if (!file2.exists()) {
+					file2.mkdirs();
+                }
+				img2.transferTo(file2);
+			}
+			if(img3!=null) {
+				File file3 = new File("C:/Users/Public/Pictures/img/eco/"+tripChallenge.getTripChallengeId(), imgTmp+img3.getOriginalFilename());
+				tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
+				if (!file3.exists()) {
+					file3.mkdirs();
+                }
+				img3.transferTo(file3);
+			}
+			
+			tripChallenge.setChallengeImage(tripChallengeImge);
+			
 			tripChallengeService.updateTripChallenge(tripChallenge);
 		} catch (Exception e) {
 			System.out.println("updateTripChallenge 에러 : "+ e.getMessage());

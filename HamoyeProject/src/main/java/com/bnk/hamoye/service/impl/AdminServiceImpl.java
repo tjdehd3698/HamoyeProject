@@ -205,14 +205,18 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public Map<String, Integer> getUserCntByEcoChallengeType() throws Exception {
+	public Map<String, Integer> getUserCntByEcoChallengeType(int totalUserCnt) throws Exception {
 		Map<String,Integer> result = new HashMap<String, Integer>();
+		int rest = totalUserCnt; //아무 에코 챌린지에 참여안한 사람 수
 		
 		List<String> typeList = ecoChallengeDAO.getEcoChallengeType();
 		for(String type : typeList) {
 			List<User> userList = userDAO.getUserByEcoChallengeType(type);
+			rest-=userList.size();
 			result.put(type, userList.size());
 		}
+		
+		result.put("기타", rest);
 		
 		return result;
 	}

@@ -25,7 +25,7 @@ $(function(){
 	let isVisiblebal = false;  
 	let isVisibledb = false;  
 	let isVisible = false;  
-	window.addEventListener('focus', function() { 
+	window.addEventListener('scroll', function() { 
 		if ( checkVisible($('#mypage_balance')) && !isVisiblebal) {
 			isVisiblebal=true; 
 			new RollingNum('mypage_balance','${result.account.balance}','slide'); 
@@ -55,9 +55,6 @@ $(function(){
         if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
         if (eval == "above") return ((y < (viewportHeight + scrolltop)));
     }
-	/* new RollingNum('mypage_balance','${result.account.balance}','slide'); */
-	/* new RollingNum('mypage_dbPoint','${result.point.totalPoint}','slide'); */
-	
 	new nowInterest('nowInterest','${result.ecoChallenge.primeRate}','${result.account.balance}', '${result.participationCount}','${result.ecoChallenge.totalCount}');
 	new winInterest('winInterest','${result.ecoChallenge.primeRate}','${result.account.balance}')
 	
@@ -153,8 +150,9 @@ $(function(){
 								 			<div>챌린지 도전이&nbsp;<strong id="mypage_Dday" style="color:#2b3886;"></strong> 후에 종료됩니다!</div>
 							 			</c:if> 
 							 			<c:if test="${result.ecoChallenge.totalCount <= result.participationCount}">
-							 				<div>챌린지 도전이 <strong style="color:#2b3886;">완료</strong>되었어요✔</div>
-											<div>이제 이자로 <strong id="winInterest" style="color:#2b3886"></strong>을 받을 수 있어요😍</div>  
+							 				<div>챌린지 도전이 <strong style="color:#2b3886;">완료</strong>되었어요✔</div> 
+											<div>이제 이자로 <strong id="winInterest" style="color:#2b3886"></strong>을 받을 수 있어요😍</div>
+											<input type="hidden" id="nowInterest">  
 							 			</c:if>
 									</div>  
 								</div>
@@ -302,10 +300,10 @@ $(function(){
 		</header>
 		<c:forEach var="item" items="${tripList}"> 
 			<ul class="statistics">
-				<li><span class="mypage_icon solid mypage_major style3 fas fa-utensils" />${item.tripChallenge.tripChallengeImage}</li>
+				<li><span class="mypage_icon solid mypage_major style3 fas fa-utensils" />\${item.tripChallengeImage}</li>
 				<li>
-					<h2>${item.tripChallenge.tripChallengeName}</h2>
-					<h5>${item.tripChallenge.rewardPoint}원 받기!</h5>
+					<h2>${item.tripChallengeName}</h2>
+					<h5>${item.rewardPoint}원 받기!</h5>
 				</li>
 				<li>
 					<a class="btn btn-outline-primary px-3" href="MWPCHLV03M.jsp" >

@@ -118,9 +118,4 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectList(NS+"getUserByEcoChallengeType", ecoChallengeId);
 	}
 
-	@Override
-	public int joinEcoChallenge(User user) throws SQLException {
-		return sqlSession.update(NS+"joinEcoChallenge",user);
-	}
-
 }

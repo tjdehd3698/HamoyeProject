@@ -43,8 +43,6 @@
 		where account_number = #{value}
 	</select>
 	
-	
-	
 </mapper>
 
 

@@ -97,12 +97,17 @@ public class UserServiceImpl implements UserService{
 	public int joinAccount(Account account, String userId, String ecoChallengeId) throws SQLException {
 		account.makeAccountNumber();
 		account.setCreateDate(new Date(System.currentTimeMillis()));
-		System.out.println(account);
+		
 		int result = accountDAO.checkAccount(account.getAccountNumber());
-		System.out.println(result);
-		accountDAO.registerAccount(account);
-		System.out.println(result);
-		if(result == 1) {
+		while(result!=0) {
+			account.makeAccountNumber();
+			result = accountDAO.checkAccount(account.getAccountNumber());
+		} // 중복 계좌번호 입력 시 계좌번호 재생성 알고리즘
+		
+		if(result==0) {
+			System.out.println(account);
+			accountDAO.registerAccount(account);
+			System.out.println("result "+result);
 			User user = new User();
 			user.setUserId(userId);
 			user.setEcoChallengeId(ecoChallengeId);
@@ -110,7 +115,6 @@ public class UserServiceImpl implements UserService{
 				user.setEcoChallenge(ecoChallengeDAO.getEcoChallengeDetail(ecoChallengeId));
 			} catch (Exception e) {
 			}
-			user.setAccountNumber(account.getAccountNumber());
 			return userDAO.joinAccount(user);
 		}
 		return 0;
@@ -162,11 +166,6 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<User> getUserByEcoChallenge(String ecoChallengeId) throws SQLException {
 		return userDAO.getUserByEcoChallenge(ecoChallengeId);
-	}
-
-	@Override
-	public int joinEcoChallenge(User user) throws SQLException {
-		return userDAO.joinEcoChallenge(user);
 	}
 
 }

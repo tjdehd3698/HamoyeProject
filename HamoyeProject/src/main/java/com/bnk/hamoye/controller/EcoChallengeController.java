@@ -1,9 +1,9 @@
 package com.bnk.hamoye.controller;
 
-import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -128,27 +128,24 @@ public class EcoChallengeController {
 			EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(ecoChallengeId);
 			
 			Account account = new Account();
-			Date now = new Date(0);
+			Date now = new Date();
 			
 			Calendar cal = Calendar.getInstance(); 
 			cal.setTime(now);
 			String[] newMaturity = maturity.split("개");
 		    cal.add(Calendar.MONTH, Integer.parseInt(newMaturity[0].trim()));
-		    System.out.println(userService.getUserInfo(userId));
-			
+		    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		    String formattedDate = simpleDateFormat.format(cal.getTime());
 		    account.setIncomeSource(incomeSource);
-			account.setMatureDate((Date) cal.getTime());
+			account.setMatureDate(java.sql.Date.valueOf(formattedDate));
 			account.setPrimeRate(ecoChallenge.getPrimeRate());
 			account.setPurpose(purpose);
-			
-			userService.joinAccount(account, userId, ecoChallengeId);
-			int value = userService.joinEcoChallenge(user);
+			int value = userService.joinAccount(account, userId, ecoChallengeId);
 	
-			System.out.println("==============");
-
 			System.out.println(value);
 			if (value > 0) {
 				result = "T";
+				System.out.println(result);
 			}
 		} catch (Exception e) {
 		}

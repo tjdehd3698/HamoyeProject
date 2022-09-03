@@ -10,10 +10,10 @@ import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 
 public interface AdminService {
-	User adminLogin(User user) throws Exception;
-	List<User> getAllUser() throws Exception;
-	int getAllAcountCnt() throws Exception;
-	List<Status> getAllEcoChallenge() throws Exception;
+	User adminLogin(User user) throws Exception; //관리자 로그인
+	List<User> getAllUser() throws Exception; //전체 회원 조회
+	int getAllAcountCnt() throws Exception; //전체 계좌 수 조회
+	List<Status> getAllEcoChallenge() throws Exception; // 
 	List<TripStatus> getAllTripChallenge() throws Exception;
 	int getUserCntByDate() throws Exception;
 	int getAccountCntByDate() throws Exception;

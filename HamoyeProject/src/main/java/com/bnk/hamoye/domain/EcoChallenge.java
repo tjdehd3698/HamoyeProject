@@ -17,5 +17,4 @@ public class EcoChallenge{
 	private String content;
 	private int totalCount;
 	private String challengeImage;
-	private int maturity;
 }

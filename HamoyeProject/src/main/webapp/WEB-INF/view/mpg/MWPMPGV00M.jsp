@@ -133,8 +133,10 @@
 								</div>
 								<div class="mypage_account_text"><br><br><br>
 									<h3 style="color:#2b3886">${result.ecoChallenge.ecoChallengeName} </h3><h5> 챌린지 </h5><br><br><br> 
-									<h5 id="balance_text">&nbsp;원</h5><h4 id="mypage_balance"></h4>
-									<h4 id="balance_text">잔액 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4><br> 
+									<div id="balance_textBalance" >
+										<h4 >잔액 </h4><br> 
+										<strong id="balance_balanceText"><h4 id="mypage_balance"></h4><h5 id="balance_text">&nbsp;원</h5></strong> 
+									</div>
 									<h2 />
 								</div><br>
 								<div id="mypage_comment"><br>

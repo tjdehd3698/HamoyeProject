@@ -62,6 +62,14 @@
 #balance_text{
     margin-top: 3px;
 }
+#balance_textBalance {
+	display: flex;
+    justify-content: space-between;
+    padding-left: 10%;
+}
+#balance_balanceText {
+	display: flex;
+} 
 /* Basic */
  
 	#mypage_main_body {

@@ -13,7 +13,7 @@ public interface AdminService {
 	User adminLogin(User user) throws Exception; //관리자 로그인
 	List<User> getAllUser() throws Exception; //전체 회원 조회
 	int getAllAcountCnt() throws Exception; //전체 계좌 수 조회
-	List<Status> getAllEcoChallenge() throws Exception; // 
+	List<Status> getAllEcoChallenge() throws Exception; // 전체 에코 챌린지 통계 조회
 	List<TripStatus> getAllTripChallenge() throws Exception;
 	int getUserCntByDate() throws Exception;
 	int getAccountCntByDate() throws Exception;

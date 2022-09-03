@@ -54,7 +54,7 @@ public class AdminController {
 			} 
 			else return "F";
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("login 에러 : "+ e.getMessage());
 		}
 		return "";
@@ -140,7 +140,7 @@ public class AdminController {
 		try {
 			List<User> list = adminService.getAllUser();
 			model.addAttribute("result",list);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -268,6 +268,10 @@ public class AdminController {
 			if(img1!=null) {
 				File file1 = new File("C:/Users/Public/Pictures/img/eco/"+tripChallenge.getTripChallengeId(), imgTmp+img1.getOriginalFilename());
 				tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
+				
+				if(file1.exists()) {
+					file1.delete();
+				}
 				if (!file1.exists()) {
 					file1.mkdirs();
                 }
@@ -276,6 +280,10 @@ public class AdminController {
 			if(img2!=null) {
 				File file2 = new File("C:/Users/Public/Pictures/img/eco/"+tripChallenge.getTripChallengeId(), imgTmp+img2.getOriginalFilename());
 				tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
+				
+				if(file2.exists()) {
+					file2.delete();
+				}
 				if (!file2.exists()) {
 					file2.mkdirs();
                 }
@@ -284,6 +292,10 @@ public class AdminController {
 			if(img3!=null) {
 				File file3 = new File("C:/Users/Public/Pictures/img/eco/"+tripChallenge.getTripChallengeId(), imgTmp+img3.getOriginalFilename());
 				tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
+				
+				if(file3.exists()) {
+					file3.delete();
+				}
 				if (!file3.exists()) {
 					file3.mkdirs();
                 }

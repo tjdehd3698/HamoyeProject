@@ -274,18 +274,18 @@ public class AdminController {
 			if(ecoChallenge.getChallengeImage()==null) {
 				String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구
 				String ecoChallengeImge = ""; //이미지 경로 담을 변수
+				String path = "/img/eco/"+ecoChallenge.getEcoChallengeId();
 				
 				//원래 있던 사진 삭제
-				File file = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId());
+				File file = new File(path);
 				if(file.exists()) {
-					System.out.println("a");
 					for(File f :file.listFiles()){
 						f.delete();
 					}
 				}
 				
 				if(!img1.isEmpty()) {
-					File file1 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img1.getOriginalFilename());
+					File file1 = new File(path,imgTmp+img1.getOriginalFilename());
 					ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
 					if (!file1.exists()) {
 						file1.mkdirs();
@@ -293,7 +293,7 @@ public class AdminController {
 					img1.transferTo(file1);
 				}
 				if(!img2.isEmpty()) {
-					File file2 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+1+img2.getOriginalFilename());
+					File file2 = new File(path,imgTmp+1+img2.getOriginalFilename());
 					ecoChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
 					if (!file2.exists()) {
 						file2.mkdirs();
@@ -301,7 +301,7 @@ public class AdminController {
 					img2.transferTo(file2);
 				}
 				if(!img3.isEmpty()) {
-					File file3 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img3.getOriginalFilename());
+					File file3 = new File(path,imgTmp+img3.getOriginalFilename());
 					ecoChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
 					if (!file3.exists()) {
 						file3.mkdirs();
@@ -314,7 +314,7 @@ public class AdminController {
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
 			result="T";
 		} catch (Exception e) {
-			System.out.println("updateEcoChallenge 에러 : "+ e.getMessage());
+			System.out.println("updateEcoChallenge 에러 : "+ e);
 		}
 		return result;
 	}

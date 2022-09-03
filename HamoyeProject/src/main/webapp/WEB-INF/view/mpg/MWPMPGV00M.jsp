@@ -27,7 +27,7 @@ $(function(){
 	let isVisible = false;  
 	window.addEventListener('focus', function() { 
 		if ( checkVisible($('#mypage_balance')) && !isVisiblebal) {
-			isVisiblebal=true;
+			isVisiblebal=true; 
 			new RollingNum('mypage_balance','${result.account.balance}','slide'); 
 		} 
 	});

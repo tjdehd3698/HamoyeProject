@@ -127,3 +127,4 @@
         if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
         if (eval == "above") return ((y < (viewportHeight + scrolltop)));
     }
+ 

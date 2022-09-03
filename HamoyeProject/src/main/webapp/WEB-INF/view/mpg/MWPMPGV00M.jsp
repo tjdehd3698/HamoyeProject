@@ -12,53 +12,52 @@
 <script src="js/mypage.js"></script>  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>  
-$(function() {
+ $(function() {
 	$("#depositBtn").click(function(){ 
 		if($("#asd").val() == "") {
 			alert('챌린지 계좌가 있어야 입금 가능합니다!');
 			$('#makeAccount').focus();
 			return false;
 		} 
-	}); 
-});
-$(function(){
+	});
 	let isVisiblebal = false;  
 	let isVisibledb = false;  
-	let isVisible = false;  
-	window.addEventListener('scroll', function() { 
-		if ( checkVisible($('#mypage_balance')) && !isVisiblebal) {
+	let isVisible = false; 
+	setTimeout(function(){ 
+		if( checkVisible($('#mypage_balance')) && !isVisiblebal) { 
 			isVisiblebal=true; 
-			new RollingNum('mypage_balance','${result.account.balance}','slide'); 
-		} 
-	}); 
-	window.addEventListener('scroll', function() { 
+			new RollingNum('mypage_balance','${result.account.balance}','slide');
+		}
 		if ( checkVisible($('#progressNow')) && !isVisible) {
 			isVisible=true;
 			$('#progress').animate( { 
 				value:'${result.participationCount}'
 			}, 1000 ); 
 		} 
-	});
-	window.addEventListener('scroll', function() { 
 		if ( checkVisible($('#mypage_dbPoint')) && !isVisibledb) {
 			isVisibledb=true;
 			new RollingNum('mypage_dbPoint','${result.point.totalPoint}','slide'); 
 		} 
-	});
-	function checkVisible( elm, eval ) {
-        eval = eval || "object visible";
-        var viewportHeight = $(window).height(), // Viewport Height
-            scrolltop = $(window).scrollTop(), // Scroll Top
-            y = $(elm).offset().top,
-            elementHeight = $(elm).height();   
-        
-        if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
-        if (eval == "above") return ((y < (viewportHeight + scrolltop)));
-    }
+	},300);
+	window.addEventListener('scroll', function() { 
+		if( checkVisible($('#mypage_balance')) && !isVisiblebal) { 
+				isVisiblebal=true; 
+				new RollingNum('mypage_balance','${result.account.balance}','slide');
+		}
+		if ( checkVisible($('#progressNow')) && !isVisible) {
+			isVisible=true;
+			$('#progress').animate( { 
+				value:'${result.participationCount}'
+			}, 1000 ); 
+		} 
+		if ( checkVisible($('#mypage_dbPoint')) && !isVisibledb) {
+			isVisibledb=true;
+			new RollingNum('mypage_dbPoint','${result.point.totalPoint}','slide'); 
+		} 
+	});  
+	
 	new nowInterest('nowInterest','${result.ecoChallenge.primeRate}','${result.account.balance}', '${result.participationCount}','${result.ecoChallenge.totalCount}');
 	new winInterest('winInterest','${result.ecoChallenge.primeRate}','${result.account.balance}')
-	
-	
 	
 	$(document).ready(function(){
 	    var now = new Date();
@@ -66,11 +65,8 @@ $(function(){
 	    var calc = expireDate-now; 
 	    const DDay = Math.floor(calc / (1000*60*60*24));
 	    $('#mypage_Dday').append(DDay+' 일 ');
-	 });
-	
-	  
+	 }); 
 });  
-
 
  
 </script>
@@ -144,10 +140,10 @@ $(function(){
 								<div id="mypage_comment"><br>
 									<div style="display:inline">
 										<c:if test="${result.ecoChallenge.totalCount > result.participationCount}">
-											<div>지금은 <strong style="color:#2b3886;" id="nowInterest"></strong>의 이자가 쌓였어요!❤</div>
-											<div>만기시 <strong id="winInterest" style="color:#2b3886"></strong>을 받을 수 있어요😍</div>
+											<div style="font-size: large;">지금은 <strong style="color:#2b3886;" id="nowInterest"></strong>의 이자가 쌓였어요!❤</div>
+											<div style="font-size: large;">만기시 <strong id="winInterest" style="color:#2b3886"></strong>을 받을 수 있어요😍</div>
 									 		<input type="hidden" id="mypage_matureDate" value="${result.account.matureDate}"> 
-								 			<div>챌린지 도전이&nbsp;<strong id="mypage_Dday" style="color:#2b3886;"></strong> 후에 종료됩니다!</div>
+								 			<div style="font-size: large">챌린지 도전이&nbsp;<strong id="mypage_Dday" style="color:#2b3886;"></strong> 후에 종료됩니다!</div>
 							 			</c:if> 
 							 			<c:if test="${result.ecoChallenge.totalCount <= result.participationCount}">
 							 				<div>챌린지 도전이 <strong style="color:#2b3886;">완료</strong>되었어요✔</div> 
@@ -184,13 +180,14 @@ $(function(){
 								</div>
 								<div class="mypage_account_text"><br><br><br>
 									<h3 style="color:#2b3886">아직, 챌린지 계좌가 없습니다!</h3><h2 />
+									<input type="hidden" id="mypage_balance">
 								</div> 
 								<div id="mypage_comment"><br>
 									<div style="display:inline">
-										<div><strong style="color:#2b3886;">하</strong>고👍</div>
-										<div><strong style="color:#2b3886;">모</strong>으고😍</div> 
-							 			<div><strong style="color:#2b3886;">예</strong>금하는💕</div>
-							 			<div><strong style="color:#2b3886;">하모예</strong>계좌와 함께 도전해주실거죠?</div> 
+										<div><strong style="color:#2b3886;font-size: large;">하</strong>고👍</div>
+										<div><strong style="color:#2b3886;font-size: large;">모</strong>으고😍</div> 
+							 			<div><strong style="color:#2b3886;font-size: large;">예</strong>금하는💕</div>
+							 			<div><strong style="color:#2b3886;font-size: large;">하모예</strong>계좌와 함께 도전해주실거죠?</div> 
 									</div>  
 								</div>
 							</header>
@@ -250,6 +247,8 @@ $(function(){
 				</section>
 			</c:when>
 			<c:otherwise> 
+				 <input type="hidden" id="progress">
+				 <input type="hidden" id="progressNow"> 
 			</c:otherwise>
 		</c:choose>
 									 
@@ -306,28 +305,14 @@ $(function(){
 					<h5>${item.rewardPoint}원 받기!</h5>
 				</li>
 				<li>
-					<a class="btn btn-outline-primary px-3" href="MWPCHLV03M.jsp" >
+					<a class="btn btn-outline-primary px-3" href="challengeDetail.do?challengeType=trip&challengeId=${item.tripChallengeId}" >
+						${item.rewardPoint}원 받기
             	        <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
             	        	<i class="fa fa-arrow-right"></i>
             	        </div>
             	    </a>
 				</li>	
-			</ul>
-			<ul class="statistics">
-				<li><span class="mypage_icon solid mypage_major style5 far fa-user-circle" /></li>
-				<li>
-					<h2>오늘의 인물</h2>
-					<h5>소상공인 홍보보고 포인트 쌓기!</h5>
-				</li>
-				<li>
-					<a class="btn btn-outline-primary px-3" href="MWPCHLV04M.jsp" >
-        	    		300원 받기
-            	    	<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                	    	<i class="fa fa-arrow-right"></i>
-                    	</div>
-                	</a>
-				</li>	
-			</ul>
+			</ul> 
 		</c:forEach> 
 	</section> 
 	</div>

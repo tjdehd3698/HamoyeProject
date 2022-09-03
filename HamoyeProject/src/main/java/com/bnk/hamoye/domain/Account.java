@@ -14,7 +14,6 @@ public class Account {
 	private String purpose;
 	private String incomeSource;
 	private int balance;
-	private int maturity;
 	
 	public Account(){
 		this.primeRate = 0.5;

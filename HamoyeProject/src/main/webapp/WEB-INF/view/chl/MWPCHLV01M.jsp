@@ -119,12 +119,14 @@
 			 			</tr>
 			 		</thead>
 			 		<tbody>
-			 			<c:forEach var="item" items="${ecoChallenge}">
+			 			<c:forEach var="item" items="${list}">
+			 					<c:set var="idx" value="${idx+6}" />
 			 				<tr>
 			 					<td>${item.ecoChallengeName}</td>
-			 					<td>${item.matureDate}</td>
-			 					<td>${item.primerate}</td>
+			 					<td>${idx}</td>
+			 					<td>${item.primeRate}</td>
 			 				</tr>
+			 				
 			 			</c:forEach>
 			 		</tbody>
 			 	</table>

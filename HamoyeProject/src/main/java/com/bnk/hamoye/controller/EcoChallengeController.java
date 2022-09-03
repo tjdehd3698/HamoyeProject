@@ -2,6 +2,7 @@ package com.bnk.hamoye.controller;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -40,8 +41,17 @@ public class EcoChallengeController {
 		try {
 
 			if (challengeType.equals("eco")) {
+				
+				
 				EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(challengeId);
+				EcoChallenge ecoChallenge2 = ecoChallengeService.getEcoChallengeDetail(challengeId);
+				List<EcoChallenge> list = new ArrayList<>();
+				ecoChallenge2.setPrimeRate(ecoChallenge2.getPrimeRate());
+				list.add(ecoChallenge);
+				ecoChallenge.setPrimeRate(ecoChallenge.getPrimeRate()-0.2);
+				list.add(ecoChallenge2);
 				model.addAttribute("ecoChallenge", ecoChallenge);
+				model.addAttribute("list", list);
 				ecoChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
 				String content = ecoChallenge.getContent();
 				String[] newContent = content.split("@@");

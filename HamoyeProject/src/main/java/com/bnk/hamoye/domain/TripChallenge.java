@@ -11,7 +11,6 @@ public class TripChallenge{
 	private String tripChallengeType;
 	private Date startDate;
 	private Date endDate;
-	private int hits;
 	private int rewardPoint;
 	private int isDelete;
 	private String content;

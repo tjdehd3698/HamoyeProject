@@ -64,6 +64,7 @@ $(document).ready(function(){
     var now = new Date();
     var expireDate = new Date($('#mypage_matureDate').val());
     var calc = expireDate-now;
+    alert(now);
     const DDay = Math.floor(calc / (1000*60*60*24));
     $('#mypage_Dday').append(DDay+' 일 ');
  });

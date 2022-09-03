@@ -52,45 +52,42 @@
 <body id="userout_body">
 
 <jsp:include page="../header.jsp"></jsp:include>
- <div class="outMain">
- <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-    <!-- Spinner End -->
+<div class="outMain">
+<!-- Spinner Start -->
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+<div class="spinner-grow text-primary" role="status"></div>
+</div>
+<!-- Spinner End -->
 
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center">
-            <h1 class="display-4 text-white animated slideInDown mb-4">회원탈퇴</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-            </nav>
-        </div>
-    </div>
-    <!-- Page Header End --> 
-     <div class="container-fluid mb-5 wow fadeIn" data-wow-delay="0.3s">
-		<ul class="mypage_statistics">
-		 	<div id="userOut_form">
-		 	<li class="mypage_sure mx-3">
-				 <font id="userout_font" size="7">정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font> 
-				  <br><div class="mb-3 row">
-						   <font id="userout_font" size="4" > 비밀번호 확인 </font> 
-						    <div class="col-sm-12">
-								<input type="password"  name="userPassword" class="form-control" id="password" >
-						    </div>  
-						</div>
-				    <a id="userout_submit" class="btn btn-outline-primary py-2 px-3">회원탈퇴 </a> 
-				     <a id="userout_totheback" class="btn btn-outline-primary py-2 px-3">돌아가기</a> <!-- 
-				     <input id="userout_submit" type="button" value="계좌해지">  
-				   <input id="userout_totheback" type="button" value="돌아가기">   -->
-			</li>
-			<li class="cryImg mx-3">
-				<img class="display-4 text-white animated slideInUp mb-4" src="img/cry.jpg" alt="" /> 
-			</li>
-			</div>	
-		</ul> 
-	</div>
-		 <jsp:include page="../footer.jsp"></jsp:include>
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+<div class="container text-center">
+<h1 class="display-4 text-white animated slideInDown mb-4">회원탈퇴</h1>
+<nav aria-label="breadcrumb animated slideInDown">
+</nav>
+</div>
+</div>
+<!-- Page Header End --> 
+
+<div class="container-fluid mb-5 wow fadeIn" data-wow-delay="0.3s">
+	<ul class="mypage_statistics"> 
+		 <li class="mypage_sure mx-3">
+			<font id="userout_font" size="7">정말...<br> 저희를...<br> 떠나시려구요...?<br>  </font> 
+			<br><div class="mb-3 row">
+				<font id="userout_font" size="4" > 비밀번호 확인 </font> 
+				<div class="col-sm-12">
+					<input type="password"  name="userPassword" class="form-control" id="password" >
+				</div>  
+			</div>
+			<a id="userout_submit" class="btn btn-outline-primary py-2 px-3">회원탈퇴 </a> 
+			<a id="userout_totheback" class="btn btn-outline-primary py-2 px-3">돌아가기</a>
+		</li>
+		<li class="cryImg mx-3">
+			<img class="display-4 text-white animated slideInUp mb-4" src="img/cry.jpg" alt="" /> 
+		</li> 
+	</ul> 
+</div>
+<jsp:include page="../footer.jsp"></jsp:include>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>

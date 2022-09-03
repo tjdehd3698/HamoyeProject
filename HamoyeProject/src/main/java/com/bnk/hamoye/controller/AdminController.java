@@ -228,7 +228,7 @@ public class AdminController {
 			//챌린지 등록
 			int row = ecoChallengeService.updateEcoChallenge(ecoChallenge);
 			
-			if(img1!=null) {
+			if(!img1.isEmpty()) {
 				File file1 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img1.getOriginalFilename());
 				ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
 				if (!file1.exists()) {
@@ -236,7 +236,7 @@ public class AdminController {
                 }
 				img1.transferTo(file1);
 			}
-			if(img2!=null) {
+			if(!img2.isEmpty()) {
 				File file2 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+1+img2.getOriginalFilename());
 				ecoChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
 				if (!file2.exists()) {
@@ -244,7 +244,7 @@ public class AdminController {
                 }
 				img2.transferTo(file2);
 			}
-			if(img3!=null) {
+			if(!img3.isEmpty()) {
 				File file3 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img3.getOriginalFilename());
 				ecoChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
 				if (!file3.exists()) {
@@ -284,7 +284,7 @@ public class AdminController {
 					}
 				}
 				
-				if(img1!=null) {
+				if(!img1.isEmpty()) {
 					File file1 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img1.getOriginalFilename());
 					ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
 					if (!file1.exists()) {
@@ -292,7 +292,7 @@ public class AdminController {
 	                }
 					img1.transferTo(file1);
 				}
-				if(img2!=null) {
+				if(!img2.isEmpty()) {
 					File file2 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+1+img2.getOriginalFilename());
 					ecoChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
 					if (!file2.exists()) {
@@ -300,7 +300,7 @@ public class AdminController {
 	                }
 					img2.transferTo(file2);
 				}
-				if(img3!=null) {
+				if(!img3.isEmpty()) {
 					File file3 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img3.getOriginalFilename());
 					ecoChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
 					if (!file3.exists()) {
@@ -329,7 +329,7 @@ public class AdminController {
 			
 			int row = tripChallengeService.updateTripChallenge(tripChallenge);
 			
-			if(img1!=null) {					
+			if(!img1.isEmpty()) {					
 				File file1 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+img1.getOriginalFilename());
 				tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
 			
@@ -338,7 +338,7 @@ public class AdminController {
                 }
 				img1.transferTo(file1);
 			}
-			if(img2!=null) {
+			if(!img2.isEmpty()) {
 				File file2 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+1+img2.getOriginalFilename());
 				tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
 
@@ -347,7 +347,7 @@ public class AdminController {
                 }
 				img2.transferTo(file2);
 			}
-			if(img3!=null) {
+			if(!img3.isEmpty()) {
 				File file3 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+2+img3.getOriginalFilename());
 				tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
 
@@ -389,7 +389,7 @@ public class AdminController {
 					}
 				}
 				
-				if(img1!=null) {					
+				if(!img1.isEmpty()) {					
 					File file1 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+img1.getOriginalFilename());
 					tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
 				
@@ -398,7 +398,7 @@ public class AdminController {
 	                }
 					img1.transferTo(file1);
 				}
-				if(img2!=null) {
+				if(!img2.isEmpty()) {
 					File file2 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+1+img2.getOriginalFilename());
 					tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
 
@@ -407,7 +407,7 @@ public class AdminController {
 	                }
 					img2.transferTo(file2);
 				}
-				if(img3!=null) {
+				if(!img3.isEmpty()) {
 					File file3 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+2+img3.getOriginalFilename());
 					tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
 

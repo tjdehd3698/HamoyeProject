@@ -52,7 +52,7 @@
 	                                            <td>${item.ecoChallengeId}</td>
 	                                            <td><a href="adminEcoChallengeDetail.do?ecoChallengeId=${item.ecoChallengeId}">${item.ecoChallengeName}</a></td>
 	                                            <td>${item.ecoChallengeType}</td>
-	                                            <td>${item.primeRate}</td>
+	                                            <td>${item.primeRate}%</td>
 	                                            <td>${item.limitedPeople}</td>
 	                                            <c:forEach var="count" items="${userCount}">
 	                                            	<c:if test="${count.key == item.ecoChallengeId}">

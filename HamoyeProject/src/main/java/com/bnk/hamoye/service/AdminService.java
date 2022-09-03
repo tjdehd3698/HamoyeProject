@@ -10,9 +10,9 @@ import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 
 public interface AdminService {
-	User adminLogin(User user) throws SQLException;
-	List<User> getAllUser() throws SQLException;
-	int getAllAcountCnt() throws SQLException;
+	User adminLogin(User user) throws Exception;
+	List<User> getAllUser() throws Exception;
+	int getAllAcountCnt() throws Exception;
 	List<Status> getAllEcoChallenge() throws Exception;
 	List<TripStatus> getAllTripChallenge() throws Exception;
 	int getUserCntByDate() throws Exception;

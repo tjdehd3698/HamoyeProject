@@ -38,18 +38,18 @@ public class AdminServiceImpl implements AdminService{
 	private final TripChallengeDAO tripChallengeDAO;
 	
 	@Override
-	public List<User> getAllUser() throws SQLException {
+	public List<User> getAllUser() throws Exception {
 		return userDAO.getAllUser();
 	}
 
 	@Override
-	public User adminLogin(User user) throws SQLException {
+	public User adminLogin(User user) throws Exception {
 		user.setIsAdmin(1);
 		return userDAO.login(user);
 	}
 
 	@Override
-	public int getAllAcountCnt() throws SQLException {
+	public int getAllAcountCnt() throws Exception {
 		return accountDAO.getAllAcountCnt();
 	}
 

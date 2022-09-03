@@ -31,7 +31,7 @@ public class MyPageController {
 	public String updateUser(User user) {
 		try {
 			userService.updateUser(user);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("updateUser 에러 : "+ e.getMessage());
 		}
 		return "mpg/MWPMPGV00M";
@@ -42,7 +42,7 @@ public class MyPageController {
 		try {
 			User user = userService.getUserInfo((String)session.getAttribute("user"));
 			model.addAttribute("result", user);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("getUserInfo 에러 : "+ e.getMessage());
 		}
 		return "mpg/MWPMPGV01M";
@@ -63,7 +63,7 @@ public class MyPageController {
 				return "T";
 			}
 			else return "F";
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("withdraw 에러 : "+ e.getMessage());
 		}
 		return "";
@@ -118,7 +118,7 @@ public class MyPageController {
 				
 			}
 			else return "F";
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("changePoint 에러 : "+ e.getMessage());
 		}
 		return "";
@@ -139,7 +139,7 @@ public class MyPageController {
 			}
 			else return "F";
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("expireAccount 에러 : "+ e.getMessage());
 		}
 		return "";
@@ -152,7 +152,7 @@ public class MyPageController {
 			for(Participation p :list)
 				System.out.println(p);
 			model.addAttribute("result", list);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 
 		}
 		return "mpg/MWPMPGV04M";
@@ -176,7 +176,7 @@ public class MyPageController {
 			model.addAttribute("accountNumber", user.getAccount().getAccountNumber());
 			model.addAttribute("totalPoint", user.getPoint().getTotalPoint());
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("pageMoveToDeposit 에러 : "+ e.getMessage());
 		}
 		 return "mpg/MWPMPGV05M"; 

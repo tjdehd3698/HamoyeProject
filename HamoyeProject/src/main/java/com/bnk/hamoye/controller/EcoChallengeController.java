@@ -145,7 +145,6 @@ public class EcoChallengeController {
 			System.out.println(value);
 			if (value > 0) {
 				result = "T";
-				System.out.println(result);
 			}
 		} catch (Exception e) {
 		}

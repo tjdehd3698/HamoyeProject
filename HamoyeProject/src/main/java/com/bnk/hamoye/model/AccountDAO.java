@@ -14,5 +14,6 @@ public interface AccountDAO {
 	int getAccountCntByDate(String date) throws Exception; //날짜별 새로운 계좌 수 조회
 	int getBalanceSum() throws Exception; //계좌 총액 조회
 	int checkAccount(String accountNumber) throws Exception; // 계좌 있는지 확인
+	Account getAccount(String accountNumber) throws Exception; // 계좌번호에 해당하는 계좌 정보 조회
 }
 

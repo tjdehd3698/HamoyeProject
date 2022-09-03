@@ -51,5 +51,10 @@ public class AccountDAOImpl implements AccountDAO{
 		return sqlSession.selectOne(NS+"getBalanceSum");
 	}
 
+	@Override
+	public Account getAccount(String accountNumber) throws Exception {
+		return sqlSession.selectOne(NS+"getAccount",accountNumber);
+	}
+
 
 }

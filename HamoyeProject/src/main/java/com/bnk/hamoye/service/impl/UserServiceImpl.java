@@ -171,4 +171,9 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getUserByEcoChallenge(ecoChallengeId);
 	}
 
+	@Override
+	public Account getAccount(String userId) throws Exception {
+		return accountDAO.getAccount(getUserAllInfo(userId).getAccountNumber());
+	}
+
 }

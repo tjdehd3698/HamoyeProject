@@ -40,5 +40,18 @@ public class AccountTest {
 		
 		int row = session.selectOne("sql.hamoye.account_mapper.checkAccount", accountNumber);
 	}
+	
+	@Test
+	public void getAccount() throws Exception{
+		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
+
+		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
+		SqlSession session = factory.openSession();
+		
+		String accountNumber = "112-3425-5110-68";
+		
+		Account account = session.selectOne("sql.hamoye.account_mapper.getAccount", accountNumber);
+		System.out.println(account);
+	}
 
 }

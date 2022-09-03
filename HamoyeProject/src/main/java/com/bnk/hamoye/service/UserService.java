@@ -15,6 +15,7 @@ public interface UserService {
 	User getUserInfo(String userId) throws Exception;
 	int withdrawUser(String userId) throws Exception;
 	int joinAccount(Account account, String userId, String ecoChallengeId) throws Exception;
+	Account getAccount(String userId) throws Exception; // 특정 유저의 계좌 정보 조회
 	int expireAccount(String userId) throws Exception;
 	String checkEcoChallenge(String userId) throws Exception; //회원 ecoChallenge 가입 여부 조회
 	User getMypageInfo(String userId) throws Exception;

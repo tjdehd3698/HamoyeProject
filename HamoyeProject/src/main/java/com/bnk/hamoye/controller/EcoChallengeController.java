@@ -142,7 +142,6 @@ public class EcoChallengeController {
 			account.setPurpose(purpose);
 			int value = userService.joinAccount(account, userId, ecoChallengeId);
 	
-			System.out.println(value);
 			if (value > 0) {
 				result = "T";
 			}
@@ -162,6 +161,21 @@ public class EcoChallengeController {
 		model.addAttribute("day",now.getDayOfMonth());
 
 		return "chl/MWPCHLV11M";
+	}
+	
+	@GetMapping("completeJoin.do")
+	public String completeJoin(String ecoChallengeId, String accountNumber, HttpSession session, Model model) {
+		User user = new User();
+		try {
+			user = userService.getUserAllInfo((String) session.getAttribute("user"));
+			user.setEcoChallenge(ecoChallengeService.getEcoChallengeDetail(ecoChallengeId));
+			user.setAccount(userService.getAccount(user.getUserId()));
+			System.out.println(userService.getAccount(user.getUserId()));
+			System.out.println(user);
+		} catch (Exception e) {
+		}
+		model.addAttribute("joinedUser", user);
+		return "chl/MWPCHLV12M";
 	}
 
 }

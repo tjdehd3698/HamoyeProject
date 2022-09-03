@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,22 +43,22 @@
 			가입정보 확인하기<br>
 			<div style="border: 1px solid #2b3886">
 			<p>
-			이름:	<br>
-			아이디: <br>
-			가입 챌린지: <br>
-			계좌번호: <br>
-			만기일: <br>
+			이름 : ${joinedUser.userName}	<br>
+			아이디 : ${joinedUser.userId} <br>
+			가입 챌린지 : ${joinedUser.ecoChallenge.ecoChallengeName} <br>
+			계좌번호 : ${joinedUser.accountNumber} <br>
+			만기일 : ${joinedUser.account.matureDate}<br>
 			</p>
 			</div>
 			<br>
 			<div class="col-12">
-            	 <a class="btn btn-outline-primary px-3" href="MWPCHLV00M.jsp">
+            	 <a class="btn btn-outline-primary px-3" href="challenge.do">
                		챌린지 리스트로
              		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                 		<i class="fa fa-arrow-right"></i>
                 	</div>
              	</a>
-             	<a class="btn btn-outline-primary px-3" href="">
+             	<a class="btn btn-outline-primary px-3" href="mypage.do">
                		마이페이지로
              		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                 		<i class="fa fa-arrow-right"></i>

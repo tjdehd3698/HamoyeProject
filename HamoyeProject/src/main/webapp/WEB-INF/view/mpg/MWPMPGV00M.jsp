@@ -30,9 +30,16 @@
 		}
 		if ( checkVisible($('#progressNow')) && !isVisible) {
 			isVisible=true;
-			$('#progress').animate( { 
-				value:'${result.participationCount}'
-			}, 1000 ); 
+			if((${result.participationCount}) < (${result.ecoChallenge.totalCount})){
+				$('#progress').animate( { 
+					value:'${result.participationCount}'
+				}, 1000 );
+			}
+			else {
+				$('#progress').animate( { 
+					value:'${result.ecoChallenge.totalCount}'
+				}, 1000 );
+			}
 		} 
 		if ( checkVisible($('#mypage_dbPoint')) && !isVisibledb) {
 			isVisibledb=true;
@@ -46,9 +53,16 @@
 		}
 		if ( checkVisible($('#progressNow')) && !isVisible) {
 			isVisible=true;
-			$('#progress').animate( { 
-				value:'${result.participationCount}'
-			}, 1000 ); 
+			if((${result.participationCount}) < (${result.ecoChallenge.totalCount})){
+				$('#progress').animate( { 
+					value:'${result.participationCount}'
+				}, 1000 );
+			}
+			else {
+				$('#progress').animate( { 
+					value:'${result.ecoChallenge.totalCount}'
+				}, 1000 );
+			}
 		} 
 		if ( checkVisible($('#mypage_dbPoint')) && !isVisibledb) {
 			isVisibledb=true;

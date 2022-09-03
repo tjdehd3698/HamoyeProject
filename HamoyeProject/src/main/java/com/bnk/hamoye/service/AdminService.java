@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.Status;
+import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 
@@ -27,4 +28,6 @@ public interface AdminService {
 	int getUserCntByEcoChallengeById(String ecoChallengeId) throws Exception; //특정 에코 챌린지 참여자 수 조회
 	int getUSerCntByTripChallengeById(String tripChallengeId) throws Exception; //특정 Trip 챌린지 참여자 수 조회
 	Map<String, Double> getUserCntByEcoChallengeType(int totalUserCnt) throws Exception; //에코 챌린지 타입 별 유저 수 조회
+	int updateTripChallengeImage(TripChallenge tripChallenge) throws Exception; //트립챌린지 사진 업데이트
+	int updateEcoChallengeImage(EcoChallenge ecoChallenge) throws Exception; //에코챌린지 사진 업데이트
 }

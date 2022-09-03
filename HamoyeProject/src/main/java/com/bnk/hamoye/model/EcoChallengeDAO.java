@@ -15,4 +15,6 @@ public interface EcoChallengeDAO {
 	List<EcoChallenge> getEcoChallengeList() throws Exception; // 전체 챌린지 리스트 표출
 	EcoChallenge getEcoChallengeDetail(String ecoChallengeId) throws Exception; // 챌린지 상세 내역 표출
 	List<EcoChallenge> getRecommendedEcoChallengeList(User user) throws Exception; // 추천 챌린지 표출
+	int updateEcoChallengeImage(EcoChallenge ecoChallenge) throws Exception; //챌린지 이미지 업데이트
 }
+ 

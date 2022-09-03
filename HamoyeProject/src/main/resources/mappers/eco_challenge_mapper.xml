@@ -10,14 +10,15 @@
 		</selectKey>
 		
 		insert into 
-		eco_challenge(eco_challenge_id, eco_challenge_name, prime_rate, start_date, end_date, limited_people)
-		values(#{ecoChallengeId}, #{ecoChallengeName},#{primeRate},#{startDate},#{endDate},#{limitedPeople})
+		eco_challenge(eco_challenge_id, eco_challenge_name,prime_rate, start_date, end_date,
+		limited_people, content, eco_challenge_type)
+		values(#{ecoChallengeId}, #{ecoChallengeName},#{primeRate},#{startDate},#{endDate},
+		#{limitedPeople}, #{content},#{ecoChallengeType})
 	</insert>
 	
 	<update id="updateEcoChallenge" parameterType="EcoChallenge">
 		update eco_challenge
 		set eco_challenge_name = #{ecoChallengeName},
-<!-- 		prime_rate = #{primeRate}, -->
 		end_date = #{endDate},
 		limited_people = #{limitedPeople},
 		content = #{content},
@@ -30,6 +31,12 @@
 		update eco_challenge
 		set is_delete=1
 		where eco_challenge_id = #{value}
+	</update>
+	
+	<update id="updateEcoChallengeImage" parameterType="ecoChallenge">
+		update eco_challenge
+		set challenge_image =#{challengeImage}
+		where eco_challenge_id = #{ecoChallengeId}
 	</update>
 	
 	<select id="searchEcoChallenge" parameterType="string" resultType="EcoChallenge">

@@ -33,7 +33,7 @@ public class UserController {
 		try {
 			userService.registerUser(user);
 			return "cmn/MWPCMNV03M";
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("registerUser 에러 : " + e.getMessage());
 			return "";
 		}
@@ -49,7 +49,7 @@ public class UserController {
 				return "F";
 			else
 				return "T";
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("duplicateId 에러 : " + e.getMessage());
 		}
 		return "";
@@ -69,7 +69,7 @@ public class UserController {
 			} else
 				return "F";
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("login 에러 : " + e.getMessage());
 		}
 		return "";
@@ -114,7 +114,7 @@ public class UserController {
 			}
 			model.addAttribute("result", user);
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("getUserAllInfo 에러 : " + e.getMessage());
 		}
 		return "chl/MWPCHLV10M";

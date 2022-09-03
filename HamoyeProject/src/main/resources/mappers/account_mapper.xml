@@ -44,6 +44,12 @@
 		where account_number = #{value}
 	</select>
 	
+	<select id="getAccount" parameterType="string" resultType="account">
+		select account_number, create_date, purpose, income_source, balance, prime_rate, mature_date
+		from account
+		where account_number = #{value}
+	</select>
+	
 </mapper>
 
 

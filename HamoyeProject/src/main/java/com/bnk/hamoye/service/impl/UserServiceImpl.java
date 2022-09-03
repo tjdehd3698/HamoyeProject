@@ -25,79 +25,83 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 	private final UserDAO userDAO;
 	private final PointDAO pointDAO;
 	private final AccountDAO accountDAO;
 	private final ParticipationDAO participationDAO;
 	private final EcoChallengeDAO ecoChallengeDAO;
-	
+
 	@Override
-	public int registerUser(User user) throws SQLException { //회원 가입
-		//포인트 생성 후 등록
+	public int registerUser(User user) throws Exception { // 회원 가입
+		// 포인트 생성 후 등록
 		Point point = new Point();
 		int row = pointDAO.insertPoint(point);
-		
-		if(row==1) {
-			//나이 계산
-			LocalDate now = LocalDate.now();     
+
+		if (row == 1) {
+			// 나이 계산
+			LocalDate now = LocalDate.now();
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
 			String nowYear = now.format(formatter);
-			int age = Integer.parseInt(nowYear)-Integer.parseInt(user.getBirthday().substring(0,4))+1; 
-			
+			int age = Integer.parseInt(nowYear) - Integer.parseInt(user.getBirthday().substring(0, 4)) + 1;
+
 			user.setUserAge(age);
-			
+
 			user.setRegisterDate(new Date(System.currentTimeMillis()));
 			user.setPointId(point.getPointId());
-			
-			
+
 			return userDAO.registerUser(user);
 		}
 		return 0;
 	}
 
 	@Override
-	public User login(User user) throws SQLException {
+	public User login(User user) throws Exception {
 		return userDAO.login(user);
 	}
-	
+
 	@Override
-	public boolean duplicateId(User user) throws SQLException { //아이디 중복 검사
-		if(userDAO.duplicateId(user)==null) return false;
-		else return true;
+	public boolean duplicateId(User user) throws Exception { // 아이디 중복 검사
+		if (userDAO.duplicateId(user) == null)
+			return false;
+		else
+			return true;
 	}
 
 	@Override
-	public String findPassword(User user) throws SQLException { //비밀번호 찾기
-		//비밀번호 변경 후 업데이트
+	public String findPassword(User user) throws Exception { // 비밀번호 찾기
+		// 비밀번호 변경 후 업데이트
 		user.changePassword();
 		int row = userDAO.updateUserPassword(user);
-		
-		if(row==1) return user.getUserPassword();
-		else return null;
+
+		if (row == 1)
+			return user.getUserPassword();
+		else
+			return null;
 	}
 
 	@Override
-	public int updateUser(User user) throws SQLException {
+	public int updateUser(User user) throws Exception {
 		return userDAO.updateUser(user);
 	}
 
 	@Override
-	public User getUserInfo(String userId) throws SQLException {
+	public User getUserInfo(String userId) throws Exception {
 		return userDAO.getUserInfo(userId);
 	}
 
 	@Override
-	public int withdrawUser(String userId) throws SQLException { //회원 탈퇴
+	public int withdrawUser(String userId) throws Exception { // 회원 탈퇴
 		pointDAO.deletePoint(userId);
 		return userDAO.withdrawUser(userId);
 	}
 
 	@Override
-	public int joinAccount(Account account, String userId, String ecoChallengeId) throws SQLException {
+	public int joinAccount(Account account, String userId, String ecoChallengeId) throws Exception {
 		account.makeAccountNumber();
 		account.setCreateDate(new Date(System.currentTimeMillis()));
 		
+		try {
 		int result = accountDAO.checkAccount(account.getAccountNumber());
 		while(result!=0) {
 			account.makeAccountNumber();
@@ -105,67 +109,71 @@ public class UserServiceImpl implements UserService{
 		} // 중복 계좌번호 입력 시 계좌번호 재생성 알고리즘
 		
 		if(result==0) {
-			System.out.println(account);
 			accountDAO.registerAccount(account);
-			System.out.println("result "+result);
 			User user = new User();
 			user.setUserId(userId);
 			user.setEcoChallengeId(ecoChallengeId);
-			try {
-				user.setEcoChallenge(ecoChallengeDAO.getEcoChallengeDetail(ecoChallengeId));
-			} catch (Exception e) {
-			}
+			user.setEcoChallenge(ecoChallengeDAO.getEcoChallengeDetail(ecoChallengeId));
+			user.setAccountNumber(account.getAccountNumber());
 			return userDAO.joinAccount(user);
+		}
+		}catch(Exception e) {
+			
 		}
 		return 0;
 	}
 
 	@Override
-	public String checkEcoChallenge(String userId) throws SQLException {
+	public String checkEcoChallenge(String userId) throws Exception {
 		return userDAO.checkEcoChallenge(userId);
 	}
 
 	@Override
-	public User getMypageInfo(String userId) throws SQLException {
+	public User getMypageInfo(String userId) throws Exception {
 		User user = userDAO.getUserAllInfo(userId);
-		if(user.getEcoChallengeId()==null) {
+		if (user.getEcoChallengeId() == null) {
 			return userDAO.getMypageInfoWithNoEco(userId);
 		}
 		return userDAO.getMypageInfo(userId);
 	}
 
 	@Override
-	public int changePoint(String userId, int amount) throws SQLException {
+	public int changePoint(String userId, int amount) throws Exception {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("userId", userId);
 		map.put("amount", Integer.toString(-amount));
-		
+
 		pointDAO.updateTotalPoint(map);
-		
-		map.put("amount", amount+"");
-		
+
+		map.put("amount", amount + "");
+
 		return accountDAO.updateBalance(map);
 	}
 
 	@Override
-	public int expireAccount(String userId) throws SQLException {
+	public int expireAccount(String userId) throws Exception {
 		accountDAO.deleteAccount(userId);
 		return userDAO.expireAccount(userId);
 	}
 
 	@Override
-	public List<Participation> getParticipateChallenge(String userId) throws SQLException {
+	public List<Participation> getParticipateChallenge(String userId) throws Exception {
 		return participationDAO.getParticipateChallenge(userId);
 	}
 
 	@Override
-	public User getUserAllInfo(String userId) throws SQLException {
+	public User getUserAllInfo(String userId) throws Exception {
 		return userDAO.getUserAllInfo(userId);
 	}
 
 	@Override
-	public List<User> getUserByEcoChallenge(String ecoChallengeId) throws SQLException {
+	public List<User> getUserByEcoChallenge(String ecoChallengeId) throws Exception {
 		return userDAO.getUserByEcoChallenge(ecoChallengeId);
+	}
+
+	@Override
+	public Account getAccount(String userId) throws Exception {
+		return accountDAO.getAccount(getUserAllInfo(userId).getAccountNumber());
 	}
 
 }

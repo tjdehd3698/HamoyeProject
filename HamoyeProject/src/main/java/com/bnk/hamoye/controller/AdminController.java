@@ -54,7 +54,7 @@ public class AdminController {
 			} 
 			else return "F";
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("login 에러 : "+ e.getMessage());
 		}
 		return "";
@@ -140,7 +140,7 @@ public class AdminController {
 		try {
 			List<User> list = adminService.getAllUser();
 			model.addAttribute("result",list);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -222,33 +222,46 @@ public class AdminController {
 	public String updateEcoChallenge(EcoChallenge ecoChallenge, MultipartFile img1, MultipartFile img2,  MultipartFile img3) {
 		String result = "F";
 		try {
-			String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구
-			String ecoChallengeImge = ""; //이미지 경로 담을 변수
-			if(img1!=null) {
-				File file1 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img1.getOriginalFilename());
-				ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
-				if (!file1.exists()) {
-					file1.mkdirs();
-                }
-				img1.transferTo(file1);
+			System.out.println(":");
+			if(ecoChallenge.getChallengeImage()==null) {
+				String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구
+				String ecoChallengeImge = ""; //이미지 경로 담을 변수
+				
+				//원래 있던 사진 삭제
+				File file = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId());
+				if(file.exists()) {
+					System.out.println("a");
+					for(File f :file.listFiles()){
+						f.delete();
+					}
+				}
+				
+				if(img1!=null) {
+					File file1 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img1.getOriginalFilename());
+					ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
+					if (!file1.exists()) {
+						file1.mkdirs();
+	                }
+					img1.transferTo(file1);
+				}
+				if(img2!=null) {
+					File file2 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+1+img2.getOriginalFilename());
+					ecoChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
+					if (!file2.exists()) {
+						file2.mkdirs();
+	                }
+					img2.transferTo(file2);
+				}
+				if(img3!=null) {
+					File file3 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img3.getOriginalFilename());
+					ecoChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
+					if (!file3.exists()) {
+						file3.mkdirs();
+	                }
+					img3.transferTo(file3);
+				}
+				ecoChallenge.setChallengeImage(ecoChallengeImge);			
 			}
-			if(img2!=null) {
-				File file2 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img2.getOriginalFilename());
-				ecoChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
-				if (!file2.exists()) {
-					file2.mkdirs();
-                }
-				img2.transferTo(file2);
-			}
-			if(img3!=null) {
-				File file3 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img3.getOriginalFilename());
-				ecoChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
-				if (!file3.exists()) {
-					file3.mkdirs();
-                }
-				img3.transferTo(file3);
-			}
-			ecoChallenge.setChallengeImage(ecoChallengeImge);			
 			
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
 			result="T";
@@ -263,35 +276,50 @@ public class AdminController {
 	public String updateTripChallenge(TripChallenge tripChallenge,MultipartFile img1, MultipartFile img2, MultipartFile img3) {
 		String result = "F";
 		try {
-			String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구
-			String tripChallengeImge = ""; //이미지 경로 담을 변수
-			if(img1!=null) {
-				File file1 = new File("C:/Users/Public/Pictures/img/eco/"+tripChallenge.getTripChallengeId(), imgTmp+img1.getOriginalFilename());
-				tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
-				if (!file1.exists()) {
-					file1.mkdirs();
-                }
-				img1.transferTo(file1);
+			if(tripChallenge.getChallengeImage()==null) {
+				String tripChallengeImge = ""; //이미지 경로 담을 변수
+				String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구
+				
+				//원래 있던 사진 삭제
+				File file = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId());
+				if(file.exists()) {
+					for(File f :file.listFiles()){
+						f.delete();
+					}
+				}
+				
+				if(img1!=null) {					
+					File file1 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+img1.getOriginalFilename());
+					tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
+				
+					if (!file1.exists()) {
+						file1.mkdirs();
+	                }
+					img1.transferTo(file1);
+				}
+				if(img2!=null) {
+					File file2 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+1+img2.getOriginalFilename());
+					tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
+
+					if (!file2.exists()) {
+						file2.mkdirs();
+	                }
+					img2.transferTo(file2);
+				}
+				if(img3!=null) {
+					File file3 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+2+img3.getOriginalFilename());
+					tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
+
+					if (!file3.exists()) {
+						file3.mkdirs();
+	                }
+					
+					img3.transferTo(file3);
+				}
+				
+				//변경된 사진 경로 set
+				tripChallenge.setChallengeImage(tripChallengeImge);
 			}
-			if(img2!=null) {
-				File file2 = new File("C:/Users/Public/Pictures/img/eco/"+tripChallenge.getTripChallengeId(), imgTmp+img2.getOriginalFilename());
-				tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
-				if (!file2.exists()) {
-					file2.mkdirs();
-                }
-				img2.transferTo(file2);
-			}
-			if(img3!=null) {
-				File file3 = new File("C:/Users/Public/Pictures/img/eco/"+tripChallenge.getTripChallengeId(), imgTmp+img3.getOriginalFilename());
-				tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
-				if (!file3.exists()) {
-					file3.mkdirs();
-                }
-				img3.transferTo(file3);
-			}
-			
-			tripChallenge.setChallengeImage(tripChallengeImge);
-			
 			tripChallengeService.updateTripChallenge(tripChallenge);
 			result="T";
 		} catch (Exception e) {

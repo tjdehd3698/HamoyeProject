@@ -12,7 +12,7 @@
 <script src="js/mypage.js"></script>  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>  
-$(function(){
+$(function() {
 	$("#depositBtn").click(function(){ 
 		if($("#asd").val() == "") {
 			alert('챌린지 계좌가 있어야 입금 가능합니다!');
@@ -20,50 +20,61 @@ $(function(){
 			return false;
 		} 
 	}); 
+});
+$(function(){
+	let isVisiblebal = false;  
+	let isVisibledb = false;  
+	let isVisible = false;  
+	window.addEventListener('focus', function() { 
+		if ( checkVisible($('#mypage_balance')) && !isVisiblebal) {
+			isVisiblebal=true;
+			new RollingNum('mypage_balance','${result.account.balance}','slide'); 
+		} 
+	});
+	window.addEventListener('scroll', function() { 
+		if ( checkVisible($('#progressNow')) && !isVisible) {
+			isVisible=true;
+			$('#progress').animate( { 
+				value:'${result.participationCount}'
+			}, 1000 ); 
+		} 
+	});
+	window.addEventListener('scroll', function() { 
+		if ( checkVisible($('#mypage_dbPoint')) && !isVisibledb) {
+			isVisibledb=true;
+			new RollingNum('mypage_dbPoint','${result.point.totalPoint}','slide'); 
+		} 
+	});
+	function checkVisible( elm, eval ) {
+        eval = eval || "object visible";
+        var viewportHeight = $(window).height(), // Viewport Height
+            scrolltop = $(window).scrollTop(), // Scroll Top
+            y = $(elm).offset().top,
+            elementHeight = $(elm).height();   
+        
+        if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
+        if (eval == "above") return ((y < (viewportHeight + scrolltop)));
+    }
+	/* new RollingNum('mypage_balance','${result.account.balance}','slide'); */
+	/* new RollingNum('mypage_dbPoint','${result.point.totalPoint}','slide'); */
+	
+	new nowInterest('nowInterest','${result.ecoChallenge.primeRate}','${result.account.balance}', '${result.participationCount}','${result.ecoChallenge.totalCount}');
+	new winInterest('winInterest','${result.ecoChallenge.primeRate}','${result.account.balance}')
+	
+	
+	
+	$(document).ready(function(){
+	    var now = new Date();
+	    var expireDate = new Date($('#mypage_matureDate').val());
+	    var calc = expireDate-now; 
+	    const DDay = Math.floor(calc / (1000*60*60*24));
+	    $('#mypage_Dday').append(DDay+' 일 ');
+	 });
+	
+	  
 });  
 
-let isVisible = false; 
-window.addEventListener('scroll', function() { 
-	if ( checkVisible($('#progressNow')) && !isVisible) {
-		isVisible=true;
-		$('#progress').animate( { 
-			value:'${result.participationCount}'
-		}, 1000 ); 
-	} 
-});
-$(function(){
-	new RollingNum('mypage_balance','${result.account.balance}','slide'); 
-	new RollingNum('mypage_dbPoint','${result.point.totalPoint}','slide')
-});
-$(function(){
-	var rate = 0.5+${result.ecoChallenge.primeRate};
-	var balance= ${result.account.balance};
-	var participationRate = ${result.participationCount}/${result.ecoChallenge.totalCount};
-	var nowBalance = balance*rate/100*participationRate;
-	$('#nowInterest').append(nowBalance+'원');  
-});
-$(function(){
-	var rate = 0.5+${result.ecoChallenge.primeRate};
-	var balance= ${result.account.balance};
-	var winBalance = balance*rate/100; 
-	$('#winInterest').append(winBalance+'원 ');
-});
-/* let isVisiblebal = false; 
-window.addEventListener('scroll', function() {
-	if (checkVisible($('#mypage_balance')) && !isVisiblebal) {
-		isVisiblebal=true;
-		window.onload = function(){
-			new RollingNum('mypage_balance','${result.account.balance}','slide'); 
-		}
-	}
-}); */
-$(document).ready(function(){
-    var now = new Date();
-    var expireDate = new Date($('#mypage_matureDate').val());
-    var calc = expireDate-now; 
-    const DDay = Math.floor(calc / (1000*60*60*24));
-    $('#mypage_Dday').append(DDay+' 일 ');
- });
+
  
 </script>
 </head>
@@ -188,7 +199,7 @@ $(document).ready(function(){
 						</div>
 					</div> 
 					<div id="intro_btn"> 
-						<a class="btn btn-outline-primary px-3 mx-5" href="challege.do" >
+						<a class="btn btn-outline-primary px-3 mx-5" href="challenge.do" >
 	            			계좌 만들고 챌린지 참여하기!
 	                        <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
 	                        	<i class="fa fa-arrow-right"></i>
@@ -203,86 +214,85 @@ $(document).ready(function(){
 					</div> 
 				</c:otherwise>
 			</c:choose> 
-		</section>
-	
- 	<c:choose>
- 		<c:when test="${result.account != null}">
-			<!-- First Section -->
-			<section id="first" class="main special">
-				<header class="mypage_major">
-					<h2>${result.ecoChallenge.ecoChallengeName} 챌린지</h2>
-				</header>
-				<ul class="mypage_features">
-					<li>
-						<span class="mypage_icon solid mypage_major style1 	fas fa-hand-holding-heart"></span> 
-					</li>
-					<li>
-						<span class="mypage_icon solid mypage_major style3 fas fa-globe"></span> 
-					</li> 
-				</ul>
-				<h5>현재 함께하는 ${totalCnt} 명 가운데</h5>
-				<h5>${successCnt}명이 목표달성했어요!</h5>
-				<footer class="mypage_major">
-					<a class="btn btn-outline-primary px-3" href="challenge.do">
-		           		챌린지 자세히보기
-						<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-			           		<i class="fa fa-arrow-right"></i>
-			       		</div>
-			       	</a><br>
-			      	<p id="progressNow"><b  style="color:gray">진행현황</b></p>
-					<div><br><br>
-						<div style=" position: relative; height: 40px;">
-							<progress class="container" value="0%" max="${result.ecoChallenge.totalCount}"  id="progress"></progress>
-		    				<p style="position: absolute; top: 10px; right: 35px; margin-bottom: 10px;">
-		    					목표횟수 ${result.ecoChallenge.totalCount} 회 중, ${result.participationCount}회 달성!
-	    					</p>
-						</div> 
-					</div>
-				</footer>  
-			</section>
-		</c:when>
-		<c:otherwise> 
-		</c:otherwise>
-	</c:choose>
-							 
-	<!-- Second Section -->
-	<section id="second" class="main special">
-		<div class="spotlight">
-			<span class="img"><img id ="img" src="img/img-fpm-bf-16@3x.png" alt="" /></span>
-			<div class="content">
-				<header id="introText" class="mypage_major">
-					<div>
-						<h1>${userName}</h1>
-						<h4 class="my-1">님의</h4> 
-					</div>
-					<div> <br><br><br>
-						<h2 class="">동백포인트 </h2>
-						<h4 class="my-1">P</h4>
-						<h4 id="mypage_dbPoint"></h4><br> <br>
-					</div>
-				</header>
-				<div><br><br><br>
-					<h5 id="text">언제, 어떻게, 얼마나 모았는지</h5>
-					<a class="btn btn-outline-primary px-3" href="showpoint.do">
-                		내역조회하기
-                		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                        	<i class="fa fa-arrow-right"></i>
-                        </div>
-                    </a>
-                </div><br><br>
-                <div><br><br>
-                	<h5 id="text">5,000 P 이상 모았다면 </h5>
-					<input id="asd" type="hidden" value = "${result.accountNumber}">
-                   	<a id="depositBtn" class="btn btn-outline-primary px-3" href="moveDeposit.do" >
-                       	계좌입금하기
-                       	<div  class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                       		<i class="fa fa-arrow-right"></i>
-                       	</div>
-                   	</a>
-                </div>
+		</section> 
+	 	<c:choose>
+	 		<c:when test="${result.account != null}">
+				<!-- First Section -->
+				<section id="first" class="main special">
+					<header class="mypage_major">
+						<h2>${result.ecoChallenge.ecoChallengeName} 챌린지</h2>
+					</header>
+					<ul class="mypage_features">
+						<li>
+							<span class="mypage_icon solid mypage_major style1 	fas fa-hand-holding-heart"></span> 
+						</li>
+						<li>
+							<span class="mypage_icon solid mypage_major style3 fas fa-globe"></span> 
+						</li> 
+					</ul>
+					<h5>현재 함께하는 ${totalCnt} 명 가운데</h5>
+					<h5>${successCnt}명이 목표달성했어요!</h5>
+					<footer class="mypage_major">
+						<a class="btn btn-outline-primary px-3" href="challenge.do">
+			           		챌린지 자세히보기
+							<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+				           		<i class="fa fa-arrow-right"></i>
+				       		</div>
+				       	</a><br>
+				      	<p id="progressNow"><b  style="color:gray">진행현황</b></p>
+						<div><br><br>
+							<div style=" position: relative; height: 40px;">
+								<progress class="container" value="0%" max="${result.ecoChallenge.totalCount}"  id="progress"></progress>
+			    				<p style="position: absolute; top: 10px; right: 35px; margin-bottom: 10px;">
+			    					목표횟수 ${result.ecoChallenge.totalCount} 회 중, ${result.participationCount}회 달성!
+		    					</p>
+							</div> 
+						</div>
+					</footer>  
+				</section>
+			</c:when>
+			<c:otherwise> 
+			</c:otherwise>
+		</c:choose>
+									 
+		<!-- Second Section -->
+		<section id="second" class="main special">
+			<div class="spotlight">
+				<span class="img"><img id ="img" src="img/img-fpm-bf-16@3x.png" alt="" /></span>
+				<div class="content">
+					<header id="introText" class="mypage_major">
+						<div>
+							<h1>${userName}</h1>
+							<h4 class="my-1">님의</h4> 
+						</div>
+						<div> <br><br><br>
+							<h2 class="">동백포인트 </h2>
+							<h4 class="my-1">P</h4> 
+							<h4 id="mypage_dbPoint"></h4><br> <br>
+						</div>
+					</header>
+					<div><br><br><br>
+						<h5 id="text">언제, 어떻게, 얼마나 모았는지</h5>
+						<a class="btn btn-outline-primary px-3" href="showpoint.do">
+	                		내역조회하기
+	                		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+	                        	<i class="fa fa-arrow-right"></i>
+	                        </div>
+	                    </a>
+	                </div><br><br>
+	                <div><br><br>
+	                	<h5 id="text">5,000 P 이상 모았다면 </h5>
+						<input id="asd" type="hidden" value = "${result.accountNumber}">
+	                   	<a id="depositBtn" class="btn btn-outline-primary px-3" href="moveDeposit.do" >
+	                       	계좌입금하기
+	                       	<div  class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+	                       		<i class="fa fa-arrow-right"></i>
+	                       	</div>
+	                   	</a>
+	                </div>
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
 	<!-- Get Started -->
 	<section id="cta" class="main special">

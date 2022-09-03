@@ -1,5 +1,5 @@
  
-
+	//로그인 Func
     function check_pw(){
     	 
         var password = document.getElementById('mypage_password').value;
@@ -22,6 +22,22 @@
             }
         }
     }
+    //현재 취득한 이자계산
+    function nowInterest(id, primeRate, balance, participationCount, totalCount){
+    	var rate = parseFloat(primeRate)+0.5;
+		var balance= balance;
+		var participationRate = participationCount/totalCount;
+		var nowBalance = balance*rate/100*participationRate;
+		document.getElementById(id).append(nowBalance+'원');   
+    }
+    //만료시 취득할 이자 계산
+    function winInterest (id, primeRate, balance){
+    	var rate = parseFloat(primeRate)+0.5;
+		var balance= balance;
+    	var winBalance = (balance*rate)/100;  
+    	$('#winInterest').append(winBalance+'원 ');
+    }
+    //금액 롤링
     function RollingNum(id, number, type) {
     	  var $cntBox = document.getElementById(id);
     	  var $cntNum = number;
@@ -100,7 +116,7 @@
     	    }
     	  }
     	}
-
+     
     function checkVisible( elm, eval ) {
         eval = eval || "object visible";
         var viewportHeight = $(window).height(), // Viewport Height

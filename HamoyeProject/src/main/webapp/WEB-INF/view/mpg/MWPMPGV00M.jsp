@@ -162,8 +162,8 @@
 								 			<div style="font-size: large">챌린지 도전이&nbsp;<strong id="mypage_Dday" style="color:#2b3886;"></strong> 후에 종료됩니다!</div>
 							 			</c:if> 
 							 			<c:if test="${result.ecoChallenge.totalCount <= result.participationCount}">
-							 				<div>챌린지 도전이 <strong style="color:#2b3886;">완료</strong>되었어요✔</div> 
-											<div>이제 이자로 <strong id="winInterest" style="color:#2b3886"></strong>을 받을 수 있어요😍</div>
+							 				<div>✔ 챌린지 도전이 <strong style="color:#2b3886;">완료</strong>되었어요</div> 
+											<div>✔ 이제 이자로 <strong id="winInterest" style="color:#2b3886"></strong>을 받을 수 있어요😍</div>
 											<input type="hidden" id="nowInterest">  
 							 			</c:if>
 									</div>  

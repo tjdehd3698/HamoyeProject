@@ -77,6 +77,7 @@ public class MyPageController {
 			model.addAttribute("result", user);
 			
 			List<TripChallenge> tripList = tripChallengeService.getTripChallengeList();
+			System.out.println(tripList);
 			model.addAttribute("tripList", tripList);
 
 			if (user.getEcoChallenge() == null) {

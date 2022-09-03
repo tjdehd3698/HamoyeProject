@@ -20,12 +20,9 @@ $(function(){
 			return false;
 		} 
 	}); 
-}); 
-/* window.onload = function(){
-			new RollingNum('mypage_balance','${result.account.balance}','slide'); 
-} */ 
-let isVisible = false; 
+});  
 
+let isVisible = false; 
 window.addEventListener('scroll', function() { 
 	if ( checkVisible($('#progressNow')) && !isVisible) {
 		isVisible=true;
@@ -138,10 +135,16 @@ $(document).ready(function(){
 								</div><br>
 								<div id="mypage_comment"><br>
 									<div style="display:inline">
-										<div>지금은 <strong style="color:#2b3886;" id="nowInterest"></strong>의 이자가 쌓였어요!❤</div>
-										<div>만기시 <strong id="winInterest" style="color:#2b3886"></strong>을 받을 수 있어요😍</div>
-										<input type="hidden" id="mypage_matureDate" value="${result.account.matureDate}"> 
-							 			<div>챌린지 도전이&nbsp;<strong id="mypage_Dday" style="color:#2b3886;"></strong> 후에 종료됩니다!</div> 
+										<c:if test="${result.ecoChallenge.totalCount > result.participationCount}">
+											<div>지금은 <strong style="color:#2b3886;" id="nowInterest"></strong>의 이자가 쌓였어요!❤</div>
+											<div>만기시 <strong id="winInterest" style="color:#2b3886"></strong>을 받을 수 있어요😍</div>
+											<input type="hidden" id="mypage_matureDate" value="${result.account.matureDate}"> 
+								 			<div>챌린지 도전이&nbsp;<strong id="mypage_Dday" style="color:#2b3886;"></strong> 후에 종료됩니다!</div>
+							 			</c:if> 
+							 			<c:if test="${result.ecoChallenge.totalCount <= result.participationCount}">
+							 				<div>챌린지 도전이 <strong style="color:#2b3886;">완료</strong>되었어요✔</div>
+											<div>이제 이자로 <strong id="winInterest" style="color:#2b3886"></strong>을 받을 수 있어요😍</div>  
+							 			</c:if>
 									</div>  
 								</div>
 							</header><br>
@@ -291,8 +294,8 @@ $(document).ready(function(){
 			<ul class="statistics">
 				<li><span class="mypage_icon solid mypage_major style3 fas fa-utensils" />\{item.tripChallenge.tripChallengeImage}</li>
 				<li>
-					<h2>{item.tripChallenge.tripChallengeName}</h2>
-					<h5>{item.tripChallenge.rewardPoint}원 받기!</h5>
+					<h2>${item.tripChallenge.tripChallengeName}</h2>
+					<h5>${item.tripChallenge.rewardPoint}원 받기!</h5>
 				</li>
 				<li>
 					<a class="btn btn-outline-primary px-3" href="MWPCHLV03M.jsp" >

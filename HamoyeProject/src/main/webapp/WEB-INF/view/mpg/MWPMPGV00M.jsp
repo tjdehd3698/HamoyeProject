@@ -31,10 +31,10 @@ window.addEventListener('scroll', function() {
 		}, 1000 ); 
 	} 
 });
-window.onload = function(){
+$(function(){
 	new RollingNum('mypage_balance','${result.account.balance}','slide'); 
 	new RollingNum('mypage_dbPoint','${result.point.totalPoint}','slide')
-}
+});
 $(function(){
 	var rate = 0.5+${result.ecoChallenge.primeRate};
 	var balance= ${result.account.balance};
@@ -50,12 +50,12 @@ $(function(){
 });
 /* let isVisiblebal = false; 
 window.addEventListener('scroll', function() {
-if (checkVisible($('#mypage_balance')) && !isVisiblebal) {
-	isVisiblebal=true;
-	window.onload = function(){
-		new RollingNum('mypage_balance','${result.account.balance}','slide'); 
+	if (checkVisible($('#mypage_balance')) && !isVisiblebal) {
+		isVisiblebal=true;
+		window.onload = function(){
+			new RollingNum('mypage_balance','${result.account.balance}','slide'); 
+		}
 	}
-}
 }); */
 $(document).ready(function(){
     var now = new Date();
@@ -292,7 +292,7 @@ $(document).ready(function(){
 		</header>
 		<c:forEach var="item" items="${tripList}"> 
 			<ul class="statistics">
-				<li><span class="mypage_icon solid mypage_major style3 fas fa-utensils" />\{item.tripChallenge.tripChallengeImage}</li>
+				<li><span class="mypage_icon solid mypage_major style3 fas fa-utensils" />${item.tripChallenge.tripChallengeImage}</li>
 				<li>
 					<h2>${item.tripChallenge.tripChallengeName}</h2>
 					<h5>${item.tripChallenge.rewardPoint}원 받기!</h5>

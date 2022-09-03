@@ -30,7 +30,7 @@ $(function(){
 			isVisiblebal=true; 
 			new RollingNum('mypage_balance','${result.account.balance}','slide'); 
 		} 
-	});
+	}); 
 	window.addEventListener('scroll', function() { 
 		if ( checkVisible($('#progressNow')) && !isVisible) {
 			isVisible=true;

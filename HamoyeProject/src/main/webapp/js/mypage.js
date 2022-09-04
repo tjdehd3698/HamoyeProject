@@ -35,7 +35,7 @@
     	var rate = parseFloat(primeRate)+0.5;
 		var balance= balance;
     	var winBalance = parseInt((balance*rate)/100);  
-    	$('#winInterest').append(winBalance+'원 ');
+    	$('#winInterest').append(winBalance+'원');
     }
     //금액 롤링
     function RollingNum(id, number, type) {

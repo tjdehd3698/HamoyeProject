@@ -10,15 +10,15 @@
     <meta content="" name="description">
     
    <script src="js/mypage.js"></script>  
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script type="text/javascript">
   $(function(){
-		$("#mypage_submit").on("click",function(){
+		$("#ChangeUserInfo").on("submit",function(){
 			 alert("회원 수정되었습니다."); 
 		});
   }); 
   </script>
-</head>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
  	<!-- Spinner Start -->
@@ -36,7 +36,7 @@
         </div>
     </div>
     <!-- Page Header End -->
-    
+    <div class="container-fluid mb-5 wow fadeIn" data-wow-delay="0.5s">
     <div class="container">
     	<div id = UserInfoForm class="mb-5 wow fadeIn" data-wow-delay="0.1s">
 			<h1 class="maintext">회원님의 정보를 수정합니다.</h1>
@@ -94,12 +94,10 @@
 					</div>
 				<input type="submit" id="mypage_submit" class="btn btn-outline-primary py-2 px-3 mx-5" value="수정완료"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type = "button" id="mypage_cancel" class="btn btn-outline-primary py-2 px-3 mx-5" onclick="location.href='mypage.do' " value="돌아가기"><br><br>
-				<!-- <input type="submit" id="mypage_submit" value="수정완료">
-				<input type = "button" id="mypage_cancel" onclick="location.href='mypage.do' " value="돌아가기"> 
-				 -->
 				 <input type = "button" id="mypage_userExit" onclick="location.href='moveToOut.do' " value="회원탈퇴"> <br><br>
 			</form>
     	</div>
+	</div>
 	</div>
 	<jsp:include page="../footer.jsp"></jsp:include>
 

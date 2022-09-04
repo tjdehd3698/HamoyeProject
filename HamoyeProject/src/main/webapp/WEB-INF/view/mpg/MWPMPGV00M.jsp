@@ -9,7 +9,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description"> 
-<script src="js/mypage.js"></script>  
+<script src="js/mypage.js"></script>   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>  
  $(function() {
@@ -80,9 +80,7 @@
 	    const DDay = Math.floor(calc / (1000*60*60*24));
 	    $('#mypage_Dday').append(DDay+' 일 ');
 	 }); 
-});  
-
- 
+});   
 </script>
 </head>
 <body id="mypage_main_body">
@@ -263,8 +261,8 @@
 				</section>
 			</c:when>
 			<c:otherwise> 
-				 <input type="hidden" id="progress">
-				 <input type="hidden" id="progressNow"> 
+				 <input type="hidden" id="progress" value="${result.participationCount}">
+				 <input type="hidden" id="progressNow" value="${result.ecoChallenge.totalCount}"> 
 			</c:otherwise>
 		</c:choose>
 									 
@@ -285,7 +283,7 @@
 						</div>
 					</header>
 					<div><br><br><br>
-						<h5 id="text">언제, 어떻게, 얼마나 모았는지</h5>
+						<h5 id="text">언제, 얼마나 모았을까?</h5>
 						<a class="btn btn-outline-primary px-3" href="showpoint.do">
 	                		내역조회하기
 	                		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">

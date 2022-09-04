@@ -12,7 +12,7 @@
     <meta content="" name="description">
 </head>
 <body>
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="../header.jsp"></jsp:include> 
  <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
@@ -45,7 +45,7 @@
                              <c:forEach var="ecoChallenge" items="${ecoChallengeList}">
                                 <div class="mb-4"><b> ${ecoChallenge.ecoChallengeName}하고 </b><br>
                                     <a class="btn btn-outline-primary px-3" href="challengeDetail.do?challengeType=eco&challengeId=${ecoChallenge.ecoChallengeId}">
-                                        이자 더 받기
+                                        	이자 더 받기
                                         <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                         <i class="fa fa-arrow-right"></i>
                                         </div>

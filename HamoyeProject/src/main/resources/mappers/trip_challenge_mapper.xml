@@ -10,7 +10,7 @@
 		</selectKey>	
 		insert into 
 		trip_challenge(trip_challenge_id, trip_challenge_name, start_date,
-		 end_date, reward_point, content, trip_challlenge_type)
+		 end_date, reward_point, content, trip_challenge_type)
 		values(#{tripChallengeId}, #{tripChallengeName},#{startDate},
 		#{endDate}, #{rewardPoint}, #{content}, #{tripChallengeType})
 	</insert>

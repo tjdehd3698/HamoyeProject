@@ -42,7 +42,6 @@ public class EcoChallengeController {
 
 			if (challengeType.equals("eco")) {
 				
-				
 				EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(challengeId);
 				EcoChallenge ecoChallenge2 = ecoChallengeService.getEcoChallengeDetail(challengeId);
 				List<EcoChallenge> list = new ArrayList<>();
@@ -56,7 +55,19 @@ public class EcoChallengeController {
 				String content = ecoChallenge.getContent();
 				String[] newContent = content.split("@@");
 				model.addAttribute("newContent", newContent);
+				
+				String userId = (String) session.getAttribute("user");
+				if(userId!=null) {
+				User user = userService.getUserAllInfo(userId);
+				
+				if(user.getAccountNumber()!=null) {
+					model.addAttribute("checkJoinChallenge", "F");
+				}else {
+					model.addAttribute("checkJoinChallenge", "T");
+				}
+				}
 				path = "chl/MWPCHLV01M";
+				
 			} else if (challengeType.equals("trip")) {
 				TripChallenge tripChallenge = tripChallengeService.getTripChallengeDetail(challengeId);
 				model.addAttribute("tripChallenge", tripChallenge);
@@ -76,7 +87,7 @@ public class EcoChallengeController {
 					if (value > 0) {
 						flag = "T";
 					}
-
+					
 					model.addAttribute("flag", flag);
 				}
 
@@ -119,7 +130,11 @@ public class EcoChallengeController {
 			tripChallengeService.participateTripChallenge(participation);
 			tripChallengeService.addPoint(userId, rewardPoint); // 포인트 업뎃
 			int value = tripChallengeService.checkParticipationTripChallenge(participation);
-
+			
+			if(value>0) {
+				flag = "T";
+			}
+			
 		} catch (Exception e) {
 		}
 
@@ -131,11 +146,11 @@ public class EcoChallengeController {
 	public String getPoint(HttpSession session, String purpose,
 			String incomeSource, String maturity, String ecoChallengeId) {
 		String result = "F";
-
 		try {
 			String userId = (String) session.getAttribute("user");
 			User user = userService.getUserInfo(userId);
 			EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(ecoChallengeId);
+			System.out.println(ecoChallenge);
 			
 			Account account = new Account();
 			Date now = new Date();
@@ -180,12 +195,10 @@ public class EcoChallengeController {
 			user = userService.getUserAllInfo((String) session.getAttribute("user"));
 			user.setEcoChallenge(ecoChallengeService.getEcoChallengeDetail(ecoChallengeId));
 			user.setAccount(userService.getAccount(user.getUserId()));
-			System.out.println(userService.getAccount(user.getUserId()));
-			System.out.println(user);
 		} catch (Exception e) {
 		}
 		model.addAttribute("joinedUser", user);
 		return "chl/MWPCHLV12M";
 	}
-
+	
 }

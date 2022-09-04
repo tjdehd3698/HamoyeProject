@@ -1,7 +1,5 @@
 package com.bnk.hamoye.controller;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -82,7 +80,7 @@ public class UserController {
 	}
 
 	@GetMapping("getUserAllInfo.do")
-	public String getUserAllInfo(HttpSession session, String challengeId, Model model) throws Exception {
+	public String getUserAllInfo(HttpSession session, String ecoChallengeId, Model model) throws Exception {
 		try {
 			User user = userService.getUserAllInfo((String) session.getAttribute("user"));
 			String birthday = user.getBirthday();
@@ -105,7 +103,7 @@ public class UserController {
 			}
 
 			model.addAttribute("ecoChallengeMap", ecoChallengeMap);
-			model.addAttribute("ecoChallengeId", challengeId);
+			model.addAttribute("ecoChallengeId", ecoChallengeId);
 
 			if (user.getGender().equals("m")) {
 				user.setGender("남자");

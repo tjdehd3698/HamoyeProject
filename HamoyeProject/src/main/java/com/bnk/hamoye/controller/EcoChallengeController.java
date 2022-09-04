@@ -104,6 +104,10 @@ public class EcoChallengeController {
 		try {
 			List<EcoChallenge> ecoChallengeList = ecoChallengeService.getEcoChallengeList();
 			List<TripChallenge> tripChallengeList = tripChallengeService.getTripChallengeList();
+			
+			for(EcoChallenge eco : ecoChallengeList) {
+			System.out.println(eco);
+			}
 
 			model.addAttribute("ecoChallengeList", ecoChallengeList);
 			model.addAttribute("tripChallengeList", tripChallengeList);

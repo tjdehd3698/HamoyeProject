@@ -10,7 +10,6 @@
 <meta content="" name="keywords">
 <meta content="" name="description"> 
 <script src="js/mypage.js"></script>   
-</head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>  
  $(function() {
@@ -81,10 +80,9 @@
 	    const DDay = Math.floor(calc / (1000*60*60*24));
 	    $('#mypage_Dday').append(DDay+' 일 ');
 	 }); 
-});  
-
- 
+});   
 </script>
+</head>
 <body id="mypage_main_body">
 <jsp:include page="../header.jsp" />
 	
@@ -263,8 +261,8 @@
 				</section>
 			</c:when>
 			<c:otherwise> 
-				 <input type="hidden" id="progress">
-				 <input type="hidden" id="progressNow"> 
+				 <input type="hidden" id="progress" value="${result.participationCount}">
+				 <input type="hidden" id="progressNow" value="${result.ecoChallenge.totalCount}"> 
 			</c:otherwise>
 		</c:choose>
 									 

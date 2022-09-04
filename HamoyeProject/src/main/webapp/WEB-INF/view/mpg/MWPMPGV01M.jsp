@@ -14,7 +14,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script type="text/javascript">
   $(function(){
-		$("#mypage_submit").on("click",function(){
+		$("#ChangeUserInfo").on("submit",function(){
 			 alert("회원 수정되었습니다."); 
 		});
   }); 

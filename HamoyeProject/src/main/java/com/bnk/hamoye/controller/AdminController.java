@@ -392,6 +392,11 @@ public class AdminController {
 		return result;
 	}
 	
+	@RequestMapping("registerTripChallengePage.do")
+	public String registerTripChallengePage() {
+		return "adm/ADMCHLV12M";
+	}
+	
 	@PostMapping("registerTripChallenge.do") //tripChallenge 등록
 	@ResponseBody
 	public String registerTripChallenge(TripChallenge tripChallenge,MultipartFile img1, MultipartFile img2, MultipartFile img3) {

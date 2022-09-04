@@ -278,6 +278,7 @@ public class AdminController {
 			if(!img3.isEmpty()) {
 				File file3 = new File(path,imgTmp+2+img3.getOriginalFilename());
 				ecoChallengeImge+= (imgTmp+2+img3.getOriginalFilename()+"||");
+				
 				if (!file3.exists()) {
 					file3.mkdirs();
                 }

@@ -41,7 +41,7 @@
 			isVisiblebal=true; 
 			new RollingNum('mypage_balance','${result.account.balance}','slide');
 		}
-		if ( checkVisible($('#mypage_dbPoint')) && !isVisibledb) {
+		if ( checkVisible($('#mypage_dbPoint')) && !isVisibledb) { 
 			isVisibledb=true;
 			new RollingNum('mypage_dbPoint','${result.point.totalPoint}','slide'); 
 		} 

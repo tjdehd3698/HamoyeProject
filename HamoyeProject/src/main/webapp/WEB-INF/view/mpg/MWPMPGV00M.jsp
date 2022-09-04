@@ -23,52 +23,30 @@
 	let isVisiblebal = false;  
 	let isVisibledb = false;  
 	let isVisible = false; 
-	setTimeout(function(){ 
+	
+	 
+	 setTimeout(function(){ 
+		 if ( checkVisible($('#mypage_dbPoint')) && !isVisibledb) {
+			isVisibledb=true;
+			new RollingNum('mypage_dbPoint','${result.point.totalPoint}','slide'); 
+		}
+		 if( checkVisible($('#mypage_balance')) && !isVisiblebal) { 
+			isVisiblebal=true; 
+			new RollingNum('mypage_balance','${result.account.balance}','slide');
+		} 
+		new Progress('progressNow','progress','${result.participationCount}','${result.ecoChallenge.totalCount}'); 
+	 });
+	 window.addEventListener('scroll', function() { 
 		if( checkVisible($('#mypage_balance')) && !isVisiblebal) { 
 			isVisiblebal=true; 
 			new RollingNum('mypage_balance','${result.account.balance}','slide');
 		}
-		if ( checkVisible($('#progressNow')) && !isVisible) {
-			isVisible=true;
-			if((${result.participationCount}) < (${result.ecoChallenge.totalCount})){
-				$('#progress').animate( { 
-					value:'${result.participationCount}'
-				}, 1000 );
-			}
-			else {
-				$('#progress').animate( { 
-					value:'${result.ecoChallenge.totalCount}'
-				}, 1000 );
-			}
-		} 
 		if ( checkVisible($('#mypage_dbPoint')) && !isVisibledb) {
 			isVisibledb=true;
 			new RollingNum('mypage_dbPoint','${result.point.totalPoint}','slide'); 
 		} 
-	},300);
-	window.addEventListener('scroll', function() { 
-		if( checkVisible($('#mypage_balance')) && !isVisiblebal) { 
-				isVisiblebal=true; 
-				new RollingNum('mypage_balance','${result.account.balance}','slide');
-		}
-		if ( checkVisible($('#progressNow')) && !isVisible) {
-			isVisible=true;
-			if((${result.participationCount}) < (${result.ecoChallenge.totalCount})){
-				$('#progress').animate( { 
-					value:'${result.participationCount}'
-				}, 1000 );
-			}
-			else {
-				$('#progress').animate( { 
-					value:'${result.ecoChallenge.totalCount}'
-				}, 1000 );
-			}
-		} 
-		if ( checkVisible($('#mypage_dbPoint')) && !isVisibledb) {
-			isVisibledb=true;
-			new RollingNum('mypage_dbPoint','${result.point.totalPoint}','slide'); 
-		} 
-	});  
+		new Progress('progressNow','progress','${result.participationCount}','${result.ecoChallenge.totalCount}'); 
+	});   
 	
 	new nowInterest('nowInterest','${result.ecoChallenge.primeRate}','${result.account.balance}', '${result.participationCount}','${result.ecoChallenge.totalCount}');
 	new winInterest('winInterest','${result.ecoChallenge.primeRate}','${result.account.balance}')
@@ -194,7 +172,10 @@
 								</div>
 								<div class="mypage_account_text"><br><br><br>
 									<h3 style="color:#2b3886">아직, 챌린지 계좌가 없습니다!</h3><h2 />
-									<input type="hidden" id="mypage_balance">
+									<input type="hidden" id="mypage_balance" value="${result.account.balance}">
+									<input type="hidden" id="winInterest">
+									<input type="hidden" id="nowInterest">
+									<input type="hidden" id="mypage_matureDate">
 								</div> 
 								<div id="mypage_comment"><br>
 									<div style="display:inline">
@@ -251,7 +232,7 @@
 				      	<p id="progressNow"><b  style="color:gray">진행현황</b></p>
 						<div><br><br>
 							<div style=" position: relative; height: 40px;">
-								<progress class="container" value="0%" max="${result.ecoChallenge.totalCount}"  id="progress"></progress>
+								<progress class="container" value="0" max="${result.ecoChallenge.totalCount}"  id="progress"></progress>
 			    				<p style="position: absolute; top: 10px; right: 35px; margin-bottom: 10px;">
 			    					목표횟수 ${result.ecoChallenge.totalCount} 회 중, ${result.participationCount}회 달성!
 		    					</p>

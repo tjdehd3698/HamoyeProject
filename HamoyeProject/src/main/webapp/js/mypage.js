@@ -116,8 +116,28 @@
     	    }
     	  }
     	}
-     
-    function checkVisible( elm, eval ) {
+    
+    function Progress(getId,setId,count,totalCount) {  
+    	let isVisible= false;
+    	var getEId = document.getElementById(getId);
+    	var setEId = document.getElementById(setId);
+    	var cnt = count; 
+    	var tcnt = totalCount;
+    	if (checkVisible($(getEId)) && !isVisible) { 
+			isVisible=true; 
+			if(parseInt(count) < parseInt(totalCount)){     
+				 $(setEId).animate( { 
+						value: parseInt(cnt)
+					}, 1000 );  
+			}
+			else { 
+				 $(setEId).animate( { 
+						value: parseInt(tcnt)
+					}, 1000 );  
+			}
+		}
+    }
+    function checkVisible(elm, eval) {
         eval = eval || "object visible";
         var viewportHeight = $(window).height(), // Viewport Height
             scrolltop = $(window).scrollTop(), // Scroll Top

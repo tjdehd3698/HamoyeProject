@@ -1,6 +1,9 @@
 package com.bnk.hamoye.controller;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -228,8 +231,22 @@ public class AdminController {
 			//챌린지 등록
 			int row = ecoChallengeService.updateEcoChallenge(ecoChallenge);
 			
+			//사진 저장할 위치
+			String path = "/img/eco/"+ecoChallenge.getEcoChallengeId();
+			
+			//원래 있던 사진 삭제
+			File file = new File("./src/main/webapp"+path);
+			if(!file.exists()) {
+				file.mkdirs();
+			}
+			else{
+				for(File f :file.listFiles()){
+					f.delete();
+				}
+			}
+			
 			if(!img1.isEmpty()) {
-				File file1 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img1.getOriginalFilename());
+				File file1 = new File(path,imgTmp+img1.getOriginalFilename());
 				ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
 				if (!file1.exists()) {
 					file1.mkdirs();
@@ -237,7 +254,7 @@ public class AdminController {
 				img1.transferTo(file1);
 			}
 			if(!img2.isEmpty()) {
-				File file2 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+1+img2.getOriginalFilename());
+				File file2 = new File(path,imgTmp+1+img2.getOriginalFilename());
 				ecoChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
 				if (!file2.exists()) {
 					file2.mkdirs();
@@ -245,7 +262,7 @@ public class AdminController {
 				img2.transferTo(file2);
 			}
 			if(!img3.isEmpty()) {
-				File file3 = new File("C:/Users/Public/Pictures/img/eco/"+ecoChallenge.getEcoChallengeId(),imgTmp+img3.getOriginalFilename());
+				File file3 = new File(path,imgTmp+img3.getOriginalFilename());
 				ecoChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
 				if (!file3.exists()) {
 					file3.mkdirs();
@@ -276,16 +293,19 @@ public class AdminController {
 				String ecoChallengeImge = ""; //이미지 경로 담을 변수
 				String path = "/img/eco/"+ecoChallenge.getEcoChallengeId();
 				
-				//원래 있던 사진 삭제
-				File file = new File(path);
-				if(file.exists()) {
+				//원래 있던 사진 삭제, 폴더 추가
+				File file = new File("./src/main/webapp"+path);
+				if(!file.exists()) {
+					file.mkdirs();
+				}
+				else{
 					for(File f :file.listFiles()){
 						f.delete();
 					}
 				}
 				
 				if(!img1.isEmpty()) {
-					File file1 = new File(path,imgTmp+img1.getOriginalFilename());
+					File file1 = new File(path, imgTmp+img1.getOriginalFilename());
 					ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
 					if (!file1.exists()) {
 						file1.mkdirs();
@@ -308,7 +328,13 @@ public class AdminController {
 	                }
 					img3.transferTo(file3);
 				}
-				ecoChallenge.setChallengeImage(ecoChallengeImge);			
+				
+				if(ecoChallengeImge.equals("")) { //업로드한 사진이 없으면
+					ecoChallenge.setChallengeImage(null);
+				}
+				else {
+					ecoChallenge.setChallengeImage(ecoChallengeImge);	
+				}
 			}
 			
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
@@ -329,8 +355,22 @@ public class AdminController {
 			
 			int row = tripChallengeService.updateTripChallenge(tripChallenge);
 			
+			String path = "/img/trip/"+tripChallenge.getTripChallengeId();
+			
+			//원래 있던 사진 삭제, 폴더 추가
+			File file = new File("./src/main/webapp"+path);
+			if(!file.exists()) {
+				file.mkdirs();
+			}
+			else{
+				for(File f :file.listFiles()){
+					f.delete();
+				}
+			}
+
+			
 			if(!img1.isEmpty()) {					
-				File file1 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+img1.getOriginalFilename());
+				File file1 = new File(path, imgTmp+img1.getOriginalFilename());
 				tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
 			
 				if (!file1.exists()) {
@@ -339,7 +379,7 @@ public class AdminController {
 				img1.transferTo(file1);
 			}
 			if(!img2.isEmpty()) {
-				File file2 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+1+img2.getOriginalFilename());
+				File file2 = new File(path, imgTmp+1+img2.getOriginalFilename());
 				tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
 
 				if (!file2.exists()) {
@@ -348,7 +388,7 @@ public class AdminController {
 				img2.transferTo(file2);
 			}
 			if(!img3.isEmpty()) {
-				File file3 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+2+img3.getOriginalFilename());
+				File file3 = new File(path, imgTmp+2+img3.getOriginalFilename());
 				tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
 
 				if (!file3.exists()) {
@@ -377,20 +417,25 @@ public class AdminController {
 	public String updateTripChallenge(TripChallenge tripChallenge,MultipartFile img1, MultipartFile img2, MultipartFile img3) {
 		String result = "F";
 		try {
-			if(tripChallenge.getChallengeImage()==null) {
+			if(tripChallenge.getChallengeImage()==null) { //사진이 변경될때에만 
 				String tripChallengeImge = ""; //이미지 경로 담을 변수
 				String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구
 				
-				//원래 있던 사진 삭제
-				File file = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId());
-				if(file.exists()) {
+				String path = "/img/trip/"+tripChallenge.getTripChallengeId();
+				
+				//원래 있던 사진 삭제, 폴더 추가
+				File file = new File("./src/main/webapp"+path);
+				if(!file.exists()) {
+					file.mkdirs();
+				}
+				else{
 					for(File f :file.listFiles()){
 						f.delete();
 					}
 				}
 				
 				if(!img1.isEmpty()) {					
-					File file1 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+img1.getOriginalFilename());
+					File file1 = new File(path, imgTmp+img1.getOriginalFilename());
 					tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
 				
 					if (!file1.exists()) {
@@ -399,7 +444,7 @@ public class AdminController {
 					img1.transferTo(file1);
 				}
 				if(!img2.isEmpty()) {
-					File file2 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+1+img2.getOriginalFilename());
+					File file2 = new File(path, imgTmp+1+img2.getOriginalFilename());
 					tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
 
 					if (!file2.exists()) {
@@ -408,7 +453,7 @@ public class AdminController {
 					img2.transferTo(file2);
 				}
 				if(!img3.isEmpty()) {
-					File file3 = new File("C:/Users/Public/Pictures/img/trip/"+tripChallenge.getTripChallengeId(), imgTmp+2+img3.getOriginalFilename());
+					File file3 = new File(path, imgTmp+2+img3.getOriginalFilename());
 					tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
 
 					if (!file3.exists()) {
@@ -421,6 +466,7 @@ public class AdminController {
 				//변경된 사진 경로 set
 				tripChallenge.setChallengeImage(tripChallengeImge);
 			}
+			
 			tripChallengeService.updateTripChallenge(tripChallenge);
 			result="T";
 		} catch (Exception e) {

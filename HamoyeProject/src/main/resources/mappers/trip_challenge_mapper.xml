@@ -18,10 +18,11 @@
 	<update id="updateTripChallenge" parameterType="TripChallenge">
 		update trip_challenge
 		trip_challenge_name = #{tripChallengeName},
-		start_date = #{startDate},
 		end_date = #{endDate},
 		reward_point = #{rewardPoint},
-		is_delete = #{isDelete}
+		challenge_image = #{challengeImage},
+		is_delete = #{isDelete},
+		content = #{content}
 		where trip_challenge_id = #{tripChallengeId}
 	</update>
 	

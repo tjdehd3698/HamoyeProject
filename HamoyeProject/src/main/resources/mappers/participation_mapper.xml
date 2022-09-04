@@ -22,7 +22,7 @@
 			select 'par' || PARTICIPATION_seq.nextval from dual
 		</selectKey>
 		insert into 
-		participation(participation_id, trip_challenge_id, user_id, participation_date, achivement_rate, is_success)
+		participation(participation_id, trip_challenge_id, user_id, participation_date, achievement_rate, is_success)
 		values(#{participationId}, #{tripChallengeId},#{userId},to_date(to_char(sysdate, 'yyyy-mm-dd')),0,0)
 	</insert>
 	

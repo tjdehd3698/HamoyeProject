@@ -241,7 +241,7 @@ public class AdminServiceImpl implements AdminService{
 		for(User u: userList) {
 			map.put(u.getUserId(), count);
 			userDAO.updateUserParticipationCount(map);
-			
+	
 			
 		}
 		return userList.size();

@@ -76,16 +76,20 @@
 				챌린지에 가입하기 위해 서약서를 작성해주세요<br>
 				서약서를 작성하면 추가 이율을 드려요
 				<br><br>
-			<article class="chlarticle py-5 " style="border: 1px solid #2b3886">
-				<h4>서약서</h4>
+			<article class="chl_border py-5 ">
+				<h3>서약서</h3>
+				<div class="container" style="width:70%;"><hr></div><br>
 				<section>
-					나, 챌린지 참여자 <h6 style="display:inline">${userName}</h6>은 거짓없이 성실하게 챌린지에 참여할 것을 다짐하면서 다음과 같이 서약합니다.
+					나, 챌린지 참여자 <h6 style="display:inline">${userName}</h6>은 <br>거짓없고 성실하게 도전할것을 다짐하면서 <br> 다음과 같이 서약합니다.
 						<br><br>
+					<div class="chal_seoyack" style="">
 					1. 챌린지에 참여하여 환경을 지키기 위한 노력을 할것입니다.<br>
 					2. 진행중인 챌린지 이외에도 환경을 보호하기 위해 앞장서겠습니다. <br>
 					3. 선한 영향력을 위하여 챌린지를 홍보하는데 앞장서겠습니다.<br>
 					4. 보상을 위해 허위로 결과를 조작하지 않을 것입니다.<br>
-					5. 서약서를 작성함으로써, 챌린지 이외에 0.5%의 우대이율을 추가로 제공받는데 동의합니다.<br>
+					5. 서약서를 작성함으로써, 챌린지 이외에 0.5%의 우대이율을<br>&nbsp;&nbsp;&nbsp;&nbsp;추가로 제공받는데 동의합니다.
+					</div>
+					<br>
 					<br><br>
 					${year}년 ${month}월 ${day}일<br>
 					챌린지 참여자 &nbsp;<h6 style="display:inline">${userName}</h6>  &nbsp;

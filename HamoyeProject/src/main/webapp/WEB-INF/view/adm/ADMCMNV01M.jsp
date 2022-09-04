@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:choose>
 <c:when test="${!empty user}">
 <!DOCTYPE html>
@@ -75,7 +76,9 @@
 	                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
 	                                            	지구계좌 총예치금
 	                                            </div>
-	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${accountBalanceSum}</div>
+	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+	                                            	<fmt:formatNumber value="${accountBalanceSum}" pattern="#,###" />
+	                                            </div>
 	                                        </div>
 	                                        <div class="col-auto">
 	                                            <i class="fas fa fa-university fa-2x text-gray-300"></i>
@@ -94,7 +97,9 @@
 	                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
 	                                                동백포인트 총합
                                                 </div>
-	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${pointSum}</div>
+	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+	                                            	<fmt:formatNumber value="${pointSum}" pattern="#,###" />
+	                                            </div>
 	                                        </div>
 	                                        <div class="col-auto">
 	                                            <i class="fas fa fa-heartbeat fa-2x text-gray-300"></i>

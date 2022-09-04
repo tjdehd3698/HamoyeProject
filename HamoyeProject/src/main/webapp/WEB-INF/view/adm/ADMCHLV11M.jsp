@@ -65,7 +65,7 @@
 										<div class="my-3 row">
 											<p class="col-sm-2 col-form-label">종료일</p>
 											<div class="col-sm-2">
-											    <div class="form-group">
+											    <div class="form-group mb-0">
 											        <div class="input-group date" id="endDate" data-target-input="nearest">
 											            <input type="text" class="form-control datetimepicker-input" data-target="endDate" name="endDate" value="${tripChallenge.endDate}">
 											            <div class="input-group-append" data-target="#endDate" data-toggle="datetimepicker">

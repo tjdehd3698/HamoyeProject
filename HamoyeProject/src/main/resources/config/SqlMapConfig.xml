@@ -33,6 +33,7 @@
 		<mapper resource="mappers/eco_challenge_mapper.xml"/>	
 		<mapper resource="mappers/trip_challenge_mapper.xml"/>	
 		<mapper resource="mappers/participation_mapper.xml"/>	
+		<mapper resource="mappers/payment_mapper.xml"/>	
 	</mappers>
 	
 </configuration>

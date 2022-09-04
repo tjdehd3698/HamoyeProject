@@ -50,7 +50,15 @@
 	                                        <tr>
 	                                            <td>${item.tripChallengeId}</td>
 	                                            <td><a href="adminTripChallengeDetail.do?tripChallengeId=${item.tripChallengeId}">${item.tripChallengeName}</a></td>
-	                                            <td>${item.tripChallengeType}</td>
+	                                            <td>
+	                                            	<c:if test="${item.tripChallengeType == 3001}">오늘의 식당</c:if>
+													<c:if test="${item.tripChallengeType == 3002}">오늘의 관광지</c:if>
+													<c:if test="${item.tripChallengeType == 3003}">오늘의 카페</c:if>
+													<c:if test="${item.tripChallengeType == 5001}">오늘의 소상공인</c:if>
+													<c:if test="${item.tripChallengeType == 5002}">오늘의 특산품</c:if>
+													<c:if test="${item.tripChallengeType == 5003}">오늘의 문화재</c:if>
+													<c:if test="${item.tripChallengeType == 5004}">오늘의 자랑스러운 시민</c:if>
+	                                            </td>
 	                                            <td>${item.rewardPoint}</td>
 	                                            <c:forEach var="count" items="${userCount}">
 	                                            	<c:if test="${count.key == item.tripChallengeId}">
@@ -65,6 +73,9 @@
 	                                </table>
 	                            </div>
 	                        </div>
+	                        <div class="text-center mb-5">
+								<button class="btn btn-primary px-5" style="height: 50px;" type="button" id="registerTripChallenge" onclick="window.location.href='registerTripChallengePage.do'">등록</button>
+							</div>
 	                    </div>
 	                </div>
 	                <!-- /.container-fluid -->

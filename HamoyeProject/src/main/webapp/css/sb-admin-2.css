@@ -11281,3 +11281,20 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+.input-group.upload-img{
+	align-items: center;
+}
+
+.input-group.upload-img .img-area{
+	width: 150px;
+    min-height: 150px;
+    padding: 10px;
+    margin-right: 1rem;
+    border: 1px solid #d1d3e2;
+    border-radius: 0.35rem !important;
+}
+
+.input-group.upload-img img{
+	width: 130px;
+}

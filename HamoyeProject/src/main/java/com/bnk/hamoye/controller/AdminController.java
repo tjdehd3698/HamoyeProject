@@ -220,6 +220,11 @@ public class AdminController {
 		return "adm/ADMCHLV11M";
 	}
 	
+	@RequestMapping("registerEcoChallengePage.do")
+	public String registerEcoChallengePage() {
+		return "adm/ADMCHLV02M";
+	}
+	
 	@PostMapping("registerEcoChallenge.do") //ecoChallenge 등록(사진 업로드)
 	@ResponseBody
 	public String registerEcoChallenge(EcoChallenge ecoChallenge, MultipartFile img1, MultipartFile img2,  MultipartFile img3) {

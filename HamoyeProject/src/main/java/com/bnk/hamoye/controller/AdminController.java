@@ -237,10 +237,10 @@ public class AdminController {
 	
 	@PostMapping("updateUserParticipationCount.do") //회원 참여횟수 조정
 	@ResponseBody
-	public String updateUserParticipationCount(List<User> userList,int count) {
+	public String updateUserParticipationCount(List<User> userList,int count, int totalCount) {
 		String result ="F";
 		try {
-			int row = adminService.updateUserParticipationCount(userList, count);
+			int row = adminService.updateUserParticipationCountWithVolunteer(userList, count);
 			if(row==userList.size()) result = "T";
 		} catch (Exception e) {
 			System.out.println(e);
@@ -390,6 +390,11 @@ public class AdminController {
 			System.out.println("updateEcoChallenge 에러 : "+ e);
 		}
 		return result;
+	}
+	
+	@RequestMapping("registerTripChallengePage.do")
+	public String registerTripChallengePage() {
+		return "adm/ADMCHLV12M";
 	}
 	
 	@PostMapping("registerTripChallenge.do") //tripChallenge 등록

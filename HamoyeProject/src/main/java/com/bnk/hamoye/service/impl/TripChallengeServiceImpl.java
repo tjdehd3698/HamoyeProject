@@ -74,7 +74,6 @@ public class TripChallengeServiceImpl implements TripChallengeService {
 
 	@Override
 	public int participateTripChallenge(Participation participation) throws Exception {
-		System.out.println("hi");
 		return participationDAO.doParticipateTripChallenge(participation);
 	}
 

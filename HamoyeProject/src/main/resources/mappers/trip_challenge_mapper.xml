@@ -17,6 +17,7 @@
 	
 	<update id="updateTripChallenge" parameterType="TripChallenge">
 		update trip_challenge
+		set
 		trip_challenge_name = #{tripChallengeName},
 		end_date = #{endDate},
 		reward_point = #{rewardPoint},

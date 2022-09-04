@@ -40,7 +40,7 @@
 	
 	<select id="searchTripChallenge" parameterType="string" resultType="TripChallenge">
 		select trip_challenge_id, prime_rate, trip_challenge_name, start_date,
-		end_date, limited_people, is_delete, challenge_image
+		end_date, limited_people, is_delete, challenge_image, content, trip_challenge
 		from trip_challenge
 		where trip_challenge_name like '%' || #{value} || '%'
 	</select>

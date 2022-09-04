@@ -144,7 +144,6 @@ public class AdminController {
 			List<User> list = adminService.getAllUser();
 			model.addAttribute("result",list);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "adm/ADMUSRV00M";
@@ -223,6 +222,30 @@ public class AdminController {
 	@RequestMapping("registerEcoChallengePage.do")
 	public String registerEcoChallengePage() {
 		return "adm/ADMCHLV02M";
+	}
+	
+	@GetMapping("getEcoChallengeUserListPage.do ") //특정 ecoChallenge 참여자 리스트 조회 페이지 이동(참여횟수 조정)
+	public String getEcoChallengeUserListPage(String ecoChallengeId, Model model) {
+		try {
+			List<User> userList = userService.getUserByEcoChallenge(ecoChallengeId);
+			model.addAttribute("userList", userList);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return "";
+	}
+	
+	@PostMapping("updateUserParticipationCount.do") //회원 참여횟수 조정
+	@ResponseBody
+	public String updateUserParticipationCount(List<User> userList,int count) {
+		String result ="F";
+		try {
+			int row = adminService.updateUserParticipationCount(userList, count);
+			if(row==userList.size()) result = "T";
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return result;
 	}
 	
 	@PostMapping("registerEcoChallenge.do") //ecoChallenge 등록(사진 업로드)

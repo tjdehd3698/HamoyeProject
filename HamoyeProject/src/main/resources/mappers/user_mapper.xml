@@ -20,6 +20,7 @@
 			<result column="eco_challenge_name" property="ecoChallengeName"/>
 			<result column="e_prime_rate" property="primeRate"/>
 			<result column="total_count" property ="totalCount"/>
+			<result column="challenge_image" property="challengeImage"/>
 		</association>
 		<association property="account" javaType="account">
 			<id column="account_number" property="accountNumber"/>
@@ -154,7 +155,7 @@
 	<select id="getMypageInfo" parameterType="string" resultMap="userWithPointAndAccountAndEcoChallenge">
 		select 
 		u.user_id, u.user_name, e.prime_rate as e_prime_rate, a.account_number, a.balance, p.point_id, p.total_point, a.mature_date,
-		 e.eco_challenge_id, e.eco_challenge_name, u.participation_count, e.total_count, a.prime_rate
+		 e.eco_challenge_id, e.eco_challenge_name, u.participation_count, e.total_count, a.prime_rate, e.challenge_image
 		from users u 
 		join account a on u.account_number =a.account_number
 		join point p on u.point_id = p.point_id
@@ -214,7 +215,7 @@
 	<update id="updateUserParticipationCount" parameterType="hashMap">
 		update users
 		set
-		participation_count = participation_count+#{count}
+		participation_count = participation_count + #{count}
 		where user_id = {userId}
 	</update>
 	

@@ -139,12 +139,21 @@
 			
 			$('#startDate').datetimepicker({ 
 				format: 'YYYY-MM-DD',
-			});
+				 timepicker: false
+			})
 			
 			$('#endDate').datetimepicker({ 
 				format: 'YYYY-MM-DD',
-// 				minDate: new Date($("input[name='startDate']").val()),
-			});
+				timepicker: false
+			})
+			
+			$("#startDate").on("change.datetimepicker", function (e) {
+	            $('#endDate').datetimepicker('minDate', e.date);
+	        });
+			
+	        $("#endDate").on("change.datetimepicker", function (e) {
+	            $('#startDate').datetimepicker('maxDate', e.date);
+	        });
 			
 			$("#registerEcoChl").on("click", function(e) {
 		        e.preventDefault();

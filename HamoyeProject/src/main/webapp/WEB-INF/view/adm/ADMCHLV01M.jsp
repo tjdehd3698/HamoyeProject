@@ -183,6 +183,7 @@
 			
 			$('#endDate').datetimepicker({ 
 				format: 'YYYY-MM-DD',
+				timepicker: false,
 				minDate: new Date($("#startDate").text()),
 			});
 			

@@ -232,13 +232,13 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public int updateUserParticipationCount(List<User> userIdList, int count) throws Exception {
+	public int updateUserParticipationCount(List<User> userList, int count) throws Exception {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		
-		for(User u: userIdList) {
+		for(User u: userList) {
 			map.put(u.getUserId(), count);
 			userDAO.updateUserParticipationCount(map);
 		}
-		return userIdList.size();
+		return userList.size();
 	}
 }

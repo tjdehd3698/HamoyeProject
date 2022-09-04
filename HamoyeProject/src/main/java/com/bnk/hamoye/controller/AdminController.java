@@ -364,6 +364,7 @@ public class AdminController {
 			
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
 			result="T";
+			
 		} catch (Exception e) {
 			System.out.println("updateEcoChallenge 에러 : "+ e);
 		}

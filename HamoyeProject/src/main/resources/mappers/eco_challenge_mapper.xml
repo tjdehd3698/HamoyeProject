@@ -11,9 +11,9 @@
 		
 		insert into 
 		eco_challenge(eco_challenge_id, eco_challenge_name,prime_rate, start_date, end_date,
-		limited_people, content, eco_challenge_type)
+		limited_people, content, eco_challenge_type, total_count)
 		values(#{ecoChallengeId}, #{ecoChallengeName},#{primeRate},#{startDate},#{endDate},
-		#{limitedPeople}, #{content},#{ecoChallengeType})
+		#{limitedPeople}, #{content},#{ecoChallengeType}, #{totalCount})
 	</insert>
 	
 	<update id="updateEcoChallenge" parameterType="EcoChallenge">

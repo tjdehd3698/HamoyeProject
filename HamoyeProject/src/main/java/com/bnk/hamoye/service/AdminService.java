@@ -30,4 +30,5 @@ public interface AdminService {
 	Map<String, Double> getUserCntByEcoChallengeType(int totalUserCnt) throws Exception; //에코 챌린지 타입 별 유저 수 조회
 	int updateTripChallengeImage(TripChallenge tripChallenge) throws Exception; //트립챌린지 사진 업데이트
 	int updateEcoChallengeImage(EcoChallenge ecoChallenge) throws Exception; //에코챌린지 사진 업데이트
+	
 }

@@ -54,7 +54,7 @@
 										<div class="my-3 row">
 											<p class="col-sm-2 col-form-label">우대이율</p>
 											<div class="col-sm-10">
-											    <input type="text" class="form-control" id="primeRate" name="primeRate" maxlength="25" required/>
+											    <input type="number" class="form-control" id="primeRate" name="primeRate" maxlength="25" required/>
 											</div>
 								        </div>
 										<div class="my-3 row">
@@ -86,7 +86,13 @@
 								        <div class="my-3 row">
 											<p class="col-sm-2 col-form-label">제한인원</p>
 											<div class="col-sm-10">
-										    	<input type="text" class="form-control" id="limitedPeople" name="limitedPeople" maxlength="20" required/>
+										    	<input type="number" class="form-control" id="limitedPeople" name="limitedPeople" min="1" required/>
+										    </div>
+								        </div>
+								        <div class="my-3 row">
+											<p class="col-sm-2 col-form-label">완료횟수</p>
+											<div class="col-sm-10">
+										    	<input type="number" class="form-control" id="totalCount" name="totalCount" min="1" required/>
 										    </div>
 								        </div>
 										<div class="mb-3 row">
@@ -129,6 +135,7 @@
 			$(".nav-item:eq(2)").addClass("active");
 			$(".nav-item:eq(2) .collapse").addClass("show");
 			$(".nav-item:eq(2) .collapse a:eq(0)").addClass("active");
+			if ($(window).width() < 768) $('.sidebar .collapse').collapse('hide');
 			
 			$('#startDate').datetimepicker({ 
 				format: 'YYYY-MM-DD',
@@ -136,6 +143,7 @@
 			
 			$('#endDate').datetimepicker({ 
 				format: 'YYYY-MM-DD',
+// 				minDate: new Date($("input[name='startDate']").val()),
 			});
 			
 			$("#registerEcoChl").on("click", function(e) {

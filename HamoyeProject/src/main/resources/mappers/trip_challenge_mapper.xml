@@ -6,7 +6,7 @@
 <mapper namespace="sql.hamoye.tripChallenge_mapper">
 	<insert id="registerTripChallenge" parameterType="TripChallenge">
 	<selectKey keyProperty="tripChallengeId" resultType="string" order="BEFORE">
-			select 'trp'||trip_seq.nextval from dual
+			select 'trip'||trip_seq.nextval from dual
 		</selectKey>	
 		insert into 
 		trip_challenge(trip_challenge_id, trip_challenge_name, start_date,

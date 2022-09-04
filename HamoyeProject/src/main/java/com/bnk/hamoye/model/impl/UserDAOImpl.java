@@ -2,6 +2,7 @@ package com.bnk.hamoye.model.impl;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -116,6 +117,11 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<User> getUserByEcoChallengeType(String ecoChallengeId) throws SQLException {
 		return sqlSession.selectList(NS+"getUserByEcoChallengeType", ecoChallengeId);
+	}
+
+	@Override
+	public int updateUserParticipationCount(Map<String, String> map) throws Exception {
+		return sqlSession.update(NS+"updateUserParticipationCount", map);
 	}
 
 }

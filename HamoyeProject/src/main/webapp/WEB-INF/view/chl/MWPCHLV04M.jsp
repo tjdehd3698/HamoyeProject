@@ -22,7 +22,7 @@
 			
 			if("${existUser}"==''){
 				alert("로그인 후 이용 가능합니다.");
-			}
+			}else{
 			
 			$.ajax({
 				type:'post',
@@ -31,7 +31,7 @@
 				data:{"tripChallengeId" : "${tripChallenge.tripChallengeId}",
 					"rewardPoint" : ${tripChallenge.rewardPoint}},
 				success:function(result) {
-					if(result=="T"){
+					if(result!=''){
 						/* 동백포인트에 돈 넣어주는 로직 */
 						alert("동백포인트가 ${tripChallenge.rewardPoint}원 적립되었습니다");
 						$("#getPoint").attr("disabled","disabled");
@@ -42,6 +42,7 @@
 					alert("다시 시도해주세요.");
 				}
 			});	
+			}
 		});
 	});
 	</script>

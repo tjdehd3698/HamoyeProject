@@ -14,6 +14,18 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
+	<script>
+	$(document).ready(function() {
+		
+		if("${checkJoinChallenge}" == true){
+			$("#registerChallenge").attr("disabled","disabled");
+		}
+		
+		$("#registerChallenge").on("click", function(){
+			window.location.href = "getUserAllInfo.do?ecoChallengeId=${ecoChallenge.ecoChallengeId}";
+		});
+	});
+	</script>
  <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
@@ -113,7 +125,6 @@
 			 	<table class="table table-bordered" id="info" width="100%" cellspacing="0">
 			 		<thead>
 			 			<tr>
-			 				<th>챌린지 이름</th>
 			 				<th>가입 기간</th>
 			 				<th>우대 이율</th>
 			 			</tr>
@@ -122,9 +133,8 @@
 			 			<c:forEach var="item" items="${list}">
 			 					<c:set var="idx" value="${idx+6}" />
 			 				<tr>
-			 					<td>${item.ecoChallengeName}</td>
-			 					<td>${idx}</td>
-			 					<td>${item.primeRate}</td>
+			 					<td>${idx}개월</td>
+			 					<td>${item.primeRate} %p</td>
 			 				</tr>
 			 				
 			 			</c:forEach>
@@ -133,12 +143,12 @@
 			 </section>
 			 	<c:choose>
 					<c:when test="${!empty userName}">
-			 			<a class="btn btn-outline-primary px-3" href="getUserAllInfo.do?challengeId=${ecoChallenge.ecoChallengeId}" >
+			 			<button class="btn btn-outline-primary px-3" type="button" id ="registerChallenge" >
                                	챌린지 참여하고 우대이율 받기
+                        </button>
              			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
              				<i class="fa fa-arrow-right"></i>
             		 	</div>
-             			</a>
              		</c:when>
              		<c:otherwise>
              			<a class="btn btn-outline-primary px-3" href="#none" data-bs-toggle="modal" data-bs-target="#loginModal" >

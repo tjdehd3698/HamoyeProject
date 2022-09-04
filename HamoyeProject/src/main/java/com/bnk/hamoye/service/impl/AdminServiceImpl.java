@@ -220,4 +220,14 @@ public class AdminServiceImpl implements AdminService{
 		
 		return result;
 	}
+
+	@Override
+	public int updateTripChallengeImage(TripChallenge tripChallenge) throws Exception {
+		return tripChallengeDAO.updateTripChallengeImage(tripChallenge);
+	}
+
+	@Override
+	public int updateEcoChallengeImage(EcoChallenge ecoChallenge) throws Exception {
+		return ecoChallengeDAO.updateEcoChallengeImage(ecoChallenge);
+	}
 }

@@ -107,9 +107,9 @@ public class UserServiceImpl implements UserService {
 			account.makeAccountNumber();
 			result = accountDAO.checkAccount(account.getAccountNumber());
 		} // 중복 계좌번호 입력 시 계좌번호 재생성 알고리즘
-		
 		if(result==0) {
 			accountDAO.registerAccount(account);
+			System.out.println("hi");
 			User user = new User();
 			user.setUserId(userId);
 			user.setEcoChallengeId(ecoChallengeId);

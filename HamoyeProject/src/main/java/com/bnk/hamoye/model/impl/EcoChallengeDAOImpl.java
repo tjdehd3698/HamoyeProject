@@ -62,4 +62,9 @@ public class EcoChallengeDAOImpl implements EcoChallengeDAO {
 		return sqlSession.selectList(NS+"getEcoChallengeType");
 	}
 
+	@Override
+	public int updateEcoChallengeImage(EcoChallenge ecoChallenge) throws Exception {
+		return sqlSession.update(NS+"updateEcoChallengeImage", ecoChallenge);
+	}
+
 }

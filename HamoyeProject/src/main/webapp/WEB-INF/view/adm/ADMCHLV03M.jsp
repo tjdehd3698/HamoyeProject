@@ -18,7 +18,7 @@
 <script type="text/javascript"> 
 	$(function() { 
 		$("#save_participationCount").click(function(){ 
-			$.ajax({ 
+			$.ajax({
 				//요청
 				type:"post",
 				url:'updateUserParticipationCount.do', 

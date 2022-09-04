@@ -247,7 +247,7 @@ public class AdminController {
 			
 			if(!img1.isEmpty()) {
 				File file1 = new File(path,imgTmp+img1.getOriginalFilename());
-				ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
+				ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"||");
 				if (!file1.exists()) {
 					file1.mkdirs();
                 }
@@ -255,7 +255,7 @@ public class AdminController {
 			}
 			if(!img2.isEmpty()) {
 				File file2 = new File(path,imgTmp+1+img2.getOriginalFilename());
-				ecoChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
+				ecoChallengeImge+= (imgTmp+img2.getOriginalFilename()+"||");
 				if (!file2.exists()) {
 					file2.mkdirs();
                 }
@@ -263,7 +263,7 @@ public class AdminController {
 			}
 			if(!img3.isEmpty()) {
 				File file3 = new File(path,imgTmp+img3.getOriginalFilename());
-				ecoChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
+				ecoChallengeImge+= (imgTmp+img3.getOriginalFilename()+"||");
 				if (!file3.exists()) {
 					file3.mkdirs();
                 }
@@ -306,7 +306,7 @@ public class AdminController {
 				
 				if(!img1.isEmpty()) {
 					File file1 = new File(path, imgTmp+img1.getOriginalFilename());
-					ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
+					ecoChallengeImge+= (imgTmp+img1.getOriginalFilename()+"||");
 					if (!file1.exists()) {
 						file1.mkdirs();
 	                }
@@ -314,7 +314,7 @@ public class AdminController {
 				}
 				if(!img2.isEmpty()) {
 					File file2 = new File(path,imgTmp+1+img2.getOriginalFilename());
-					ecoChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
+					ecoChallengeImge+= (imgTmp+img2.getOriginalFilename()+"||");
 					if (!file2.exists()) {
 						file2.mkdirs();
 	                }
@@ -322,7 +322,7 @@ public class AdminController {
 				}
 				if(!img3.isEmpty()) {
 					File file3 = new File(path,imgTmp+img3.getOriginalFilename());
-					ecoChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
+					ecoChallengeImge+= (imgTmp+img3.getOriginalFilename()+"||");
 					if (!file3.exists()) {
 						file3.mkdirs();
 	                }
@@ -371,7 +371,7 @@ public class AdminController {
 			
 			if(!img1.isEmpty()) {					
 				File file1 = new File(path, imgTmp+img1.getOriginalFilename());
-				tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
+				tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"||");
 			
 				if (!file1.exists()) {
 					file1.mkdirs();
@@ -380,7 +380,7 @@ public class AdminController {
 			}
 			if(!img2.isEmpty()) {
 				File file2 = new File(path, imgTmp+1+img2.getOriginalFilename());
-				tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
+				tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"||");
 
 				if (!file2.exists()) {
 					file2.mkdirs();
@@ -389,7 +389,7 @@ public class AdminController {
 			}
 			if(!img3.isEmpty()) {
 				File file3 = new File(path, imgTmp+2+img3.getOriginalFilename());
-				tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
+				tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"||");
 
 				if (!file3.exists()) {
 					file3.mkdirs();
@@ -436,7 +436,7 @@ public class AdminController {
 				
 				if(!img1.isEmpty()) {					
 					File file1 = new File(path, imgTmp+img1.getOriginalFilename());
-					tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"@@");
+					tripChallengeImge+= (imgTmp+img1.getOriginalFilename()+"||");
 				
 					if (!file1.exists()) {
 						file1.mkdirs();
@@ -445,7 +445,7 @@ public class AdminController {
 				}
 				if(!img2.isEmpty()) {
 					File file2 = new File(path, imgTmp+1+img2.getOriginalFilename());
-					tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"@@");
+					tripChallengeImge+= (imgTmp+img2.getOriginalFilename()+"||");
 
 					if (!file2.exists()) {
 						file2.mkdirs();
@@ -454,7 +454,7 @@ public class AdminController {
 				}
 				if(!img3.isEmpty()) {
 					File file3 = new File(path, imgTmp+2+img3.getOriginalFilename());
-					tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"@@");
+					tripChallengeImge+= (imgTmp+img3.getOriginalFilename()+"||");
 
 					if (!file3.exists()) {
 						file3.mkdirs();

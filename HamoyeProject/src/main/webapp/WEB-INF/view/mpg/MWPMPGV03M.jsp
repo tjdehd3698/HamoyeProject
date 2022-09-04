@@ -57,19 +57,20 @@
     <!-- Page Header End -->
     <div class="container mb-5 wow fadeIn" data-wow-delay="0.1s">
 	<div class="container accOut">
-		<div class="container PartTop my-3 px-3">
+		<div class="container PartTop my-3 px-3 mt-3 ml-3">
 				<div class="PartA">
 					<span class="icon solid fas fa-exclamation-triangle fa-10x"></span>
 				</div>
-				<div class="PartB">
+				<div class="PartB px-3">
 					<h2>계좌를 해지하시면</h2><br>
 					<h2 style="color:blue">금리 우대 혜택</h2><h2>과</h2><br>
 					<h2 style="color:blue">잔여 동백포인트</h2><h2>가</h2><br> <h2 style="color:red">사라져요!</h2> 
 				</div>
 		
 		<br> <br>
-		<div class="container PartMid">
-			<h1>그래도 계좌를 해지하시겠어요?</h1>
+		<div class="container PartMid mt-5">
+			<h1>그래도 계좌를 </h1>
+			<h1>해지하시겠어요?</h1>
 		</div>
 		<div class="container PartBottom">
 			<div class="Accout">

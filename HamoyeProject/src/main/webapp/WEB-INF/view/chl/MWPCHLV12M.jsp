@@ -40,8 +40,9 @@
             </div>
             <article class="chlarticle">
 			<div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-			가입정보 확인하기<br>
-			<div style="border: 1px solid #2b3886">
+			<div class="chal_border">
+				<strong class="my-3" style="display: block;font-size: 20px; color:black">가입정보 확인하기</strong>
+				<div class="container" style="width:70%;"><hr></div>
 			<p>
 			이름 : ${joinedUser.userName}	<br>
 			아이디 : ${joinedUser.userId} <br>

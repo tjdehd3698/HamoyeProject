@@ -144,11 +144,11 @@
 			 	<c:choose>
 					<c:when test="${!empty userName}">
 			 			<button class="btn btn-outline-primary px-3" type="button" id ="registerChallenge" >
-                               	챌린지 참여하고 우대이율 받기
-                        </button>
-             			<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-             				<i class="fa fa-arrow-right"></i>
-            		 	</div>
+                              	챌린지 참여하고 우대이율 받기
+	             				<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+	             					<i class="fa fa-arrow-right"></i>
+	            		 		</div>
+            		 	</button>
              		</c:when>
              		<c:otherwise>
              			<a class="btn btn-outline-primary px-3" href="#none" data-bs-toggle="modal" data-bs-target="#loginModal" >

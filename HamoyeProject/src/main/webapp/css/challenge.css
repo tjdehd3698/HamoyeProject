@@ -1,11 +1,47 @@
 /* challenge css */
 	.chlarticle{
-		text-align:center;
-		padding-top:10px;
+		text-align:center; 
+		
 	}
 	.chlarticle>h2 {
 		margin:20px 0px;	
+	} 
+	.chl_border{
+		text-align:center;
+		border-radius: 5px; 
+		width: 60%; 
+		margin-left: auto; 
+		margin-right:auto; 
+		border: 1px solid #2b3886; 
 	}
-	.chlarticle p{
-		padding-top:30px;
+	.chal_border{
+		width: 60%;
+	    border: 1px solid #2b3886;
+	    border-radius: 5px;
+	    margin-left: auto;
+	    margin-right: auto;
+	}
+ 	@media screen and (max-width: 991px){
+		.chl_border{
+			text-align:center;
+			border-radius: 5px; 
+			width:80%; 
+			margin-left: auto; 
+			margin-right:auto; 
+			border: 1px solid #2b3886;
+			}
+	}@media screen and (max-width: 767px){
+		.chl_border{
+			text-align:center;
+			border-radius: 5px; 
+			width:100%;  
+			border: 1px solid #2b3886;
+			}
+	}
+	.chal_seoyack {
+		display: inline-flex;
+	    text-align: justify;
+	    margin-left: auto;
+	    margin-right: auto;
+	    padding-left:
 	}

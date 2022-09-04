@@ -76,7 +76,7 @@
 				챌린지에 가입하기 위해 서약서를 작성해주세요<br>
 				서약서를 작성하면 추가 이율을 드려요
 				<br><br>
-			<article class="chlarticle" style="border: 1px solid #2b3886">
+			<article class="chlarticle py-5 " style="border: 1px solid #2b3886">
 				<h4>서약서</h4>
 				<section>
 					나, 챌린지 참여자 <h6 style="display:inline">${userName}</h6>은 거짓없이 성실하게 챌린지에 참여할 것을 다짐하면서 다음과 같이 서약합니다.

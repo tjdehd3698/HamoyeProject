@@ -20,6 +20,7 @@
 			<result column="eco_challenge_name" property="ecoChallengeName"/>
 			<result column="e_prime_rate" property="primeRate"/>
 			<result column="total_count" property ="totalCount"/>
+			<result column="challenge_image" property="challengeImage"/>
 		</association>
 		<association property="account" javaType="account">
 			<id column="account_number" property="accountNumber"/>
@@ -214,7 +215,7 @@
 	<update id="updateUserParticipationCount" parameterType="hashMap">
 		update users
 		set
-		participation_count = participation_count + 1
+		participation_count = participation_count + #{count}
 		where user_id = {userId}
 	</update>
 	

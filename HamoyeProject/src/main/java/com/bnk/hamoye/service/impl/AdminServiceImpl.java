@@ -230,4 +230,15 @@ public class AdminServiceImpl implements AdminService{
 	public int updateEcoChallengeImage(EcoChallenge ecoChallenge) throws Exception {
 		return ecoChallengeDAO.updateEcoChallengeImage(ecoChallenge);
 	}
+
+	@Override
+	public int updateUserParticipationCount(List<User> userIdList, int count) throws Exception {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		
+		for(User u: userIdList) {
+			map.put(u.getUserId(), count);
+			userDAO.updateUserParticipationCount(map);
+		}
+		return userIdList.size();
+	}
 }

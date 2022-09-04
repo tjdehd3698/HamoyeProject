@@ -120,7 +120,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public int updateUserParticipationCount(Map<String, String> map) throws Exception {
+	public int updateUserParticipationCount(Map<String, Integer> map) throws Exception {
 		return sqlSession.update(NS+"updateUserParticipationCount", map);
 	}
 

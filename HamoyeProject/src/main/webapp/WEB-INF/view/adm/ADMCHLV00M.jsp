@@ -44,6 +44,7 @@
 	                                            <th>참가인원</th>
 	                                            <th>시작일</th>
 	                                            <th>종료일</th>
+	                                            <th>참가자</th>
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody>
@@ -64,6 +65,18 @@
 	                                            </c:forEach>
 	                                            <td>${item.startDate}</td>
 	                                            <td>${item.endDate}</td>
+	                                            <c:choose>
+	                                            	<c:when test="${item.ecoChallengeType == 1002}">
+	                                            		<td>
+	                                            			<a href="getEcoChallengeUserListPage.do?ecoChallengeId=${item.ecoChallengeId}">
+	                                            				${item.ecoChallengeName}
+	                                            			</a>
+	                                            		</td>
+	                                            	</c:when>
+	                                            	<c:otherwise>
+	                                            		<td></td>
+	                                            	</c:otherwise>
+	                                            </c:choose>
 	                                        </tr>
 	                                        </c:forEach>
 	                                    </tbody>

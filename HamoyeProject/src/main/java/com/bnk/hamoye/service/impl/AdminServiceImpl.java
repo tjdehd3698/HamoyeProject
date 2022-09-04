@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.Participation;
+import com.bnk.hamoye.domain.Payment;
 import com.bnk.hamoye.domain.Status;
 import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.TripStatus;
@@ -19,6 +20,7 @@ import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.model.AccountDAO;
 import com.bnk.hamoye.model.EcoChallengeDAO;
 import com.bnk.hamoye.model.ParticipationDAO;
+import com.bnk.hamoye.model.PaymentDAO;
 import com.bnk.hamoye.model.PointDAO;
 import com.bnk.hamoye.model.TripChallengeDAO;
 import com.bnk.hamoye.model.UserDAO;
@@ -36,6 +38,7 @@ public class AdminServiceImpl implements AdminService{
 	private final ParticipationDAO participationDAO;
 	private final PointDAO pointDAO;
 	private final TripChallengeDAO tripChallengeDAO;
+	private final PaymentDAO paymentDAO;
 	
 	@Override
 	public List<User> getAllUser() throws Exception {
@@ -232,13 +235,26 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public int updateUserParticipationCount(List<User> userList, int count) throws Exception {
+	public int updateUserParticipationCountWithVolunteer(List<User> userList, int count) throws Exception {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		
 		for(User u: userList) {
 			map.put(u.getUserId(), count);
 			userDAO.updateUserParticipationCount(map);
+			
+			
 		}
 		return userList.size();
+	}
+
+	@Override
+	public int updateUserParticipationCountWithPublicTransportaion(String ecoChallengeId) throws Exception {
+		List<User> userList = userDAO.getUserByEcoChallenge(ecoChallengeId);
+		for(User user : userList) {
+			List<Payment> paymentList = paymentDAO.getPublicTransportationUsageByUserId(user.getUserId());
+			
+		}
+		
+		return 0;
 	}
 }

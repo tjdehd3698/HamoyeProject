@@ -57,7 +57,10 @@
 								        </div>
 										<div class="my-3 row">
 											<p class="col-sm-2 col-form-label">성별</p>
-										    <p class="col-sm-10 col-form-label">${result.gender}</p>
+										    <p class="col-sm-10 col-form-label">
+										    	<c:if test="${result.gender == 'm'}">남자</c:if>
+										    	<c:if test="${result.gender == 'f'}">여자</c:if>
+										    </p>
 								        </div>
 										<div class="mb-3 row">
 											<label for="userAddress" class="col-sm-2 col-form-label">주소</label>
@@ -130,7 +133,10 @@
 					url : "adminUpdateUser.do",
 					data : queryString,
 					success : function(result){
-						if(result=="T") alert("수정 완료되었습니다.");
+						if(result=="T"){
+							alert("수정 완료되었습니다.");
+							window.location.href= "adminGetUser.do?userId=${result.userId}";
+						}
 					},error: function(request, status, error){
 						alert("다시 시도해주세요.");
 // 					 	alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);

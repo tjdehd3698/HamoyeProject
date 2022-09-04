@@ -309,7 +309,7 @@ public class AdminController {
 			String path = "/img/eco/"+ecoChallenge.getEcoChallengeId();
 			
 			//원래 사진 경로 split리스트
-			String[] splitImage = ecoChallenge.getChallengeImage().split("||");
+			String[] splitImage = ecoChallenge.getChallengeImage().split("\\|\\|");
 			
 			//원래 있던 사진 삭제, 폴더 추가
 			File file = new File("./src/main/webapp"+path);
@@ -354,13 +354,8 @@ public class AdminController {
 				ecoChallengeImge+= (splitImage[2]+"||");
 			}
 			
-			if(ecoChallengeImge.equals("")) { //업로드한 사진이 없으면
-				ecoChallenge.setChallengeImage(null);
-			}
-			else {
-				System.out.println("11");
-				ecoChallenge.setChallengeImage(ecoChallengeImge);	
-			}
+			System.out.println(ecoChallengeImge);
+			ecoChallenge.setChallengeImage(ecoChallengeImge);	
 			
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
 			result="T";
@@ -457,7 +452,7 @@ public class AdminController {
 			if(tripChallenge.getChallengeImage()==null) { //사진이 변경될때에만 
 				String tripChallengeImge = ""; //이미지 경로 담을 변수
 				String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구 
-				String[] splitImage = tripChallenge.getChallengeImage().split("||"); //원래 사진 경로 split리스트
+				String[] splitImage = tripChallenge.getChallengeImage().split("\\|\\|"); //원래 사진 경로 split리스트
 				
 				String path = "/img/trip/"+tripChallenge.getTripChallengeId();
 				

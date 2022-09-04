@@ -43,9 +43,9 @@
                             <h4 class="mb-3">지구를 지켜요</h4>
 
                              <c:forEach var="ecoChallenge" items="${ecoChallengeList}">
-                                <div class="mb-4"><b> ${ecoChallenge.ecoChallengeName}하고 </b><br>
+                                <div class="mb-4"><b> ${ecoChallengeList.ecoChallengeName}하고 </b><br>
                                     <a class="btn btn-outline-primary px-3" href="challengeDetail.do?challengeType=eco&challengeId=${ecoChallenge.ecoChallengeId}">
-                                        이자 더 받기
+                                        	이자 더 받기
                                         <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                         <i class="fa fa-arrow-right"></i>
                                         </div>

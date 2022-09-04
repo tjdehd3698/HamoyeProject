@@ -9,7 +9,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description"> 
-<script src="js/mypage.js"></script>  
+<script src="js/mypage.js"></script>   
+</head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>  
  $(function() {
@@ -84,7 +85,6 @@
 
  
 </script>
-</head>
 <body id="mypage_main_body">
 <jsp:include page="../header.jsp" />
 	
@@ -285,7 +285,7 @@
 						</div>
 					</header>
 					<div><br><br><br>
-						<h5 id="text">언제, 어떻게, 얼마나 모았는지</h5>
+						<h5 id="text">언제, 얼마나 모았을까?</h5>
 						<a class="btn btn-outline-primary px-3" href="showpoint.do">
 	                		내역조회하기
 	                		<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">

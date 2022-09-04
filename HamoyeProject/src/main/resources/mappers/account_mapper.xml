@@ -50,6 +50,19 @@
 		where account_number = #{value}
 	</select>
 	
+	<update id="updatePrimeRate" parameterType="string">
+		update account a
+		set a.prime_rate = a.prime_rate + 
+		(select e.prime_rate 
+		from eco_challenge e 
+		join users u on e.eco_challenge_id = u.eco_challenge_id
+		where u.user_id ='z')
+        where a.account_number =
+        (select u.account_number
+        from users u 
+        where user_id =#{value}
+        );
+	</update>
 </mapper>
 
 

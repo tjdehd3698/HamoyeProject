@@ -237,7 +237,7 @@ public class AdminController {
 	
 	@PostMapping("updateUserParticipationCount.do") //회원 참여횟수 조정
 	@ResponseBody
-	public String updateUserParticipationCount(List<User> userList,int count) {
+	public String updateUserParticipationCount(List<User> userList,int count, int totalCount) {
 		String result ="F";
 		try {
 			int row = adminService.updateUserParticipationCountWithVolunteer(userList, count);

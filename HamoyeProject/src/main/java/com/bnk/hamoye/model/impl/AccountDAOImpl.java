@@ -56,5 +56,10 @@ public class AccountDAOImpl implements AccountDAO{
 		return sqlSession.selectOne(NS+"getAccount",accountNumber);
 	}
 
+	@Override
+	public int updatePrimeRate(String userId) throws Exception {
+		return sqlSession.update(NS+"updatePrimeRate", userId);
+	}
+
 
 }

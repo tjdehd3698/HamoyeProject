@@ -210,6 +210,13 @@
 		where e.eco_challenge_type=#{value} and u.is_withdraw=0
 	</select>
 	
+	<update id="updateUserParticipationCount" parameterType="hashMap">
+		update users
+		set
+		participation_count = participation_count+#{count}
+		where user_id = {userId}
+	</update>
+	
 </mapper>
 
 

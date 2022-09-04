@@ -1,6 +1,7 @@
 package com.bnk.hamoye.model;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bnk.hamoye.domain.User;
 
@@ -25,5 +26,6 @@ public interface UserDAO {
 	User getUserInfoByAdminWithNoEco(String userId) throws Exception; //관리자가 에코챌린지 가입 안한 회원 정보 조회
 	int updateUserByAdmin(User user) throws Exception; //관리자 회원 정보 수정
 	List<User> getUserByEcoChallengeType(String ecoChallengeId) throws Exception; //에코챌린지 타입 별 유저 수 조회
+	int updateUserParticipationCount(Map<String, String> map) throws Exception; //관리자 회원 참가 횟수 변경
 }
  

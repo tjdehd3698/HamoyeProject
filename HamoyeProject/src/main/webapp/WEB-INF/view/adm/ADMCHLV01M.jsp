@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:choose>
 <c:when test="${!empty user}">
 <!DOCTYPE html>
@@ -30,10 +31,10 @@
 	                    <p class="mb-4"></p>
 	                    <div class="card shadow mb-4">
 	                        <div class="card-header py-3">
-	                            <h6 class="m-0 font-weight-bold text-primary">지구를 지켜요 상세내역</h6>
+	                            <h6 class="m-0 font-weight-bold text-primary">지구를 지켜요 챌린지 상세내역</h6>
 	                        </div>
 	                        <div class="card-body">
-	                        	<form method="post" name="frmUpdateEcoChl">
+	                        	<form method="post" name="frmUpdateEcoChl" id="frmUpdateEcoChl">
 	                        		<input type="hidden" id="userId" name="ecoChallengeId" value="${ecoChallenge.ecoChallengeId}"/>
 									<div class="mb-5">
 										<div class="mb-3 row">
@@ -63,8 +64,8 @@
 								        </div>
 										<div class="my-3 row">
 											<p class="col-sm-2 col-form-label">종료일</p>
-											<div class="col-sm-2">
-											    <div class="form-group">
+											<div class="col-sm-10">
+											    <div class="form-group mb-0">
 											        <div class="input-group date" id="endDate" data-target-input="nearest">
 											            <input type="text" class="form-control datetimepicker-input" data-target="endDate" name="endDate" value="${ecoChallenge.endDate}">
 											            <div class="input-group-append" data-target="#endDate" data-toggle="datetimepicker">
@@ -86,15 +87,15 @@
 								        </div>
 										<div class="mb-3 row">
 											<p class="col-sm-2 col-form-label">삭제여부</p>
-											<div class="col-sm-1">
+											<div class="col-sm-5">
 										    <select class="form-select" id="isDelete" name="isDelete">
 										    	<c:if test="${ecoChallenge.isDelete == 0}">
-					            					<option value="${ecoChallenge.isDelete}" selected="selected">${ecoChallenge.isDelete}</option>
-					            					<option value="1">1</option>
+					            					<option value="${ecoChallenge.isDelete}" selected="selected">N</option>
+					            					<option value="1">Y</option>
 										    	</c:if>
 										    	<c:if test="${ecoChallenge.isDelete == 1}">
-					            					<option value="0">0</option>
-					            					<option value="${ecoChallenge.isDelete}" selected="selected">${ecoChallenge.isDelete}</option>
+					            					<option value="0">N</option>
+					            					<option value="${ecoChallenge.isDelete}" selected="selected">Y</option>
 										    	</c:if>
 			            					</select>
 			            					</div>
@@ -107,19 +108,31 @@
 										</div>
 										<div class="my-3 row">
 											<p class="col-sm-2 col-form-label">이미지</p>
-										    <div class="col-sm-6">${ecoChallenge.challengeImage}
+										    <div class="col-sm-10">
+										    <input type="hidden" name="challengeImage" id="challengeImage" value="${ecoChallenge.challengeImage}">
+								    	<c:choose>
+								    		<c:when test="${fn:split(ecoChallenge.challengeImage, '||')[0] == ''}">
 											    <div class="input-group mb-3">
-												  <input type="file" class="form-control" id="img1" name="img1">
-<!-- 												  <label class="input-group-text" for="img1">Upload</label> -->
+												  <input type="file" class="form-control" id="img1" name="img1" accept="image/*"  multiple="multiple">
 												</div>
 											    <div class="input-group mb-3">
-												  <input type="file" class="form-control" id="img2" name="img2">
-<!-- 												  <label class="input-group-text" for="img2">Upload</label> -->
+												  <input type="file" class="form-control" id="img2" name="img2" accept="image/*"  multiple="multiple">
 												</div>
 											    <div class="input-group mb-3">
-												  <input type="file" class="form-control" id="img3" name="img3">
-<!-- 												  <label class="input-group-text" for="img3">Upload</label> -->
+												  <input type="file" class="form-control" id="img3" name="img3" accept="image/*"  multiple="multiple">
 												</div>
+								    		</c:when>
+								    		<c:otherwise>
+										    	<c:forEach var="item" items="${fn:split(ecoChallenge.challengeImage,'||')}" varStatus="status">
+												    <div class="input-group mb-3 upload-img">
+												  	  <div class="img-area">
+														  <img src="img/eco/${ecoChallenge.ecoChallengeId}/${item}" />
+												  	  </div>
+													  <input type="file" class="form-control" id="img${status.index+1}" name="img${status.index+1}" accept="image/*"  multiple="multiple" value="${item}">
+													</div>
+										    	</c:forEach>
+								    		</c:otherwise>
+								    	</c:choose>
 										    </div>
 								        </div>
 									</div>
@@ -146,14 +159,20 @@
 			
 			$("#nextPage").on("click",function(){
 				
-				var queryString = $("form[name=frmUpdateEcoChl]").serialize();
-
+				var formData = new FormData($("#frmUpdateEcoChl")[0]);
+				
 				$.ajax({
 					type : "post",
 					url : "updateEcoChallenge.do",
-					data : queryString,
+					enctype: 'multipart/form-data',  
+					processData: false,
+					contentType: false,
+					data : formData,
 					success : function(result){
-						if(result=="T") alert("수정 완료되었습니다.");
+						if(result=="T"){
+							alert("수정 완료되었습니다.");
+							window.location.href = "adminEcoChallengeDetail.do?ecoChallengeId=${ecoChallenge.ecoChallengeId}";
+						}
 					},error: function(request, status, error){
 						alert("다시 시도해주세요.");
 // 					 	alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);
@@ -165,6 +184,10 @@
 				format: 'YYYY-MM-DD',
 				minDate: new Date($("#startDate").text()),
 			});
+			
+// 			 $("input:file").change(function (){
+// 		     	$("#challengeImage").remove();
+// 		     });
 			
 		});
 	</script>

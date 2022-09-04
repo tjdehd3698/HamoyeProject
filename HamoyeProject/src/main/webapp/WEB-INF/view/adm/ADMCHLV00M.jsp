@@ -51,7 +51,10 @@
 	                                        <tr>
 	                                            <td>${item.ecoChallengeId}</td>
 	                                            <td><a href="adminEcoChallengeDetail.do?ecoChallengeId=${item.ecoChallengeId}">${item.ecoChallengeName}</a></td>
-	                                            <td>${item.ecoChallengeType}</td>
+	                                            <td>
+	                                            	<c:if test="${item.ecoChallengeType == 1001}">대중교통</c:if>
+													<c:if test="${item.ecoChallengeType == 1002}">환경봉사</c:if>
+	                                            </td>
 	                                            <td>${item.primeRate}%</td>
 	                                            <td>${item.limitedPeople}</td>
 	                                            <c:forEach var="count" items="${userCount}">
@@ -68,6 +71,9 @@
 	                            </div>
 	                        </div>
 	                    </div>
+	                    <div class="text-center mb-5">
+							<button class="btn btn-primary px-5" style="height: 50px;" type="button" id="registerEcoChallenge" onclick="window.location.href='registerEcoChallengePage.do'">등록</button>
+						</div>
 	                </div>
 	                <!-- /.container-fluid -->
 	            </div>
@@ -82,7 +88,6 @@
 			$(".nav-item:eq(2) .collapse").addClass("show");
 			$(".nav-item:eq(2) .collapse a:eq(0)").addClass("active");
 			$('#dataTable').DataTable();
-			
 		});
 	</script>
 </body>

@@ -27,27 +27,32 @@
 	
 	                <!-- Begin Page Content -->
 	                <div class="container-fluid">
-	                    <h1 class="h3 mb-2 text-gray-800">챌린지관리 > 지구를 지켜요</h1>
+	                    <h1 class="h3 mb-2 text-gray-800">챌린지관리 > 떠나요 부산</h1>
 	                    <p class="mb-4"></p>
 	                    <div class="card shadow mb-4">
 	                        <div class="card-header py-3">
-	                            <h6 class="m-0 font-weight-bold text-primary">지구를 지켜요 챌린지 등록</h6>
+	                            <h6 class="m-0 font-weight-bold text-primary">떠나요 부산 챌린지 등록</h6>
 	                        </div>
 	                        <div class="card-body">
-	                        	<form method="post" name="frmRegisterEcoChl" id="frmRegisterEcoChl">
+	                        	<form method="post" name="frmRegisterTripChl" id="frmRegisterTripChl">
 									<div class="mb-5">
 										<div class="mb-3 row">
 											<label for="userName" class="col-sm-2 col-form-label">챌린지 이름</label>
 											<div class="col-sm-10">
-												<input type="text" class="form-control" id="ecoChallengeName" name="ecoChallengeName" maxlength="25" required/>
+												<input type="text" class="form-control" id="tripChallengeName" name="tripChallengeName" maxlength="25" required/>
 											</div>
 										</div>
 										<div class="mb-3 row">
 											<p class="col-sm-2 col-form-label">챌린지타입</p>
 											<div class="col-sm-10">
-												<select class="form-select" name="ecoChallengeType">
-													<option value="1001">대중교통</option>
-													<option value="1002">환경봉사</option>
+												<select class="form-select" name="tripChallengeType">
+													<option value="3001">오늘의 식당</option>
+													<option value="3002">오늘의 관광지</option>
+													<option value="3003">오늘의 카페</option>
+													<option value="5001">오늘의 소상공인</option>
+													<option value="5002">오늘의 특산품</option>
+													<option value="5003">오늘의 문화재</option>
+													<option value="5004">오늘의 자랑스러운 시민</option>
 												</select>
 											</div>
 										</div>
@@ -84,15 +89,9 @@
 											</div>
 								        </div>
 								        <div class="my-3 row">
-											<p class="col-sm-2 col-form-label">제한인원</p>
+											<p class="col-sm-2 col-form-label">리워드포인트</p>
 											<div class="col-sm-10">
-										    	<input type="number" class="form-control" id="limitedPeople" name="limitedPeople" min="1" required/>
-										    </div>
-								        </div>
-								        <div class="my-3 row">
-											<p class="col-sm-2 col-form-label">완료횟수</p>
-											<div class="col-sm-10">
-										    	<input type="number" class="form-control" id="totalCount" name="totalCount" min="1" required/>
+										    	<input type="number" class="form-control" id="rewardPoint" name="rewardPoint" min="1" required/>
 										    </div>
 								        </div>
 										<div class="mb-3 row">
@@ -117,8 +116,8 @@
 								        </div>
 									</div>
 									<div class="text-center">
-										<button class="btn btn-secondary px-5" style="height: 50px;" type="button" onclick="window.location.href='adminEcoChallengeList.do'">목록</button>
-										<button class="btn btn-primary px-5" style="height: 50px;" type="button" id="registerEcoChl">등록</button>
+										<button class="btn btn-secondary px-5" style="height: 50px;" type="button" onclick="window.location.href='adminTripChallengeList.do'">목록</button>
+										<button class="btn btn-primary px-5" style="height: 50px;" type="button" id="registerTripChl">등록</button>
 									</div>
 								</form>
 	                        </div>
@@ -134,7 +133,7 @@
 		$(document).ready(function() {
 			$(".nav-item:eq(2)").addClass("active");
 			$(".nav-item:eq(2) .collapse").addClass("show");
-			$(".nav-item:eq(2) .collapse a:eq(0)").addClass("active");
+			$(".nav-item:eq(2) .collapse a:eq(1)").addClass("active");
 			if ($(window).width() < 768) $('.sidebar .collapse').collapse('hide');
 			
 			$('#startDate').datetimepicker({ 
@@ -155,7 +154,7 @@
 	            $('#startDate').datetimepicker('maxDate', e.date);
 	        });
 			
-			$("#registerEcoChl").on("click", function(e) {
+			$("#registerTripChl").on("click", function(e) {
 		        e.preventDefault();
 		        e.stopPropagation();
 
@@ -175,11 +174,11 @@
 		        
 		        if(!result) return false;
 	                	
-				var formData = new FormData($("#frmRegisterEcoChl")[0]);
+				var formData = new FormData($("#frmRegisterTripChl")[0]);
 				
 				$.ajax({
 					type : "post",
-					url : "registerEcoChallenge.do",
+					url : "registerTripChallenge.do",
 					enctype: 'multipart/form-data',  
 					processData: false,
 					contentType: false,
@@ -187,7 +186,7 @@
 					success : function(result){
 						if(result=="T"){
 							alert("등록이 완료되었습니다.");
-							window.location.href = "adminEcoChallengeList.do";
+							window.location.href = "adminTripChallengeList.do";
 						}
 					},error: function(request, status, error){
 						alert("다시 시도해주세요.");

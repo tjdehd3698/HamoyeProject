@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:choose>
 <c:when test="${!empty user}">
 <!DOCTYPE html>
@@ -29,10 +30,10 @@
 	                    <p class="mb-4"></p>
 	                    <div class="card shadow mb-4">
 	                        <div class="card-header py-3">
-	                            <h6 class="m-0 font-weight-bold text-primary">떠나요 부산 상세내역</h6>
+	                            <h6 class="m-0 font-weight-bold text-primary">떠나요 부산 챌린지 상세내역</h6>
 	                        </div>
 	                        <div class="card-body">
-	                        	<form method="post" name="frmUpdateTripChl">
+	                        	<form method="post" name="frmUpdateTripChl" id="frmUpdateTripChl">
 	                        		<input type="hidden" id="userId" name="tripChallengeId" value="${tripChallenge.tripChallengeId}"/>
 									<div class="mb-5">
 										<div class="mb-3 row">
@@ -47,7 +48,15 @@
 										</div>
 										<div class="mb-3 row">
 										    <p class="col-sm-2 col-form-label">챌린지타입</p>
-											<p class="col-sm-10 col-form-label">${tripChallenge.tripChallengeType}</p>
+										    <p class="col-sm-10 col-form-label">
+											<c:if test="${tripChallenge.tripChallengeType == 3001}">오늘의 식당</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 3002}">오늘의 관광지</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 3003}">오늘의 카페</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 5001}">오늘의 소상공인</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 5002}">오늘의 특산품</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 5003}">오늘의 문화재</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 5004}">오늘의 자랑스러운 시민</c:if>
+											</p>
 										</div>
 										<div class="my-3 row">
 											<p class="col-sm-2 col-form-label">시작일</p>
@@ -81,12 +90,12 @@
 											<div class="col-sm-1">
 										    <select class="form-select" id="isDelete" name="isDelete">
 										    	<c:if test="${tripChallenge.isDelete == 0}">
-					            					<option value="${tripChallenge.isDelete}" selected="selected">${tripChallenge.isDelete}</option>
+					            					<option value="${tripChallenge.isDelete}" selected="selected">N</option>
 					            					<option value="1">1</option>
 										    	</c:if>
 										    	<c:if test="${tripChallenge.isDelete == 1}">
 					            					<option value="0">0</option>
-					            					<option value="${tripChallenge.isDelete}" selected="selected">${tripChallenge.isDelete}</option>
+					            					<option value="${tripChallenge.isDelete}" selected="selected">Y</option>
 										    	</c:if>
 			            					</select>
 			            					</div>
@@ -99,16 +108,31 @@
 										</div>
 										<div class="my-3 row">
 											<p class="col-sm-2 col-form-label">이미지</p>
-										    <div class="col-sm-6">${tripChallenge.challengeImage}
+										    <div class="col-sm-10">
+										    <input type="hidden" name="challengeImage" id="challengeImage" value="${tripChallenge.challengeImage}">
+								    	<c:choose>
+								    		<c:when test="${fn:split(tripChallenge.challengeImage, '||')[0] == ''}">
 											    <div class="input-group mb-3">
-												  <input type="file" class="form-control" id="img1" name="img1">
+												  <input type="file" class="form-control" id="img1" name="img1" accept="image/*"  multiple="multiple">
 												</div>
 											    <div class="input-group mb-3">
-												  <input type="file" class="form-control" id="img2" name="img2">
+												  <input type="file" class="form-control" id="img2" name="img2" accept="image/*"  multiple="multiple">
 												</div>
 											    <div class="input-group mb-3">
-												  <input type="file" class="form-control" id="img3" name="img3">
+												  <input type="file" class="form-control" id="img3" name="img3" accept="image/*"  multiple="multiple">
 												</div>
+								    		</c:when>
+								    		<c:otherwise>
+										    	<c:forEach var="item" items="${fn:split(tripChallenge.challengeImage,'||')}" varStatus="status">
+												    <div class="input-group mb-3 upload-img">
+												  	  <div class="img-area">
+														  <img src="img/trip/${tripChallenge.tripChallengeId}/${item}" />
+												  	  </div>
+													  <input type="file" class="form-control" id="img${status.index+1}" name="img${status.index+1}" accept="image/*"  multiple="multiple" value="${item}">
+													</div>
+										    	</c:forEach>
+								    		</c:otherwise>
+								    	</c:choose>
 										    </div>
 								        </div>
 									</div>
@@ -131,17 +155,24 @@
 			$(".nav-item:eq(2)").addClass("active");
 			$(".nav-item:eq(2) .collapse").addClass("show");
 			$(".nav-item:eq(2) .collapse a:eq(1)").addClass("active");
+			if ($(window).width() < 768) $('.sidebar .collapse').collapse('hide');
 			
 			$("#nextPage").on("click",function(){
 				
-				var queryString = $("form[name=frmUpdateTripChl]").serialize();
+				var formData = new FormData($("#frmUpdateTripChl")[0]);
 
 				$.ajax({
 					type : "post",
 					url : "updateTripChallenge.do",
-					data : queryString,
+					enctype: 'multipart/form-data',  
+					processData: false,
+					contentType: false,
+					data : formData,
 					success : function(result){
-						if(result=="T") alert("수정 완료되었습니다.");
+						if(result=="T"){
+							alert("수정 완료되었습니다.");
+							window.location.href = "adminTripChallengeDetail.do?tripChallengeId=${tripChallenge.tripChallengeId}";
+						}
 					},error: function(request, status, error){
 						alert("다시 시도해주세요.");
 // 					 	alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);
@@ -151,6 +182,7 @@
 			
 			$('#endDate').datetimepicker({ 
 				format: 'YYYY-MM-DD',
+				timepicker: false,
 				minDate: new Date($("#startDate").text()),
 			});
 		});

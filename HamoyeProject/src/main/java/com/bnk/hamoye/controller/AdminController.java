@@ -300,6 +300,7 @@ public class AdminController {
 				
 				//원래 있던 사진 삭제, 폴더 추가
 				File file = new File("./src/main/webapp"+path);
+				
 				if(!file.exists()) {
 					file.mkdirs();
 				}

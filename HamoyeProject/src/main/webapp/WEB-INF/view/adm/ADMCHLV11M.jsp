@@ -131,6 +131,7 @@
 			$(".nav-item:eq(2)").addClass("active");
 			$(".nav-item:eq(2) .collapse").addClass("show");
 			$(".nav-item:eq(2) .collapse a:eq(1)").addClass("active");
+			if ($(window).width() < 768) $('.sidebar .collapse').collapse('hide');
 			
 			$("#nextPage").on("click",function(){
 				

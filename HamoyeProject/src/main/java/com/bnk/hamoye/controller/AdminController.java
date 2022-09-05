@@ -24,15 +24,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bnk.hamoye.domain.EcoChallenge;
+import com.bnk.hamoye.domain.Restaurant;
 import com.bnk.hamoye.domain.Status;
+import com.bnk.hamoye.domain.TodayRestaurant;
 import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.TripStatus;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.AdminService;
 import com.bnk.hamoye.service.EcoChallengeService;
+import com.bnk.hamoye.service.RestaurantService;
 import com.bnk.hamoye.service.TripChallengeService;
 import com.bnk.hamoye.service.UserService;
-import com.mysql.cj.xdevapi.JsonArray;
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -43,6 +46,7 @@ public class AdminController {
 	private final UserService userService;
 	private final EcoChallengeService ecoChallengeService;
 	private final TripChallengeService tripChallengeService;
+	private final RestaurantService restaurantService;
 	
 	@RequestMapping("admin.do")
 	public String adminLoginPage() {
@@ -261,13 +265,30 @@ public class AdminController {
 	
 	@PostMapping("updateUserParticipationCountWithPublicTransportaion.do") //대중교통 챌린지 확인
 	@ResponseBody
-	public String updateUserParticipationCountWithPublicTransportaion(String ecoChallengeId) {
+	public String updateUserParticipationCountWithPublicTransportaion(EcoChallenge ecoChallenge) {
 		try {
-			adminService.updateUserParticipationCountWithPublicTransportaion(ecoChallengeId);
-			
+			adminService.updateUserParticipationCountWithPublicTransportaion(ecoChallenge.getEcoChallengeId());
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		return "";
+	}
+	
+	@GetMapping("getTodayRestaurantPage.do") //오늘의 식당 페이지 이동
+	public String getTodayRestaurantPage(Model model) {
+		List<Restaurant> restaurantList = restaurantService.getAllRestaurants(); //전체 식당 리스트
+		model.addAttribute("restaurantList", restaurantList);
+		
+		List<TodayRestaurant> todayRestaurantList = restaurantService.getAllTodayRestaurants(); //전체 오늘의 식당 리스트
+		model.addAttribute("todayRestaurantList", todayRestaurantList);
+		
+		return "";
+	}
+	
+	@PostMapping("updateTodayRestaurant.do") //오늘의 식당 변경
+	@ResponseBody
+	public String updateTodayRestaurant(List<String> restaurantId) {
+
 		
 		return "";
 	}

@@ -101,4 +101,9 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return todayRestaurantDAO.getTodayRetaurantsName();
 	}
 
+	@Override
+	public int deleteAllTodayRestaurant() {
+		return todayRestaurantDAO.deleteAllTodayRestaurant();
+	}
+
 }

@@ -67,6 +67,10 @@
 		today_restaurant t
         on r.restaurant_id=t.restaurant_id
 	</select>
+	
+	<delete id="deleteAllTodayRestaurant">
+		delete from today_restaurant;
+	</delete>
 </mapper>
 
 

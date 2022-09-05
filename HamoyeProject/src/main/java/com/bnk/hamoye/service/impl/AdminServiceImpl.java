@@ -261,6 +261,7 @@ public class AdminServiceImpl implements AdminService{
 		
 		for(User user : userList) {
 			List<Payment> paymentList = paymentDAO.getPublicTransportationUsageByUserId(user.getUserId());
+			
 			if(paymentList.size()>=totalCount) {
 				accountDAO.updatePrimeRate(user.getUserId());
 			}

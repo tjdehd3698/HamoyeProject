@@ -108,14 +108,15 @@
 		});
 		$(function() {
 			$(".adm_transportUpdate").click(function(){   
-				var aa = $(this).attr("data-value");
+				var ecoChallengeId = $(this).attr("data-value");
+				
   				$.ajax({
 					type:'post',
 					url:'updateUserParticipationCountWithPublicTransportaion.do',
-					data: aa,
+					data: {ecoChallengeId : ecoChallengeId},
 							
 					success:function(result) {
-						alert(aa+" 챌린지를 달성한 유저의 이율이 업데이트 되었습니다.");
+						alert(ecoChallengeId+" 챌린지를 달성한 유저의 이율이 업데이트 되었습니다.");
 					}
 				});   
 			});

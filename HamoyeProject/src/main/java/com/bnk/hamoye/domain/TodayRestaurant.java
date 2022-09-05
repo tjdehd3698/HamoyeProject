@@ -11,5 +11,4 @@ public class TodayRestaurant {
 	private String restaurantName; // 식당 이름
 	private String category; // 식당 업종
 	private Date registerDate; // 오늘의 식당 등록 날짜
-	
 }

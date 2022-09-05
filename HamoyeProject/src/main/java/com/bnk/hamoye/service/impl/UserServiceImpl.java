@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService {
 		// 비밀번호 변경 후 업데이트
 		user.changePassword();
 		int row = userDAO.updateUserPassword(user);
-
+		
 		if (row == 1)
 			return user.getUserPassword();
 		else

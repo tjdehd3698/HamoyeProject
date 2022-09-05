@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:choose>
-<c:when test="${!empty userList}">
+<%-- <c:choose>
+<c:when test="${!empty userList}"> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,41 +19,38 @@
 	$(function() { 
 		$("#save_participationCount").click(function(){ 
 			var param="";
+			var dataList ="[";
 			
-			if($('#chal_check').is(':checked')) { 
-				alert("asd");
-			/* 	$("#loginId").next(".form-text").text("ID를 입력해주세요.");
-				document.FrmLogin.loginId.focus();
-				return false;
- */			} else{ 
-				/* $("#loginId").next(".form-text").text("");
-				param += "&userId=" + document.FrmLogin.loginId.value; */
-			}/*
+			$(":checkbox:checked").each(function(index, item) {
+				alert( $(item).parent().parent().children("td").eq(4).html());
+ 				data={
+						ecoChallengeId :  $(item).parent().parent().children("td").eq(1).html(),
+						userId :  $(item).parent().parent().children("td").eq(2).html(),
+						userName : $(item).parent().parent().children("td").eq(3).children("a").html(),
+						participationCount :  $(item).parent().parent().children("td").eq(4).html()
+				} 
+ 				console.log(data);
+ 				dataList =dataList + data; 
+			});//each
 			
-			if (document.FrmLogin.loginPassword.value == "" ) {
-				$("#loginPassword").next(".form-text").text("비밀번호를 입력해주세요.");
-				document.FrmLogin.loginPassword.focus();
-				return false;
-			}else{
-				$("#loginPassword").next(".form-text").text("");
-				param += "&userPassword=" + document.FrmLogin.loginPassword.value;
-			}
+			dataList= dataList + "]";
+			console.log(dataList);
+			
 			
 			$.ajax({
 				type:'post',
-				url:'login.do',
-				data:param,
+				url:'updateUserParticipationCount.do',
+				traditional : true,
+				dataType: 'json',
+				data:{
+					"user" :  JSON.stringify(dataList),
+					"count" : JSON.stringify($("#adminChl_participationCount"))
+				},
 				
 				success:function(result) {
-					if(result=="T"){
-						window.location.href = "home.do";
-					}else{
-						alert("아이디 또는 비밀번호가 일치하지 않습니다.");
-					}
-				},error:function(){
-					alert("다시 시도해주세요.");
+					alert(result);
 				}
-			}); */
+			});
 			
 		});
 	}); 
@@ -98,7 +95,7 @@
 	                                            <td><a href="adminGetUser.do?userId=${item.userId}">${item.userName}</a></td>
 	                                            <td>${item.participationCount}</td>
 	                                            <td>
-	                                            	<input id="chal_check" type="checkbox" value="item">
+	                                            	<input id="chal_check" type="checkbox" checked>
 	                                            	<input type="hidden" id="adminChl_hidden" value="${item.participationCount}">
 	                                            	<%--<a><button id="save_participationCount">저장</button></a> --%>
 	                                            </td>
@@ -138,8 +135,8 @@
 	</script>
 </body>
 </html>
-</c:when>
+<%-- </c:when>
 <c:otherwise>
 	<jsp:include page="error.jsp"></jsp:include>
 </c:otherwise>
-</c:choose> 
+</c:choose>  --%>

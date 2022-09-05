@@ -228,7 +228,9 @@ public class AdminController {
 	@GetMapping("getEcoChallengeUserListPage.do") //특정 ecoChallenge 참여자 리스트 조회 페이지 이동(참여횟수 조정)
 	public String getEcoChallengeUserListPage(String ecoChallengeId, Model model) {
 		try {
+			System.out.println("123");
 			List<User> userList = userService.getUserByEcoChallenge(ecoChallengeId);
+			System.out.println(userList);
 			model.addAttribute("userList", userList);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -238,12 +240,15 @@ public class AdminController {
 	
 	@PostMapping("updateUserParticipationCount.do") //회원 참여횟수 조정
 	@ResponseBody
-	public String updateUserParticipationCount(@RequestParam List<User> userList,int count, int totalCount) {
+	public String updateUserParticipationCount(@RequestParam List<User> user,int count) {
 		String result ="F";
+		System.out.println("11");
 		try {
-			int row = adminService.updateUserParticipationCountWithVolunteer(userList, count);
+			System.out.println("zzz"+user);
+			System.out.println("12"+count);
+			//int row = adminService.updateUserParticipationCountWithVolunteer(user, count);
 			
-			if(row==userList.size()) 
+			//if(row==user.size()) 
 				result = "T";
 		} catch (Exception e) {
 			System.out.println(e);

@@ -41,7 +41,7 @@
 		</association>
 	</resultMap>	
 	
-		<resultMap type="user" id="userWithPointAndEcoChallenge">
+	<resultMap type="user" id="userWithPointAndEcoChallenge">
 		<id column="user_id" property="userId"/>
 		<result column="user_name" property="userName"/>
 		<result column="point_id" property ="pointId"/>
@@ -180,18 +180,15 @@
 	
 	<update id="expireAccount" parameterType="string">
 		update users
-		set eco_challenge_id = NULL
-		where user_id = #{value}
+		set eco_challenge_id = NULL, participation_count=0
+		where user_id = #{value} 
 	</update>
-	
-
 	
 	<select id="getAllUser" resultMap="userWithPointAndEcoChallenge">
 		select u.user_id, u.user_name, u.register_date, u.birthday, u.account_number, u.participation_count,
-		p.total_point, e.eco_challenge_id, e.eco_challenge_name
+		p.total_point
 		from users u
 		join point p on u.point_id = p.point_id
-		join eco_challenge e on u.eco_challenge_id = e.eco_challenge_id
 		where is_admin=0 and is_withdraw=0
 	</select>
 	

@@ -184,6 +184,8 @@
 		where user_id = #{value}
 	</update>
 	
+
+	
 	<select id="getAllUser" resultMap="userWithPointAndEcoChallenge">
 		select u.user_id, u.user_name, u.register_date, u.birthday, u.account_number, u.participation_count,
 		p.total_point, e.eco_challenge_id, e.eco_challenge_name

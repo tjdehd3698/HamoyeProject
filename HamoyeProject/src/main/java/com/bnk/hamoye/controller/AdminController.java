@@ -263,6 +263,18 @@ public class AdminController {
 		return jsonObject;
 	}
 	
+	@PostMapping("updateUserParticipationCountWithPublicTransportaion.do") //대중교통 챌린지 확인
+	@ResponseBody
+	public String updateUserParticipationCountWithPublicTransportaion(String ecoChallengeId) {
+		try {
+			adminService.updateUserParticipationCountWithPublicTransportaion(ecoChallengeId);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return "";
+	}
+	
 	@PostMapping("registerEcoChallenge.do") //ecoChallenge 등록(사진 업로드)
 	@ResponseBody
 	public String registerEcoChallenge(EcoChallenge ecoChallenge, MultipartFile img1, MultipartFile img2,  MultipartFile img3) {

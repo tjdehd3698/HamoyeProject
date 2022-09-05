@@ -19,22 +19,22 @@
 	$(function() { 
 		$("#save_participationCount").click(function(){ 
 			var param="";
-			var dataList ="[";
+			var dataList =[];
 			
 			$(":checkbox:checked").each(function(index, item) {
 				alert( $(item).parent().parent().children("td").eq(4).html());
  				data={
-						ecoChallengeId :  $(item).parent().parent().children("td").eq(1).html(),
-						userId :  $(item).parent().parent().children("td").eq(2).html(),
-						userName : $(item).parent().parent().children("td").eq(3).children("a").html(),
-						participationCount :  $(item).parent().parent().children("td").eq(4).html()
+						ecoChallengeId :  $(item).parent().parent().children('td').eq(1).html(),
+						userId :  $(item).parent().parent().children('td').eq(2).html(),
+						userName : $(item).parent().parent().children('td').eq(3).children('a').html(),
+						participationCount :  $(item).parent().parent().children('td').eq(4).html()
 				} 
- 				console.log(data);
- 				dataList =dataList + data; 
+ 				dataList.push(data); 
 			});//each
 			
-			dataList= dataList + "]";
-			console.log(dataList);
+			console.log("dataList : "+dataList);
+			var jsondata =  JSON.stringify(dataList);
+			//console.log("jsondata : " + jsondata);
 			
 			
 			$.ajax({
@@ -42,10 +42,8 @@
 				url:'updateUserParticipationCount.do',
 				traditional : true,
 				dataType: 'json',
-				data:{
-					"user" :  JSON.stringify(dataList),
-					"count" : JSON.stringify($("#adminChl_participationCount"))
-				},
+				contentType: "application/json; charset=utf-8",
+				data: jsondata,
 				
 				success:function(result) {
 					alert(result);

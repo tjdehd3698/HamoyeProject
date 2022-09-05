@@ -11,10 +11,12 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,6 +31,7 @@ import com.bnk.hamoye.service.AdminService;
 import com.bnk.hamoye.service.EcoChallengeService;
 import com.bnk.hamoye.service.TripChallengeService;
 import com.bnk.hamoye.service.UserService;
+import com.mysql.cj.xdevapi.JsonArray;
 
 import lombok.RequiredArgsConstructor;
 
@@ -240,12 +243,12 @@ public class AdminController {
 	
 	@PostMapping("updateUserParticipationCount.do") //회원 참여횟수 조정
 	@ResponseBody
-	public String updateUserParticipationCount(@RequestParam List<User> user,int count) {
+	public String updateUserParticipationCount(@RequestBody List<User> user, @RequestBody String count) {
 		String result ="F";
-		System.out.println("11");
 		try {
-			System.out.println("zzz"+user);
-			System.out.println("12"+count);
+			for(User s: user) {
+				System.out.println(s);
+			}
 			//int row = adminService.updateUserParticipationCountWithVolunteer(user, count);
 			
 			

@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<c:choose>
+<c:when test="${!empty user}">
 <!DOCTYPE html>
 <html>
 <head>
@@ -348,3 +350,8 @@
 <script src="js/main.js"></script>
 </body>
 </html>
+</c:when>
+<c:otherwise>
+	<jsp:include page="../index.jsp"></jsp:include>
+</c:otherwise>
+</c:choose>

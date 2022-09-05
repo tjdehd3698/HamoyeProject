@@ -73,18 +73,17 @@ public class EcoChallengeController {
 				path = "chl/MWPCHLV01M";
 
 			} else if (challengeType.equals("trip")) {
-				TripChallenge tripChallenge = tripChallengeService.getTripChallengeDetail(challengeId);
-				model.addAttribute("tripChallenge", tripChallenge);
-				tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
-				String content = tripChallenge.getContent();
-				String[] newContent = content.split("@@");
+				TripChallenge tripChallenge = tripChallengeService.getTripChallengeDetail(challengeId); 
+				model.addAttribute("tripChallenge", tripChallenge); 
+				tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!"); 
+				String content = tripChallenge.getContent(); 
+				String[] newContent = content.split("@@"); 
 				model.addAttribute("newContent", newContent);
-
+				
 				String flag = "F";
 				String userId = (String) session.getAttribute("user");
 				model.addAttribute("existUser", userId);
 				String tripChallengeType = tripChallenge.getTripChallengeType();
-
 				if (userId != null) {
 
 					if (tripChallengeType.charAt(0) == '3') {
@@ -101,13 +100,15 @@ public class EcoChallengeController {
 						path = "chl/MWPCHLV04M";
 					} else if (tripChallengeType.charAt(0) == '5') {
 
+						System.out.println("111111111");
 						List<String> todayRetaurantsNameList = restaurantService.getTodayRetaurantsName();
+						System.out.println("2222222");
 						List<Coordinate> coordinateOfTodayRestaurantList = restaurantService.getCoordinateOfTodayRestaurants();
 						List<Double> longitudeList = new ArrayList<>();
 						List<Double> latitudeList = new ArrayList<>();
 						
-						
 						for(Coordinate co : coordinateOfTodayRestaurantList) {
+							System.out.println("3333333");
 							longitudeList.add(co.getLongitude());
 							latitudeList.add(co.getLatitude());
 						}

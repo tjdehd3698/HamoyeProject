@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="sql.hamoye.todayRestaurant_mapper">
+	
+	<insert id="registerTodayRestaurant" parameterType="todayRestaurant">
+		<selectKey keyProperty="todayRestaurantCode" resultType="string" order="BEFORE">
+			select 'trc'||today_seq.nextval from dual
+		</selectKey>
+		insert into 
+		today_restaurant(today_restaurant_code, restaurant_id, restaurant_name, category)
+		values(#{todayRestaurantCode},#{restaurantId}, #{restaurantName}, #{category})
+	</insert>
+	
+	<select id="getTodayRestaurantsByCategory" parameterType = "string" resultType="todayRestaurant">
+		select today_restaurant_code, restaurant_id, restaurant_name, category, register_date
+		from today_restaurant
+		where category= #{value}
+	</select>
+	
+	<select id="getTodayRestaurantsByName" parameterType = "string" resultType="todayRestaurant">
+		select today_restaurant_code, restaurant_id, restaurant_name, category, register_date
+		from today_restaurant
+		where name like '%' || #{value} || '%'
+	</select>
+	
+	<select id="getTodayRestaurantById" parameterType = "string" resultType="todayRestaurant">
+		select today_restaurant_code, restaurant_id, restaurant_name, category, register_date
+		from today_restaurant
+		where restaurant_id = #{value}
+	</select>
+	
+	<update id="updateTodayRestaurant" parameterType = "todayRestaurant">
+		update today_restaurant
+		set restaurant_id = #{restaurantId},
+		restaurant_name = #{restaurantName},
+		category = #{category},
+		register_date = #{registerDate}
+		where today_restaurant_code = #{todayRestaurantCode}
+	</update>
+	
+	<delete id="deleteTodayRestaurantById" parameterType = "string">
+		delete from today_restaurant
+		where restaurant_id = #{value}
+	</delete>
+	
+	<select id="getTodayRestaurantByDate" parameterType = "Date" resultType = "todayRestaurant">
+		select today_restaurant_code, restaurant_id, restaurant_name, category, register_date
+		from today_restaurant
+		where register_date = #{registerDate}
+	</select>
+	
+	<select id="getAllTodayRestaurants" resultType = "todayRestaurant">
+		select today_restaurant_code, restaurant_id, restaurant_name, category, register_date
+		from today_restaurant
+	</select>
+	
+	<select id="getTodayRestaurantsName" resultType = "string">
+		select restaurant_name
+		from today_restaurant
+	</select>
+	
+	<select id="getCoordinateOfTodayRestaurants" resultType = "Coordinate">
+		select r.longitude, r.latitude from restaurant r inner join
+		today_restaurant t
+        on r.restaurant_id=t.restaurant_id
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+

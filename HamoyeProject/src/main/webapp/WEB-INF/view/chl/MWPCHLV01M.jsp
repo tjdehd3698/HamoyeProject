@@ -17,7 +17,7 @@
 	<script>
 	$(document).ready(function() {
 		
-		if("${checkJoinChallenge}" == true){
+		if("${checkJoinChallenge}" == 'T'){
 			$("#registerChallenge").attr("disabled","disabled");
 		}
 		

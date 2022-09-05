@@ -11,6 +11,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -242,20 +244,23 @@ public class AdminController {
 	
 	@PostMapping("updateUserParticipationCount.do") //회원 참여횟수 조정
 	@ResponseBody
-	public String updateUserParticipationCount(@RequestBody List<User> user) {
-		String result ="F";
+	public JSONObject updateUserParticipationCount(@RequestBody List<User> user) {
+		String result = "{\"result\" : \"T\"}";
+		JSONObject jsonObject= null;
 		try {
 			for(User s: user) {
 				System.out.println(s);
 			}
 			int row = adminService.updateUserParticipationCountWithVolunteer(user);
-			if(row==user.size()) {
-				result = "T";
-			}
+//			if(row==user.size()) {
+//				result = "T";
+//			}
+			JSONParser parser = new JSONParser();       
+			jsonObject = (JSONObject) parser.parse(result);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return result;
+		return jsonObject;
 	}
 	
 	@PostMapping("registerEcoChallenge.do") //ecoChallenge 등록(사진 업로드)

@@ -43,11 +43,8 @@
 				data: jsondata,
 				
 				success:function(result) {
-					alert(result);
+					location.reload();
 				},
-				error:function(){
-					alert("zz");
-				}
 			});
 			
 		});

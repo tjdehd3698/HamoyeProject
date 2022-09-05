@@ -11,7 +11,7 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
- 	<!-- Spinner Start -->
+ 	 <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
@@ -20,81 +20,30 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center">
-            <h1 class="display-4 text-white animated slideInDown mb-4">회원가입</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-            </nav>
+            <h1 class="display-4 text-white animated slideInDown mb-4">회원가입 완료</h1>
         </div>
     </div>
     <!-- Page Header End -->
-    
-    <!-- Service Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-        
-			<div class="mb-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Step 3</div>
-                <h1 class="display-6 mb-5">고객님의 기본정보를 확인해주세요</h1>
+
+    <!-- success Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <i class="bi bi-check2-circle display-1 text-primary"></i>
+                    <h1 class="mt-2 mb-4"><strong class="fw-bold text-primary">HA</strong>MOYE 회원가입이<br>완료되었습니다.</h1>
+                    <p class="mb-4">지금 바로 챌린지에<br>도전해볼까요?😊</p>
+                    <a class="btn btn-outline-primary py-2 px-3" href="#none" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        로그인 하기
+                        <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                            <i class="fa fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
             </div>
-            
-            <div class="wow fadeIn" data-wow-delay="0.5s">
-				<form>
-					<div class="mb-5">
-						<div class="mb-3 row">
-							<label for="userName" class="col-sm-2 col-form-label">ID</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="userId" readonly value="id1234">
-							</div>
-						</div>
-						<div class="mb-3 row">
-							<label for="userName" class="col-sm-2 col-form-label">이름</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="userName" readonly value="김부산">
-							</div>
-						</div>
-						<div class="mb-3 row">
-							<label for="userAge" class="col-sm-2 col-form-label">생년월일</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="userAge" readonly value="951230">
-							</div>
-						</div>
-						<div class="my-3 row">
-							<label for="gender" class="col-sm-2 col-form-label">성별</label>
-							<div class="col-sm-10 mt-1">
-								<span>
-					              <input id="gender0" name="gender" type="radio" class="form-check-input" onClick="return false;" checked="checked">
-					              <label class="form-check-label" for="gender0">남자</label>
-								</span>
-								<span class="ms-2">
-					              <input id="gender1" name="gender" type="radio" class="form-check-input" onClick="return false;">
-					              <label class="form-check-label" for="gender1">여자</label>
-								</span>					              
-					        </div>
-				        </div>
-						<div class="mb-3 row">
-							<label for="userAddress" class="col-sm-2 col-form-label">주소</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="userAddress" readonly value="부산광역시 남구 문현금융로 30 부산은행">
-							</div>
-						</div>
-						<div class="mb-3 row">
-							<label for="email" class="col-sm-2 col-form-label">이메일</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="email" value="you@example.com" readonly>
-							</div>
-						</div>
-					</div>
-				</form>
-				
-				<button class="btn btn-primary px-5" style="height: 60px;">
-                    다음
-                    <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                </button>
-			</div>
-		</div>
+        </div>
     </div>
-    <!-- Service End -->
+    <!-- success End -->
   
  	<jsp:include page="../footer.jsp"></jsp:include>
 

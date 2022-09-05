@@ -30,7 +30,7 @@ public class UserController {
 	public String registerUser(User user, Model model) {
 		try {
 			userService.registerUser(user);
-			return "cmn/MWPCMNV03M";
+			return "cmn/MWPCMNV02M";
 		} catch (Exception e) {
 			System.out.println("registerUser 에러 : " + e.getMessage());
 			return "";
@@ -128,17 +128,23 @@ public class UserController {
 //		return "";
 //	}
 //	
-//	@GetMapping()
-//	public String findPassword(User user, Model model) {
-//		try {
-//			String findPassword = userService.findPassword(user);
-//			if(findPassword!=null) model.addAttribute("result", findPassword);
-//			else model.addAttribute("result", "F");
-//		} catch (SQLException e) {
-//			System.out.println("findPassword 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
+	
+	@RequestMapping("findPasswordPage.do")
+	public String findPasswordPage(User user, Model model) {
+		return "cmn/MWPCMNV04M";
+	}
+	
+	@GetMapping("findPassword.do")
+	public String findPassword(User user, Model model) {
+		try {
+			String findPassword = userService.findPassword(user);
+			if(findPassword!=null) model.addAttribute("result", findPassword);
+			else model.addAttribute("result", "F");
+		} catch (Exception e) {
+			System.out.println("findPassword 에러 : "+ e.getMessage());
+		}
+		return "";
+	}
 
 //	@GetMapping()
 //	public String checkEcoChallenge(HttpSession session, Model model) {

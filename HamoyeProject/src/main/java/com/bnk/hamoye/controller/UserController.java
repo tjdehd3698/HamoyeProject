@@ -135,17 +135,13 @@ public class UserController {
 	}
 	
 	@PostMapping("findPassword.do")
-	@ResponseBody
 	public String findPassword(User user, Model model) {
-		System.out.println(user);
-		String result = "F";
+		String result = "cmn/MWPCMNV03M";
 		try {
 			String findPassword = userService.findPassword(user);
 			
-			System.out.println("===");
-			
 			if(findPassword!=null) {
-				result = "T";
+				result = "cmn/MWPCMNV04M";
 				model.addAttribute("result", findPassword);
 			}
 		} catch (Exception e) {

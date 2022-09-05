@@ -37,21 +37,6 @@
 				return false;
 			}
 			
-			$.ajax({
-				type:'post',
-				url:'findPassword.do',
-				data:queryString,
-				success:function(result) {
-					if(result=="T"){
-						alert(result);
-					}else{
-						alert("회원정보가 일치하지 않습니다.");
-					}
-				},error:function(){
-					alert("다시 시도해주세요.");
-				}
-			});
-			
 		});
 		
 	});
@@ -83,7 +68,7 @@
             </div>
             
             <div class="wow fadeIn" data-wow-delay="0.5s">
-				<form method="post" name="frmFindPassword" id="frmFindPassword">
+				<form method="post" name="frmFindPassword" id="frmFindPassword" action="findPassword.do">
 					<div class="mb-5">
 						<div class="mb-3 row">
 						    <label for="userId" class="col-sm-2 col-form-label">ID</label>
@@ -108,7 +93,7 @@
 							</div>
 						</div>
 					</div>
-					<button class="btn btn-primary px-5" style="height: 60px;" type="button" id="nextPage">
+					<button class="btn btn-primary px-5" style="height: 60px;" type="submit" id="nextPage">
 	                    다음
 	                    <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
 	                        <i class="fa fa-arrow-right"></i>

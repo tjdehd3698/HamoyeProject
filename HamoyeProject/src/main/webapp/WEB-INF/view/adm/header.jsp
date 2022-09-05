@@ -60,6 +60,7 @@ $(function(){
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">trip</h6>
                 <a class="collapse-item" href="adminTripChallengeList.do">떠나요 부산</a>
+                <a class="collapse-item" href="getTodayRestaurantPage.do">오늘의 식당</a>
             </div>
         </div>
     </li>

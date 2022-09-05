@@ -34,7 +34,7 @@ var myLineChart = new Chart(ctx, {
   data: {
     labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
     datasets: [{
-      label: "동백포인트",
+      label: "챌린지",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",

@@ -282,12 +282,17 @@ public class AdminController {
 		List<TodayRestaurant> todayRestaurantList = restaurantService.getAllTodayRestaurants(); //전체 오늘의 식당 리스트
 		model.addAttribute("todayRestaurantList", todayRestaurantList);
 		
-		return "";
+		return "adm/ADMCHLV20M";
 	}
 	
 	@PostMapping("updateTodayRestaurant.do") //오늘의 식당 변경
 	@ResponseBody
-	public String updateTodayRestaurant(List<String> restaurantIdList) {
+	public String updateTodayRestaurant(@RequestParam(value="restaurantIdList[]") List<String> restaurantIdList) {
+		
+		for(String rl : restaurantIdList) {
+            System.out.println(rl);
+        }
+		 
 		restaurantService.deleteAllTodayRestaurant();
 		restaurantService.updateTodayRestaurant(restaurantIdList);
 		

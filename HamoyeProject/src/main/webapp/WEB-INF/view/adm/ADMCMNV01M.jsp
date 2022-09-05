@@ -18,7 +18,27 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 			<jsp:include page="header.jsp"></jsp:include>
+			<script type="text/javascript">
+				var arrUserCntByEcoChlKey = [];
+				var arrUserCntByEcoChlVal = [];
+				
+				<c:forEach items="${userCntByEcoChallengeType}" var="item">
+					if(${item.key == '1001'}) arrUserCntByEcoChlKey.push("대중교통"); 
+					else if(${item.key == '1002'}) arrUserCntByEcoChlKey.push("봉사참여"); 
+					else arrUserCntByEcoChlKey.push("${item.key}"); 
+					
+					if(${item.key == '기타'}){
+						var value = ${item.value} / ${totalUserCnt} * 100; 
+						arrUserCntByEcoChlVal.push(value);
+					}else{
+						arrUserCntByEcoChlVal.push("${item.value}");
+					}
+				</c:forEach>
 			
+				$(document).ready(function() {
+					$(".nav-item:eq(0)").addClass("active");
+				});
+			</script>
 	        <!-- Content Wrapper -->
 	        <div id="content-wrapper" class="d-flex flex-column">
 				<div id="content">
@@ -118,7 +138,7 @@
 	                            <div class="card shadow mb-4">
 	                                <!-- Card Header - Dropdown -->
 	                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-	                                    <h6 class="m-0 font-weight-bold text-primary">부산을 떠나요 챌린지 월별 증가량</h6>
+	                                    <h6 class="m-0 font-weight-bold text-primary">챌린지 월별 건수</h6>
 	                                </div>
 	                                <!-- Card Body -->
 	                                <div class="card-body">
@@ -233,11 +253,6 @@
 	<!-- Page level custom scripts -->
 	<script src="js/chart-area-admin.js"></script>
 	<script src="js/chart-pie-admin.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".nav-item:eq(0)").addClass("active");
-		});
-	</script>
 </body>
 </html>
 </c:when>

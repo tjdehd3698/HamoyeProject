@@ -34,7 +34,7 @@ public class MyPageController {
 		} catch (Exception e) {
 			System.out.println("updateUser 에러 : "+ e.getMessage());
 		}
-		return "mpg/MWPMPGV00M";
+		return "mpg/MWPMPGV01M";
 	} 
 	
 	@GetMapping("moveToChangeForm.do") //회원 정보 변경 페이지 이동

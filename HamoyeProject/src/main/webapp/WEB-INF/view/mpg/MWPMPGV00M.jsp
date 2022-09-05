@@ -351,7 +351,7 @@
 </body>
 </html>
 </c:when>
-<c:otherwise>
-	<jsp:include page="../index.jsp"></jsp:include>
+<c:otherwise> 
+	<jsp:include page="../index.jsp"></jsp:include> 
 </c:otherwise>
 </c:choose>

@@ -174,7 +174,7 @@
 						<div class="mb-3 row">
 							<label for="email" class="col-sm-2 col-form-label">이메일</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="email" placeholder="hamoye@example.com" name="email" maxlength="50" required/>
+								<input type="text" class="form-control" id="email" placeholder="ex) hamoye@example.com" name="email" maxlength="50" required/>
 								<div class="form-text text-primary"></div>
 							</div>
 						</div>

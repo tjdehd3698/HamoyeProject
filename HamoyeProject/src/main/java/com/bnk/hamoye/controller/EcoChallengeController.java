@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bnk.hamoye.domain.Account;
+import com.bnk.hamoye.domain.Coordinate;
 import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.Participation;
+import com.bnk.hamoye.domain.TodayRestaurant;
 import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.EcoChallengeService;
+import com.bnk.hamoye.service.RestaurantService;
 import com.bnk.hamoye.service.TripChallengeService;
 import com.bnk.hamoye.service.UserService;
 
@@ -32,6 +35,7 @@ public class EcoChallengeController {
 	private final EcoChallengeService ecoChallengeService;
 	private final TripChallengeService tripChallengeService;
 	private final UserService userService;
+	private final RestaurantService restaurantService;
 
 	@GetMapping("challengeDetail.do")
 	public String getChallengeDetail(String challengeType, String challengeId, Model model, HttpSession session) {
@@ -41,13 +45,13 @@ public class EcoChallengeController {
 		try {
 
 			if (challengeType.equals("eco")) {
-				
+
 				EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(challengeId);
 				EcoChallenge ecoChallenge2 = ecoChallengeService.getEcoChallengeDetail(challengeId);
 				List<EcoChallenge> list = new ArrayList<>();
 				ecoChallenge2.setPrimeRate(ecoChallenge2.getPrimeRate());
 				list.add(ecoChallenge);
-				ecoChallenge.setPrimeRate(ecoChallenge.getPrimeRate()-0.2);
+				ecoChallenge.setPrimeRate(ecoChallenge.getPrimeRate() - 0.2);
 				list.add(ecoChallenge2);
 				model.addAttribute("ecoChallenge", ecoChallenge);
 				model.addAttribute("list", list);
@@ -55,19 +59,19 @@ public class EcoChallengeController {
 				String content = ecoChallenge.getContent();
 				String[] newContent = content.split("@@");
 				model.addAttribute("newContent", newContent);
-				
+
 				String userId = (String) session.getAttribute("user");
-				if(userId!=null) {
-				User user = userService.getUserAllInfo(userId);
-				
-				if(user.getAccountNumber()!=null) {
-					model.addAttribute("checkJoinChallenge", "F");
-				}else {
-					model.addAttribute("checkJoinChallenge", "T");
-				}
+				if (userId != null) {
+					User user = userService.getUserAllInfo(userId);
+
+					if (user.getAccountNumber() != null) {
+						model.addAttribute("checkJoinChallenge", "F");
+					} else {
+						model.addAttribute("checkJoinChallenge", "T");
+					}
 				}
 				path = "chl/MWPCHLV01M";
-				
+
 			} else if (challengeType.equals("trip")) {
 				TripChallenge tripChallenge = tripChallengeService.getTripChallengeDetail(challengeId);
 				model.addAttribute("tripChallenge", tripChallenge);
@@ -79,19 +83,47 @@ public class EcoChallengeController {
 				String flag = "F";
 				String userId = (String) session.getAttribute("user");
 				model.addAttribute("existUser", userId);
+				String tripChallengeType = tripChallenge.getTripChallengeType();
+
 				if (userId != null) {
-					Participation participation = new Participation();
-					participation.setUserId(userId);
-					participation.setTripChallengeId(challengeId);
-					int value = tripChallengeService.checkParticipationTripChallenge(participation);
-					if (value > 0) {
-						flag = "T";
+
+					if (tripChallengeType.charAt(0) == '3') {
+
+						Participation participation = new Participation();
+						participation.setUserId(userId);
+						participation.setTripChallengeId(challengeId);
+						int value = tripChallengeService.checkParticipationTripChallenge(participation);
+						if (value > 0) {
+							flag = "T";
+						}
+
+						model.addAttribute("flag", flag);
+						path = "chl/MWPCHLV04M";
+					} else if (tripChallengeType.charAt(0) == '5') {
+
+						List<String> todayRetaurantsNameList = restaurantService.getTodayRetaurantsName();
+						List<Coordinate> coordinateOfTodayRestaurantList = restaurantService.getCoordinateOfTodayRestaurants();
+						List<Double> longitudeList = new ArrayList<>();
+						List<Double> latitudeList = new ArrayList<>();
+						
+						
+						for(Coordinate co : coordinateOfTodayRestaurantList) {
+							longitudeList.add(co.getLongitude());
+							latitudeList.add(co.getLatitude());
+						}
+						model.addAttribute("nameList", todayRetaurantsNameList);
+						model.addAttribute("longitudeList", longitudeList);
+						model.addAttribute("latitudeList", latitudeList);
+						model.addAttribute("len", todayRetaurantsNameList.size());
+						
+						path = "chl/MWPCHLV03M";
+					} else {
+						
+						path = "chl/MWPCHLV03M";
+
 					}
-					
-					model.addAttribute("flag", flag);
 				}
 
-				path = "chl/MWPCHLV04M";
 			}
 		} catch (Exception e) {
 		}
@@ -104,10 +136,6 @@ public class EcoChallengeController {
 		try {
 			List<EcoChallenge> ecoChallengeList = ecoChallengeService.getEcoChallengeList();
 			List<TripChallenge> tripChallengeList = tripChallengeService.getTripChallengeList();
-			
-			for(EcoChallenge eco : ecoChallengeList) {
-			System.out.println(eco);
-			}
 
 			model.addAttribute("ecoChallengeList", ecoChallengeList);
 			model.addAttribute("tripChallengeList", tripChallengeList);
@@ -134,11 +162,11 @@ public class EcoChallengeController {
 			tripChallengeService.participateTripChallenge(participation);
 			tripChallengeService.addPoint(userId, rewardPoint); // 포인트 업뎃
 			int value = tripChallengeService.checkParticipationTripChallenge(participation);
-			
-			if(value>0) {
+
+			if (value > 0) {
 				flag = "T";
 			}
-			
+
 		} catch (Exception e) {
 		}
 
@@ -147,30 +175,30 @@ public class EcoChallengeController {
 
 	@PostMapping("joinChallenge.do")
 	@ResponseBody
-	public String getPoint(HttpSession session, String purpose,
-			String incomeSource, String maturity, String ecoChallengeId) {
+	public String getPoint(HttpSession session, String purpose, String incomeSource, String maturity,
+			String ecoChallengeId) {
 		String result = "F";
 		try {
 			String userId = (String) session.getAttribute("user");
 			User user = userService.getUserInfo(userId);
 			EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(ecoChallengeId);
 			System.out.println(ecoChallenge);
-			
+
 			Account account = new Account();
 			Date now = new Date();
-			
-			Calendar cal = Calendar.getInstance(); 
+
+			Calendar cal = Calendar.getInstance();
 			cal.setTime(now);
 			String[] newMaturity = maturity.split("개");
-		    cal.add(Calendar.MONTH, Integer.parseInt(newMaturity[0].trim()));
-		    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		    String formattedDate = simpleDateFormat.format(cal.getTime());
-		    account.setIncomeSource(incomeSource);
+			cal.add(Calendar.MONTH, Integer.parseInt(newMaturity[0].trim()));
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String formattedDate = simpleDateFormat.format(cal.getTime());
+			account.setIncomeSource(incomeSource);
 			account.setMatureDate(java.sql.Date.valueOf(formattedDate));
 			account.setPrimeRate(ecoChallenge.getPrimeRate());
 			account.setPurpose(purpose);
 			int value = userService.joinAccount(account, userId, ecoChallengeId);
-	
+
 			if (value > 0) {
 				result = "T";
 			}
@@ -182,16 +210,16 @@ public class EcoChallengeController {
 
 	@GetMapping("nextPage.do")
 	public String nextPage(Model model) {
-		//현재 날짜 구하기 (시스템 시계, 시스템 타임존) 
-		LocalDate now = LocalDate.now(); // 현재 날짜  구하기(Paris)
-		
+		// 현재 날짜 구하기 (시스템 시계, 시스템 타임존)
+		LocalDate now = LocalDate.now(); // 현재 날짜 구하기(Paris)
+
 		model.addAttribute("year", now.getYear());
-		model.addAttribute("month",now.getMonthValue());
-		model.addAttribute("day",now.getDayOfMonth());
+		model.addAttribute("month", now.getMonthValue());
+		model.addAttribute("day", now.getDayOfMonth());
 
 		return "chl/MWPCHLV11M";
 	}
-	
+
 	@GetMapping("completeJoin.do")
 	public String completeJoin(String ecoChallengeId, String accountNumber, HttpSession session, Model model) {
 		User user = new User();
@@ -204,5 +232,5 @@ public class EcoChallengeController {
 		model.addAttribute("joinedUser", user);
 		return "chl/MWPCHLV12M";
 	}
-	
+
 }

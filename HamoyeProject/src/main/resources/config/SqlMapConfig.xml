@@ -34,6 +34,8 @@
 		<mapper resource="mappers/trip_challenge_mapper.xml"/>	
 		<mapper resource="mappers/participation_mapper.xml"/>	
 		<mapper resource="mappers/payment_mapper.xml"/>	
+		<mapper resource="mappers/restaurant_mapper.xml"/>	
+		<mapper resource="mappers/todayRestaurant_mapper.xml"/>	
 	</mappers>
 	
 </configuration>

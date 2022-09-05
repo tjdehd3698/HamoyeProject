@@ -6,6 +6,7 @@ import lombok.Data;
 public class Restaurant {
 	private String restaurantId ;
 	private String restaurantName;
+	private String category;
 	private String location;
 	private String longitude;
 	private String latitude;

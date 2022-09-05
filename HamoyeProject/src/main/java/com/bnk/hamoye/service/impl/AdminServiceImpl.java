@@ -236,15 +236,15 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public int updateUserParticipationCountWithVolunteer(List<User> userList) throws Exception {
-		Map<String, Integer> map = new HashMap<String, Integer>();
+		Map<String, String> map = new HashMap<String, String>();
 		// 에코 챌린지 목표 횟수
 		int totalCount = ecoChallengeDAO.getEcoChallengeDetail(userList.get(0).getEcoChallengeId()).getTotalCount();
 		
 		for(User u: userList) {
-			map.put(u.getUserId(), u.getUserAge());
+			map.put("count", ""+u.getUserAge());
+			map.put("userId", u.getUserId());
 			
 			//조건 충족 시 우대 이율 업데이트
-			System.out.println(u.getParticipationCount()+"/"+u.getUserAge()+"/"+totalCount);
 			if(u.getParticipationCount()<totalCount && u.getParticipationCount()+u.getUserAge()>=totalCount) {
 				accountDAO.updatePrimeRate(u.getUserId());
 			}

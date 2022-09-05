@@ -215,7 +215,7 @@
 	<update id="updateUserParticipationCount" parameterType="hashMap">
 		update users
 		set
-		participation_count = participation_count + #{count}
+		participation_count = participation_count + to_number(#{count})
 		where user_id = #{userId}
 	</update>
 	

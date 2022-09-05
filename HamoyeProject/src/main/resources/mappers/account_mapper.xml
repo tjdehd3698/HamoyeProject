@@ -56,12 +56,11 @@
 		(select e.prime_rate 
 		from eco_challenge e 
 		join users u on e.eco_challenge_id = u.eco_challenge_id
-		where u.user_id ='z')
+		where u.user_id =#{value})
         where a.account_number =
         (select u.account_number
         from users u 
-        where user_id =#{value}
-        );
+        where user_id =#{value})
 	</update>
 </mapper>
 

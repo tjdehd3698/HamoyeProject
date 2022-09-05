@@ -11,7 +11,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -250,7 +249,6 @@ public class AdminController {
 				System.out.println(s);
 			}
 			int row = adminService.updateUserParticipationCountWithVolunteer(user);
-			System.out.println(row + user.size());
 			if(row==user.size()) {
 				result = "T";
 			}

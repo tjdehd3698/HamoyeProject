@@ -167,10 +167,8 @@ $(function(){
 							<div class="form-text text-primary"></div>
 						</div>
 					 	<a href="agree.do" class="stretched-link" style="position: relative;">처음이신가요?</a>
-	<!-- 						<div class="mb-3 form-check"> -->
-	<!-- 						  <input type="checkbox" class="form-check-input" id="user_check"> -->
-	<!-- 						  <label class="form-check-label" for="user_check">Check me out</label> -->
-	<!-- 						</div> -->
+					 	<span class="login-partition"></span>
+					 	<a href="findPasswordPage.do" class="stretched-link" style="position: relative;">비밀번호를 잊으셨나요?</a>
 			    </div>
 			    <div class="modal-footer">
 			<!-- 				<button type="button" class="btn btn-secondary btn-lg">회원가입</button> -->

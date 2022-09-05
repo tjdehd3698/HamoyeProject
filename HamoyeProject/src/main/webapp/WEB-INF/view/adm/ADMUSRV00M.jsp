@@ -53,7 +53,7 @@
 	                                            <td><a href="adminGetUser.do?userId=${item.userId}">${item.userName}</a></td>
 	                                            <td>${item.birthday}</td>
 	                                            <td>${item.accountNumber}</td>
-	                                            <td>${item.ecoChallenge}</td>
+	                                            <td>${item.ecoChallenge.ecoChallengeName}</td>
 	                                            <td>${item.participationCount}</td>
 	                                            <td>${item.point.totalPoint}</td>
 	                                            <td>${item.registerDate}</td>

@@ -6,7 +6,8 @@
 
 	<settings>
 		<setting name="jdbcTypeForNull" value="NULL"/>
-		<setting name="mapUnderscoreToCamelCase" value="true" />		
+		<setting name="mapUnderscoreToCamelCase" value="true" />	
+		<setting name="defaultStatementTimeout" value="5"/> 	
 	</settings>
 
 	<typeAliases>

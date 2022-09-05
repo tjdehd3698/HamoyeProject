@@ -216,7 +216,7 @@
 		update users
 		set
 		participation_count = participation_count + #{count}
-		where user_id = {userId}
+		where user_id = #{userId}
 	</update>
 	
 </mapper>

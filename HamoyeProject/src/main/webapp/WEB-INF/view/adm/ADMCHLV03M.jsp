@@ -22,13 +22,12 @@
 			var dataList =[];
 			
 			$(":checkbox:checked").each(function(index, item) {
-				alert( $(item).parent().parent().children("td").eq(4).html());
  				data={
 						ecoChallengeId :  $(item).parent().parent().children('td').eq(1).html(),
 						userId :  $(item).parent().parent().children('td').eq(2).html(),
 						userName : $(item).parent().parent().children('td').eq(3).children('a').html(),
 						participationCount :  $(item).parent().parent().children('td').eq(4).html(),
-						userAge : $("#adminChl_hidden").val()
+						userAge : $("#adminChl_participationCount").val()
 				} 
  				dataList.push(data); 
 			});//each

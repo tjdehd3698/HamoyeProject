@@ -249,11 +249,11 @@ public class AdminController {
 			for(User s: user) {
 				System.out.println(s);
 			}
-			//int row = adminService.updateUserParticipationCountWithVolunteer(user, count);
-			
-			
-			//if(row==user.size()) 
+			int row = adminService.updateUserParticipationCountWithVolunteer(user);
+			System.out.println(row + user.size());
+			if(row==user.size()) {
 				result = "T";
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}

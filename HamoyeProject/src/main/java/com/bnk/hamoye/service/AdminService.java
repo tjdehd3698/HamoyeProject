@@ -30,6 +30,6 @@ public interface AdminService {
 	Map<String, Double> getUserCntByEcoChallengeType(int totalUserCnt) throws Exception; //에코 챌린지 타입 별 유저 수 조회
 	int updateTripChallengeImage(TripChallenge tripChallenge) throws Exception; //트립챌린지 사진 업데이트
 	int updateEcoChallengeImage(EcoChallenge ecoChallenge) throws Exception; //에코챌린지 사진 업데이트
-	int updateUserParticipationCountWithVolunteer(List<User> userList, int count) throws Exception; //봉사 챌린지 특정 유저목록의 유저 참여 횟수 증가
+	int updateUserParticipationCountWithVolunteer(List<User> userList) throws Exception; //봉사 챌린지 특정 유저목록의 유저 참여 횟수 증가
 	int updateUserParticipationCountWithPublicTransportaion(String ecoChallengeId) throws Exception; //대중교통 챌린지 유저 참여 횟수 증가
 }

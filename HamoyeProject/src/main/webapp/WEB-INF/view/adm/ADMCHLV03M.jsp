@@ -27,15 +27,13 @@
 						ecoChallengeId :  $(item).parent().parent().children('td').eq(1).html(),
 						userId :  $(item).parent().parent().children('td').eq(2).html(),
 						userName : $(item).parent().parent().children('td').eq(3).children('a').html(),
-						participationCount :  $(item).parent().parent().children('td').eq(4).html()
+						participationCount :  $(item).parent().parent().children('td').eq(4).html(),
+						userAge : $("#adminChl_hidden").val()
 				} 
  				dataList.push(data); 
 			});//each
 			
-			console.log("dataList : "+dataList);
 			var jsondata =  JSON.stringify(dataList);
-			//console.log("jsondata : " + jsondata);
-			
 			
 			$.ajax({
 				type:'post',

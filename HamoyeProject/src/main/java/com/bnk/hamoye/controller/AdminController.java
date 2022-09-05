@@ -243,7 +243,7 @@ public class AdminController {
 	
 	@PostMapping("updateUserParticipationCount.do") //회원 참여횟수 조정
 	@ResponseBody
-	public String updateUserParticipationCount(@RequestBody List<User> user, @RequestBody String count) {
+	public String updateUserParticipationCount(@RequestBody List<User> user) {
 		String result ="F";
 		try {
 			for(User s: user) {

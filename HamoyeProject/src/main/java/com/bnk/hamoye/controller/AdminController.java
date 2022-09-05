@@ -248,6 +248,7 @@ public class AdminController {
 			System.out.println("12"+count);
 			//int row = adminService.updateUserParticipationCountWithVolunteer(user, count);
 			
+			
 			//if(row==user.size()) 
 				result = "T";
 		} catch (Exception e) {

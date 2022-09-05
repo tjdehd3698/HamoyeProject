@@ -152,6 +152,7 @@ public class MyPageController {
 			List<Participation> list = userService.getParticipateChallenge((String) session.getAttribute("user"));
 			for(Participation p :list)
 				System.out.println(p);
+			
 			model.addAttribute("result", list);
 		} catch (Exception e) {
 

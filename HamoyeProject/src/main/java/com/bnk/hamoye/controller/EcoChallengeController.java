@@ -108,9 +108,10 @@ public class EcoChallengeController {
 						List<Double> latitudeList = new ArrayList<>();
 						
 						for(Coordinate co : coordinateOfTodayRestaurantList) {
-							System.out.println("3333333");
+//							System.out.println("3333333");
 							longitudeList.add(co.getLongitude());
 							latitudeList.add(co.getLatitude());
+							System.out.println(co.getLongitude()+" "+co.getLatitude());
 						}
 						model.addAttribute("nameList", todayRetaurantsNameList);
 						model.addAttribute("longitudeList", longitudeList);

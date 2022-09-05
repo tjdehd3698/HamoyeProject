@@ -29,4 +29,11 @@
 
 .form-check-input+label{vertical-align: middle;}
 
+.login-partition {
+    border-right: 1px solid #dee2e6;
+    height: 12px;
+    margin: 6px 7px 0;
+    display: inline-block;
+    vertical-align: top;
+}
 

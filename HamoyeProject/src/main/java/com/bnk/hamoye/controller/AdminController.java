@@ -231,10 +231,8 @@ public class AdminController {
 	
 	@GetMapping("getEcoChallengeUserListPage.do") //특정 ecoChallenge 참여자 리스트 조회 페이지 이동(참여횟수 조정)
 	public String getEcoChallengeUserListPage(String ecoChallengeId, Model model) {
-		try {
-			System.out.println("123");
-			List<User> userList = userService.getUserByEcoChallenge(ecoChallengeId);
-			System.out.println(userList);
+		try { 
+			List<User> userList = userService.getUserByEcoChallenge(ecoChallengeId); 
 			model.addAttribute("userList", userList);
 		} catch (Exception e) {
 			System.out.println(e);

@@ -242,7 +242,9 @@ public class AdminController {
 		String result ="F";
 		try {
 			int row = adminService.updateUserParticipationCountWithVolunteer(userList, count);
-			if(row==userList.size()) result = "T";
+			
+			if(row==userList.size()) 
+				result = "T";
 		} catch (Exception e) {
 			System.out.println(e);
 		}

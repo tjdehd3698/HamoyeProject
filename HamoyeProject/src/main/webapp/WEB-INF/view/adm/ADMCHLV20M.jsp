@@ -131,9 +131,11 @@
 						});
 						
 					   var objParams = {
-		                        "restaurantIdList" : indata
+		                        "restaurantId" : indata
 		                    };
-								
+						
+					   console.log(objParams);
+					   
 						$.ajax({
 							type : 'post',
 							url : 'updateTodayRestaurant.do',

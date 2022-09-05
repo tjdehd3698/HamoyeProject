@@ -287,7 +287,7 @@ public class AdminController {
 	
 	@PostMapping("updateTodayRestaurant.do") //오늘의 식당 변경
 	@ResponseBody
-	public String updateTodayRestaurant(@RequestParam(value="restaurantIdList[]") List<String> restaurantIdList) {
+	public String updateTodayRestaurant(@RequestParam(value="restaurantId[]") List<String> restaurantIdList) {
 		
 		for(String rl : restaurantIdList) {
             System.out.println(rl);

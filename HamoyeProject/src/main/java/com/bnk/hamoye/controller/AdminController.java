@@ -214,7 +214,7 @@ public class AdminController {
 			model.addAttribute("userCnt", cnt);
 			
 		} catch (Exception e) {
-			System.out.println("adminTripChallengeDetail 에러 : "+ e.getMessage());
+			System.out.println("adminTripChallengeDetail 에러 : "+ e);
 		}
 		return "adm/ADMCHLV11M";
 	}

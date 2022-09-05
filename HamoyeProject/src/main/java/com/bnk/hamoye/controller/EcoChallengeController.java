@@ -100,7 +100,7 @@ public class EcoChallengeController {
 						path = "chl/MWPCHLV04M";
 					} else if (tripChallengeType.charAt(0) == '5') {
 
-						System.out.println("111111111");
+						System.out.println("111111111"); 
 						List<String> todayRetaurantsNameList = restaurantService.getTodayRetaurantsName();
 						System.out.println("2222222");
 						List<Coordinate> coordinateOfTodayRestaurantList = restaurantService.getCoordinateOfTodayRestaurants();

@@ -18,20 +18,42 @@
 <script type="text/javascript"> 
 	$(function() { 
 		$("#save_participationCount").click(function(){ 
+			var param="";
+			
+			if($('#chal_check').is(':checked')) { 
+				alert("asd");
+			/* 	$("#loginId").next(".form-text").text("ID를 입력해주세요.");
+				document.FrmLogin.loginId.focus();
+				return false;
+ */			} else{ 
+				/* $("#loginId").next(".form-text").text("");
+				param += "&userId=" + document.FrmLogin.loginId.value; */
+			}/*
+			
+			if (document.FrmLogin.loginPassword.value == "" ) {
+				$("#loginPassword").next(".form-text").text("비밀번호를 입력해주세요.");
+				document.FrmLogin.loginPassword.focus();
+				return false;
+			}else{
+				$("#loginPassword").next(".form-text").text("");
+				param += "&userPassword=" + document.FrmLogin.loginPassword.value;
+			}
+			
 			$.ajax({
-				//요청
-				type:"post",
-				url:'updateUserParticipationCount.do', 
-				data:{"userList":${userList},//객체에 담긴다
-				//응답-> 서버측에서 보내는 데이터는 이 함수의 result인자값에 담긴다.
-				success: function (result) {
-    				$('#resultScope').html("<h2><font color=tomato>"+result+"</font></h2>"); //text는 뭐가 안돼?
-    				alert('데이터가 저장되었습니다.');  
-				},
-				error:function(){
+				type:'post',
+				url:'login.do',
+				data:param,
+				
+				success:function(result) {
+					if(result=="T"){
+						window.location.href = "home.do";
+					}else{
+						alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+					}
+				},error:function(){
 					alert("다시 시도해주세요.");
-				} 
-			});//ajax   
+				}
+			}); */
 			
 		});
 	}); 
@@ -59,33 +81,37 @@
 	                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 	                                    <thead>
 	                                        <tr>
+	                                        	<th>순번</th>
 	                                        	<th>챌린지ID</th>
 	                                            <th>사용자 ID</th>
 	                                            <th>사용자 이름</th> 
+	                                            <th>참가 횟수</th>
 	                                            <th>챌린지 참가 확인</th>  
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody>
-	                                        <c:forEach var="item" items="${userList}">
-	                                        <tr> 
+	                                        <c:forEach var="item" items="${userList}" varStatus="status">
+	                                        <tr>
+	                                        	<td>${status.count}</td>
 	                                        	<td>${item.ecoChallengeId}</td>
 	                                            <td>${item.userId}</td>
 	                                            <td><a href="adminGetUser.do?userId=${item.userId}">${item.userName}</a></td>
+	                                            <td>${item.participationCount}</td>
 	                                            <td>
-	                                            	<input type="checkbox">
-	                                            	<%-- <input type="number" id="adminChl_participationCount" value="${item.participationCount}">
-	                                            	<a><button id="save_participationCount">저장</button></a> --%>
+	                                            	<input id="chal_check" type="checkbox" value="item">
+	                                            	<input type="hidden" id="adminChl_hidden" value="${item.participationCount}">
+	                                            	<%--<a><button id="save_participationCount">저장</button></a> --%>
 	                                            </td>
 	                                        </tr>
 	                                        </c:forEach> 
 	                                    </tbody>
 	                                    <tfoot style="border-top:double">
 	                                        <tr>
-	                                        	<th style="border-right: none;"></th>
-	                                        	<th style="border-right: none;"></th>
+	                                        	<th style="border-right: none;"></th><th style="border-right: none;"></th>
+	                                        	<th style="border-right: none;"></th><th style="border-right: none;"></th>
 	                                        	<th style="border-right: none;text-align:right">참가 확인 횟수</th>
 	                                        	<th>
-	                                        		<input type="number" id="adminChl_participationCount" value="0">
+	                                        		<input type="number" id="adminChl_participationCount" value="0" min="0">
 	                                        		<button id="save_participationCount">
 	                                        			수정완료
 	                                        		</button>

@@ -40,7 +40,6 @@
 	                                            <th>이름</th>
 	                                            <th>생년월일</th>
 	                                            <th>계좌번호</th>
-	                                            <th>챌린지</th>
 	                                            <th>참여횟수</th>
 	                                            <th>포인트</th>
 	                                            <th>가입일</th>
@@ -53,7 +52,6 @@
 	                                            <td><a href="adminGetUser.do?userId=${item.userId}">${item.userName}</a></td>
 	                                            <td>${item.birthday}</td>
 	                                            <td>${item.accountNumber}</td>
-	                                            <td>${item.ecoChallenge.ecoChallengeName}</td>
 	                                            <td>${item.participationCount}</td>
 	                                            <td>${item.point.totalPoint}</td>
 	                                            <td>${item.registerDate}</td>

@@ -20,7 +20,22 @@
 		            $(this).css("width", $(this).attr("aria-valuenow") + '%');
 		        });
 		    }, {offset: '100%'});
+		    
+		    var param = getParameterByName('param');
+			
+		    setTimeout(function(){
+			    if(param=="intro"){
+				    $('html').animate({scrollTop : $("#intro").offset().top-70}, 1000);
+			    }
+		    },1200)
 		});
+		
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			results = regex.exec(location.search);
+			return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
 	</script>
 	<!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -29,7 +44,7 @@
     <!-- //Spinner End -->
     
    <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5">
+    <div class="container-fluid p-0 mb-5" id="index_area">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -101,7 +116,7 @@
 
 
     <!-- About Start -->
-    <div class="container-xxl py-5 pb-0">
+    <div class="container-xxl py-5 pb-0" id="intro">
         <div class="container">
 	        <div class="wow fadeInUp" data-wow-delay="0.1s">
 	            <div class="h-100">
@@ -177,7 +192,7 @@
                         <div class="position-relative mt-auto">
                             <img class="img-fluid" src="img/main-chl-1.png" alt="">
                             <div class="causes-overlay">
-                            	<a class="btn btn-outline-secondary" href="">
+                            	<a class="btn btn-outline-secondary" href="http://127.0.0.1:8899/challengeDetail.do?challengeType=eco&challengeId=eco2">
                                     자세히보기
                                     <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                         <i class="fa fa-arrow-right"></i>
@@ -210,7 +225,7 @@
                         <div class="position-relative mt-auto">
                             <img class="img-fluid" src="img/main-chl-2.png" alt="">
                             <div class="causes-overlay">
-                                <a class="btn btn-outline-secondary" href="">
+                                <a class="btn btn-outline-secondary" href="http://127.0.0.1:8899/challengeDetail.do?challengeType=eco&challengeId=eco3">
                                     자세히보기
                                     <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                         <i class="fa fa-arrow-right"></i>
@@ -239,7 +254,7 @@
                         <img class="img-fluid mb-4" src="img/beach.png" width="130px;">
                         <h4 class="mb-3">오늘의 식당 방문하고</h4>
                         <p class="mb-4">부산에는 맛집이 많아요🍴 <br>직접 방문하고 식사지원금을 받아보세요!</p>
-                        <a class="btn btn-outline-primary px-3" href="">
+                        <a class="btn btn-outline-primary px-3" href="http://127.0.0.1:8899/challengeDetail.do?challengeType=trip&challengeId=trip2">
                             식사지원금 받기
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>
@@ -252,7 +267,7 @@
                         <img class="img-fluid mb-4" src="img/social-media.png" width="130px;">
                         <h4 class="mb-3">오늘의 소상공인 만나고</h4>
                         <p class="mb-4">오늘의 소상공인 만나기 챌린지,<br>어떤 분들이 있을까요?👀</p>
-                        <a class="btn btn-outline-primary px-3" href="">
+                        <a class="btn btn-outline-primary px-3" href="http://127.0.0.1:8899/challengeDetail.do?challengeType=trip&challengeId=trip2">
                             쇼핑지원금 받기
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>

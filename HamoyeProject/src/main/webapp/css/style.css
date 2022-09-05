@@ -348,6 +348,7 @@
 .testimonial-carousel .owl-item.center .testimonial-text {
     background: var(--primary);
     transform: scale(1);
+    color: #fff;
 }
 
 .testimonial-carousel .owl-item .testimonial-text *,
@@ -358,10 +359,6 @@
 .testimonial-carousel .owl-item.center .testimonial-text * {
     color: var(--light) !important;
 }
-
-.testimonial-carousel .owl-item.center .testimonial-item img {
-    background: var(--primary) !important;
-} 
 
 .testimonial-carousel .owl-nav {
     position: absolute;

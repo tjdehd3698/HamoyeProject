@@ -106,15 +106,16 @@ $(function(){
             <div class="navbar-nav ms-auto p-4 p-lg-0">
             
                 <a href="home.do?param=intro" class="nav-item nav-link">서비스 소개</a><!-- active -->
-                <div class="nav-item dropdown">
-                    <a href="#none" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">챌린지</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="challenge.do" class="dropdown-item">전체보기</a>
-                        <a href="#none" class="dropdown-item">지구를 지켜요</a>
-                        <a href="#none" class="dropdown-item">챌린지명</a>
-                        <a href="#none" class="dropdown-item">챌린지명</a>
-                    </div>
-                </div>
+                <a href="challenge.do" class="nav-item nav-link">챌린지</a><!-- active -->
+<!--                 <div class="nav-item dropdown"> -->
+<!--                     <a href="#none" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">챌린지</a> -->
+<!--                     <div class="dropdown-menu m-0"> -->
+<!--                         <a href="challenge.do" class="dropdown-item">전체보기</a> -->
+<!--                         <a href="#none" class="dropdown-item">지구를 지켜요</a> -->
+<!--                         <a href="#none" class="dropdown-item">챌린지명</a> -->
+<!--                         <a href="#none" class="dropdown-item">챌린지명</a> -->
+<!--                     </div> -->
+<!--                 </div> -->
                 <c:if test="${!empty userName}">
 	                <a href="mypage.do" class="nav-item nav-link">마이페이지</a>
                 </c:if>

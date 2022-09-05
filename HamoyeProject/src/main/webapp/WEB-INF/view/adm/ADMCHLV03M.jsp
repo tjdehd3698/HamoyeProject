@@ -44,6 +44,9 @@
 				
 				success:function(result) {
 					alert(result);
+				},
+				error:function(){
+					alert("zz");
 				}
 			});
 			

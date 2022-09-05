@@ -48,8 +48,8 @@
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody>
-	                                        <c:forEach var="item" items="${ecoChallengeList}">
-	                                        <tr>
+	                                        <c:forEach var="item" items="${ecoChallengeList}" varStatus="status">
+	                                        <tr>	<input type="hidden"  class="admin_ajax_Id" value=${item.ecoChallengeType}>
 	                                            <td>${item.ecoChallengeId}</td>
 	                                            <td><a href="adminEcoChallengeDetail.do?ecoChallengeId=${item.ecoChallengeId}">${item.ecoChallengeName}</a></td>
 	                                            <td>
@@ -69,12 +69,14 @@
 	                                            	<c:when test="${item.ecoChallengeType == 1002}">
 	                                            		<td>
 	                                            			<a href="getEcoChallengeUserListPage.do?ecoChallengeId=${item.ecoChallengeId}">
-	                                            				${item.ecoChallengeName}
+	                                            				<button class="adm_transport">참가확인</button>
 	                                            			</a>
 	                                            		</td>
 	                                            	</c:when>
 	                                            	<c:otherwise>
-	                                            		<td></td>
+	                                            		<td>
+	                                            			<button class="adm_transportUpdate" id="adm-transport${status.index}" data-value="${item.ecoChallengeId}">업데이트</button>
+	                                            		</td>
 	                                            	</c:otherwise>
 	                                            </c:choose>
 	                                        </tr>
@@ -104,7 +106,20 @@
 		      
 			$('#dataTable').DataTable();
 		});
-		
+		$(function() {
+			$(".adm_transportUpdate").click(function(){   
+				var aa = $(this).attr("data-value");
+  				$.ajax({
+					type:'post',
+					url:'updateUserParticipationCountWithPublicTransportaion.do',
+					data: aa,
+							
+					success:function(result) {
+						alert(aa+" 챌린지를 달성한 유저의 이율이 업데이트 되었습니다.");
+					}
+				});   
+			});
+		});
 	</script>
 </body>
 </html>

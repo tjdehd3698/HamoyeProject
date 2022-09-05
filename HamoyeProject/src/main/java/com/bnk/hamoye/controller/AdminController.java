@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -237,7 +238,7 @@ public class AdminController {
 	
 	@PostMapping("updateUserParticipationCount.do") //회원 참여횟수 조정
 	@ResponseBody
-	public String updateUserParticipationCount(List<User> userList,int count, int totalCount) {
+	public String updateUserParticipationCount(@RequestParam List<User> userList,int count, int totalCount) {
 		String result ="F";
 		try {
 			int row = adminService.updateUserParticipationCountWithVolunteer(userList, count);

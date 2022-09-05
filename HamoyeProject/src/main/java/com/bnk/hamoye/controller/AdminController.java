@@ -287,10 +287,11 @@ public class AdminController {
 	
 	@PostMapping("updateTodayRestaurant.do") //오늘의 식당 변경
 	@ResponseBody
-	public String updateTodayRestaurant(List<String> restaurantId) {
-
+	public String updateTodayRestaurant(List<String> restaurantIdList) {
+		restaurantService.deleteAllTodayRestaurant();
+		restaurantService.updateTodayRestaurant(restaurantIdList);
 		
-		return "";
+		return "T";
 	}
 	
 	@PostMapping("registerEcoChallenge.do") //ecoChallenge 등록(사진 업로드)

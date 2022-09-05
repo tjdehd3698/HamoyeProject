@@ -106,4 +106,18 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return todayRestaurantDAO.deleteAllTodayRestaurant();
 	}
 
+	@Override
+	public int updateTodayRestaurant(List<String> restaurantIdList) {
+		for(String id : restaurantIdList) {
+			Restaurant restaurant = restaurantDAO.getRestaurantById(id);
+			TodayRestaurant todayRestaurant = new TodayRestaurant();
+			todayRestaurant.setCategory(restaurant.getCategory());
+			todayRestaurant.setRestaurantId(restaurant.getRestaurantId());
+			todayRestaurant.setRestaurantName(restaurant.getRestaurantName());
+			todayRestaurantDAO.registerTodayRestaurant(todayRestaurant);
+		}
+		
+		return 0;
+	}
+
 }

@@ -41,15 +41,25 @@
 	                                            <th>이름</th>
 	                                            <th>카테고리</th>
 	                                            <th>등록일</th>
+	                                        	<th></th>
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody>
 	                                        <c:forEach var="item" items="${todayRestaurantList}">
 	                                        <tr>
 	                                            <td>${item.restaurantId}</td>
-	                                            <td><a href="adminTripChallengeDetail.do?tripChallengeId=${item.restaurantId}">${item.restaurantName}</a></td>
+	                                            <td>${item.restaurantName}</td>
 	                                            <td>${item.category}</td>
 	                                            <td>${item.registerDate}</td>
+	                                        	<td>
+<%-- 	                                        		<a href="deleteTodayRestaurant.do?restaurantId=${item.restaurantId}">삭제</a> --%>
+		                                        	<a href="deleteTodayRestaurant.do?restaurantId=${item.restaurantId}" class="btn btn-light btn-icon-split">
+				                                        <span class="icon text-gray-600">
+				                                            <i class="fas fa-trash"></i>
+				                                        </span>
+				                                        <span class="text">삭제</span>
+				                                    </a>
+	                                        	</td>
 	                                        </tr>
 	                                        </c:forEach>
 	                                    </tbody>
@@ -60,7 +70,7 @@
 	                    
 	                    <div class="card shadow mb-4">
 	                        <div class="card-header py-3">
-	                            <h6 class="m-0 font-weight-bold text-primary">식당 전체 조회</h6>
+	                            <h6 class="m-0 font-weight-bold text-primary">식당 목록 전체 조회</h6>
 	                        </div>
 	                        <div class="card-body">
 	                            <div class="table-responsive">
@@ -81,7 +91,7 @@
 	                                        <tr>
 	                                    		<td><input type="checkbox" class="form-check-input ml-0" name="selToday" value="${item.restaurantId}"></td>
 	                                            <td>${item.restaurantId}</td>
-	                                            <td><a href="adminTripChallengeDetail.do?tripChallengeId=${item.restaurantId}">${item.restaurantName}</a></td>
+	                                            <td>${item.restaurantName}</td>
 	                                            <td>${item.category}</td>
 	                                            <td>${item.location}</td>
 	                                            <td>${item.longitude}</td>
@@ -133,8 +143,6 @@
 					   var objParams = {
 		                        "restaurantId" : indata
 		                    };
-						
-					   console.log(objParams);
 					   
 						$.ajax({
 							type : 'post',

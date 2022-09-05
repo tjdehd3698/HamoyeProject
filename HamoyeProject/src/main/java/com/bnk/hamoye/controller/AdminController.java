@@ -250,9 +250,7 @@ public class AdminController {
 				System.out.println(s);
 			}
 			int row = adminService.updateUserParticipationCountWithVolunteer(user);
-//			if(row==user.size()) {
-//				result = "T";
-//			}
+
 			JSONParser parser = new JSONParser();       
 			jsonObject = (JSONObject) parser.parse(result);
 		} catch (Exception e) {

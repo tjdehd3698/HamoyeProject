@@ -268,6 +268,7 @@ public class AdminController {
 	public String updateUserParticipationCountWithPublicTransportaion(String ecoChallengeId) {
 		try {
 			adminService.updateUserParticipationCountWithPublicTransportaion(ecoChallengeId);
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}

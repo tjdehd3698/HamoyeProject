@@ -111,6 +111,7 @@ public class AdminServiceImpl implements AdminService{
 				status.setSuccessPercent(0);
 			else
 				status.setSuccessPercent((double)participateCnt/(double)list.size()*100.0);
+			System.out.println(status);
 			result.add(status);
 		}
 		return result;

@@ -198,7 +198,7 @@
 										      참여수
 										    </div>
 										    <div class="col text-right">
-										      <strong>${userCnt}</strong> 명
+										      <strong>${item.userCnt}</strong> 명
 										    </div>
 										</div>
 										<div class="row align-items-center mb-3">
@@ -206,7 +206,7 @@
 										      받은 동백포인트
 										    </div>
 										    <div class="col text-right">
-										      <strong>${totalPoint}</strong>
+										      <strong>${item.totalPoint}</strong>
 										    </div>
 										</div>
 										<h4 class="small font-weight-bold">달성비율 <span class="float-right">${item.successPercent} %</span></h4>

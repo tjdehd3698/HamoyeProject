@@ -88,7 +88,7 @@
 	                                            <th>참가 횟수</th>
 	                                            <th>챌린지 참가 확인</th>  
 	                                        </tr>
-	                                    </thead>
+	                                    </thead> 
 	                                    <tbody>
 	                                        <c:forEach var="item" items="${userList}" varStatus="status">
 	                                        <tr>

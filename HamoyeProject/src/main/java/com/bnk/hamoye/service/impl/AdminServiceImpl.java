@@ -255,12 +255,15 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public int updateUserParticipationCountWithPublicTransportaion(String ecoChallengeId) throws Exception {
 		List<User> userList = userDAO.getUserByEcoChallenge(ecoChallengeId);
+		int totalCount = ecoChallengeDAO.getEcoChallengeDetail(ecoChallengeId).getTotalCount();
 		
 		for(User user : userList) {
 			List<Payment> paymentList = paymentDAO.getPublicTransportationUsageByUserId(user.getUserId());
-			
+			if(paymentList.size()>=totalCount) {
+				accountDAO.updatePrimeRate(user.getUserId());
+			}
 		}
 		
-		return 0;
+		return userList.size();
 	}
 }

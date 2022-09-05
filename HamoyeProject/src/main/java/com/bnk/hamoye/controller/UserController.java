@@ -131,19 +131,27 @@ public class UserController {
 	
 	@RequestMapping("findPasswordPage.do")
 	public String findPasswordPage(User user, Model model) {
-		return "cmn/MWPCMNV04M";
+		return "cmn/MWPCMNV03M";
 	}
 	
-	@GetMapping("findPassword.do")
+	@PostMapping("findPassword.do")
+	@ResponseBody
 	public String findPassword(User user, Model model) {
+		System.out.println(user);
+		String result = "F";
 		try {
 			String findPassword = userService.findPassword(user);
-			if(findPassword!=null) model.addAttribute("result", findPassword);
-			else model.addAttribute("result", "F");
+			
+			System.out.println("===");
+			
+			if(findPassword!=null) {
+				result = "T";
+				model.addAttribute("result", findPassword);
+			}
 		} catch (Exception e) {
 			System.out.println("findPassword 에러 : "+ e.getMessage());
 		}
-		return "";
+		return result;
 	}
 
 //	@GetMapping()

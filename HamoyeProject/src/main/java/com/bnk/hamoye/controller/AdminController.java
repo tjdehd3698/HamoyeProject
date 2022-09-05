@@ -224,7 +224,7 @@ public class AdminController {
 		return "adm/ADMCHLV02M";
 	}
 	
-	@GetMapping("getEcoChallengeUserListPage.do ") //특정 ecoChallenge 참여자 리스트 조회 페이지 이동(참여횟수 조정)
+	@GetMapping("getEcoChallengeUserListPage.do") //특정 ecoChallenge 참여자 리스트 조회 페이지 이동(참여횟수 조정)
 	public String getEcoChallengeUserListPage(String ecoChallengeId, Model model) {
 		try {
 			List<User> userList = userService.getUserByEcoChallenge(ecoChallengeId);
@@ -232,7 +232,7 @@ public class AdminController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return "";
+		return "adm/ADMCHLV03M";
 	}
 	
 	@PostMapping("updateUserParticipationCount.do") //회원 참여횟수 조정

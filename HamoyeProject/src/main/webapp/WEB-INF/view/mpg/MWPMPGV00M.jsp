@@ -214,22 +214,26 @@
 				<section id="first" class="main special">
 					<header class="mypage_major">
 						<h2>${result.ecoChallenge.ecoChallengeName} 챌린지</h2>
-					</header>
-					<%-- <c:forEach var="item" items="${fn:split(result.ecoChallenge.challengeImage,'||')}" >
-						<div class="input-group mb-3 upload-img">
-							<div class="img-area">
-								<img src="img/eco/${result.ecoChallenge.ecoChallengeId}/${item}" />
-							</div>
-						</div>
-					</c:forEach> --%>
-					<ul class="mypage_features"> 
-					<c:forEach var="item" items="${fn:split(result.ecoChallenge.challengeImage,'||')}" >
-						<li>
-							<span>
-								<img src="img/eco/${result.ecoChallenge.ecoChallengeId}/${item}" class="mypage_ecoImage"/>
-							</span> 
-						</li>
-					</c:forEach>
+					</header> 
+					<ul class="mypage_features">
+					<c:choose> 
+						<c:when test="${!empty result.ecoChallenge.challengeImage}">
+							<c:forEach var="item" items="${fn:split(result.ecoChallenge.challengeImage,'||')}" >
+								<li>
+									<span>
+										<img src="img/eco/${result.ecoChallenge.ecoChallengeId}/${item}" class="mypage_ecoImage"/>
+									</span> 
+								</li>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<li>
+								<span>
+									<img src="img/img-fpm-bf-13@3x.png" class="mypage_ecoImage"/>
+								</span> 
+							</li>
+						</c:otherwise>
+					</c:choose>
 					</ul>
 					<h5>현재 함께하는 ${totalCnt} 명 가운데</h5>
 					<h5>${successCnt}명이 목표달성했어요!</h5>
@@ -305,15 +309,26 @@
 		</header>	
 		<c:forEach var="item" items="${tripList}"> 
 			<ul class="statistics">
-				<c:forEach var="itemImg" items="${fn:split(item.challengeImage,'||')}" varStatus="status">
-					<c:if test="${status.count == 1}">
+				<c:choose> 
+					<c:when test="${!empty item.challengeImage}">
+						<c:forEach var="itemImg" items="${fn:split(item.challengeImage,'||')}" varStatus="status">
+							<c:if test="${status.count == 1}">
+								<li>
+									<span> 
+										<img src="img/trip/${item.tripChallengeId}/${itemImg}" class="mypage_tripImage"/>
+									</span> 
+								</li>
+							</c:if>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
 						<li>
 							<span> 
-								<img src="img/trip/${item.tripChallengeId}/${itemImg}" class="mypage_tripImage"/>
+								<img src="img/img-fpm-bf-15@3x.png" class="mypage_tripImage"/>
 							</span> 
 						</li>
-					</c:if>
-				</c:forEach>
+					</c:otherwise>
+				</c:choose>
 				<li> 
 					<h2>${item.tripChallengeName}</h2>
 					<h5>${item.rewardPoint}원 받기!</h5>

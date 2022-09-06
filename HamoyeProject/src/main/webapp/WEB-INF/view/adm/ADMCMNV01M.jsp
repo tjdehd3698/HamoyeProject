@@ -28,7 +28,7 @@
 					if(${item.key == '1001'}) arrUserCntByEcoChlKey.push("대중교통"); 
 					else if(${item.key == '1002'}) arrUserCntByEcoChlKey.push("봉사참여"); 
 					else if(${item.key == '1003'}) arrUserCntByEcoChlKey.push("배달음식"); 
-					else if(${item.key == '1004'}) arrUserCntByEcoChlKey.push("전기요금"); 
+					else if(${item.key == '1004'}) arrUserCntByEcoChlKey.push("전기세"); 
 					else arrUserCntByEcoChlKey.push("${item.key}"); 
 					
 					if(${item.key == '기타'}){
@@ -148,7 +148,7 @@
 	                            <div class="card shadow mb-4">
 	                                <!-- Card Header - Dropdown -->
 	                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-	                                    <h6 class="m-0 font-weight-bold text-primary">챌린지 월별 건수</h6>
+	                                    <h6 class="m-0 font-weight-bold text-primary">트립 챌린지 월별 건수</h6>
 	                                </div>
 	                                <!-- Card Body -->
 	                                <div class="card-body">
@@ -182,7 +182,7 @@
 	                                            <i class="fas fa-circle text-info"></i> 배달음식
 	                                        </span><br>
 	                                        <span class="mr-2">
-	                                            <i class="fas fa-circle text-warning"></i> 전기요금
+	                                            <i class="fas fa-circle text-warning"></i> 전기세
 	                                        </span>
 	                                        <span class="mr-2">
 	                                            <i class="fas fa-circle text-info" style="color: #dddfeb !important;"></i> 기타
@@ -211,7 +211,8 @@
 										      <strong>${item.userCnt}</strong> 명
 										    </div>
 										</div>
-	                                    <h4 class="small font-weight-bold">달성비율 <span class="float-right">${item.successPercent} %</span></h4>
+	                                    <h4 class="small font-weight-bold">달성비율 <span class="float-right">
+	                                    	<fmt:formatNumber type="number" pattern=".##" value="${item.successPercent}" />%</span></h4>
 	                                    <div class="progress mb-2">
                                         	<div class="progress-bar" role="progressbar" style="width:${item.successPercent}%" aria-valuenow="${item.successPercent}" aria-valuemin="0" aria-valuemax="100"></div>
 	                                    </div>
@@ -242,7 +243,7 @@
 										      받은 동백포인트
 										    </div>
 										    <div class="col text-right">
-										      <strong>${item.totalPoint}</strong>
+										      <strong>${item.totalPoint} 원</strong>
 										    </div>
 										</div>
 	                                </div>

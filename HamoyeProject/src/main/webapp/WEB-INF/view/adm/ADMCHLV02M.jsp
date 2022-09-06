@@ -48,6 +48,8 @@
 												<select class="form-select" name="ecoChallengeType">
 													<option value="1001">대중교통</option>
 													<option value="1002">환경봉사</option>
+													<option value="1003">배달음식 줄이기</option>
+													<option value="1004">전기세 줄이기</option>
 												</select>
 											</div>
 										</div>

@@ -52,6 +52,8 @@
 											<p class="col-sm-10 col-form-label">
 											<c:if test="${ecoChallenge.ecoChallengeType == 1001}">대중교통</c:if>
 											<c:if test="${ecoChallenge.ecoChallengeType == 1002}">환경봉사</c:if>
+											<c:if test="${ecoChallenge.ecoChallengeType == 1003}">배달음식 줄이기</c:if>
+											<c:if test="${ecoChallenge.ecoChallengeType == 1004}">전기세 줄이기</c:if>
 											</p>
 										</div>
 										<div class="my-3 row">

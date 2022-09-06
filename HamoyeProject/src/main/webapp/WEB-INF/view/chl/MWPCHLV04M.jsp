@@ -73,8 +73,7 @@
 					<div
 						class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">떠나요
 						부산</div>
-					<h1 class="display-6 mb-5">${tripChallenge.tripChallengeName}
-						챌린지</h1>
+					<h1 class="display-6 mb-5">${tripChallenge.tripChallengeName}</h1>
 					<br>
 					<article>
 						<c:forEach var="content" items="${newContent}">

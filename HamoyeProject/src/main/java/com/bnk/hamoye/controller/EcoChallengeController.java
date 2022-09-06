@@ -55,7 +55,7 @@ public class EcoChallengeController {
 				list.add(ecoChallenge2);
 				model.addAttribute("ecoChallenge", ecoChallenge);
 				model.addAttribute("list", list);
-				ecoChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
+//				ecoChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
 				String content = ecoChallenge.getContent();
 				String[] newContent = content.split("@@");
 				model.addAttribute("newContent", newContent);
@@ -82,7 +82,7 @@ public class EcoChallengeController {
 				String tripChallengeType = tripChallenge.getTripChallengeType();
 
 				if (tripChallengeType.charAt(0) == '3') {
-					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
+//					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
 					String content = tripChallenge.getContent();
 					String[] newContent = content.split("@@");
 					model.addAttribute("newContent", newContent);

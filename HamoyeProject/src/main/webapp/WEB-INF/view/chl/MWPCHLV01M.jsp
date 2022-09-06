@@ -17,7 +17,7 @@
 	<script>
 	$(document).ready(function() {
 		
-		if("${checkJoinChallenge}" == 'T'){
+		if("${checkJoinChallenge}" == 'F'){
 			$("#registerChallenge").attr("disabled","disabled");
 		}
 		
@@ -142,7 +142,7 @@
 			 </section>
 			 	<c:choose>
 					<c:when test="${!empty userName}">
-			 			<button class="btn btn-outline-primary px-3" type="button" id ="registerChallenge" >
+			 			<button class="btn btn-outline-primary px-3" type="button" id ="registerChallenge">
                               	챌린지 참여하고 우대이율 받기
 	             				<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
 	             					<i class="fa fa-arrow-right"></i>
@@ -185,17 +185,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-     <script>
-   $(document).ready(function() {
-      
-      if("${checkJoinChallenge}" == 'F'){
-         $("#registerChallenge").attr("disabled","disabled");
-      }
-      
-      $("#registerChallenge").on("click", function(){
-         window.location.href = "getUserAllInfo.do?ecoChallengeId=${ecoChallenge.ecoChallengeId}";
-      });
-   });
-   </script>
+     
 </body>
 </html>

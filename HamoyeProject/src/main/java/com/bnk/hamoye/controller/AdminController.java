@@ -293,8 +293,9 @@ public class AdminController {
             System.out.println(rl);
         }
 		 
-		restaurantService.deleteAllTodayRestaurant();
-		restaurantService.updateTodayRestaurant(restaurantIdList);
+		restaurantService.deleteAllTodayRestaurant(); //원래 있던 오늘의 식당 전체 삭제
+		
+		restaurantService.updateTodayRestaurant(restaurantIdList); //새로운 오늘의 식당 등록
 		
 		return "T";
 	}

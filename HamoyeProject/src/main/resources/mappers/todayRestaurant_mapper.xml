@@ -11,7 +11,7 @@
 		</selectKey>
 		insert into 
 		today_restaurant(today_restaurant_code, restaurant_id, restaurant_name, category, register_date)
-		values(#{todayRestaurantCode},#{restaurantId}, #{restaurantName}, #{category}, to_date(to_char(SYSDATE, 'YYYY-MM-DD'))))
+		values(#{todayRestaurantCode},#{restaurantId}, #{restaurantName}, #{category}, to_date(to_char(SYSDATE, 'YYYY-MM-DD')))
 	</insert>
 	
 	<select id="getTodayRestaurantsByCategory" parameterType = "string" resultType="todayRestaurant">
@@ -69,7 +69,7 @@
 	</select>
 	
 	<delete id="deleteAllTodayRestaurant">
-		delete from today_restaurant;
+		delete from today_restaurant
 	</delete>
 </mapper>
 

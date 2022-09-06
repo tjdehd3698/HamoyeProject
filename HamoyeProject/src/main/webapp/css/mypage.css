@@ -968,7 +968,7 @@
   max-width: 100%;
   border-collapse: collapse;
 }
-
+ 
 .rwd-table tr:first-child {
   border-top: none;
   background: #428bca;

@@ -91,10 +91,10 @@
 										    <select class="form-select" id="isDelete" name="isDelete">
 										    	<c:if test="${tripChallenge.isDelete == 0}">
 					            					<option value="${tripChallenge.isDelete}" selected="selected">N</option>
-					            					<option value="1">1</option>
+					            					<option value="1">Y</option>
 										    	</c:if>
 										    	<c:if test="${tripChallenge.isDelete == 1}">
-					            					<option value="0">0</option>
+					            					<option value="0">N</option>
 					            					<option value="${tripChallenge.isDelete}" selected="selected">Y</option>
 										    	</c:if>
 			            					</select>

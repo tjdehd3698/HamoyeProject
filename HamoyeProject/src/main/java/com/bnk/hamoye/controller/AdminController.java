@@ -112,6 +112,7 @@ public class AdminController {
 			
 			//부산으로 떠나요 챌린지 통계 조회
 			List<TripStatus> tripList = adminService.getAllTripChallenge();
+			System.out.println("a"+tripList);
 			model.addAttribute("tripList", tripList);
 			
 			//부산을 떠나요 챌린지 최근 12개월 증가량 조회
@@ -555,6 +556,7 @@ public class AdminController {
 	@ResponseBody
 	public String updateTripChallenge(TripChallenge tripChallenge,MultipartFile img1, MultipartFile img2, MultipartFile img3) {
 		String result = "F";
+		
 		try {
 			String tripChallengeImge = ""; //이미지 경로 담을 변수
 			String imgTmp = LocalDateTime.now().getSecond()+""; //이미지 이름 중복 방지 문구 

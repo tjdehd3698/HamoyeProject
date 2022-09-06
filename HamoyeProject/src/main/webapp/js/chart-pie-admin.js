@@ -8,11 +8,11 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: arrUserCntByEcoChlKey.reverse(),
+    labels: arrUserCntByEcoChlKey,
     datasets: [{
-      data: arrUserCntByEcoChlVal.reverse(),
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      data: arrUserCntByEcoChlVal,
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#dddfeb'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#e6b53b', '#c3c5d0'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],
   },

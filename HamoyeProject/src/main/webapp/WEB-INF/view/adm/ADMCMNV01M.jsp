@@ -27,6 +27,8 @@
 				<c:forEach items="${userCntByEcoChallengeType}" var="item">
 					if(${item.key == '1001'}) arrUserCntByEcoChlKey.push("대중교통"); 
 					else if(${item.key == '1002'}) arrUserCntByEcoChlKey.push("봉사참여"); 
+					else if(${item.key == '1003'}) arrUserCntByEcoChlKey.push("배달음식"); 
+					else if(${item.key == '1004'}) arrUserCntByEcoChlKey.push("전기요금"); 
 					else arrUserCntByEcoChlKey.push("${item.key}"); 
 					
 					if(${item.key == '기타'}){
@@ -177,7 +179,13 @@
 	                                            <i class="fas fa-circle text-success"></i> 봉사참여
 	                                        </span>
 	                                        <span class="mr-2">
-	                                            <i class="fas fa-circle text-info"></i> 기타
+	                                            <i class="fas fa-circle text-info"></i> 배달음식
+	                                        </span><br>
+	                                        <span class="mr-2">
+	                                            <i class="fas fa-circle text-warning"></i> 전기요금
+	                                        </span>
+	                                        <span class="mr-2">
+	                                            <i class="fas fa-circle text-info" style="color: #dddfeb !important;"></i> 기타
 	                                        </span>
 	                                    </div>
 	                                </div>

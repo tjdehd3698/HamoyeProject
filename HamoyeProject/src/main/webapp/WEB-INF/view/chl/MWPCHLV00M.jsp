@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 
 <html>
 <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
     <title>하모예-챌린지 리스트</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -14,30 +15,29 @@
 <body>
 <jsp:include page="../header.jsp"></jsp:include> 
  <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-    <!-- Spinner End -->
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+	<div class="spinner-grow text-primary" role="status"></div>
+</div>
+<!-- Spinner End -->
 
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center">
-            <h1 class="display-4 text-white animated slideInDown mb-4">Challenge List</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-            </nav>
-        </div>
-    </div>
-    <!-- Page Header End -->
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+	<div class="container text-center">
+    	<h1 class="display-4 text-white animated slideInDown mb-4">Challenge List</h1>
+        <nav aria-label="breadcrumb animated slideInDown"></nav>
+	</div>
+</div>
+<!-- Page Header End -->
 
     <!-- Service Start -->
     <div class="container-xxl py-5">
-        <div class="container">
+        <div class="container" style="padding:0%">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Now On</div>
                        <h1 class="display-6 mb-5">챌린지에 도전해보세요</h1>
                 </div>
                 <div class="row g-4 justify-content-center">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="padding:0%">
                         <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                             <img class="img-fluid mb-4" src="img/free-icon-earth-globe-921423.png" width="90px" height="90px">
                             <h4 class="mb-3">지구를 지켜요</h4>
@@ -54,30 +54,56 @@
                             </c:forEach>
                     </div> 
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="padding:0%">
+                    <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
+                        <img class="img-fluid mb-4" src="img/map.png" alt="" width="90px" height="90px">
+                        <h4 class="mb-3">떠나요 부산</h4>
+                        
+                        <c:forEach var="tripChallenge" items="${tripChallengeList}">
+                        	<c:set var="string" value="${tripChallenge.tripChallengeType}" />
+                         	<c:if test = "${fn:startsWith(string, '5')}"> 
+								<div class="mb-4"><b> ${tripChallenge.tripChallengeName}하고 </b><br>
+	                            	<a class="btn btn-outline-primary px-3" href="challengeDetail.do?challengeType=trip&challengeId=${tripChallenge.tripChallengeId}">
+	                                	동백포인트 받기 
+	                                    <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+	                                        <i class="fa fa-arrow-right"></i>
+										</div>
+	                                </a>
+	                            </div>
+                            </c:if>
+                        </c:forEach>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="padding:0%">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="img/beach.png" alt="" width="90px" height="90px">
-                        <h4 class="mb-3">떠나요 부산</h4>
-                         <c:forEach var="tripChallenge" items="${tripChallengeList}">
+                        <h4 class="mb-3">알아봐요 부산</h4>
+                        
+                        <c:forEach var="tripChallenge" items="${tripChallengeList}">
+                        	<c:set var="string" value="${tripChallenge.tripChallengeType}" />
+                         	<c:if test = "${fn:startsWith(string, '3')}">
                                 <div class="mb-4"><b> ${tripChallenge.tripChallengeName}하고 </b><br>
                                     <a class="btn btn-outline-primary px-3" href="challengeDetail.do?challengeType=trip&challengeId=${tripChallenge.tripChallengeId}">
-                                        동백포인트 받기 
+                                      	동백포인트 받기 
                                         <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                        <i class="fa fa-arrow-right"></i>
+                                        	<i class="fa fa-arrow-right"></i>
                                         </div>
                                     </a>
                                 </div>
-                            </c:forEach>
+                            </c:if>
+                        </c:forEach>
+                        
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s" style="padding:0%">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="img/social-media.png" alt="" width="90px" height="90px">
                         <h4 class="mb-3">이런 챌린지 어때요?</h4>
                         <div class="mb-4"><b>요즘 핫해요</b></div>
                         <div style="padding:5px">
                         <a class="btn btn-outline-primary px-3" href="">
-                                대중교통 챌린지
+                               	 대중교통 챌린지
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>
                             </div>

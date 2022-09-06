@@ -90,16 +90,28 @@
 				</div>
 			</div>
 			<article class="chlarticle">
-				<h5 style="padding: 20px">이야기를 들어주셔서 감사해요</h5>
+				<h5 style="padding: 20px">이야기를 들어주셔서 감사해요</h5> 
+				<c:choose>
+				<c:when test="${!empty userName}">
 				쇼핑지원금
-				<button class="btn btn-outline-primary px-3" id="getPoint"
-					<c:if test="${flag=='T'}">disabled</c:if>>
-					${tripChallenge.rewardPoint}원 받기
-					<div
-						class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-						<i class="fa fa-arrow-right"></i>
-					</div>
+					<button class="btn btn-outline-primary px-3" id="getPoint"
+						<c:if test="${flag=='T'}">disabled</c:if>>
+						${tripChallenge.rewardPoint}원 받기
+						<div
+							class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+							<i class="fa fa-arrow-right"></i>
+						</div>
 				</button>
+							</c:when>
+							<c:otherwise> 
+             					<a class="btn btn-outline-primary px-3" href="#none" data-bs-toggle="modal" data-bs-target="#loginModal" >
+                               		로그인하고 챌린지 참여하기
+             						<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+             							<i class="fa fa-arrow-right"></i>
+            		 				</div>
+             					</a>
+             				</c:otherwise>
+             			</c:choose> 
 			</article>
 		</div>
 	</div>

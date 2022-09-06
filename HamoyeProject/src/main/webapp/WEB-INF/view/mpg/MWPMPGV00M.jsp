@@ -109,7 +109,7 @@
 			<c:choose>
 				<c:when test="${result.account != null}">  
 					<div class="spotlight"> 
-						<c:if test="${result.ecoChallenge.totalCount <= result.participationCount}">  
+						<c:if test="${result.ecoChallenge.totalCount <= result.participationCount}">   
 							<span class="image"><img src="img/group-2@3x.png" alt="" />
 							<h3 style="text-align: center; color:gray"><br>챌린지 도전완료!</h3></span>
 						</c:if>

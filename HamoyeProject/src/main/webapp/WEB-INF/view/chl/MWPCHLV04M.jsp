@@ -90,7 +90,7 @@
 				</div>
 			</div>
 			<article class="chlarticle">
-				<h5 style="padding: 20px">이야기를 들어주셔서 감사해요</h5> 
+				<h5 style="padding: 40px 0 15px">이야기를 들어주셔서 감사해요😌</h5> 
 				<c:choose>
 				<c:when test="${!empty userName}">
 				쇼핑지원금

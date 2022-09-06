@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:choose>
+<c:when test="${!empty user}">
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,33 +12,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  	<script type="text/javascript">
-  $(function(){
-		$("#accout_submit").on("click",function(){
-			var password = "&userPassword="+$('#password').val();
-			if(confirm('금리우대혜택과 동백포인트가 소멸됩니다. \n그래도 계좌를 해지하시겠습니까?')){
-			$.ajax({
-				type:'post',
-				url:'expireAccount.do',
-				data:password,
-				
-				success:function(result) {
-					if(result=="T"){
-						alert("계좌가 해지되었습니다.");
-							window.location.href ="mypage.do";
-						}else{
-						alert("비밀번호가 일치하지 않습니다.");
-						$('#password').val('');
-						$('#password').focus();
-					}
-				},error:function(){ 
-					alert("다시 시도해주세요."); 
-				}
-			});
-			}
-		});
-  }); 
-  </script>
+  
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
@@ -106,5 +83,37 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    	<script type="text/javascript">
+  $(function(){
+		$("#accout_submit").on("click",function(){
+			var password = "&userPassword="+$('#password').val();
+			if(confirm('금리우대혜택과 동백포인트가 소멸됩니다. \n그래도 계좌를 해지하시겠습니까?')){
+			$.ajax({
+				type:'post',
+				url:'expireAccount.do',
+				data:password,
+				
+				success:function(result) {
+					if(result=="T"){
+						alert("계좌가 해지되었습니다.");
+							window.location.href ="mypage.do";
+						}else{
+						alert("비밀번호가 일치하지 않습니다.");
+						$('#password').val('');
+						$('#password').focus();
+					}
+				},error:function(){ 
+					alert("다시 시도해주세요."); 
+				}
+			});
+			}
+		});
+  }); 
+  </script>
 </body>
 </html>
+</c:when>
+<c:otherwise> 
+	<jsp:include page="../index.jsp"></jsp:include> 
+</c:otherwise>
+</c:choose>

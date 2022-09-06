@@ -109,7 +109,7 @@
                 </div>
               </div>
 			 <section class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="margin-top:50px">
-			 	<h2><b>지구, 쉽게 지킬 수 있어요</b></h2>
+			 	<h2 class="mb-5"><b>지구, 쉽게 지킬 수 있어요</b></h2>
 			 	<p> <!-- db에서 챌린지 콘텐트로 받아와야함 -->
 					<c:forEach var="content" items="${newContent}">
 					${content}<br>
@@ -118,11 +118,10 @@
 			 </section>
 		
 			<div style="padding:20px"  class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-				<h3>지구를 지키는 당신에게 <br>이자를 더 드릴게요</h3>
-				<br>
+				<h3 class="mb-5">지구를 지키는 당신에게 <br>이자를 더 드릴게요😃</h3>
 				<section>
-			 	<h3>챌린지 상품 상세</h3>
-			 	<table class="table table-bordered" id="info" width="100%" cellspacing="0">
+			 	<h5 class="mb-3">금리/이율</h5>
+			 	<table class="table table-bordered mb-5" id="info" width="100%" cellspacing="0">
 			 		<thead>
 			 			<tr>
 			 				<th>가입 기간</th>
@@ -164,8 +163,8 @@
 			</div>
 			</article>
 			<article class="chlarticle pt-3" style="border: 1px solid #2b3886">
-				<h5>※챌린지 참여 주의사항※</h5>
-				<p>
+				<h5>※ 챌린지 참여 주의사항 ※</h5>
+				<p style="text-align: left;margin: 2rem;">
 				1. 지구를 지켜요 챌린지에 참여하기 위해서는 새로운 부산은행 정기예금계좌를 개설해야합니다.<br>
 					해당 계좌는 챌린지 중도 포기시 자동적으로 해지되며, 잔액은 다른 계좌로 이체하여야합니다.<br>
 				2. 챌린지 참여를 위해 서약서를 작성하면 기본 이율을 제공합니다.<br>

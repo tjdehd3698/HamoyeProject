@@ -101,12 +101,10 @@
 	                                        <tr>
 	                                        	<th style="border-right: none;"></th><th style="border-right: none;"></th>
 	                                        	<th style="border-right: none;"></th><th style="border-right: none;"></th>
-	                                        	<th style="border-right: none;text-align:right">참가 확인 횟수</th>
+	                                        	<th style="border-right: none;text-align:right;vertical-align: middle;">참가 확인 횟수</th>
 	                                        	<th>
-	                                        		<input type="number" id="adminChl_participationCount" value="0" min="0">
-	                                        		<button id="save_participationCount">
-	                                        			수정완료
-	                                        		</button>
+	                                        		<input type="number" class="form-control" id="adminChl_participationCount" value="0" min="0" style="display: inline-block; width: auto;">
+	                                        		<button id="save_participationCount" class="btn btn-secondary">수정</button>
 	                                        	</th>
 	                                        </tr>
 	                                    </tfoot>

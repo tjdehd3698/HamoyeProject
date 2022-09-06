@@ -197,8 +197,23 @@ public class AdminController {
 	@GetMapping("adminEcoChallengeDetail.do") // ecoChallenge 상세 페이지 정보 조회
 	public String adminEcoChallengeDetail(Model model, String ecoChallengeId) {
 		try {
-			EcoChallenge e = ecoChallengeService.getEcoChallengeDetail(ecoChallengeId);
-			model.addAttribute("ecoChallenge", e);
+			EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(ecoChallengeId);
+			
+			String content = ecoChallenge.getContent();
+			StringBuilder sb = new StringBuilder();
+			
+			for (int i = 0; i < content.length(); i++) {
+				if (content.charAt(i) == 64 && content.charAt(i+1) == 64) {
+					sb.append("\n");
+					i++;
+				} else {
+					sb.append(content.charAt(i));
+				}
+			}
+			
+			ecoChallenge.setContent(sb.toString());
+			
+			model.addAttribute("ecoChallenge", ecoChallenge);
 
 			// 해당 EcoChallenge 참가 인원 조회
 			int cnt = adminService.getUserCntByEcoChallengeById(ecoChallengeId);
@@ -226,8 +241,23 @@ public class AdminController {
 	@GetMapping("adminTripChallengeDetail.do") // tripChallenge 상세 페이지 정보 조회
 	public String adminTripChallengeDetail(Model model, String tripChallengeId) {
 		try {
-			TripChallenge t = tripChallengeService.getTripChallengeDetail(tripChallengeId);
-			model.addAttribute("tripChallenge", t);
+			TripChallenge tripChallenge = tripChallengeService.getTripChallengeDetail(tripChallengeId);
+			
+			String content = tripChallenge.getContent();
+			StringBuilder sb = new StringBuilder();
+
+			for (int i = 0; i < content.length(); i++) {
+				if (content.charAt(i) == 64 && content.charAt(i+1) == 64) {
+					sb.append("\n");
+					i++;
+				} else {
+					sb.append(content.charAt(i));
+				}
+			}
+			
+			tripChallenge.setContent(sb.toString());
+			
+			model.addAttribute("tripChallenge", tripChallenge);
 
 			// 해당 tripChallenge 참가 인원 조회
 			int cnt = adminService.getUSerCntByTripChallengeById(tripChallengeId);
@@ -392,6 +422,19 @@ public class AdminController {
 			} else {
 				ecoChallengeImge += "||";
 			}
+			
+			String content = ecoChallenge.getContent();
+			StringBuilder sb = new StringBuilder();
+
+			for (int i = 0; i < content.length(); i++) {
+				if (content.charAt(i) == 13) {
+					sb.append("@@");
+				} else {
+					sb.append(content.charAt(i));
+				}
+			}
+			
+			ecoChallenge.setContent(sb.toString());
 
 			ecoChallenge.setChallengeImage(ecoChallengeImge);
 			adminService.updateEcoChallengeImage(ecoChallenge);
@@ -459,6 +502,19 @@ public class AdminController {
 
 			System.out.println(ecoChallengeImge);
 			ecoChallenge.setChallengeImage(ecoChallengeImge);
+			
+			String content = ecoChallenge.getContent();
+			StringBuilder sb = new StringBuilder();
+
+			for (int i = 0; i < content.length(); i++) {
+				if (content.charAt(i) == 13) {
+					sb.append("@@");
+				} else {
+					sb.append(content.charAt(i));
+				}
+			}
+			
+			ecoChallenge.setContent(sb.toString());
 
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
 			result = "T";
@@ -539,6 +595,19 @@ public class AdminController {
 				tripChallenge.setChallengeImage(tripChallengeImge);
 				adminService.updateTripChallengeImage(tripChallenge);
 			}
+			
+			String content = tripChallenge.getContent();
+			StringBuilder sb = new StringBuilder();
+
+			for (int i = 0; i < content.length(); i++) {
+				if (content.charAt(i) == 13) {
+					sb.append("@@");
+				} else {
+					sb.append(content.charAt(i));
+				}
+			}
+			
+			tripChallenge.setContent(sb.toString());
 
 			if (row == 1)
 				result = "T";

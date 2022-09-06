@@ -163,7 +163,7 @@
              </div>
 			</div>
 			</article>
-			<article class="chlarticle" style="border: 1px solid #2b3886">
+			<article class="chlarticle pt-3" style="border: 1px solid #2b3886">
 				<h5>※챌린지 참여 주의사항※</h5>
 				<p>
 				1. 지구를 지켜요 챌린지에 참여하기 위해서는 새로운 부산은행 정기예금계좌를 개설해야합니다.<br>

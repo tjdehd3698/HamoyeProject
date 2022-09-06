@@ -22,4 +22,6 @@ public interface RestaurantService {
 	int deleteTodayRestaurantById(String restaurantId); // 아이디로 오늘의 식당 삭제
 	List<Coordinate> getCoordinateOfTodayRestaurants(); // 오늘의 식당들 좌표리스트 리턴
 	List<String> getTodayRetaurantsName(); // 오늘의 식당들 이름 리스트 리턴
+	int deleteAllTodayRestaurant(); //모든 오늘의 식당 삭제
+	int updateTodayRestaurant(List<String> restaurantIdList);
 }

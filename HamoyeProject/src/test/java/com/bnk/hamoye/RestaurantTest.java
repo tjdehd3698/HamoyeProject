@@ -66,6 +66,21 @@ Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
 		}
 		
 	}
+	
+	@Test
+	public void registerTodayRestaurant() throws Exception{
+		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
+		
+		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
+		SqlSession session = factory.openSession();
+		
+		TodayRestaurant todayRestaurant = new TodayRestaurant();
+		todayRestaurant.setCategory("1");
+		todayRestaurant.setRestaurantId("1");
+		todayRestaurant.setRestaurantName("안녕");
+		
+		int row = session.insert("sql.hamoye.todayRestaurant_mapper.registerTodayRestaurant", todayRestaurant);
+	}
 
 	
 

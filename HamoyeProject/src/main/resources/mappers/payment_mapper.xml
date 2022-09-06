@@ -7,7 +7,7 @@
 	<select id="getPublicTransportationUsageByUserId" parameterType="string" resultType="payment">
 		select payment_id, user_id, category, price, payment_date
 		from payment
-		where user_id = #{value} and category='대중교통' and payment_date = to_date(to_char(add_months(sysdate,-1),'yyyy-mm-dd'))
+		where user_id = #{value} and category='대중교통' and to_char(payment_date,'yyyy/mm') = to_char(add_months(sysdate,-1),'yyyy/mm')
 	</select> 
 </mapper>
 

@@ -30,6 +30,11 @@ public class HamoyeController {
 	public String viewRegister() {
 		return "cmn/MWPCMNV01M";
 	}	
+//	
+//	@RequestMapping("adminTripRestaurantList.do")
+//	public String adminTripRestaurantList() {
+//		return "adm/ADMCHLV20M";
+//	}	
 	
 	
 //	@PostMapping("login.do")

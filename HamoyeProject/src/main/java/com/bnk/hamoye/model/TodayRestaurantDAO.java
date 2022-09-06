@@ -17,4 +17,5 @@ public interface TodayRestaurantDAO {
 	TodayRestaurant getTodayRestaurantById(String restaurantId); // Id로 오늘의 레스토랑 조회 Read
 	List<Coordinate> getCoordinateOfTodayRestaurants(); // 오늘의 식당 좌표 전부 조회
 	List<String> getTodayRetaurantsName(); // 오늘의 식당 가게 이름 리스트 조회
+	int deleteAllTodayRestaurant(); //모든 오늘의 식당 삭제
 }

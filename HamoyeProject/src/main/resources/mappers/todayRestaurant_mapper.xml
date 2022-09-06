@@ -7,7 +7,7 @@
 	
 	<insert id="registerTodayRestaurant" parameterType="todayRestaurant">
 		<selectKey keyProperty="todayRestaurantCode" resultType="string" order="BEFORE">
-			select 'trc'||today_seq.nextval from dual
+			select 'trc' || today_seq.nextval from dual
 		</selectKey>
 		insert into 
 		today_restaurant(today_restaurant_code, restaurant_id, restaurant_name, category)
@@ -67,6 +67,10 @@
 		today_restaurant t
         on r.restaurant_id=t.restaurant_id
 	</select>
+	
+	<delete id="deleteAllTodayRestaurant">
+		delete from today_restaurant;
+	</delete>
 </mapper>
 
 

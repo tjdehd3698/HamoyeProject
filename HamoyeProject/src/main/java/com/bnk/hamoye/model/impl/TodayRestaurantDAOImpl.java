@@ -68,4 +68,9 @@ public class TodayRestaurantDAOImpl implements TodayRestaurantDAO {
 		return sqlSession.selectList(NS+"getTodayRestaurantsName");
 	}
 
+	@Override
+	public int deleteAllTodayRestaurant() {
+		return sqlSession.delete(NS+"deleteAllTodayRestaurant");
+	}
+
 }

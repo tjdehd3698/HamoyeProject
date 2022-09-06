@@ -11,14 +11,17 @@
 <meta content="" name="description">
 <link href="css/challenge.css" rel="stylesheet">
 <script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f1cf900322c8d835f373b478d3c40667&autoload=false"></script>
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f1cf900322c8d835f373b478d3c40667"></script>
 </head>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
 	<script>
 	<!-- JavaScript -->
 	//지도 설정
+	
 	$( document ).ready(function() {
+	var positions = [];
+	
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
 	        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -26,24 +29,6 @@
 	    }; 
 
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-	
-	var positions = [];
-	var len = ${len};
-	var longitudeList = ${longitudeList};
-	var latitudeList = ${latitudeList};
-	
-	for(var i=0; i<len; i++){
-		alert(longitudeList[i]);
-		alert(latitudeList[i]);
-		positions.push(
-		{
-			title : name[i],
-			lating : new kakao.maps.Lating(longitudeList[i], latitudeList[i])
-			
-		}
-				);
-		console.log(positions);
-	}
 	
 	// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 	if (navigator.geolocation) {
@@ -57,8 +42,10 @@
 	        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 	            message = '<div style="padding:5px;">현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
 	        
+	            message2 = '<div style="padding:5px;">추천 가게</div>';
 	        // 마커와 인포윈도우를 표시합니다
-	        displayMarker(message);
+	        makeTodayRestaurantList(message2);
+	        displayMarker(locPosition, message);
 	            
 	      });
 	    
@@ -67,31 +54,18 @@
 	    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
 	        message = 'geolocation을 사용할수 없어요..'
 	        
-	    displayMarker(message);
+	    displayMarker(locPosition, message);
 	}
 
 	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-	function displayMarker(message) {
-		
-		// 마커 이미지의 이미지 주소입니다
-		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-		    
-		for (var i = 0; i < positions.length; i ++) {
-		    
-		    // 마커 이미지의 이미지 크기 입니다
-		    var imageSize = new kakao.maps.Size(24, 35); 
-		    
-		    // 마커 이미지를 생성합니다    
-		    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+	function displayMarker(locPosition, message) {
 		
 	    // 마커를 생성합니다
 	    var marker = new kakao.maps.Marker({  
 	        map: map, // 마커를 표시할 지도
-	        position: positions[i].lating, // 마커를 표시할 위치
-	        title : postions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다.
-	        image : markerImage // 마커 이미지
+	        position: locPosition, // 마커를 표시할 위치
+
 	    }); 
-		}
 	    
 	    var iwContent = message, // 인포윈도우에 표시할 내용
 	        iwRemoveable = true;
@@ -108,6 +82,53 @@
 	    // 지도 중심좌표를 접속위치로 변경합니다
 	    map.setCenter(locPosition);      
 	}    
+	
+	function makeTodayRestaurantList(message2){
+		
+		var len = ${len};
+		var longitudeList = ${longitudeList};
+		var latitudeList = ${latitudeList};
+		var nameList = "${nameList}";
+		
+		 for(var i=0; i<len; i++){
+			positions.push( {
+					title : "nameList[i]",
+				LatLng : new kakao.maps.LatLng(latitudeList[i], longitudeList[i])
+		} )
+		 }
+
+		// 마커 이미지의 이미지 주소입니다
+		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+		    
+		for (var i = 0; i < positions.length; i ++) {
+		    // 마커 이미지의 이미지 크기 입니다
+		    var imageSize = new kakao.maps.Size(24, 35); 
+		    
+		    // 마커 이미지를 생성합니다    
+		    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+		    
+		    // 마커를 생성합니다
+		    var marker = new kakao.maps.Marker({
+		        map: map, // 마커를 표시할 지도
+		        position: positions[i].LatLng, // 마커를 표시할 위치
+		        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+		        image : markerImage // 마커 이미지 
+		    });
+		var iwContent = message2, // 인포윈도우에 표시할 내용
+        iwRemoveable = true;
+
+    // 인포윈도우를 생성합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content : iwContent,
+        removable : iwRemoveable
+    });
+    
+    // 인포윈도우를 마커위에 표시합니다 
+    infowindow.open(map, marker);
+    
+	}
+		}
+		
 	});
 	</script>
 	<!-- Spinner Start -->

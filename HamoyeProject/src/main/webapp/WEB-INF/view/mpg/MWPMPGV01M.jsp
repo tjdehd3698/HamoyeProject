@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:choose>
+<c:when test="${!empty user}">
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,6 +66,7 @@
 						    </div>
 						    <span id="mypage_check"></span>
 						</div>
+
 						<div class="mb-3 row">
 						    <label id="mypage_text" for="userName" class="col-sm-2 col-form-label">이름</label>
 						    <div class="col-sm-10">
@@ -118,3 +122,8 @@
     <script src="js/main.js"></script>
 </body>
 </html> 
+</c:when>
+<c:otherwise> 
+	<jsp:include page="../index.jsp"></jsp:include> 
+</c:otherwise>
+</c:choose>

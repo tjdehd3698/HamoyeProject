@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:choose>
+<c:when test="${!empty user}">
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,49 +13,12 @@
     <meta content="" name="description">
 </head>
 <body>
-<jsp:include page="../header.jsp"></jsp:include>
-
-<script type="text/javascript">
-$(function(){
-	$("#deposit_submit").on('click',function(){
-		var userPassword = "&userPassword="+$("#password").val();
-		var point = "&amount="+$("#DBPoint").val();
-		
-		if(confirm("${userName}님의  ${accountNumber}계좌로 "+$("#DBPoint").val()+"원을 입급합니다.")) {
-			if(${totalPoint}<3000){
-				alert("보유 포인트가 3000포인트 이상이 되어야 가능합니다.");
-				$("#password").val("");
-				$("#DBPoint").val("");
-			} else if($("#DBPoint").val()>=3000 && $("#DBPoint").val()<=${totalPoint}){
-				$.ajax({
-					type:'post',
-					url:'deposit.do',
-					data: userPassword+point,
-					success:function(result) {
-						if(result=='F'){
-							alert("비밀번호가 맞지 않습니다.");
-							$("#password").focus();
-						}
-						else{
-							alert("성공하였습니다");
-							location.reload();
-						}
-					} 
-				});
-			}  else{
-				alert("금액은 3000원 이상 ${totalPoint}이하여야 합니다.");
-				$("#DBPoint").val("");
-			}
-		} 
-		});
-});
-
-</script>
+<jsp:include page="../header.jsp"></jsp:include> 
  
  <!-- Spinner Start -->
-    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
-    </div> -->
+    </div> 
     <!-- Spinner End -->
 
     <!-- Page Header Start -->
@@ -135,5 +100,46 @@ $(function(){
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#deposit_submit").on('click',function(){
+		var userPassword = "&userPassword="+$("#password").val();
+		var point = "&amount="+$("#DBPoint").val();
+		
+		if(confirm("${userName}님의  ${accountNumber}계좌로 "+$("#DBPoint").val()+"원을 입급합니다.")) {
+			if(${totalPoint}<3000){
+				alert("보유 포인트가 3000포인트 이상이 되어야 가능합니다.");
+				$("#password").val("");
+				$("#DBPoint").val("");
+			} else if($("#DBPoint").val()>=3000 && $("#DBPoint").val()<=${totalPoint}){
+				$.ajax({
+					type:'post',
+					url:'deposit.do',
+					data: userPassword+point,
+					success:function(result) {
+						if(result=='F'){
+							alert("비밀번호가 맞지 않습니다.");
+							$("#password").focus();
+						}
+						else{
+							alert("성공하였습니다");
+							location.reload();
+						}
+					} 
+				});
+			}  else{
+				alert("금액은 3000원 이상 ${totalPoint}이하여야 합니다.");
+				$("#DBPoint").val("");
+			}
+		} 
+	});
+});
+
+</script>
 </body>
 </html>
+</c:when>
+<c:otherwise> 
+	<jsp:include page="../index.jsp"></jsp:include> 
+</c:otherwise>
+</c:choose>

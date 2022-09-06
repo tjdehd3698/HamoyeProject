@@ -84,10 +84,9 @@ public class EcoChallengeController {
 				String userId = (String) session.getAttribute("user");
 				model.addAttribute("existUser", userId);
 				String tripChallengeType = tripChallenge.getTripChallengeType();
-				if (userId != null) {
-
-					if (tripChallengeType.charAt(0) == '3') {
-
+				 
+				if (tripChallengeType.charAt(0) == '3') { 
+					if (userId != null) {
 						Participation participation = new Participation();
 						participation.setUserId(userId);
 						participation.setTripChallengeId(challengeId);
@@ -98,20 +97,19 @@ public class EcoChallengeController {
 
 						model.addAttribute("flag", flag);
 						path = "chl/MWPCHLV04M";
-					} else if (tripChallengeType.charAt(0) == '5') {
-
-						System.out.println("111111111"); 
-						List<String> todayRetaurantsNameList = restaurantService.getTodayRetaurantsName();
-						System.out.println("2222222");
+					} 
+					else path = "chl/MWPCHLV04M";
+				}
+				if (tripChallengeType.charAt(0) == '5') {
+					if (userId != null) {
+						List<String> todayRetaurantsNameList = restaurantService.getTodayRetaurantsName(); 
 						List<Coordinate> coordinateOfTodayRestaurantList = restaurantService.getCoordinateOfTodayRestaurants();
 						List<Double> longitudeList = new ArrayList<>();
 						List<Double> latitudeList = new ArrayList<>();
 						
-						for(Coordinate co : coordinateOfTodayRestaurantList) {
-//							System.out.println("3333333");
+						for(Coordinate co : coordinateOfTodayRestaurantList) { 
 							longitudeList.add(co.getLongitude());
 							latitudeList.add(co.getLatitude());
-							System.out.println(co.getLongitude()+" "+co.getLatitude());
 						}
 						model.addAttribute("nameList", todayRetaurantsNameList);
 						model.addAttribute("longitudeList", longitudeList);
@@ -119,12 +117,9 @@ public class EcoChallengeController {
 						model.addAttribute("len", todayRetaurantsNameList.size());
 						
 						path = "chl/MWPCHLV03M";
-					} else {
-						
-						path = "chl/MWPCHLV03M";
-
-					}
-				}
+					} 
+					else path = "chl/MWPCHLV03M";
+				} 
 
 			}
 		} catch (Exception e) {

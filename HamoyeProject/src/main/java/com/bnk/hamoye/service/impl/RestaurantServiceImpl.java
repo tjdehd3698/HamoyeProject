@@ -123,4 +123,9 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return 0;
 	}
 
+	@Override
+	public List<Restaurant> getRestaurantNotInTodayRestaurant() {
+		return restaurantDAO.getRestaurantNotInTodayRestaurant();
+	}
+
 }

@@ -149,6 +149,7 @@ public class MyPageController {
 	@GetMapping("showpoint.do") //포인트 적립 내역 조회
 	public String getParticipateChallenge(HttpSession session, Model model) {
 		try {
+			System.out.println("aa");
 			List<Participation> list = userService.getParticipateChallenge((String) session.getAttribute("user"));
 			for(Participation p :list)
 				System.out.println(p);

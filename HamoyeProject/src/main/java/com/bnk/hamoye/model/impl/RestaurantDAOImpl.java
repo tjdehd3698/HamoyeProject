@@ -35,6 +35,11 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 	public List<Restaurant> getAllRestaurants() {
 		return sqlSession.selectList(NS+"getAllRestaurants");
 	}
+
+	@Override
+	public List<Restaurant> getRestaurantNotInTodayRestaurant() {
+		return sqlSession.selectList(NS+"getRestaurantNotInTodayRestaurant");
+	}
 	
 
 }

@@ -13,7 +13,6 @@
 			<id column="trip_challenge_id" property="tripChallengeId"/>
 			<result column="trip_challenge_name" property="tripChallengeName"/>
 			<result column="reward_point" property="rewardPoint"/>
-			<result column ="hits" property="hits"/>
 		</association>
 	</resultMap>
 	
@@ -34,7 +33,7 @@
 	
 	<select id="getParticipateChallenge" parameterType="user" resultMap="participationWithUserAndChallenge">
 		select p.participation_id, p.participation_date, p.achievement_rate, p.is_success, t.trip_challenge_id,
-		t.trip_challenge_name, t.reward_point, t.hits
+		t.trip_challenge_name, t.reward_point
 		from participation p
 		join users u on p.user_id = u.user_id
 		join trip_challenge t on p.trip_challenge_id = t.trip_challenge_id

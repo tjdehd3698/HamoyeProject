@@ -276,7 +276,7 @@ public class AdminController {
 	
 	@GetMapping("getTodayRestaurantPage.do") //오늘의 식당 페이지 이동
 	public String getTodayRestaurantPage(Model model) {
-		List<Restaurant> restaurantList = restaurantService.getAllRestaurants(); //전체 식당 리스트
+		List<Restaurant> restaurantList = restaurantService.getRestaurantNotInTodayRestaurant(); //전체 식당 리스트
 		model.addAttribute("restaurantList", restaurantList);
 		
 		List<TodayRestaurant> todayRestaurantList = restaurantService.getAllTodayRestaurants(); //전체 오늘의 식당 리스트
@@ -286,8 +286,8 @@ public class AdminController {
 	}
 	
 	@PostMapping("updateTodayRestaurant.do") //오늘의 식당 변경
-	@ResponseBody
 	public String updateTodayRestaurant(@RequestParam(value="restaurantId[]") List<String> restaurantIdList) {		 
+		
 		restaurantService.updateTodayRestaurant(restaurantIdList); //새로운 오늘의 식당 등록
 		return "T";
 	}

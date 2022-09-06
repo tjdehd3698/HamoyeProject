@@ -27,6 +27,12 @@
 		select restaurant_id, location, restaurant_name, category, longitude, latitude
 		from restaurant
 	</select>
+	
+	<select id="getRestaurantNotInTodayRestaurant" resultType="restaurant">
+		select r.restaurant_id, r.location, r.restaurant_name, r.category, r.longitude, r.latitude
+		from restaurant r
+		where r.restaurant_id not in (select t.restaurant_id from TODAY_RESTAURANT t)
+	</select>
 </mapper>
 
 

@@ -101,7 +101,7 @@ public class EcoChallengeController {
 						path = "chl/MWPCHLV04M";
 				}
 				if (tripChallengeType.charAt(0) == '5') {
-					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@부산지역 이곳저곳 들리고 보상을 받으세요!");
+//					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@부산지역 이곳저곳 들리고 보상을 받으세요!");
 					String content = tripChallenge.getContent();
 					String[] newContent = content.split("@@");
 					model.addAttribute("newContent", newContent);

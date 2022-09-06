@@ -164,7 +164,7 @@
 					if(result!=''){
 						/* 동백포인트에 돈 넣어주는 로직 */
 						alert("동백포인트가 100원 적립되었습니다");
-						$("#getPoint"+value).attr("disabled","disabled");
+						$(".getPoint").attr("disabled","disabled");
 					}else{
 					}
 				},
@@ -223,7 +223,7 @@
 								<c:set var="str_name" value="${fn:replace(item, '[', '')}"/>
 								<c:set var="name" value="${fn:replace(str_name, ']', '')}" />
 								<strong class="text-primary">${name}</strong>에 방문하고<br>
-								<button class="btn btn-outline-primary px-3" id="getPoint${status.index}" onclick="getPoint(${status.index});"
+								<button class="btn btn-outline-primary px-3 getPoint" onclick="getPoint(${status.index});"
 									<c:if test="${flag=='T'}">disabled</c:if>>
 									100원 받기
 									<div

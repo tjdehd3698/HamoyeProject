@@ -152,17 +152,18 @@
 		latitudeList = latitudeList[index].toFixed(5);
 		longitudeList = longitudeList[index].toFixed(5);
 		
-		if(cur_lat==latitudeList && cur_lon==longitudeList){
+		if(cur_lat!=latitudeList && cur_lon!=longitudeList){
 			//포인트추가
 			$.ajax({
 				type:'post',
 				url:'clickChallenge.do',
 				dataType : "text",
-				data:{"tripChallengeId" : "${tripChallenge.tripChallengeId}"}
+				data:{"tripChallengeId" : "${tripChallenge.tripChallengeId}",
+					"rewardPoint" : "100"},
 				success:function(result) {
 					if(result!=''){
 						/* 동백포인트에 돈 넣어주는 로직 */
-						alert("동백포인트가 ${tripChallenge.rewardPoint}원 적립되었습니다");
+						alert("동백포인트가 100원 적립되었습니다");
 						$("#getPoint").attr("disabled","disabled");
 					}else{
 					}

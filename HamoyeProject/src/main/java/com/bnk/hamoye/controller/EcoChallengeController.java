@@ -73,19 +73,18 @@ public class EcoChallengeController {
 				path = "chl/MWPCHLV01M";
 
 			} else if (challengeType.equals("trip")) {
-				TripChallenge tripChallenge = tripChallengeService.getTripChallengeDetail(challengeId); 
-				model.addAttribute("tripChallenge", tripChallenge); 
-				
-				
+				TripChallenge tripChallenge = tripChallengeService.getTripChallengeDetail(challengeId);
+				model.addAttribute("tripChallenge", tripChallenge);
+
 				String flag = "F";
 				String userId = (String) session.getAttribute("user");
 				model.addAttribute("existUser", userId);
 				String tripChallengeType = tripChallenge.getTripChallengeType();
-				 
+
 				if (tripChallengeType.charAt(0) == '3') {
-					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!"); 
-					String content = tripChallenge.getContent(); 
-					String[] newContent = content.split("@@"); 
+					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
+					String content = tripChallenge.getContent();
+					String[] newContent = content.split("@@");
 					model.addAttribute("newContent", newContent);
 					if (userId != null) {
 						Participation participation = new Participation();
@@ -98,33 +97,34 @@ public class EcoChallengeController {
 
 						model.addAttribute("flag", flag);
 						path = "chl/MWPCHLV04M";
-					} 
-					else path = "chl/MWPCHLV04M";
+					} else
+						path = "chl/MWPCHLV04M";
 				}
 				if (tripChallengeType.charAt(0) == '5') {
-					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@부산지역 이곳저곳 들리고 보상을 받으세요!"); 
-					String content = tripChallenge.getContent(); 
-					String[] newContent = content.split("@@"); 
+					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@부산지역 이곳저곳 들리고 보상을 받으세요!");
+					String content = tripChallenge.getContent();
+					String[] newContent = content.split("@@");
 					model.addAttribute("newContent", newContent);
 					/* if (userId != null) { */
-						List<String> todayRetaurantsNameList = restaurantService.getTodayRetaurantsName(); 
-						List<Coordinate> coordinateOfTodayRestaurantList = restaurantService.getCoordinateOfTodayRestaurants();
-						List<Double> longitudeList = new ArrayList<>();
-						List<Double> latitudeList = new ArrayList<>();
-						
-						for(Coordinate co : coordinateOfTodayRestaurantList) { 
-							longitudeList.add(co.getLongitude());
-							latitudeList.add(co.getLatitude());
-						}
-						model.addAttribute("nameList", todayRetaurantsNameList);
-						model.addAttribute("longitudeList", longitudeList);
-						model.addAttribute("latitudeList", latitudeList);
-						model.addAttribute("len", todayRetaurantsNameList.size());
-						
-					/*	path = "chl/MWPCHLV03M";
-					} 
-					else*/ path = "chl/MWPCHLV03M";
-				} 
+					List<String> todayRetaurantsNameList = restaurantService.getTodayRetaurantsName();
+					List<Coordinate> coordinateOfTodayRestaurantList = restaurantService
+							.getCoordinateOfTodayRestaurants();
+					List<Double> longitudeList = new ArrayList<>();
+					List<Double> latitudeList = new ArrayList<>();
+
+					for (Coordinate co : coordinateOfTodayRestaurantList) {
+						longitudeList.add(co.getLongitude());
+						latitudeList.add(co.getLatitude());
+					}
+					model.addAttribute("nameList", todayRetaurantsNameList);
+					model.addAttribute("longitudeList", longitudeList);
+					model.addAttribute("latitudeList", latitudeList);
+					model.addAttribute("len", todayRetaurantsNameList.size());
+
+					/*
+					 * path = "chl/MWPCHLV03M"; } else
+					 */ path = "chl/MWPCHLV03M";
+				}
 
 			}
 		} catch (Exception e) {
@@ -154,20 +154,21 @@ public class EcoChallengeController {
 	@ResponseBody
 	public String getPoint(HttpSession session, String tripChallengeId, int rewardPoint, Model model) {
 		String flag = "F";
-
 		try {
 			String userId = (String) session.getAttribute("user");
 			Participation participation = new Participation();
 			participation.setUserId(userId);
 			participation.setTripChallengeId(tripChallengeId);
-
+			
 			tripChallengeService.participateTripChallenge(participation);
-			tripChallengeService.addPoint(userId, rewardPoint); // 포인트 업뎃
-			int value = tripChallengeService.checkParticipationTripChallenge(participation);
+			System.out.println("여기까지");
+			System.out.println(rewardPoint);
+				tripChallengeService.addPoint(userId, rewardPoint); // 포인트 업뎃
+				int value = tripChallengeService.checkParticipationTripChallenge(participation);
 
-			if (value > 0) {
-				flag = "T";
-			}
+				if (value > 0) {
+					flag = "T";
+				}
 
 		} catch (Exception e) {
 		}

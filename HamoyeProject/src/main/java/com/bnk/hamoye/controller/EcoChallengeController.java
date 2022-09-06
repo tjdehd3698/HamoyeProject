@@ -103,8 +103,11 @@ public class EcoChallengeController {
 				if (tripChallengeType.charAt(0) == '5') {
 //					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@부산지역 이곳저곳 들리고 보상을 받으세요!");
 					String content = tripChallenge.getContent();
+					System.out.println("hi");
 					String[] newContent = content.split("@@");
 					model.addAttribute("newContent", newContent);
+					
+					System.out.println(userId+" "+challengeId);
 					
 					if (userId != null) {
 						Participation participation = new Participation();
@@ -135,9 +138,7 @@ public class EcoChallengeController {
 					model.addAttribute("latitudeList", latitudeList);
 					model.addAttribute("len", todayRetaurantsNameList.size());
 
-					/*
-					 * path = "chl/MWPCHLV03M"; } else
-					 */ path = "chl/MWPCHLV03M";
+				path = "chl/MWPCHLV03M";
 				}
 
 			}
@@ -175,11 +176,9 @@ public class EcoChallengeController {
 			participation.setTripChallengeId(tripChallengeId);
 			
 			tripChallengeService.participateTripChallenge(participation);
-			System.out.println("여기까지");
-			System.out.println(rewardPoint);
 				tripChallengeService.addPoint(userId, rewardPoint); // 포인트 업뎃
 				int value = tripChallengeService.checkParticipationTripChallenge(participation);
-
+				System.out.println(value);
 				if (value > 0) {
 					flag = "T";
 				}

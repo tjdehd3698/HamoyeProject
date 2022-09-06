@@ -82,18 +82,23 @@
 	                                            <th>위도</th>
 	                                        </tr>
 	                                    </thead>
-	                                    <tbody>
-<%-- 	                                        <c:forEach var="item" items="${restaurantList}"> --%>
-<!-- 	                                        <tr> -->
-<%-- 	                                    		<td><input type="checkbox" class="form-check-input ml-0" name="selToday" value="${item.restaurantId}"></td> --%>
-<%-- 	                                            <td>${item.restaurantId}</td> --%>
-<%-- 	                                            <td>${item.restaurantName}</td> --%>
-<%-- 	                                            <td>${item.category}</td> --%>
-<%-- 	                                            <td>${item.location}</td> --%>
-<%-- 	                                            <td>${item.longitude}</td> --%>
-<%-- 	                                            <td>${item.latitude}</td> --%>
-<!-- 	                                        </tr> -->
-<%-- 	                                        </c:forEach> --%>
+	                                    <tfoot id="loading" class="text-center">
+	                                    	<tr>
+	                                    		<td colspan="7">데이터 로딩중입니다..🙄</td>
+	                                    	</tr>
+	                                    </tfoot>
+	                                    <tbody id="allDataTableData" style="display: none;">
+	                                        <c:forEach var="item" items="${restaurantList}">
+	                                        <tr>
+	                                    		<td><input type="checkbox" class="form-check-input ml-0" name="selToday" value="${item.restaurantId}"></td>
+	                                            <td>${item.restaurantId}</td>
+	                                            <td>${item.restaurantName}</td>
+	                                            <td>${item.category}</td>
+	                                            <td>${item.location}</td>
+	                                            <td>${item.longitude}</td>
+	                                            <td>${item.latitude}</td>
+	                                        </tr>
+	                                        </c:forEach>
 	                                    </tbody>
 	                                </table>
 	                            </div>
@@ -119,7 +124,9 @@
 			if ($(window).width() < 768) $('.sidebar .collapse').collapse('hide');
 			
 			$('#dataTable').DataTable();
-// 			$('#allDataTable').DataTable();
+			$('#allDataTable').DataTable();
+			$('#allDataTableData').fadeIn();
+			$('#loading').hide();
 			
 			$("#updateTodayRestaurant").on("click",function(){
 				var chksu = $("#allDataTable tbody input[type='checkbox']:checked").length;
@@ -147,7 +154,7 @@
 		                    contentType : "application/x-www-form-urlencoded; charset=UTF-8",
 							data : objParams,
 							success : function(data) {
-								if (data =="T") {
+								if (data.result =="T") {
 									alert('등록되었습니다.');
 									window.location.href="getTodayRestaurantPage.do";
 								}
@@ -185,7 +192,7 @@
 		                    contentType : "application/x-www-form-urlencoded; charset=UTF-8",
 							data : objParams,
 							success : function(data) {
-								if (data =="T") {
+								if (data.result =="T") {
 									alert('삭제되었습니다.');
 									window.location.href="getTodayRestaurantPage.do";
 								}

@@ -147,7 +147,7 @@ public class AdminServiceImpl implements AdminService{
 		LinkedHashMap<String,Integer> result = new LinkedHashMap<String, Integer>();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYYMM");
 		
-		for(int i=0;i<12;i++) {
+		for(int i=1;i<9;i++) {
 			String date = LocalDate.now().minusMonths(i).format(formatter);
 			System.out.println("date : "+date);
 			result.put(date,participationDAO.getParticipationCntByDate(date));
@@ -183,8 +183,8 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public Map<String, Integer> getUserCntByTripChallenge() throws Exception {
-		Map<String, Integer> result = new HashMap<String, Integer>();
+	public LinkedHashMap<String, Integer> getUserCntByTripChallenge() throws Exception {
+		LinkedHashMap<String, Integer> result = new LinkedHashMap<String, Integer>();
 		List<TripChallenge> tripChallengeList = tripChallengeDAO.getTripChallengeListByAdmin();
 		
 		for(TripChallenge t : tripChallengeList) {
@@ -208,8 +208,8 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public Map<String, Double> getUserCntByEcoChallengeType(int totalUserCnt) throws Exception {
-		Map<String,Double> result = new HashMap<String, Double>();
+	public LinkedHashMap<String, Double> getUserCntByEcoChallengeType(int totalUserCnt) throws Exception {
+		LinkedHashMap<String,Double> result = new LinkedHashMap<String, Double>();
 		double rest = totalUserCnt; //아무 에코 챌린지에 참여안한 사람 수
 		
 		List<String> typeList = ecoChallengeDAO.getEcoChallengeType();

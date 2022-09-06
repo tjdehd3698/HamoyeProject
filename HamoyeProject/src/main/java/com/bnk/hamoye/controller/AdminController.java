@@ -287,15 +287,15 @@ public class AdminController {
 	
 	@PostMapping("updateTodayRestaurant.do") //오늘의 식당 변경
 	@ResponseBody
-	public String updateTodayRestaurant(@RequestParam(value="restaurantId[]") List<String> restaurantIdList) {
-		
-		for(String rl : restaurantIdList) {
-            System.out.println(rl);
-        }
-		 
-		restaurantService.deleteAllTodayRestaurant(); //원래 있던 오늘의 식당 전체 삭제
+	public String updateTodayRestaurant(@RequestParam(value="restaurantId[]") List<String> restaurantIdList) {		 
 		restaurantService.updateTodayRestaurant(restaurantIdList); //새로운 오늘의 식당 등록
-		
+		return "T";
+	}
+	
+	@PostMapping("deleteTodayRestaurant.do") //오늘의 식당 삭제
+	@ResponseBody
+	public String deleteTodayRestaurant(@RequestParam(value="restaurantId[]") List<String> restaurantIdList) {
+		restaurantService.deleteTodayRestaurantByList(restaurantIdList); //특정 오늘의 식당 리스트 삭제
 		return "T";
 	}
 	

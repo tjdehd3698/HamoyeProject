@@ -102,8 +102,11 @@ public class RestaurantServiceImpl implements RestaurantService {
 	}
 
 	@Override
-	public int deleteAllTodayRestaurant() {
-		return todayRestaurantDAO.deleteAllTodayRestaurant();
+	public int deleteTodayRestaurantByList(List<String> restaurantIdList) {
+		for(String s : restaurantIdList) {
+			todayRestaurantDAO.deleteTodayRestaurantById(s);
+		}
+		return 0;
 	}
 
 	@Override

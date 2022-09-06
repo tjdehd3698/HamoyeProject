@@ -118,6 +118,8 @@ public class AdminController {
 			Map<String, Integer> challengeDateCnt = adminService.getTripChallengeCntByMonth();
 			model.addAttribute("challengeDateCnt", challengeDateCnt);
 			
+			System.out.println(challengeDateCnt);
+			
 			//지구를 떠나요 챌린지 별 참여자 수  pie chart 데이터 
 			Map<String, Double> pieCharData = adminService.getUserCntByEcoChallengeType(totalUserCnt);
 			model.addAttribute("userCntByEcoChallengeType", pieCharData);
@@ -205,7 +207,7 @@ public class AdminController {
 		try {
 			model.addAttribute("tripChallengeList", tripChallengeService.getTripChallengeListByAdmin());
 			//챌린지 별 참여자 수
-			model.addAttribute("userCount", adminService.getUSerCntByTripChallenge());
+			model.addAttribute("userCount", adminService.getUserCntByTripChallenge());
 			
 		} catch (Exception e) {
 			System.out.println("adminTripChallengeList 에러 : "+ e.getMessage());

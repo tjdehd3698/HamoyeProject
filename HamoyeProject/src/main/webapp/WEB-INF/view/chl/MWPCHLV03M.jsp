@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,9 +17,9 @@
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
 	<script>
-	
 	<!-- JavaScript -->
-	//지도 설정 	
+	//지도 설정
+	
 	$( document ).ready(function() {
 	var positions = [];
 	
@@ -90,11 +91,14 @@
 		var latitudeList = ${latitudeList};
 		var nameList = "${nameList}";
 		
+		var arryNameList = nameList.split('[').join('').split(']').join('');
+			arryNameList = arryNameList.split(',');
+		
 		 for(var i=0; i<len; i++){
-			positions.push( {
-					title : "nameList[i]",
-				LatLng : new kakao.maps.LatLng(latitudeList[i], longitudeList[i])
-		} )
+			positions.push({
+					title : "arryNameList[i]",
+					LatLng : new kakao.maps.LatLng(latitudeList[i], longitudeList[i])
+			})
 		 }
 
 		// 마커 이미지의 이미지 주소입니다
@@ -147,51 +151,45 @@
 			<nav aria-label="breadcrumb animated slideInDown"></nav>
 		</div>
 	</div>
-	<!-- Page Header End --> 
+	<!-- Page Header End -->
+
 
 	<!-- Contact Start -->
 	<div class="container-xxl py-5">
 		<div class="container">
 			<div class="row g-5">
 				<div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-					<div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">
-						떠나요 부산</div>
+					<div
+						class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">떠나요
+						부산</div>
 					<h1 class="display-6 mb-5">${tripChallenge.tripChallengeName}
-						챌린지
-					</h1>
+						챌린지</h1>
 					<h3>
 						<c:forEach var="content" items="${newContent}">
-                    		${content}<br>
+                    	${content}<br>
 						</c:forEach>
 					</h3>
 					<br>
 					<div>
 						<!-- 식당 이름 받아와서 넣고, 100원 받기 누르면  alert로 적립확인 하고 챌린지 리스트로 넘어가도록... -->
-						<section>
-							<c:choose>
-								<c:when test="${!empty userName}">
-									맛집 방문해 맛있게 밥먹고<br> 
-									<a class="btn btn-outline-primary px-3" href=""> 1000원 받기
-										<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-											<i class="fa fa-arrow-right"></i>
-										</div>
-									</a>
-								</c:when>
-								<c:otherwise> 
-	             					<a class="btn btn-outline-primary px-3" href="#" data-bs-toggle="modal" data-bs-target="#loginModal" >
-	                               		로그인하고 챌린지 참여하기
-	             						<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-	             							<i class="fa fa-arrow-right"></i>
-	            		 				</div>
-	             					</a>
-	             				</c:otherwise>
-             				</c:choose>
-						</section>		<br>
+						<c:forEach var="item" items="${fn:split(nameList,',')}" varStatus="status">
+							<section>
+								<c:set var="str_name" value="${fn:replace(item, '[', '')}"/>
+								<c:set var="name" value="${fn:replace(str_name, ']', '')}" />
+								<strong class="text-primary">${name}</strong>에 방문하고<br>
+								<a class="btn btn-outline-primary px-3" href=""> 100원 받기 
+									<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+										<i class="fa fa-arrow-right"></i>
+									</div>
+								</a>
+							</section>
+							<br>
+				    	</c:forEach>
 					</div>
 				</div>
 				<div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s"
 					style="min-height: 450px;">
-					<div class="position-relative rounded overflow-hidden h-100"> 
+					<div class="position-relative rounded overflow-hidden h-100">
 						<!-- 이거 카카오맵 API로 바꾸고 근처 식당 3개정도 띄우는걸로... 식당 123 이름 받아올 수 잇도록...! -->
 						<!-- <iframe class="position-relative w-100 h-100"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"

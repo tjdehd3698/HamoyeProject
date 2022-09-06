@@ -47,7 +47,7 @@
 	                                    <tbody>
 	                                        <c:forEach var="item" items="${todayRestaurantList}">
 	                                        <tr>
-	                                        	<td><input type="checkbox" class="form-check-input ml-0" name="delToday" value="${item.todayRestaurantCode}"></td>
+	                                        	<td><input type="checkbox" class="form-check-input ml-0" name="delToday" value="${item.restaurantId}"></td>
 	                                            <td>${item.restaurantId}</td>
 	                                            <td>${item.restaurantName}</td>
 	                                            <td>${item.category}</td>
@@ -175,7 +175,7 @@
 						});
 						
 					   var objParams = {
-		                        "todayRestaurantCode" : indata
+		                        "restaurantId" : indata
 		                    };
 					   
 						$.ajax({

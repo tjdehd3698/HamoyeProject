@@ -19,7 +19,9 @@
 	<script>
 	<!-- JavaScript -->
 	//지도 설정
-	
+	function getPoint(value){
+		alert(value);
+	}
 	$( document ).ready(function() {
 	var positions = [];
 	
@@ -133,6 +135,7 @@
 	}
 		}
 		
+	
 	});
 	</script>
 	<!-- Spinner Start -->
@@ -177,7 +180,7 @@
 								<c:set var="str_name" value="${fn:replace(item, '[', '')}"/>
 								<c:set var="name" value="${fn:replace(str_name, ']', '')}" />
 								<strong class="text-primary">${name}</strong>에 방문하고<br>
-								<a class="btn btn-outline-primary px-3" href=""> 100원 받기 
+								<a class="btn btn-outline-primary px-3" href="javascript:void(0);" onclick="getPoint(this);"> 100원 받기 
 									<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
 										<i class="fa fa-arrow-right"></i>
 									</div>

@@ -45,7 +45,7 @@ public class TodayRestaurantDAOImpl implements TodayRestaurantDAO {
 
 	@Override
 	public int deleteTodayRestaurantById(String restaurantId) {
-		return sqlSession.delete(NS+"deleteTodayRestaurant", restaurantId);
+		return sqlSession.delete(NS+"deleteTodayRestaurantById", restaurantId);
 	}
 
 	@Override

@@ -124,6 +124,8 @@ public class AdminController {
 			Map<String, Double> pieCharData = adminService.getUserCntByEcoChallengeType(totalUserCnt);
 			model.addAttribute("userCntByEcoChallengeType", pieCharData);
 			
+			System.out.println(pieCharData);
+			
 		} catch (Exception e) {
 			System.out.println("adminIndex 에러 : "+ e.getMessage());
 		}
@@ -388,11 +390,8 @@ public class AdminController {
 				ecoChallengeImge+="||";
 			}
 			
-			
 			ecoChallenge.setChallengeImage(ecoChallengeImge);
-			System.out.println("11");
 			adminService.updateEcoChallengeImage(ecoChallenge);
-			System.out.println("``");
 			
 			if(row==1)
 				result="T"; //정상적인 추가면 result = T

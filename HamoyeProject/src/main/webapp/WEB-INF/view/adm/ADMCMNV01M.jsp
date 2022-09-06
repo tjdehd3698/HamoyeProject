@@ -21,6 +21,8 @@
 			<script type="text/javascript">
 				var arrUserCntByEcoChlKey = [];
 				var arrUserCntByEcoChlVal = [];
+				var arrChallengeCntKey = [];
+				var arrChallengeCntVal = [];
 				
 				<c:forEach items="${userCntByEcoChallengeType}" var="item">
 					if(${item.key == '1001'}) arrUserCntByEcoChlKey.push("대중교통"); 
@@ -34,6 +36,12 @@
 						arrUserCntByEcoChlVal.push("${item.value}");
 					}
 				</c:forEach>
+				
+				<c:forEach items="${challengeDateCnt}" var="item">
+					arrChallengeCntKey.push("${item.key}"); 
+					arrChallengeCntVal.push("${item.value}"); 
+				</c:forEach>
+			
 			
 				$(document).ready(function() {
 					$(".nav-item:eq(0)").addClass("active");
@@ -221,7 +229,7 @@
 										      <strong>${item.userCnt}</strong> 명
 										    </div>
 										</div>
-										<div class="row align-items-center mb-3">
+										<div class="row align-items-center">
 										    <div class="col">
 										      받은 동백포인트
 										    </div>
@@ -229,10 +237,6 @@
 										      <strong>${item.totalPoint}</strong>
 										    </div>
 										</div>
-										<h4 class="small font-weight-bold">달성비율 <span class="float-right">${item.successPercent} %</span></h4>
-	                                    <div class="progress mb-2">
-                                        	<div class="progress-bar bg-success" role="progressbar" style="width:${item.successPercent}%" aria-valuenow="${item.successPercent}" aria-valuemin="0" aria-valuemax="100"></div>
-	                                    </div>
 	                                </div>
 	                            </div><!-- //card -->
 	                        </div>

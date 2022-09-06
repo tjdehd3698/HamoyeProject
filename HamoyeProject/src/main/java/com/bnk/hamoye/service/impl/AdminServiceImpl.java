@@ -1,10 +1,10 @@
 package com.bnk.hamoye.service.impl;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +24,6 @@ import com.bnk.hamoye.model.PaymentDAO;
 import com.bnk.hamoye.model.PointDAO;
 import com.bnk.hamoye.model.TripChallengeDAO;
 import com.bnk.hamoye.model.UserDAO;
-import com.bnk.hamoye.model.impl.UserDAOImpl;
 import com.bnk.hamoye.service.AdminService;
 
 import lombok.RequiredArgsConstructor;
@@ -144,12 +143,12 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public Map<String, Integer> getTripChallengeCntByMonth() throws Exception {
-		Map<String,Integer> result = new HashMap<String, Integer>();
+	public LinkedHashMap<String, Integer> getTripChallengeCntByMonth() throws Exception {
+		LinkedHashMap<String,Integer> result = new LinkedHashMap<String, Integer>();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYYMM");
 		
 		for(int i=0;i<12;i++) {
-			String date = LocalDate.now().minusMonths(1).format(formatter);
+			String date = LocalDate.now().minusMonths(i).format(formatter);
 			System.out.println("date : "+date);
 			result.put(date,participationDAO.getParticipationCntByDate(date));
 		}

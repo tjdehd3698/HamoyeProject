@@ -57,12 +57,6 @@
 											</div>
 										</div>
 										<div class="my-3 row">
-											<p class="col-sm-2 col-form-label">우대이율</p>
-											<div class="col-sm-10">
-											    <input type="number" class="form-control" id="primeRate" name="primeRate" maxlength="25" required/>
-											</div>
-								        </div>
-										<div class="my-3 row">
 											<p class="col-sm-2 col-form-label">시작일</p>
 										    <div class="col-sm-10">
 											    <div class="form-group mb-0">

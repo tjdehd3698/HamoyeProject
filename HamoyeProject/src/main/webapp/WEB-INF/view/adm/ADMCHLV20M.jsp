@@ -37,29 +37,21 @@
 	                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 	                                    <thead>
 	                                        <tr>
+	                                        	<th></th>
 	                                            <th>ID</th>
 	                                            <th>이름</th>
 	                                            <th>카테고리</th>
 	                                            <th>등록일</th>
-	                                        	<th></th>
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody>
 	                                        <c:forEach var="item" items="${todayRestaurantList}">
 	                                        <tr>
+	                                        	<td><input type="checkbox" class="form-check-input ml-0" name="delToday" value="${item.todayRestaurantCode}"></td>
 	                                            <td>${item.restaurantId}</td>
 	                                            <td>${item.restaurantName}</td>
 	                                            <td>${item.category}</td>
 	                                            <td>${item.registerDate}</td>
-	                                        	<td>
-<%-- 	                                        		<a href="deleteTodayRestaurant.do?restaurantId=${item.restaurantId}">삭제</a> --%>
-		                                        	<a href="deleteTodayRestaurant.do?restaurantId=${item.restaurantId}" class="btn btn-light btn-icon-split">
-				                                        <span class="icon text-gray-600">
-				                                            <i class="fas fa-trash"></i>
-				                                        </span>
-				                                        <span class="text">삭제</span>
-				                                    </a>
-	                                        	</td>
 	                                        </tr>
 	                                        </c:forEach>
 	                                    </tbody>
@@ -67,6 +59,10 @@
 	                            </div>
 	                        </div>
 	                    </div>
+	                    <div class="text-center mb-5">
+							<button class="btn btn-primary px-5" style="height: 50px;" type="button" id="deleteTodayRestaurant">오늘의 식당 삭제</button>
+						</div>
+						
 	                    
 	                    <div class="card shadow mb-4">
 	                        <div class="card-header py-3">
@@ -87,17 +83,17 @@
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody>
-	                                        <c:forEach var="item" items="${restaurantList}">
-	                                        <tr>
-	                                    		<td><input type="checkbox" class="form-check-input ml-0" name="selToday" value="${item.restaurantId}"></td>
-	                                            <td>${item.restaurantId}</td>
-	                                            <td>${item.restaurantName}</td>
-	                                            <td>${item.category}</td>
-	                                            <td>${item.location}</td>
-	                                            <td>${item.longitude}</td>
-	                                            <td>${item.latitude}</td>
-	                                        </tr>
-	                                        </c:forEach>
+<%-- 	                                        <c:forEach var="item" items="${restaurantList}"> --%>
+<!-- 	                                        <tr> -->
+<%-- 	                                    		<td><input type="checkbox" class="form-check-input ml-0" name="selToday" value="${item.restaurantId}"></td> --%>
+<%-- 	                                            <td>${item.restaurantId}</td> --%>
+<%-- 	                                            <td>${item.restaurantName}</td> --%>
+<%-- 	                                            <td>${item.category}</td> --%>
+<%-- 	                                            <td>${item.location}</td> --%>
+<%-- 	                                            <td>${item.longitude}</td> --%>
+<%-- 	                                            <td>${item.latitude}</td> --%>
+<!-- 	                                        </tr> -->
+<%-- 	                                        </c:forEach> --%>
 	                                    </tbody>
 	                                </table>
 	                            </div>
@@ -123,7 +119,7 @@
 			if ($(window).width() < 768) $('.sidebar .collapse').collapse('hide');
 			
 			$('#dataTable').DataTable();
-			$('#allDataTable').DataTable();
+// 			$('#allDataTable').DataTable();
 			
 			$("#updateTodayRestaurant").on("click",function(){
 				var chksu = $("#allDataTable tbody input[type='checkbox']:checked").length;
@@ -153,6 +149,7 @@
 							success : function(data) {
 								if (data =="T") {
 									alert('등록되었습니다.');
+									window.location.href="getTodayRestaurantPage.do";
 								}
 							}
 						});
@@ -161,6 +158,45 @@
 					}
 				}
 			});
+			
+			$("#deleteTodayRestaurant").on("click",function(){
+				var chksu = $("#dataTable tbody input[type='checkbox']:checked").length;
+				var indata = [];
+
+				if (chksu == 0) {
+					alert('삭제할 식당을 선택하세요!');
+				} else {
+					var selConfirm = confirm('오늘의 식당에서 삭제하시겠습니까?');
+					if (selConfirm) {
+						var fileValue = $("input[name=delToday]").length;
+						
+						$("input:checkbox:checked").each(function (index) {
+							indata.push($(this).val());
+						});
+						
+					   var objParams = {
+		                        "todayRestaurantCode" : indata
+		                    };
+					   
+						$.ajax({
+							type : 'post',
+							url : 'deleteTodayRestaurant.do',
+							dataType    : "json",
+		                    contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+							data : objParams,
+							success : function(data) {
+								if (data =="T") {
+									alert('삭제되었습니다.');
+									window.location.href="getTodayRestaurantPage.do";
+								}
+							}
+						});
+					} else {
+						alert('삭제가 취소되었습니다.');
+					}
+				}
+			});
+			
 		});
 		
 	</script>

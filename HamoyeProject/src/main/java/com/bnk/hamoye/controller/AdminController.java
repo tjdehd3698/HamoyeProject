@@ -294,7 +294,7 @@ public class AdminController {
 	
 	@PostMapping("deleteTodayRestaurant.do") //오늘의 식당 삭제
 	@ResponseBody
-	public String deleteTodayRestaurant(@RequestParam(value="restaurantId[]") List<String> restaurantIdList) {
+	public String deleteTodayRestaurant(@RequestParam(value="todayRestaurantCode[]") List<String> restaurantIdList) {
 		restaurantService.deleteTodayRestaurantByList(restaurantIdList); //특정 오늘의 식당 리스트 삭제
 		return "T";
 	}

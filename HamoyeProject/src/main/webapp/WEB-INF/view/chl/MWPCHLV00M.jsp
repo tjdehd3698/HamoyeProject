@@ -40,11 +40,11 @@
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="padding:0%">
                         <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                             <img class="img-fluid mb-4" src="img/free-icon-earth-globe-921423.png" width="90px" height="90px">
-                            <h4 class="mb-3">지구를 지켜요</h4>
+                            <h4 class="mb-5">지구를 지켜요</h4>
 
                              <c:forEach var="ecoChallenge" items="${ecoChallengeList}">
                                 <div class="mb-4"><b> ${ecoChallenge.ecoChallengeName}하고 </b><br>
-                                    <a class="btn btn-outline-primary px-3" href="challengeDetail.do?challengeType=eco&challengeId=${ecoChallenge.ecoChallengeId}">
+                                    <a class="btn btn-outline-primary px-3 mt-1" href="challengeDetail.do?challengeType=eco&challengeId=${ecoChallenge.ecoChallengeId}">
                                         	이자 더 받기
                                         <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                         <i class="fa fa-arrow-right"></i>
@@ -57,13 +57,13 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="padding:0%">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="img/map.png" alt="" width="90px" height="90px">
-                        <h4 class="mb-3">떠나요 부산</h4>
+                        <h4 class="mb-5">떠나요 부산</h4>
                         
                         <c:forEach var="tripChallenge" items="${tripChallengeList}">
                         	<c:set var="string" value="${tripChallenge.tripChallengeType}" />
                          	<c:if test = "${fn:startsWith(string, '5')}"> 
 								<div class="mb-4"><b> ${tripChallenge.tripChallengeName}하고 </b><br>
-	                            	<a class="btn btn-outline-primary px-3" href="challengeDetail.do?challengeType=trip&challengeId=${tripChallenge.tripChallengeId}">
+	                            	<a class="btn btn-outline-primary px-3 mt-1" href="challengeDetail.do?challengeType=trip&challengeId=${tripChallenge.tripChallengeId}">
 	                                	동백포인트 받기 
 	                                    <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
 	                                        <i class="fa fa-arrow-right"></i>
@@ -78,13 +78,13 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="padding:0%">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="img/beach.png" alt="" width="90px" height="90px">
-                        <h4 class="mb-3">알아봐요 부산</h4>
+                        <h4 class="mb-5">알아봐요 부산</h4>
                         
                         <c:forEach var="tripChallenge" items="${tripChallengeList}">
                         	<c:set var="string" value="${tripChallenge.tripChallengeType}" />
                          	<c:if test = "${fn:startsWith(string, '3')}">
                                 <div class="mb-4"><b> ${tripChallenge.tripChallengeName}하고 </b><br>
-                                    <a class="btn btn-outline-primary px-3" href="challengeDetail.do?challengeType=trip&challengeId=${tripChallenge.tripChallengeId}">
+                                    <a class="btn btn-outline-primary px-3 mt-1" href="challengeDetail.do?challengeType=trip&challengeId=${tripChallenge.tripChallengeId}">
                                       	동백포인트 받기 
                                         <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                         	<i class="fa fa-arrow-right"></i>
@@ -99,18 +99,18 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s" style="padding:0%">
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="img/social-media.png" alt="" width="90px" height="90px">
-                        <h4 class="mb-3">이런 챌린지 어때요?</h4>
-                        <div class="mb-4"><b>요즘 핫해요</b></div>
-                        <div style="padding:5px">
-                        <a class="btn btn-outline-primary px-3" href="">
+                        <h4 class="mb-5">이런 챌린지 어때요?</h4>
+                        <b>요즘 핫해요</b>
+                        <div>
+                        <a class="btn btn-outline-primary px-3 mt-1" href="">
                                	 대중교통 챌린지
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>
                             </div>
                         </a>
                         </div>
-                        <div style="padding:5px">
-                        <a class="btn btn-outline-primary px-3" href="">
+                        <div>
+                        <a class="btn btn-outline-primary px-3 mt-3" href="">
                                 오늘의 식당 방문 챌린지
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>

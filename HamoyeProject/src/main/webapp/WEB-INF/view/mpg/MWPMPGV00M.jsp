@@ -171,7 +171,7 @@
 						<div class="content">
 							<header id="introText" class="mypage_major" style="display:block"><br>
 								<div class="mypage_account_text">
-									<h1 style="color:#2b3886">${userName}</h1><h5>님은</h5>
+									<h1 style="color:#2b3886">${userName}<span style="margin-left: 1rem;font-size: 1.4rem;color: #636363;">님은</span></h1>
 								</div>
 								<div class="mypage_account_text"><br><br><br>
 									<h3 style="color:#2b3886">아직, 챌린지 계좌가 없습니다!</h3><h2 />

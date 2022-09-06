@@ -35,44 +35,35 @@
     <div class="container mb-5 wow fadeIn" data-wow-delay="0.1s">
 		<div class="container">
 		<h1 style="text-align: center;">챌린지 참여 내역</h1>
-		<div style="display: flex">
-		<img alt="" id="resize"  src="img/img-fpm-bf-12@3x.png" style="width:20%; height:20%">
-	  	<table class="rwd-table" id="dataTable" cellspacing="0">
-	    <tbody class="mypage_tbody">  
-	    	<tr>
-	        	<th class="th-sm">순번</th>
-	        	<th class="th-sm">항목</th> 
-	        	<th class="th-sm">포인트</th>
-	        	<th class="th-sm">참여일자</th> 
-	      	</tr> 
-	      	<c:forEach var="item" items="${result}" varStatus="status"> 
-		      	<tr>
-	    	    <td data-th="순번">
-	        		<c:out value= "${status.count}" />
-	        	</td>
-	        	<td data-th="항목">
-	 				${item.tripChallenge.tripChallengeName}
-	        	</td>
-	        	<td data-th="포인트">
-	        	  	${item.tripChallenge.rewardPoint}
-	        	</td>
-	        	<td data-th="시작일자">
-	        	  	${item.participationDate}
-	        	</td>  
-	      	</tr>
-	      </c:forEach>
-	      
-	          </tbody>
-	  </table>
-	  <!-- <hr>
-	  <div class="text-center">
-	  	<ul class="pagination">
-	    	<li><a href="#"><button>1</button></a></li>
-	    	<li><a href="#"><button>2</button> </a></li>
-	    </ul>
-	  </div> -->
-		<!-- <h3 style="text-align: center" id="resize"></h3> -->
-		<img alt="" id="resize" src="img/img-fpm-bf-10@3x.png" style="width:20%; height:20%">
+		<div style="display: flex; justify-content: center;">
+			<img alt="" id="resize"  src="img/img-fpm-bf-12@3x.png" style="width:20%; height:20%">
+	  			<table class="rwd-table" id="dataTable" cellspacing="0">
+	    			<tbody class="mypage_tbody">  
+	    				<tr>
+				        	<th class="th-sm">순번</th>
+				        	<th class="th-sm">항목</th> 
+				        	<th class="th-sm">포인트</th>
+				        	<th class="th-sm">참여일자</th> 
+				      	</tr> 
+		      			<c:forEach var="item" items="${result}" varStatus="status"> 
+			      			<tr>
+					    	    <td data-th="순번">
+					        		<c:out value= "${status.count}" />
+					        	</td>
+					        	<td data-th="항목">
+					 				${item.tripChallenge.tripChallengeName}
+					        	</td>
+					        	<td data-th="포인트">
+					        	  	${item.tripChallenge.rewardPoint}
+					        	</td>
+					        	<td data-th="시작일자">
+					        	  	${item.participationDate}
+					        	</td>  
+					      	</tr>
+		      			</c:forEach>
+		      		</tbody>
+	  			</table>
+	  		<img alt="" id="resize" src="img/img-fpm-bf-10@3x.png" style="width:20%; height:20%">
 	  </div>
 	</div>  
 </div>

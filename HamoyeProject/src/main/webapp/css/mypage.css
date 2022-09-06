@@ -964,7 +964,7 @@
  
 .rwd-table {
   margin: auto;
-  min-width: 85%;
+  min-width: 55%;
   max-width: 100%;
   border-collapse: collapse;
 }
@@ -1069,26 +1069,15 @@ background: -webkit-linear-gradient(to left, #f4f8fb , #ebf2f8);
 background: linear-gradient(to left, #f4f8fb , #ebf2f8);        
 }  
 #resize {
-  display: inline-block;
+  /* display: inline-block;
   position: relative;
   text-align: center;
   font-size: 1.5em;
-  color: #cecece;
-}
-#resize:before {
-  content: "\25C0";
-  position: absolute;
-  left: -50px;
-  -webkit-animation: leftRight 2s linear infinite;
-  animation: leftRight 2s linear infinite;
-}
-#resize:after {
-  content: "\25b6";
-  position: absolute;
-  right: -50px;
-  -webkit-animation: leftRight 2s linear infinite reverse;
-  animation: leftRight 2s linear infinite reverse;
-}
+  color: #cecece; */
+    animation: leftRight 2s linear infinite;
+    position: sticky;
+    top:35%;
+} 
 @-webkit-keyframes leftRight {
   0%    { -webkit-transform: translateX(0)}
   25%   { -webkit-transform: translateX(-10px)}

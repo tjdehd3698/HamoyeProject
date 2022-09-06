@@ -625,10 +625,12 @@
 		color: #636363;
 	}
 	#mypage_main h1, #mypage_main h2, #mypage_main h3, #mypage_main h4, #mypage_main h5, #mypage_main h6 {
+		color: #636363;
 	}
 	
-	#mypage_main h1+.sub-txt{
+	#mypage_main h1 .sub-txt{
 		margin-left: 1rem;font-size: 1.4rem;color: #636363;
+	}
 	}
 	
 	#mypage_main blockquote {

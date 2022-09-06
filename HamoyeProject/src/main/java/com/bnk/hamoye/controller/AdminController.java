@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -286,17 +287,40 @@ public class AdminController {
 	}
 	
 	@PostMapping("updateTodayRestaurant.do") //오늘의 식당 변경
-	public String updateTodayRestaurant(@RequestParam(value="restaurantId[]") List<String> restaurantIdList) {		 
+	@ResponseBody
+	public JSONObject updateTodayRestaurant(@RequestParam(value="restaurantId[]") List<String> restaurantIdList) {		 
+		String result = "{\"result\" : \"T\"}";
+		JSONObject jsonObject= null; //결과로 보낼 JSON 객체
+		try {
 		
-		restaurantService.updateTodayRestaurant(restaurantIdList); //새로운 오늘의 식당 등록
-		return "T";
+			restaurantService.updateTodayRestaurant(restaurantIdList); //새로운 오늘의 식당 등록
+			
+			JSONParser parser = new JSONParser();       
+			jsonObject = (JSONObject) parser.parse(result);
+			
+		} catch (ParseException e) {
+			System.out.println(e);
+		}
+		return jsonObject;
 	}
 	
 	@PostMapping("deleteTodayRestaurant.do") //오늘의 식당 삭제
 	@ResponseBody
-	public String deleteTodayRestaurant(@RequestParam(value="restaurantId[]") List<String> restaurantIdList) {
-		restaurantService.deleteTodayRestaurantByList(restaurantIdList); //특정 오늘의 식당 리스트 삭제
-		return "T";
+	public JSONObject deleteTodayRestaurant(@RequestParam(value="restaurantId[]") List<String> restaurantIdList) {
+		String result = "{\"result\" : \"T\"}";
+		JSONObject jsonObject= null; //결과로 보낼 JSON 객체
+		
+		try {
+			restaurantService.deleteTodayRestaurantByList(restaurantIdList); //특정 오늘의 식당 리스트 삭제
+	
+			JSONParser parser = new JSONParser();       
+			jsonObject = (JSONObject) parser.parse(result);
+			
+		} catch (ParseException e) {
+			System.out.println(e);
+		}
+		
+		return jsonObject;
 	}
 	
 	@PostMapping("registerEcoChallenge.do") //ecoChallenge 등록(사진 업로드)

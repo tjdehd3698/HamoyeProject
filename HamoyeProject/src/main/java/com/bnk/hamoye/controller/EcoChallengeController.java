@@ -105,7 +105,21 @@ public class EcoChallengeController {
 					String content = tripChallenge.getContent();
 					String[] newContent = content.split("@@");
 					model.addAttribute("newContent", newContent);
-					/* if (userId != null) { */
+					
+					if (userId != null) {
+						Participation participation = new Participation();
+						participation.setUserId(userId);
+						participation.setTripChallengeId(challengeId);
+						int value = tripChallengeService.checkParticipationTripChallenge(participation);
+						if (value > 0) {
+							flag = "T";
+						}
+
+						model.addAttribute("flag", flag);
+						path = "chl/MWPCHLV04M";
+					} else
+						path = "chl/MWPCHLV04M";
+					
 					List<String> todayRetaurantsNameList = restaurantService.getTodayRetaurantsName();
 					List<Coordinate> coordinateOfTodayRestaurantList = restaurantService
 							.getCoordinateOfTodayRestaurants();

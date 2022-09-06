@@ -18,11 +18,13 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 	<script>
 	<!-- JavaScript -->
-	//지도 설정
-	function getPoint(value){
-		alert(value);
-	}
+	var lat,lon;
+	
 	$( document ).ready(function() {
+		
+	//초기화
+	init();
+
 	var positions = [];
 	
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -33,31 +35,33 @@
 
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 	
-	// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
-	if (navigator.geolocation) {
-	    
-	    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-	    navigator.geolocation.getCurrentPosition(function(position) {
-	        
-	        var lat = position.coords.latitude, // 위도
-	            lon = position.coords.longitude; // 경도
-	        
-	        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-	            message = '<div style="padding:5px;">현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
-	        
-	            message2 = '<div style="padding:5px;">추천 가게</div>';
-	        // 마커와 인포윈도우를 표시합니다
-	        makeTodayRestaurantList(message2);
-	        displayMarker(locPosition, message);
-	            
-	      });
-	    
-	} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-	    
-	    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
-	        message = 'geolocation을 사용할수 없어요..'
-	        
-	    displayMarker(locPosition, message);
+	function init(){
+		// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+		if (navigator.geolocation) {
+		    
+		    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+		    navigator.geolocation.getCurrentPosition(function(position) {
+		        
+		        lat = position.coords.latitude, // 위도
+		        lon = position.coords.longitude; // 경도
+		        
+		        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+		            message = '<div style="padding:5px;">현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
+		        
+		            message2 = '<div style="padding:5px;">추천 가게</div>';
+		        // 마커와 인포윈도우를 표시합니다
+		        makeTodayRestaurantList(message2);
+		        displayMarker(locPosition, message);
+		            
+		      });
+		    
+		} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+		    
+		    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
+		        message = 'geolocation을 사용할수 없어요..'
+		        
+		    displayMarker(locPosition, message);
+		}
 	}
 
 	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
@@ -134,9 +138,47 @@
     
 	}
 		}
-		
 	
 	});
+	
+	//지도 설정
+	function getPoint(value){
+		var index = value;
+		var longitudeList = ${longitudeList};
+		var latitudeList = ${latitudeList};
+		var cur_lat = lat.toFixed(5);
+		var cur_lon = lon.toFixed(5);
+		
+		latitudeList = latitudeList[index].toFixed(5);
+		longitudeList = longitudeList[index].toFixed(5);
+		
+		if(cur_lat==latitudeList && cur_lon==longitudeList){
+			//포인트추가
+			$.ajax({
+				type:'post',
+				url:'clickChallenge.do',
+				dataType : "text",
+				data:{"tripChallengeId" : "${tripChallenge.tripChallengeId}"}
+				success:function(result) {
+					if(result!=''){
+						/* 동백포인트에 돈 넣어주는 로직 */
+						alert("동백포인트가 ${tripChallenge.rewardPoint}원 적립되었습니다");
+						$("#getPoint").attr("disabled","disabled");
+					}else{
+					}
+				},
+				error:function(){
+					alert("다시 시도해주세요.");
+				}
+			});	
+			
+		}else{
+			alert("위치가 맞지 않아요😢");
+		}
+		
+		
+	}
+	
 	</script>
 	<!-- Spinner Start -->
 	<div id="spinner"
@@ -180,7 +222,7 @@
 								<c:set var="str_name" value="${fn:replace(item, '[', '')}"/>
 								<c:set var="name" value="${fn:replace(str_name, ']', '')}" />
 								<strong class="text-primary">${name}</strong>에 방문하고<br>
-								<a class="btn btn-outline-primary px-3" href="javascript:void(0);" onclick="getPoint(this);"> 100원 받기 
+								<a class="btn btn-outline-primary px-3" href="javascript:void(0);" onclick="getPoint(${status.index});"> 100원 받기 
 									<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
 										<i class="fa fa-arrow-right"></i>
 									</div>

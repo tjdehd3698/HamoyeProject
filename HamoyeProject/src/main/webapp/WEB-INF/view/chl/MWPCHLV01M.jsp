@@ -185,5 +185,17 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+     <script>
+   $(document).ready(function() {
+      
+      if("${checkJoinChallenge}" == 'F'){
+         $("#registerChallenge").attr("disabled","disabled");
+      }
+      
+      $("#registerChallenge").on("click", function(){
+         window.location.href = "getUserAllInfo.do?ecoChallengeId=${ecoChallenge.ecoChallengeId}";
+      });
+   });
+   </script>
 </body>
 </html>

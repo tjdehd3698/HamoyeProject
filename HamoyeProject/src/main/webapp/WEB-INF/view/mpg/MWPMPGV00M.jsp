@@ -122,10 +122,10 @@
 							<p class="showAccount">계좌번호 : ${result.account.accountNumber}</p><br> 
 							<header id="introText" class="mypage_major" style="display:block"><br>  
 								<div class="mypage_account_text">
-									<h1 style="color:#2b3886">${userName}</h1><h5>님의</h5>
+									<h1 style="color:#2b3886">${userName}</h1><h5 style="padding-top: 5%;">님의</h5>
 								</div>
 								<div class="mypage_account_text"><br><br><br>
-									<h3 style="color:#2b3886">${result.ecoChallenge.ecoChallengeName} </h3><h5> 챌린지 </h5><br><br><br> 
+									<h3 style="color:#2b3886">${result.ecoChallenge.ecoChallengeName} </h3><h5 style="padding-top: 1%;"> 챌린지 </h5><br><br><br> 
 									<div id="balance_textBalance" >
 										<h4 >잔액 </h4><br> 
 										<strong id="balance_balanceText"><h4 id="mypage_balance"></h4><h5 id="balance_text">&nbsp;원</h5></strong> 

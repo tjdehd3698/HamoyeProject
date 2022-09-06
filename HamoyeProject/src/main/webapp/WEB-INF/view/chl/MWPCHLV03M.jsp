@@ -169,34 +169,26 @@
 					<div>
 						<!-- 식당 이름 받아와서 넣고, 100원 받기 누르면  alert로 적립확인 하고 챌린지 리스트로 넘어가도록... -->
 						<section>
-							식당1에 방문하고<br> <a class="btn btn-outline-primary px-3"
-								href=""> 100원 받기
-								<div
-									class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+						<c:choose>
+				<c:when test="${!empty userName}">
+							맛집 방문해 맛있게 밥먹고<br> <a class="btn btn-outline-primary px-3" href=""> 1000원 받기
+								<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
 									<i class="fa fa-arrow-right"></i>
 								</div>
 							</a>
+							</c:when>
+							<c:otherwise> 
+             					<a class="btn btn-outline-primary px-3" href="#" data-bs-toggle="modal" data-bs-target="#loginModal" >
+                               		로그인하고 챌린지 참여하기
+             						<div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+             							<i class="fa fa-arrow-right"></i>
+            		 				</div>
+             					</a>
+             				</c:otherwise>
+             			</c:choose> 
 						</section>
-						<br>
-						<section>
-							식당2에 방문하고<br> <a class="btn btn-outline-primary px-3"
-								href=""> 100원 받기
-								<div
-									class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-									<i class="fa fa-arrow-right"></i>
-								</div>
-							</a>
-						</section>
-						<br>
-						<section>
-							식당3에 방문하고<br> <a class="btn btn-outline-primary px-3"
-								href=""> 100원 받기
-								<div
-									class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-									<i class="fa fa-arrow-right"></i>
-								</div>
-							</a>
-						</section>
+						
+						<br> 
 					</div>
 				</div>
 				<div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s"

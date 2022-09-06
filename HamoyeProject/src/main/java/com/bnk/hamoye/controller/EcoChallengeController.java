@@ -75,17 +75,18 @@ public class EcoChallengeController {
 			} else if (challengeType.equals("trip")) {
 				TripChallenge tripChallenge = tripChallengeService.getTripChallengeDetail(challengeId); 
 				model.addAttribute("tripChallenge", tripChallenge); 
-				tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!"); 
-				String content = tripChallenge.getContent(); 
-				String[] newContent = content.split("@@"); 
-				model.addAttribute("newContent", newContent);
+				
 				
 				String flag = "F";
 				String userId = (String) session.getAttribute("user");
 				model.addAttribute("existUser", userId);
 				String tripChallengeType = tripChallenge.getTripChallengeType();
 				 
-				if (tripChallengeType.charAt(0) == '3') { 
+				if (tripChallengeType.charAt(0) == '3') {
+					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!"); 
+					String content = tripChallenge.getContent(); 
+					String[] newContent = content.split("@@"); 
+					model.addAttribute("newContent", newContent);
 					if (userId != null) {
 						Participation participation = new Participation();
 						participation.setUserId(userId);
@@ -101,6 +102,10 @@ public class EcoChallengeController {
 					else path = "chl/MWPCHLV04M";
 				}
 				if (tripChallengeType.charAt(0) == '5') {
+					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@부산지역 이곳저곳 들리고 보상을 받으세요!"); 
+					String content = tripChallenge.getContent(); 
+					String[] newContent = content.split("@@"); 
+					model.addAttribute("newContent", newContent);
 					if (userId != null) {
 						List<String> todayRetaurantsNameList = restaurantService.getTodayRetaurantsName(); 
 						List<Coordinate> coordinateOfTodayRestaurantList = restaurantService.getCoordinateOfTodayRestaurants();

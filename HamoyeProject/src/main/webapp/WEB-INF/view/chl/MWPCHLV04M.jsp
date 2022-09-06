@@ -85,7 +85,7 @@
 				<div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s"
 					style="float: right">
 					<div class="position-relative rounded overflow-hidden h-100">
-						<img class="img-fluid" src="img/team-3.jpg">
+						<img class="img-fluid" src="img/SoSangGongPeople.jpg">
 					</div>
 				</div>
 			</div>

@@ -1068,12 +1068,7 @@ background: #f4f8fb;
 background: -webkit-linear-gradient(to left, #f4f8fb , #ebf2f8);
 background: linear-gradient(to left, #f4f8fb , #ebf2f8);        
 }  
-#resize {
-  /* display: inline-block;
-  position: relative;
-  text-align: center;
-  font-size: 1.5em;
-  color: #cecece; */
+#resize { 
     animation: leftRight 2s linear infinite;
     position: sticky;
     top:35%;

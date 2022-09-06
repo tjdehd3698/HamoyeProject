@@ -106,7 +106,7 @@ public class EcoChallengeController {
 					String content = tripChallenge.getContent(); 
 					String[] newContent = content.split("@@"); 
 					model.addAttribute("newContent", newContent);
-					if (userId != null) {
+					/* if (userId != null) { */
 						List<String> todayRetaurantsNameList = restaurantService.getTodayRetaurantsName(); 
 						List<Coordinate> coordinateOfTodayRestaurantList = restaurantService.getCoordinateOfTodayRestaurants();
 						List<Double> longitudeList = new ArrayList<>();
@@ -121,9 +121,9 @@ public class EcoChallengeController {
 						model.addAttribute("latitudeList", latitudeList);
 						model.addAttribute("len", todayRetaurantsNameList.size());
 						
-						path = "chl/MWPCHLV03M";
+					/*	path = "chl/MWPCHLV03M";
 					} 
-					else path = "chl/MWPCHLV03M";
+					else*/ path = "chl/MWPCHLV03M";
 				} 
 
 			}

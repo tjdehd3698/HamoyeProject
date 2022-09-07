@@ -17,21 +17,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script type="text/javascript">
   $(function(){
-		$("#ChangeUserInfo").on("submit",function(){ 
+		$("#ChangeUserInfo").on("submit",function(){   
 			$.ajax({
 				type:'post',
-				url:'change.do', 
-				data:{"userId" : "${result.userId}",
-					  "userPassword" : "${result.userPassword}",
+				url:'change.do',   
+				data: { "userId" : "${result.userId}",
+					  "userPassword" : $('#mypage_password').val(),
 					  "userName" : "${result.userName}",
-					  "birthday" : "${result.birthday}",
 					  "gender" : "${result.gender}",
-					  "userAddress" : "${result.userAddress}",
-					  "email" : "${result.email}",
+					  "email" : $('#mypage_email').val(),
+					  "birthday" : "${result.birthday}",
+					  "userAddress" : $('#mypage_address').val() },
 				success:function(result) { 
 					alert("회원 수정이 완료되었습니다.");
 					location.href("moveToChangeForm.do");
-				}
 				},
 				error:function(){
 					alert("다시 시도해주세요.");

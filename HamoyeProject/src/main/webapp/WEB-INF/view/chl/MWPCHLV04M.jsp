@@ -83,11 +83,16 @@
 					</article>
 				</div>
 				<div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="float: right">
-					<div class="position-relative rounded overflow-hidden h-100">
+					<div id="SoSang_Image" class="position-relative rounded overflow-hidden h-100">
 						<c:choose>
 							<c:when test="${tripChallenge.challengeImage !=null}">
 								<c:forEach var="itemImg" items="${fn:split(tripChallenge.challengeImage,'||')}" varStatus="status">
-										<img class="img-fluid" src="img/trip/${tripChallenge.tripChallengeId}/${itemImg}"> 
+									<c:if test="${status.count == 1}">
+										<img id="SoSang_mainImg" src="img/trip/${tripChallenge.tripChallengeId}/${itemImg}">
+									</c:if>
+									<c:if test="${status.count != 1}">
+										<img id="SoSang_Img" src="img/trip/${tripChallenge.tripChallengeId}/${itemImg}">
+									</c:if> 
 								</c:forEach>
 							</c:when>
 							<c:otherwise>

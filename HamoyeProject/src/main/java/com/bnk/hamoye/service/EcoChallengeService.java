@@ -1,11 +1,8 @@
 package com.bnk.hamoye.service;
 
-import java.sql.SQLException;
 import java.util.List;
 
-import com.bnk.hamoye.domain.Account;
 import com.bnk.hamoye.domain.EcoChallenge;
-import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.User;
 
 public interface EcoChallengeService {

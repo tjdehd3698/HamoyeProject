@@ -1,6 +1,5 @@
 package com.bnk.hamoye.controller;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,13 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bnk.hamoye.domain.Participation;
 import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.User;
-import com.bnk.hamoye.model.impl.TripChallengeDAOImpl;
 import com.bnk.hamoye.service.TripChallengeService;
 import com.bnk.hamoye.service.UserService;
 
@@ -77,7 +74,6 @@ public class MyPageController {
 			model.addAttribute("result", user);
 			
 			List<TripChallenge> tripList = tripChallengeService.getTripChallengeList();
-			System.out.println(tripList);
 			model.addAttribute("tripList", tripList);
 
 			if (user.getEcoChallenge() == null) {
@@ -106,14 +102,12 @@ public class MyPageController {
 	@ResponseBody
 	public String changePoint(HttpSession session,int amount, String userPassword) {
 		try {
-			System.out.println("aaa");
 			User user = new User();
 			user.setUserId((String)session.getAttribute("user"));
 			user.setUserPassword(userPassword);
 			
 			User findUser = userService.login(user);
 			if(findUser!=null) {
-				System.out.println("t");
 				userService.changePoint((String)session.getAttribute("user"), amount);
 				return "T";
 				
@@ -150,8 +144,6 @@ public class MyPageController {
 	public String getParticipateChallenge(HttpSession session, Model model) {
 		try {
 			List<Participation> list = userService.getParticipateChallenge((String) session.getAttribute("user"));
-			for(Participation p :list)
-				System.out.println(p);
 			
 			model.addAttribute("result", list);
 		} catch (Exception e) {

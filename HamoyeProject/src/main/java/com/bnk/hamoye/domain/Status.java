@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class Status {
-	private String challengeId;
-	private String challengeName;
-	private int userCnt;
-	private double successPercent;
+	private String challengeId; // ChallengeId
+	private String challengeName; // Challenge 이름
+	private int userCnt; // 참가자 횟수
+	private double successPercent; // Challenge 달성율
 }

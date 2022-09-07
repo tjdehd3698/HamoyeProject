@@ -64,8 +64,7 @@
     	      var pointEl = document.createElement('span');
     	      pointEl.classList.add('point');
     	      idx3n.after(pointEl);
-    	    }
-    	    setTimeout(function(){
+    	    }  setTimeout(function(){
     	      var point = $cntBox.querySelectorAll('.point');
     	      point.forEach(el => {
     	        el.innerText=','

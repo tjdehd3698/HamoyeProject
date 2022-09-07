@@ -59,7 +59,7 @@ $(function(){
 		}
 		
 		var	url = window.location.pathname+window.location.search;
-		if(url=="/register.do" || url=="/logout.do"){
+		if(url=="/register.do" || url=="/logout.do" || url=="/findPassword.do"){
 			url = "home.do";
 		}
 		

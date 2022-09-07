@@ -45,3 +45,17 @@
 	    margin-right: auto;
 	    padding-left:
 	} 
+	#SoSang_mainImg{
+	 border-radius: 5%;
+	 width:100%;
+	 height:auto;
+	}
+	#SoSang_Img {
+		width: 44%;
+	    border-radius: 20%;
+	    margin: 10px;
+	}
+	#SoSang_Image{ 
+	flex-direction: column; 
+	width:100%; 
+	}

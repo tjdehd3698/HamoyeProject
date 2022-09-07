@@ -135,7 +135,7 @@
 								<div id="mypage_comment"><br>
 									<div style="display:inline">
 										<c:if test="${result.ecoChallenge.totalCount > result.participationCount}">
-											<div style="font-size: large;">지금은 <strong style="color:#2b3886;" id="nowInterest"></strong>의 이자가 쌓였어요!❤</div>
+											<div style="font-size: large;">지금은 <strong style="color:#2b3886;" id="nowInterest"></strong>의 이자가 쌓였어요!💸</div>
 											<div style="font-size: large;">만기시 <strong id="winInterest" style="color:#2b3886"></strong>을 받을 수 있어요😍</div>
 									 		<input type="hidden" id="mypage_matureDate" value="${result.account.matureDate}"> 
 								 			<div style="font-size: large">챌린지 도전이&nbsp;<strong id="mypage_Dday" style="color:#2b3886;"></strong> 후에 종료됩니다!</div>

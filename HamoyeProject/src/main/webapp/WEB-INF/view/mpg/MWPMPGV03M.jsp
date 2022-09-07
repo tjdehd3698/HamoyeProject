@@ -39,27 +39,29 @@
 					<span class="icon solid fas fa-exclamation-triangle fa-10x"></span>
 				</div>
 				<div class="PartB px-3">
-					<h2>계좌를 해지하시면</h2><br>
-					<h2 style="color:blue">금리 우대 혜택</h2><h2>과</h2><br>
-					<h2 style="color:blue">잔여 동백포인트</h2><h2>가</h2><br> <h2 style="color:red">사라져요!</h2> 
+					<h3>계좌를 해지하시면<br>
+					<strong class="text-primary">금리 우대 혜택</strong>과<br>
+					<strong class="text-primary">잔여 동백포인트</strong>가<br>
+					<strong class="text-danger">사라져요!</strong></h3> 
 				</div>
-		
 		<br> <br>
 		<div class="container PartMid mt-5">
-			<h1>그래도 계좌를 </h1>
-			<h1>해지하시겠어요?</h1>
+			<h2>
+				그래도 계좌를<br>
+				해지하시겠어요?
+			</h2>
 		</div>
 		<div class="container PartBottom">
 			<div class="Accout">
 				<div class="mb-5">
-					<div class="mb-2 row"> 
+					<div class="mb-4 row"> 
 						<div class="position-relative">  
-						<label for="userId" class="col-sm-2 col-form-label mt-3" >비밀번호</label>
+						<label for="userId" class="col-sm-2 col-form-label mt-3">비밀번호</label>
 				        	<input type="password" class="form-control accOutInput" id="password" name="userPassword"> 
 						</div> 
 				    </div>
-				    <a id="accout_submit" class="btn btn-outline-primary py-2 px-2 mx-5">계좌해지 </a> 
-				    <input type = "button"  class="btn btn-outline-primary py-2 px-2 mx-5" id="accout_cancel" onclick="location.href='mypage.do' " value="돌아가기">
+				    <a id="accout_submit" class="btn btn-outline-primary py-2 px-2 mx-2">계좌해지 </a> 
+				    <input type="button" class="btn btn-outline-primary py-2 px-2 mx-2" id="accout_cancel" onclick="location.href='mypage.do' " value="돌아가기">
 				</div>
 			</div>
 		 </div>

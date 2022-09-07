@@ -46,13 +46,13 @@
 											<p class="col-sm-2 col-form-label">챌린지타입</p>
 											<div class="col-sm-10">
 												<select class="form-select" name="tripChallengeType">
-													<option value="3001">오늘의 식당</option>
-													<option value="3002">오늘의 관광지</option>
-													<option value="3003">오늘의 카페</option>
-													<option value="5001">오늘의 소상공인</option>
-													<option value="5002">오늘의 특산품</option>
-													<option value="5003">오늘의 문화재</option>
-													<option value="5004">오늘의 자랑스러운 시민</option>
+													<option value="3000">오늘의 식당</option>
+													<option value="3001">오늘의 관광지</option>
+													<option value="3002">오늘의 카페</option>
+													<option value="5000">오늘의 소상공인</option>
+													<option value="5001">오늘의 특산품</option>
+													<option value="5002">오늘의 문화재</option>
+													<option value="5003">오늘의 자랑스러운 시민</option>
 												</select>
 											</div>
 										</div>

@@ -32,77 +32,77 @@ public class RestaurantServiceImpl implements RestaurantService {
 	private final TodayRestaurantDAO todayRestaurantDAO;
 
 	@Override
-	public List<Restaurant> getRestaurantsByCategory(String category) {
+	public List<Restaurant> getRestaurantsByCategory(String category) throws Exception {
 		return restaurantDAO.getRestaurantsByCategory(category);
 	}
 
 	@Override
-	public List<Restaurant> getRestaurantsByName(String restaurantName) {
+	public List<Restaurant> getRestaurantsByName(String restaurantName) throws Exception {
 		return restaurantDAO.getRestaurantsByName(restaurantName);
 	}
 
 	@Override
-	public Restaurant getRestaurantById(String restaurantId) {
+	public Restaurant getRestaurantById(String restaurantId) throws Exception {
 		return restaurantDAO.getRestaurantById(restaurantId);
 	}
 
 	@Override
-	public int registerTodayRestaurants(TodayRestaurant todayRestaurant) {
+	public int registerTodayRestaurants(TodayRestaurant todayRestaurant) throws Exception {
 		return todayRestaurantDAO.registerTodayRestaurant(todayRestaurant);
 	}
 
 	@Override
-	public List<TodayRestaurant> getTodayRestaurantsByCategory(String category) {
+	public List<TodayRestaurant> getTodayRestaurantsByCategory(String category) throws Exception {
 		return todayRestaurantDAO.getTodayRestaurantsByCategory(category);
 	}
 
 	@Override
-	public List<TodayRestaurant> getTodayRestaurantsByName(String restaurantName) {
+	public List<TodayRestaurant> getTodayRestaurantsByName(String restaurantName) throws Exception {
 		return todayRestaurantDAO.getTodayRestaurantsByName(restaurantName);
 	}
 
 	@Override
-	public TodayRestaurant getTodayRestaurantById(String restaurantId) {
+	public TodayRestaurant getTodayRestaurantById(String restaurantId) throws Exception {
 		return todayRestaurantDAO.getTodayRestaurantById(restaurantId);
 	}
 
 	@Override
-	public List<TodayRestaurant> getTodayRestaurantsByDate(Date date) {
+	public List<TodayRestaurant> getTodayRestaurantsByDate(Date date) throws Exception {
 		return todayRestaurantDAO.getTodayRestaurantsByDate(date);
 	}
 
 	@Override
-	public int updateTodayRestaurant(TodayRestaurant todayRestaurant) {
+	public int updateTodayRestaurant(TodayRestaurant todayRestaurant) throws Exception {
 		return todayRestaurantDAO.updateTodayRestaurant(todayRestaurant);
 	}
 
 	@Override
-	public int deleteTodayRestaurantById(String restaurantId) {
+	public int deleteTodayRestaurantById(String restaurantId) throws Exception {
 		return todayRestaurantDAO.deleteTodayRestaurantById(restaurantId);
 	}
 
 	@Override
-	public List<Restaurant> getAllRestaurants() {
+	public List<Restaurant> getAllRestaurants() throws Exception {
 		return restaurantDAO.getAllRestaurants();
 	}
 
 	@Override
-	public List<TodayRestaurant> getAllTodayRestaurants() {
+	public List<TodayRestaurant> getAllTodayRestaurants() throws Exception {
 		return todayRestaurantDAO.getAllTodayRestaurant();
 	}
 
 	@Override
-	public List<Coordinate> getCoordinateOfTodayRestaurants() {
+	public List<Coordinate> getCoordinateOfTodayRestaurants() throws Exception {
 		return todayRestaurantDAO.getCoordinateOfTodayRestaurants();
 	}
 
 	@Override
-	public List<String> getTodayRetaurantsName() {
+	public List<String> getTodayRetaurantsName() throws Exception {
 		return todayRestaurantDAO.getTodayRetaurantsName();
 	}
 
 	@Override
-	public int deleteTodayRestaurantByList(List<String> restaurantIdList) {
+	public int deleteTodayRestaurantByList(List<String> restaurantIdList) throws Exception {
 		for(String s : restaurantIdList) {
 			todayRestaurantDAO.deleteTodayRestaurantById(s);
 		}
@@ -110,7 +110,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 	}
 
 	@Override
-	public int updateTodayRestaurant(List<String> restaurantIdList) {
+	public int updateTodayRestaurant(List<String> restaurantIdList) throws Exception {
 		for(String id : restaurantIdList) {
 			Restaurant restaurant = restaurantDAO.getRestaurantById(id);
 			TodayRestaurant todayRestaurant = new TodayRestaurant();
@@ -124,7 +124,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 	}
 
 	@Override
-	public List<Restaurant> getRestaurantNotInTodayRestaurant() {
+	public List<Restaurant> getRestaurantNotInTodayRestaurant() throws Exception {
 		return restaurantDAO.getRestaurantNotInTodayRestaurant();
 	}
 

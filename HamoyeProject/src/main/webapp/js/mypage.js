@@ -58,19 +58,18 @@
     	  }
     	  
     	  //,처리
-    	  if ($cntLen>3) {
-    	    for (var i=1; i<=Math.floor($cntLen/3); i++) {
+    	  if ($cntLen>3) { 
+    	    for (var i=1; i<=Math.floor(($cntLen-1)/3); i++) {
     	      var idx3n = $cntBox.querySelector('.idx'+i*3);
     	      var pointEl = document.createElement('span');
     	      pointEl.classList.add('point');
     	      idx3n.after(pointEl);
-    	    }
-    	    setTimeout(function(){
+    	    }  setTimeout(function(){
     	      var point = $cntBox.querySelectorAll('.point');
     	      point.forEach(el => {
     	        el.innerText=','
     	      });
-    	    },(speed*10) + ($cntLen * delay) + speed);
+    	    }, ($cntLen * delay) + speed);
     	  };
 
     	  function setNum (el, n){

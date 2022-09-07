@@ -90,7 +90,7 @@
 	                                            <td><a href="adminGetUser.do?userId=${item.userId}">${item.userName}</a></td>
 	                                            <td>${item.participationCount}</td>
 	                                            <td>
-	                                            	<input id="chal_check" type="checkbox" checked>
+	                                            	<input id="chal_check" type="checkbox" >
 	                                            	<input type="hidden" id="adminChl_hidden" value="${item.participationCount}">
 	                                            	<%--<a><button id="save_participationCount">저장</button></a> --%>
 	                                            </td>

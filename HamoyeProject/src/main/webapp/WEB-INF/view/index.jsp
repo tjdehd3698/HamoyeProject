@@ -52,7 +52,7 @@
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
-                                <div class="col-lg-7 pt-5">
+                                <div class="col-lg-8 pt-5">
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">일상 속 작은 실천, 금융이 되다<br>실천금융 하모예</h1>
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">새로운 금융의 시작, 하모예는 실천에서 그 의미를 찾았습니다.</p>
                                     <c:choose>
@@ -78,7 +78,7 @@
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
-                                <div class="col-lg-7 pt-5">
+                                <div class="col-lg-8 pt-5">
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">하고<br>모으고<br>예금하고</h1>
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">쉽고 간단한 실천금융, 하모예</p>
                                     <c:choose>

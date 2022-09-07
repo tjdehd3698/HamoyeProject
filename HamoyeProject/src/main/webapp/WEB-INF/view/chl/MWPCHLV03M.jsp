@@ -219,6 +219,8 @@
 					</h3>
 					<br>
 					<div>
+						<c:choose>
+						<c:when test="${!empty user}">
 						<!-- 식당 이름 받아와서 넣고, 100원 받기 누르면  alert로 적립확인 하고 챌린지 리스트로 넘어가도록... -->
 						<c:forEach var="item" items="${fn:split(nameList,',')}" varStatus="status">
 							<section>
@@ -236,6 +238,17 @@
 							</section>
 							<br>
 				    	</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<p class="mb-3">로그인 후 사용 가능합니다.😢</p>
+							<a class="btn btn-outline-primary py-2 px-3" href="#none" data-bs-toggle="modal" data-bs-target="#loginModal">
+		                        로그인 하기
+		                        <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+		                            <i class="fa fa-arrow-right"></i>
+		                        </div>
+		                    </a>
+						</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 				<div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s"

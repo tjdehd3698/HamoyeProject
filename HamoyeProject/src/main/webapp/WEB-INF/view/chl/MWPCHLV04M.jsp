@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,10 +82,18 @@
 						</c:forEach>
 					</article>
 				</div>
-				<div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s"
-					style="float: right">
+				<div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="float: right">
 					<div class="position-relative rounded overflow-hidden h-100">
-						<img class="img-fluid" src="img/SoSangGongPeople.jpg">
+						<c:choose>
+							<c:when test="${tripChallenge.challengeImage !=null}">
+								<c:forEach var="itemImg" items="${fn:split(tripChallenge.challengeImage,'||')}" varStatus="status">
+										<img class="img-fluid" src="img/trip/${tripChallenge.tripChallengeId}/${itemImg}"> 
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<img class="img-fluid" src="img/SoSangGongPeople.jpg">
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>

@@ -24,7 +24,6 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 	private final UserService userService;
 	private final EcoChallengeService ecoChallengeService;
-	private final TripChallengeService tripChallengeService;
 
 	@PostMapping("register.do") // 회원가입
 	public String registerUser(User user, Model model) {
@@ -62,7 +61,6 @@ public class UserController {
 			if (findUser != null) {
 				session.setAttribute("user", findUser.getUserId());
 				session.setAttribute("userName", findUser.getUserName());
-				System.out.println("로그인 성공");
 				return "T";
 			} else
 				return "F";
@@ -117,17 +115,6 @@ public class UserController {
 		}
 		return "chl/MWPCHLV10M";
 	}
-
-//	@PostMapping()
-//	public String joinAccount(Account account,String ecoChallengeId, HttpSession session) {
-//		try {
-//			userService.joinAccount(account, (String)session.getAttribute("user"), ecoChallengeId);
-//		} catch (SQLException e) { 
-//			System.out.println("joinAccount 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}
-//	
 	
 	@RequestMapping("findPasswordPage.do")
 	public String findPasswordPage(User user, Model model) {
@@ -149,22 +136,5 @@ public class UserController {
 		}
 		return result;
 	}
-
-//	@GetMapping()
-//	public String checkEcoChallenge(HttpSession session, Model model) {
-//		try {
-//			String findId = userService.checkEcoChallenge((String)session.getAttribute("user"));
-//
-//		} catch (SQLException e) {
-//			System.out.println("checkEcoChallenge 에러 : "+ e.getMessage());
-//		}
-//		return "";
-//	}	
-//	
-//	@PostMapping()
-//	public String joinAccount(Account account, String userId, String ecoChallengeId) {
-//		
-//		return "";
-//	}
 
 }

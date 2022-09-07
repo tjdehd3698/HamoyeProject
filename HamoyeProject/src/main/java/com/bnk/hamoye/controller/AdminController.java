@@ -1,11 +1,8 @@
 package com.bnk.hamoye.controller;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -61,7 +58,6 @@ public class AdminController {
 
 			if (findUser != null) {
 				session.setAttribute("user", findUser.getUserId());
-				System.out.println("로그인 성공");
 				return "T";
 			} else
 				return "F";
@@ -123,13 +119,9 @@ public class AdminController {
 			Map<String, Integer> challengeDateCnt = adminService.getTripChallengeCntByMonth();
 			model.addAttribute("challengeDateCnt", challengeDateCnt);
 
-			System.out.println(challengeDateCnt);
-
 			// 지구를 떠나요 챌린지 별 참여자 수 pie chart 데이터
 			Map<String, Double> pieCharData = adminService.getUserCntByEcoChallengeType(totalUserCnt);
 			model.addAttribute("userCntByEcoChallengeType", pieCharData);
-
-			System.out.println(pieCharData);
 
 		} catch (Exception e) {
 			System.out.println("adminIndex 에러 : " + e.getMessage());
@@ -148,7 +140,6 @@ public class AdminController {
 		String result = "F";
 		try {
 			int row = adminService.updateUserByAdmin(user);
-			System.out.println(row);
 			if (row > 0)
 				result = "T";
 		} catch (Exception e) {
@@ -198,20 +189,20 @@ public class AdminController {
 	public String adminEcoChallengeDetail(Model model, String ecoChallengeId) {
 		try {
 			EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(ecoChallengeId);
-			
+
 			String content = ecoChallenge.getContent();
 			StringBuilder sb = new StringBuilder();
-			
+
 			for (int i = 0; i < content.length(); i++) {
-				if (content.charAt(i) == 64 && content.charAt(i+1) == 64) {
+				if (content.charAt(i) == 64 && content.charAt(i + 1) == 64) {
 					i++;
 				} else {
 					sb.append(content.charAt(i));
 				}
 			}
-			
+
 			ecoChallenge.setContent(sb.toString());
-			
+
 			model.addAttribute("ecoChallenge", ecoChallenge);
 
 			// 해당 EcoChallenge 참가 인원 조회
@@ -241,20 +232,20 @@ public class AdminController {
 	public String adminTripChallengeDetail(Model model, String tripChallengeId) {
 		try {
 			TripChallenge tripChallenge = tripChallengeService.getTripChallengeDetail(tripChallengeId);
-			
+
 			String content = tripChallenge.getContent();
 			StringBuilder sb = new StringBuilder();
-			
+
 			for (int i = 0; i < content.length(); i++) {
-				if (content.charAt(i) == 64 && content.charAt(i+1) == 64) {
+				if (content.charAt(i) == 64 && content.charAt(i + 1) == 64) {
 					i++;
 				} else {
 					sb.append(content.charAt(i));
 				}
 			}
-			
+
 			tripChallenge.setContent(sb.toString());
-			
+
 			model.addAttribute("tripChallenge", tripChallenge);
 
 			// 해당 tripChallenge 참가 인원 조회
@@ -289,9 +280,6 @@ public class AdminController {
 		String result = "{\"result\" : \"T\"}";
 		JSONObject jsonObject = null;
 		try {
-			for (User s : user) {
-				System.out.println(s);
-			}
 			int row = adminService.updateUserParticipationCountWithVolunteer(user);
 
 			JSONParser parser = new JSONParser();
@@ -315,10 +303,18 @@ public class AdminController {
 
 	@GetMapping("getTodayRestaurantPage.do") // 오늘의 식당 페이지 이동
 	public String getTodayRestaurantPage(Model model) {
-		List<Restaurant> restaurantList = restaurantService.getRestaurantNotInTodayRestaurant(); // 전체 식당 리스트
+		List<Restaurant> restaurantList = new ArrayList<>();
+		try {
+			restaurantList = restaurantService.getRestaurantNotInTodayRestaurant();
+		} catch (Exception e) {
+		} // 전체 식당 리스트
 		model.addAttribute("restaurantList", restaurantList);
 
-		List<TodayRestaurant> todayRestaurantList = restaurantService.getAllTodayRestaurants(); // 전체 오늘의 식당 리스트
+		List<TodayRestaurant> todayRestaurantList = new ArrayList<>();
+		try {
+			todayRestaurantList = restaurantService.getAllTodayRestaurants();
+		} catch (Exception e) {
+		} // 전체 오늘의 식당 리스트
 		model.addAttribute("todayRestaurantList", todayRestaurantList);
 
 		return "adm/ADMCHLV20M";
@@ -331,7 +327,10 @@ public class AdminController {
 		JSONObject jsonObject = null; // 결과로 보낼 JSON 객체
 		try {
 
-			restaurantService.updateTodayRestaurant(restaurantIdList); // 새로운 오늘의 식당 등록
+			try {
+				restaurantService.updateTodayRestaurant(restaurantIdList);
+			} catch (Exception e) {
+			} // 새로운 오늘의 식당 등록
 
 			JSONParser parser = new JSONParser();
 			jsonObject = (JSONObject) parser.parse(result);
@@ -349,7 +348,10 @@ public class AdminController {
 		JSONObject jsonObject = null; // 결과로 보낼 JSON 객체
 
 		try {
-			restaurantService.deleteTodayRestaurantByList(restaurantIdList); // 특정 오늘의 식당 리스트 삭제
+			try {
+				restaurantService.deleteTodayRestaurantByList(restaurantIdList);
+			} catch (Exception e) {
+			} // 특정 오늘의 식당 리스트 삭제
 
 			JSONParser parser = new JSONParser();
 			jsonObject = (JSONObject) parser.parse(result);
@@ -367,7 +369,6 @@ public class AdminController {
 			MultipartFile img3) {
 		String result = "F";
 		try {
-			System.out.println(ecoChallenge);
 			String imgTmp = LocalDateTime.now().getSecond() + ""; // 이미지 이름 중복 방지 문구
 			String ecoChallengeImge = ""; // 이미지 경로 담을 변수
 
@@ -420,7 +421,7 @@ public class AdminController {
 			} else {
 				ecoChallengeImge += "||";
 			}
-			
+
 			String content = ecoChallenge.getContent();
 			StringBuilder sb = new StringBuilder();
 
@@ -432,7 +433,6 @@ public class AdminController {
 				}
 			}
 
-			
 			ecoChallenge.setContent(sb.toString());
 
 			ecoChallenge.setChallengeImage(ecoChallengeImge);
@@ -499,9 +499,8 @@ public class AdminController {
 				ecoChallengeImge += (splitImage[2] + "||");
 			}
 
-			System.out.println(ecoChallengeImge);
 			ecoChallenge.setChallengeImage(ecoChallengeImge);
-			
+
 			String content = ecoChallenge.getContent();
 			StringBuilder sb = new StringBuilder();
 
@@ -512,7 +511,7 @@ public class AdminController {
 					sb.append(content.charAt(i));
 				}
 			}
-			
+
 			ecoChallenge.setContent(sb.toString());
 
 			ecoChallengeService.updateEcoChallenge(ecoChallenge);
@@ -594,10 +593,9 @@ public class AdminController {
 				tripChallenge.setChallengeImage(tripChallengeImge);
 				adminService.updateTripChallengeImage(tripChallenge);
 			}
-			
+
 			String content = tripChallenge.getContent();
 			StringBuilder sb = new StringBuilder();
-			
 
 			for (int i = 0; i < content.length(); i++) {
 				if (content.charAt(i) == 13) {
@@ -606,7 +604,7 @@ public class AdminController {
 					sb.append(content.charAt(i));
 				}
 			}
-			
+
 			tripChallenge.setContent(sb.toString());
 
 			if (row == 1)
@@ -686,7 +684,7 @@ public class AdminController {
 					sb.append(content.charAt(i));
 				}
 			}
-			
+
 			tripChallenge.setContent(sb.toString());
 
 			tripChallengeService.updateTripChallenge(tripChallenge);

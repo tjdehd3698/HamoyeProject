@@ -1,11 +1,9 @@
 package com.bnk.hamoye.domain;
 
-import java.sql.Date;
-
 import lombok.Data;
 
 @Data
 public class Point {
-	private String pointId;
-	private int totalPoint;
+	private String pointId; // 동백포인트 id
+	private int totalPoint; // 동백포인트 총액
 }

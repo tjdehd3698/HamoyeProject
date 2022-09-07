@@ -19,7 +19,6 @@ import com.bnk.hamoye.domain.Account;
 import com.bnk.hamoye.domain.Coordinate;
 import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.Participation;
-import com.bnk.hamoye.domain.TodayRestaurant;
 import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.EcoChallengeService;
@@ -55,9 +54,7 @@ public class EcoChallengeController {
 				list.add(ecoChallenge2);
 				model.addAttribute("ecoChallenge", ecoChallenge);
 				model.addAttribute("list", list);
-//				ecoChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
 				String content = ecoChallenge.getContent();
-				System.out.println("adsadsa");
 				String[] newContent = content.split("@@");
 				model.addAttribute("newContent", newContent);
 				String userId = (String) session.getAttribute("user");
@@ -101,13 +98,9 @@ public class EcoChallengeController {
 						path = "chl/MWPCHLV04M";
 				}
 				if (tripChallengeType.charAt(0) == '5') {
-//					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@부산지역 이곳저곳 들리고 보상을 받으세요!");
 					String content = tripChallenge.getContent();
-					System.out.println("hi");
 					String[] newContent = content.split("@@");
 					model.addAttribute("newContent", newContent);
-					
-					System.out.println(userId+" "+challengeId);
 					
 					if (userId != null) {
 						Participation participation = new Participation();
@@ -178,7 +171,6 @@ public class EcoChallengeController {
 			tripChallengeService.participateTripChallenge(participation);
 				tripChallengeService.addPoint(userId, rewardPoint); // 포인트 업뎃
 				int value = tripChallengeService.checkParticipationTripChallenge(participation);
-				System.out.println(value);
 				if (value > 0) {
 					flag = "T";
 				}
@@ -198,7 +190,6 @@ public class EcoChallengeController {
 			String userId = (String) session.getAttribute("user");
 			User user = userService.getUserInfo(userId);
 			EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(ecoChallengeId);
-			System.out.println(ecoChallenge);
 
 			Account account = new Account();
 			Date now = new Date();

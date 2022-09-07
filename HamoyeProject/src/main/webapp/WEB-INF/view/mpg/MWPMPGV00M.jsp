@@ -288,7 +288,7 @@
 	                    </a>
 	                </div><br><br>
 	                <div><br><br>
-	                	<h5 id="text">5,000 P 이상 모았다면 </h5>
+	                	<h5 id="text">3,000 P 이상 모았다면 </h5>
 						<input id="asd" type="hidden" value = "${result.accountNumber}">
 	                   	<a id="depositBtn" class="btn btn-outline-primary px-3" href="moveDeposit.do" >
 	                       	계좌입금하기

@@ -57,9 +57,9 @@ public class EcoChallengeController {
 				model.addAttribute("list", list);
 //				ecoChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
 				String content = ecoChallenge.getContent();
+				System.out.println("adsadsa");
 				String[] newContent = content.split("@@");
 				model.addAttribute("newContent", newContent);
-
 				String userId = (String) session.getAttribute("user");
 				if (userId != null) {
 					User user = userService.getUserAllInfo(userId);

@@ -19,6 +19,26 @@
   $(function(){
 		$("#ChangeUserInfo").on("submit",function(){
 			 alert("회원 수정되었습니다."); 
+		
+			$.ajax({
+				type:'post',
+				url:'change.do', 
+				data:{"userId" : "${result.userId}",
+					  "userPassword" : "${result.userPassword}",
+					  "userName" : "${result.userName}",
+					  "birthday" : "${result.birthday}",
+					  "gender" : "${result.gender}",
+					  "userAddress" : "${result.userAddress}",
+					  "email" : "${result.email}",
+				success:function(result) { 
+					alert("수정이 완료되었습니다요");
+					location.href("moveToChangeForm.do");
+				}
+				},
+				error:function(){
+					alert("다시 시도해주세요.");
+				}
+			});	
 		});
   }); 
   </script>
@@ -43,7 +63,7 @@
     <div class="container">
     	<div id = UserInfoForm class="mb-5 wow fadeIn" data-wow-delay="0.1s">
 			<h1 class="maintext">회원님의 정보를 수정합니다.</h1>
-				<form action="change.do" method="post" id= ChangeUserInfo>
+				<form id="ChangeUserInfo">
 					<div class="mb-5">
 						<div class="mb-3 row">
 							<label id="mypage_text" for="userId" class="col-sm-2 col-form-label">ID</label>

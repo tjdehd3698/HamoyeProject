@@ -2,6 +2,7 @@ package com.bnk.hamoye.controller;
 
 import java.io.File;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -302,10 +303,18 @@ public class AdminController {
 
 	@GetMapping("getTodayRestaurantPage.do") // 오늘의 식당 페이지 이동
 	public String getTodayRestaurantPage(Model model) {
-		List<Restaurant> restaurantList = restaurantService.getRestaurantNotInTodayRestaurant(); // 전체 식당 리스트
+		List<Restaurant> restaurantList = new ArrayList<>();
+		try {
+			restaurantList = restaurantService.getRestaurantNotInTodayRestaurant();
+		} catch (Exception e) {
+		} // 전체 식당 리스트
 		model.addAttribute("restaurantList", restaurantList);
 
-		List<TodayRestaurant> todayRestaurantList = restaurantService.getAllTodayRestaurants(); // 전체 오늘의 식당 리스트
+		List<TodayRestaurant> todayRestaurantList = new ArrayList<>();
+		try {
+			todayRestaurantList = restaurantService.getAllTodayRestaurants();
+		} catch (Exception e) {
+		} // 전체 오늘의 식당 리스트
 		model.addAttribute("todayRestaurantList", todayRestaurantList);
 
 		return "adm/ADMCHLV20M";
@@ -318,7 +327,10 @@ public class AdminController {
 		JSONObject jsonObject = null; // 결과로 보낼 JSON 객체
 		try {
 
-			restaurantService.updateTodayRestaurant(restaurantIdList); // 새로운 오늘의 식당 등록
+			try {
+				restaurantService.updateTodayRestaurant(restaurantIdList);
+			} catch (Exception e) {
+			} // 새로운 오늘의 식당 등록
 
 			JSONParser parser = new JSONParser();
 			jsonObject = (JSONObject) parser.parse(result);
@@ -336,7 +348,10 @@ public class AdminController {
 		JSONObject jsonObject = null; // 결과로 보낼 JSON 객체
 
 		try {
-			restaurantService.deleteTodayRestaurantByList(restaurantIdList); // 특정 오늘의 식당 리스트 삭제
+			try {
+				restaurantService.deleteTodayRestaurantByList(restaurantIdList);
+			} catch (Exception e) {
+			} // 특정 오늘의 식당 리스트 삭제
 
 			JSONParser parser = new JSONParser();
 			jsonObject = (JSONObject) parser.parse(result);

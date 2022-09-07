@@ -17,9 +17,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script type="text/javascript">
   $(function(){
-		$("#ChangeUserInfo").on("submit",function(){
-			 alert("회원 수정되었습니다."); 
-		
+		$("#ChangeUserInfo").on("submit",function(){ 
 			$.ajax({
 				type:'post',
 				url:'change.do', 
@@ -31,7 +29,7 @@
 					  "userAddress" : "${result.userAddress}",
 					  "email" : "${result.email}",
 				success:function(result) { 
-					alert("수정이 완료되었습니다요");
+					alert("회원 수정이 완료되었습니다.");
 					location.href("moveToChangeForm.do");
 				}
 				},

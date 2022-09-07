@@ -82,7 +82,7 @@
 				success:function(result) {
 					if(result=="T"){
 						alert("회원탈퇴 되었습니다. 이용해주셔서 감사합니다.");
-							window.location.href ="index.jsp";
+							window.location.href ="home.do";
 						}else{
 						alert("아이디 또는 비밀번호가 일치하지 않습니다.");
 						$('#password').val('');

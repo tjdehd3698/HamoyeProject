@@ -53,8 +53,8 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-7 pt-5">
-                                    <h1 class="display-4 text-white mb-3 animated slideInDown">금융, 그 이상의<br>가치를 만들고 있습니다.</h1>
-                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">나에게 필요한 좋은 습관으로 지구를 지켜주세요</p>
+                                    <h1 class="display-4 text-white mb-3 animated slideInDown">일상 속 작은 실천, 금융이 되다<br>실천금융 하모예</h1>
+                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">새로운 금융의 시작, 하모예는 실천에서 그 의미를 찾았습니다.</p>
                                     <c:choose>
 										<c:when test="${!empty userName}">
 											${userName}님, 함께 해주셔서 감사드려요😍<br> - 하모예 드림
@@ -83,7 +83,7 @@
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">쉽고 간단한 실천금융, 하모예</p>
                                     <c:choose>
 										<c:when test="${!empty userName}">
-											${userName}님, 저를 지켜주셔서 감사드려요🥺<br> - 하모예 드림
+											${userName}님, 저와 함께 실천해주세요🏃‍♂️<br> - 하모예 드림
 										</c:when>
 										<c:otherwise>
 		                                    <button type="button" class="btn btn-outline-secondary py-2 px-3 animated slideInDown" data-bs-toggle="modal" data-bs-target="#loginModal">
@@ -176,15 +176,15 @@
                                 <small>challenge 1</small>
                             </div>
                             <h5 class="mb-3">대중교통 이용</h5>
-                            <p>대중교통 월 20회 이상 이용</p>
+                            <p>12개월간 대중교통 240회 이상 이용</p>
                             <div class="causes-progress bg-light p-3 pt-2">
                                 <div class="d-flex justify-content-between">
                                     <p class="text-dark">0 <small class="text-body">회</small></p>
-                                    <p class="text-dark">20 <small class="text-body">회</small></p>
+                                    <p class="text-dark">240 <small class="text-body">회</small></p>
                                 </div>
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                        <span>1.5%</span>
+                                        <span>3%</span>
                                     </div>
                                 </div>
                             </div>
@@ -209,15 +209,15 @@
                                 <small>challenge 2</small>
                             </div>
                             <h5 class="mb-3">봉사활동 참여</h5>
-                            <p>부산은행과 함께하는 봉사활동 5회 이상 참여</p>
+                            <p>12개월간 부산은행 주최 봉사활동 10회 이상 참여</p>
                             <div class="causes-progress bg-light p-3 pt-2">
                                 <div class="d-flex justify-content-between">
                                     <p class="text-dark">0 <small class="text-body">회</small></p>
-                                    <p class="text-dark">5 <small class="text-body">회</small></p>
+                                    <p class="text-dark">10 <small class="text-body">회</small></p>
                                 </div>
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                        <span>1.8%</span>
+                                        <span>3%</span>
                                     </div>
                                 </div>
                             </div>

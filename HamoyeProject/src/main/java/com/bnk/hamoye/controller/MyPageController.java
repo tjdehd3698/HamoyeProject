@@ -69,7 +69,7 @@ public class MyPageController {
 	@GetMapping("mypage.do") //마이페이지 화면 정보
 	public String getMyPageInfo(HttpSession session, Model model) {
 		try {
-
+			//회원의 
 			User user = userService.getMypageInfo((String) session.getAttribute("user"));
 			model.addAttribute("result", user);
 			

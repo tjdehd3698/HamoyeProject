@@ -56,23 +56,31 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public List<Status> getAllEcoChallenge() throws Exception {
+	public List<Status> getAllEcoChallenge() throws Exception { //EcoChallenge 통계 조회
+		//결과 ArrayList
 		List<Status> result = new ArrayList<>();
-		List<EcoChallenge> list1 = ecoChallengeDAO.getEcoChallengeList();
+		//전체 EcoChallenge 조회
+		List<EcoChallenge> list1 = ecoChallengeDAO.getEcoChallengeList(); 
+		
 		for(EcoChallenge e : list1) {
+			//취소된 챌린지면 continue
 			if(e.getIsDelete()==1) continue;
+			
 			Status status = new Status();
 			status.setChallengeId(e.getEcoChallengeId());
 			status.setChallengeName(e.getEcoChallengeName());
 			
+			//EcoChallenge 참여자 조회
 			List<User> list2 = userDAO.getUserByEcoChallenge(e.getEcoChallengeId());
 			status.setUserCnt(list2.size());
 			
 			int count = 0;
 			for(User u : list2) {
+				//목표 횟수 도달 시 count 증가
 				if(e.getTotalCount()<=u.getParticipationCount()) count++;
 			}
 			
+			//달성률 설정
 			if(list2.size()==0) {
 				status.setSuccessPercent(0);
 			}else {
@@ -144,15 +152,14 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public LinkedHashMap<String, Integer> getTripChallengeCntByMonth() throws Exception {
-		LinkedHashMap<String,Integer> result = new LinkedHashMap<String, Integer>();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYYMM");
+		LinkedHashMap<String,Integer> result = new LinkedHashMap<String, Integer>(); //결과 담을 LikedHashMap
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYYMM"); //날짜 변환 Formatter
 		
-		for(int i=1;i<9;i++) {
+		for(int i=1;i<9;i++) { //최근 8개월의  TripChallenge 가입자 수 조회
 			String date = LocalDate.now().minusMonths(i).format(formatter);
-			System.out.println("date : "+date);
-			result.put(date,participationDAO.getParticipationCntByDate(date));
+			result.put(date,participationDAO.getParticipationCntByDate(date)); //날짜별 TripChallenge 조회
 		}
-		return result;
+		return result; //결과 return
 	}
 
 	@Override
@@ -209,16 +216,19 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public LinkedHashMap<String, Double> getUserCntByEcoChallengeType(int totalUserCnt) throws Exception {
-		LinkedHashMap<String,Double> result = new LinkedHashMap<String, Double>();
+		LinkedHashMap<String,Double> result = new LinkedHashMap<String, Double>(); //결과 값 담을 LinkedHashMap
 		double rest = totalUserCnt; //아무 에코 챌린지에 참여안한 사람 수
 		
+		//모든 EcoChallenge 타입 가져오기
 		List<String> typeList = ecoChallengeDAO.getEcoChallengeType();
+		
 		for(String type : typeList) {
+			//챌린지 타입 별 user수 조회
 			List<User> userList = userDAO.getUserByEcoChallengeType(type);
 			rest-=userList.size();
+			//전체 user에서 해당 타입 챌린지 참여 user 퍼센트 
 			result.put(type, (double)userList.size()/(double)totalUserCnt*100.0);
 		}
-		
 		result.put("기타", rest);
 		
 		return result;

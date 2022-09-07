@@ -30,7 +30,7 @@
 		var calcBalance = parseInt(balance*rate/100*participationRate);
 		var nowBalance= calcBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 		document.getElementById(id).append(nowBalance+'원');
-    }
+    } 
     //만료시 취득할 이자 계산
     function winInterest (id, primeRate, balance){
     	var rate = parseFloat(primeRate)+0.5;

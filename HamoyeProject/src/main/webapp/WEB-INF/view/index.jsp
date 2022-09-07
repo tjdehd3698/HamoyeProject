@@ -121,7 +121,7 @@
 	        <div class="wow fadeInUp" data-wow-delay="0.1s">
 	            <div class="h-100">
 	                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">About Us</div>
-	                <h1 class="display-6 about_tit">변화를 열망하는 사람들이 모여,<br>역사에 남을 만한 변화를 만듭니다.</h1>
+	                <h1 class="display-6 about_tit"> BNK부산은행 새로운 금융의 시작, <br> 하모예는 실천에서 그 의미를 찾았습니다.</h1>
 		            <div class="row g-4 justify-content-center">
 		                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
 							<p class="mb-3">누적 가입자 수</p>

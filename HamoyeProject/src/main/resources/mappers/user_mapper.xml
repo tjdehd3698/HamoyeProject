@@ -180,7 +180,7 @@
 	
 	<update id="expireAccount" parameterType="string">
 		update users
-		set eco_challenge_id = NULL, participation_count=0
+		set eco_challenge_id = NULL, participation_count=0, account_number = NULL
 		where user_id = #{value} 
 	</update>
 	

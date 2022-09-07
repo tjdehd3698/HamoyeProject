@@ -55,7 +55,7 @@
 					<div class="mb-2 row"> 
 						<div class="position-relative">  
 						<label for="userId" class="col-sm-2 col-form-label mt-3" >비밀번호</label>
-				        	<input type="password"  class="accOutInput" id="password" name="userPassword"> 
+				        	<input type="password" class="form-control accOutInput" id="password" name="userPassword"> 
 						</div> 
 				    </div>
 				    <a id="accout_submit" class="btn btn-outline-primary py-2 px-2 mx-5">계좌해지 </a> 

@@ -56,6 +56,7 @@
 		select eco_challenge_id, eco_challenge_name, prime_rate, start_date, eco_challenge_type,
 		end_date, limited_people, is_delete, content, challenge_image, total_count
 		from eco_challenge
+		order by eco_challenge_type
 	</select>
 	
 	<select id="getEcoChallengeDetail" parameterType="string" resultType="EcoChallenge">

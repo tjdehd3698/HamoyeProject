@@ -57,7 +57,6 @@ public class EcoChallengeController {
 				model.addAttribute("list", list);
 //				ecoChallenge.setContent("안녕하세요@@만나서 반갑습니다@@쓰레기를 주우면 보상을 드려요!");
 				String content = ecoChallenge.getContent();
-				System.out.println("adsadsa");
 				String[] newContent = content.split("@@");
 				model.addAttribute("newContent", newContent);
 				String userId = (String) session.getAttribute("user");
@@ -175,10 +174,10 @@ public class EcoChallengeController {
 			participation.setUserId(userId);
 			participation.setTripChallengeId(tripChallengeId);
 			
+			
 			tripChallengeService.participateTripChallenge(participation);
 				tripChallengeService.addPoint(userId, rewardPoint); // 포인트 업뎃
 				int value = tripChallengeService.checkParticipationTripChallenge(participation);
-				System.out.println(value);
 				if (value > 0) {
 					flag = "T";
 				}
@@ -198,7 +197,6 @@ public class EcoChallengeController {
 			String userId = (String) session.getAttribute("user");
 			User user = userService.getUserInfo(userId);
 			EcoChallenge ecoChallenge = ecoChallengeService.getEcoChallengeDetail(ecoChallengeId);
-			System.out.println(ecoChallenge);
 
 			Account account = new Account();
 			Date now = new Date();

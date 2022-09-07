@@ -618,9 +618,6 @@
 	#mypage_main input, #mypage_main select, #mypage_main textarea {
 			color: #636363;
 	}
-	#mypage_main a:hover {
-		color: #636363;
-	}
 	#mypage_main strong, #mypage_main b {
 		color: #636363;
 	}
@@ -957,7 +954,7 @@
 	display:inline;
 } 
 .accOutInput{
-	width:50%;
+	display: inline-block;width:50%;
 }
  
 /*////////////////////////////////////////////////////MWPMPGV04M.jsp///////////////////////////////////////////////////////////*/

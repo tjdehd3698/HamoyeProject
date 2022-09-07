@@ -27,7 +27,7 @@
 					  "gender" : "${result.gender}",
 					  "email" : $('#mypage_email').val(),
 					  "birthday" : "${result.birthday}",
-					  "userAddress" : $('#mypage_address').val() },
+					  "userAddress" : $('#mypage_address').val() }, 
 				success:function(result) { 
 					alert("회원 수정이 완료되었습니다.");
 					location.href("moveToChangeForm.do");

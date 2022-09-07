@@ -1,6 +1,5 @@
 package com.bnk.hamoye.model;
 
-import java.sql.SQLException;
 import java.util.Map;
 
 import com.bnk.hamoye.domain.Point;

@@ -38,6 +38,11 @@ public class MyPageController {
 	public String getUserInfo(Model model, HttpSession session) {
 		try {
 			User user = userService.getUserInfo((String)session.getAttribute("user"));
+			if (user.getGender().equals("m")) {
+				user.setGender("남자");
+			} else {
+				user.setGender("여자");
+			}
 			model.addAttribute("result", user);
 		} catch (Exception e) {
 			System.out.println("getUserInfo 에러 : "+ e.getMessage());

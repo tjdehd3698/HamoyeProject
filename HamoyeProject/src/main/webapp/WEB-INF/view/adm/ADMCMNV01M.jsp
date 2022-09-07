@@ -243,7 +243,7 @@
 										      받은 동백포인트
 										    </div>
 										    <div class="col text-right">
-										      <strong>${item.totalPoint} 원</strong>
+										      <strong>${item.totalPoint}</strong> 원
 										    </div>
 										</div>
 	                                </div>

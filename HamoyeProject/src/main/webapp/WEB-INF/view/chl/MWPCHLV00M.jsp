@@ -62,8 +62,8 @@
                         
                         <c:forEach var="tripChallenge" items="${tripChallengeList}"  varStatus="status">
                         	<c:set var="string" value="${tripChallenge.tripChallengeType}" />
-                         	<c:if test = "${fn:startsWith(string, '5')}"> 
-								<div class="mb-4"><b id="trip${status.index}"> ${tripChallenge.tripChallengeName}</b><b>하고 </b><br>
+                         	<c:if test = "${fn:startsWith(string, '3')}"> 
+								<div class="mb-4"><b id="trip${status.index}"> ${tripChallenge.tripChallengeName}</b><br>
 								<input type="hidden" id="trip_link${status.index}" value="challengeDetail.do?challengeType=trip&challengeId=${tripChallenge.tripChallengeId}">
 	                            	<a class="btn btn-outline-primary px-3 mt-1" href="challengeDetail.do?challengeType=trip&challengeId=${tripChallenge.tripChallengeId}">
 	                                	동백포인트 받기 
@@ -84,8 +84,8 @@
                         
                         <c:forEach var="tripChallenge" items="${tripChallengeList}" varStatus="status">
                         	<c:set var="string" value="${tripChallenge.tripChallengeType}" />
-                         	<c:if test = "${fn:startsWith(string, '3')}">
-                                <div class="mb-4"><b> ${tripChallenge.tripChallengeName}</b><b>하고 </b><br>
+                         	<c:if test = "${fn:startsWith(string, '5')}">
+                                <div class="mb-4"><b> ${tripChallenge.tripChallengeName}</b><br>
                                     <a class="btn btn-outline-primary px-3 mt-1" href="challengeDetail.do?challengeType=trip&challengeId=${tripChallenge.tripChallengeId}">
                                       	동백포인트 받기 
                                         <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
@@ -112,7 +112,7 @@
                         </div>
                         
                         <div>
-                        <a class="btn chal_recom2 btn-outline-primary px-3 mt-1" href=""> 
+                        <a class="btn chal_recom2 btn-outline-primary px-3 mt-3"" href=""> 
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
                                 <i class="fa fa-arrow-right"></i>
                             </div>

@@ -49,13 +49,13 @@
 										<div class="mb-3 row">
 										    <p class="col-sm-2 col-form-label">챌린지타입</p>
 										    <p class="col-sm-10 col-form-label">
-											<c:if test="${tripChallenge.tripChallengeType == 3001}">오늘의 식당</c:if>
-											<c:if test="${tripChallenge.tripChallengeType == 3002}">오늘의 관광지</c:if>
-											<c:if test="${tripChallenge.tripChallengeType == 3003}">오늘의 카페</c:if>
-											<c:if test="${tripChallenge.tripChallengeType == 5001}">오늘의 소상공인</c:if>
-											<c:if test="${tripChallenge.tripChallengeType == 5002}">오늘의 특산품</c:if>
-											<c:if test="${tripChallenge.tripChallengeType == 5003}">오늘의 문화재</c:if>
-											<c:if test="${tripChallenge.tripChallengeType == 5004}">오늘의 자랑스러운 시민</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 3000}">오늘의 식당</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 3001}">오늘의 관광지</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 3002}">오늘의 카페</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 5000}">오늘의 소상공인</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 5001}">오늘의 특산품</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 5002}">오늘의 문화재</c:if>
+											<c:if test="${tripChallenge.tripChallengeType == 5003}">오늘의 자랑스러운 시민</c:if>
 											</p>
 										</div>
 										<div class="my-3 row">

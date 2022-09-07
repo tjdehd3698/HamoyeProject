@@ -58,14 +58,18 @@ $(function(){
 			param += "&userPassword=" + document.FrmLogin.loginPassword.value;
 		}
 		
+		var	url = window.location.pathname+window.location.search;
+		if(url=="/register.do"){
+			url = "home.do";
+		}
+		
 		$.ajax({
 			type:'post',
 			url:'login.do',
 			data:param,
-			
 			success:function(result) {
 				if(result=="T"){
-					location.reload();
+					window.location.href = url;
 				}else{
 					alert("아이디 또는 비밀번호가 일치하지 않습니다.");
 				}
@@ -74,10 +78,9 @@ $(function(){
 			}
 		});
 		
-		//document.FrmLogin.submit();
-		
 	})
 });
+
 </script>
 <!-- Navbar Start -->
 <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">

@@ -204,7 +204,6 @@ public class AdminController {
 			
 			for (int i = 0; i < content.length(); i++) {
 				if (content.charAt(i) == 64 && content.charAt(i+1) == 64) {
-					sb.append("\n");
 					i++;
 				} else {
 					sb.append(content.charAt(i));
@@ -245,10 +244,9 @@ public class AdminController {
 			
 			String content = tripChallenge.getContent();
 			StringBuilder sb = new StringBuilder();
-
+			
 			for (int i = 0; i < content.length(); i++) {
 				if (content.charAt(i) == 64 && content.charAt(i+1) == 64) {
-					sb.append("\n");
 					i++;
 				} else {
 					sb.append(content.charAt(i));
@@ -433,6 +431,7 @@ public class AdminController {
 					sb.append(content.charAt(i));
 				}
 			}
+
 			
 			ecoChallenge.setContent(sb.toString());
 
@@ -598,6 +597,7 @@ public class AdminController {
 			
 			String content = tripChallenge.getContent();
 			StringBuilder sb = new StringBuilder();
+			
 
 			for (int i = 0; i < content.length(); i++) {
 				if (content.charAt(i) == 13) {
@@ -688,8 +688,6 @@ public class AdminController {
 			}
 			
 			tripChallenge.setContent(sb.toString());
-
-			System.out.println(tripChallenge.getContent());
 
 			tripChallengeService.updateTripChallenge(tripChallenge);
 			result = "T";

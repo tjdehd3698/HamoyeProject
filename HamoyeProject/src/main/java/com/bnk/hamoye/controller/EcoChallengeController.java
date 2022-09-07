@@ -68,7 +68,7 @@ public class EcoChallengeController {
 						model.addAttribute("checkJoinChallenge", "F");
 					} else {
 						model.addAttribute("checkJoinChallenge", "T");
-					}
+					} 
 				}
 				path = "chl/MWPCHLV01M";
 

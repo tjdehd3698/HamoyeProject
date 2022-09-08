@@ -91,8 +91,10 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int withdrawUser(String userId) throws Exception { // 회원 탈퇴
-		pointDAO.deletePoint(userId);
-		return userDAO.withdrawUser(userId);
+		String pointId = userDAO.getUserAllInfo(userId).getPointId();
+		System.out.println(pointId);
+		userDAO.withdrawUser(userId);
+		return pointDAO.deletePoint(pointId);
 	}
 
 	@Override

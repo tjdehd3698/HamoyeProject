@@ -102,7 +102,6 @@ public class EcoChallengeController {
 				if (tripChallengeType.charAt(0) == '3') {
 //					tripChallenge.setContent("안녕하세요@@만나서 반갑습니다@@부산지역 이곳저곳 들리고 보상을 받으세요!");
 					String content = tripChallenge.getContent();
-					System.out.println("hi");
 					String[] newContent = content.split("@@");
 					model.addAttribute("newContent", newContent);
 					
@@ -174,9 +173,9 @@ public class EcoChallengeController {
 			participation.setUserId(userId);
 			participation.setTripChallengeId(tripChallengeId);
 			
-			
 			tripChallengeService.participateTripChallenge(participation);
 				tripChallengeService.addPoint(userId, rewardPoint); // 포인트 업뎃
+				System.out.println("hi");
 				int value = tripChallengeService.checkParticipationTripChallenge(participation);
 				if (value > 0) {
 					flag = "T";

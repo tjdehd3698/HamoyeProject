@@ -30,7 +30,7 @@
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
 	        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-	        level: 3 // 지도의 확대 레벨 
+	        level: 4 // 지도의 확대 레벨 
 	    }; 
 	
 		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -46,7 +46,7 @@
 			        lon = position.coords.longitude; // 경도
 			        
 			        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-			            message = '<div class="dd">현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
+			            //message = '<div class="dd">현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
 			        
 			            message2 = '<div style="padding:5px;">추천 가게</div>';
 			        // 마커와 인포윈도우를 표시합니다
@@ -74,7 +74,7 @@
 	
 		    }); 
 		    
-		    var iwContent = message, // 인포윈도우에 표시할 내용
+		   /*  //var iwContent = message, // 인포윈도우에 표시할 내용
 		        iwRemoveable = true;
 	
 		    // 인포윈도우를 생성합니다
@@ -84,7 +84,7 @@
 		    });
 		    
 		    // 인포윈도우를 마커위에 표시합니다 
-		    infowindow.open(map, marker);
+		    infowindow.open(map, marker); */
 		    
 		    // 지도 중심좌표를 접속위치로 변경합니다
 		    map.setCenter(locPosition);      
@@ -148,13 +148,13 @@
 		var index = value;
 		var longitudeList = ${longitudeList};
 		var latitudeList = ${latitudeList};
-		var cur_lat = lat.toFixed(5);
-		var cur_lon = lon.toFixed(5);
+		var cur_lat = lat.toFixed(2);
+		var cur_lon = lon.toFixed(2);
 		
-		latitudeList = latitudeList[index].toFixed(5);
-		longitudeList = longitudeList[index].toFixed(5);
+		latitudeList = latitudeList[index].toFixed(2);
+		longitudeList = longitudeList[index].toFixed(2);
 		
-		if(cur_lat!=latitudeList && cur_lon!=longitudeList){
+		if((cur_lat==latitudeList && cur_lon==longitudeList)){
 			//포인트추가
 			$.ajax({
 				type:'post',

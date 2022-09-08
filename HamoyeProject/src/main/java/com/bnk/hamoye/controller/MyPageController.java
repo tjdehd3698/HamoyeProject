@@ -26,6 +26,7 @@ public class MyPageController {
 	
 	@PostMapping("change.do") //회원 정보 업데이트(비밀번호/이메일/주소)
 	public String updateUser(User user) {
+		System.out.println(user);
 		try {
 			userService.updateUser(user);
 		} catch (Exception e) {
@@ -59,6 +60,7 @@ public class MyPageController {
 			user.setUserPassword(userPassword);
 			
 			User findUser = userService.login(user);
+			System.out.println(findUser);
 			if(findUser!=null) {
 				userService.withdrawUser((String)session.getAttribute("user"));
 				session.invalidate();

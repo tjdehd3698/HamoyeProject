@@ -114,7 +114,7 @@
 	
 	<update id="withdrawUser" parameterType="string">
 		update users 
-		set is_withdraw=1
+		set is_withdraw=1, point_id = null
 		where user_id = #{value}
 	</update>
 	

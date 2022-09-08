@@ -22,7 +22,7 @@
 	
 	<delete id="deletePoint" parameterType="string">
 		delete from point
-		where point_id = (select point_id from users where user_id = #{value})
+		where point_id = #{value}
 	</delete>
 	
 	<select id="getPointSum" resultType="int">

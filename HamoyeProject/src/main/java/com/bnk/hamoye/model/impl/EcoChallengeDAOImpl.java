@@ -16,25 +16,25 @@ public class EcoChallengeDAOImpl implements EcoChallengeDAO {
 	private final String NS = "sql.hamoye.ecoChallenge_mapper.";
 	@Autowired
 	private SqlSession sqlSession;
-	
+
 	@Override
 	public int registerEcoChallenge(EcoChallenge ecoChallenge) throws Exception {
-		return sqlSession.insert(NS+"registerEcoChallenge", ecoChallenge);
+		return sqlSession.insert(NS + "registerEcoChallenge", ecoChallenge);
 	}
-	
+
 	@Override
 	public int updateEcoChallenge(EcoChallenge ecoChallenge) throws Exception {
-		return sqlSession.update(NS+"updateEcoChallenge", ecoChallenge);
+		return sqlSession.update(NS + "updateEcoChallenge", ecoChallenge);
 	}
 
 	@Override
 	public int deleteEcoChallenge(String ecoChallengeId) throws Exception {
-		return sqlSession.update(NS+"deleteEcoChallenge", ecoChallengeId);
+		return sqlSession.update(NS + "deleteEcoChallenge", ecoChallengeId);
 	}
 
 	@Override
 	public List<EcoChallenge> searchEcoChallenge(String word) throws Exception {
-		return sqlSession.selectList(NS+"searchEcoChallenge", word);
+		return sqlSession.selectList(NS + "searchEcoChallenge", word);
 	}
 
 	@Override
@@ -44,27 +44,27 @@ public class EcoChallengeDAOImpl implements EcoChallengeDAO {
 
 	@Override
 	public List<EcoChallenge> getEcoChallengeList() throws Exception {
-		return sqlSession.selectList(NS+"getEcoChallengeList");
+		return sqlSession.selectList(NS + "getEcoChallengeList");
 	}
 
 	@Override
 	public EcoChallenge getEcoChallengeDetail(String ecoChallengeId) throws Exception {
-		return sqlSession.selectOne(NS+"getEcoChallengeDetail", ecoChallengeId);
+		return sqlSession.selectOne(NS + "getEcoChallengeDetail", ecoChallengeId);
 	}
 
 	@Override
 	public List<EcoChallenge> getRecommendedEcoChallengeList(User user) throws Exception {
-		return sqlSession.selectOne(NS+"getRecommendedEcoChallengeList", user);
+		return sqlSession.selectOne(NS + "getRecommendedEcoChallengeList", user);
 	}
 
 	@Override
 	public List<String> getEcoChallengeType() throws Exception {
-		return sqlSession.selectList(NS+"getEcoChallengeType");
+		return sqlSession.selectList(NS + "getEcoChallengeType");
 	}
 
 	@Override
 	public int updateEcoChallengeImage(EcoChallenge ecoChallenge) throws Exception {
-		return sqlSession.update(NS+"updateEcoChallengeImage", ecoChallenge);
+		return sqlSession.update(NS + "updateEcoChallengeImage", ecoChallenge);
 	}
 
 }

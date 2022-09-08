@@ -72,7 +72,7 @@ public class UserServiceImpl implements UserService {
 		// 비밀번호 변경 후 업데이트
 		user.changePassword();
 		int row = userDAO.updateUserPassword(user);
-		
+
 		if (row == 1)
 			return user.getUserPassword();
 		else
@@ -92,7 +92,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int withdrawUser(String userId) throws Exception { // 회원 탈퇴
 		String pointId = userDAO.getUserAllInfo(userId).getPointId();
-		System.out.println(pointId);
 		userDAO.withdrawUser(userId);
 		return pointDAO.deletePoint(pointId);
 	}
@@ -101,25 +100,24 @@ public class UserServiceImpl implements UserService {
 	public int joinAccount(Account account, String userId, String ecoChallengeId) throws Exception {
 		account.makeAccountNumber();
 		account.setCreateDate(new Date(System.currentTimeMillis()));
-		
+
 		try {
-		int result = accountDAO.checkAccount(account.getAccountNumber());
-		while(result!=0) {
-			account.makeAccountNumber();
-			result = accountDAO.checkAccount(account.getAccountNumber());
-		} // 중복 계좌번호 입력 시 계좌번호 재생성 알고리즘
-		if(result==0) {
-			accountDAO.registerAccount(account);
-			System.out.println("hi");
-			User user = new User();
-			user.setUserId(userId);
-			user.setEcoChallengeId(ecoChallengeId);
-			user.setEcoChallenge(ecoChallengeDAO.getEcoChallengeDetail(ecoChallengeId));
-			user.setAccountNumber(account.getAccountNumber());
-			return userDAO.joinAccount(user);
-		}
-		}catch(Exception e) {
-			
+			int result = accountDAO.checkAccount(account.getAccountNumber());
+			while (result != 0) {
+				account.makeAccountNumber();
+				result = accountDAO.checkAccount(account.getAccountNumber());
+			} // 중복 계좌번호 입력 시 계좌번호 재생성 알고리즘
+			if (result == 0) {
+				accountDAO.registerAccount(account);
+				User user = new User();
+				user.setUserId(userId);
+				user.setEcoChallengeId(ecoChallengeId);
+				user.setEcoChallenge(ecoChallengeDAO.getEcoChallengeDetail(ecoChallengeId));
+				user.setAccountNumber(account.getAccountNumber());
+				return userDAO.joinAccount(user);
+			}
+		} catch (Exception e) {
+
 		}
 		return 0;
 	}

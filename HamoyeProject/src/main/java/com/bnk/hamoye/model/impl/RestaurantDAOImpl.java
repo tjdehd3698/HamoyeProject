@@ -15,31 +15,30 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 	private final String NS = "sql.hamoye.restaurant_mapper.";
 	@Autowired
 	private SqlSession sqlSession;
-	
+
 	@Override
-	public List<Restaurant> getRestaurantsByCategory(String category) throws Exception{
-		return sqlSession.selectList(NS+"getRestaurantsByCategory", category);
-	}
-	
-	@Override
-	public List<Restaurant> getRestaurantsByName(String restaurantName) throws Exception{
-		return sqlSession.selectList(NS+"getRestaurantsByName", restaurantName);
-	}
-	
-	@Override
-	public Restaurant getRestaurantById(String restaurantId) throws Exception{
-		return sqlSession.selectOne(NS+"getRestaurantById", restaurantId);
+	public List<Restaurant> getRestaurantsByCategory(String category) throws Exception {
+		return sqlSession.selectList(NS + "getRestaurantsByCategory", category);
 	}
 
 	@Override
-	public List<Restaurant> getAllRestaurants() throws Exception{
-		return sqlSession.selectList(NS+"getAllRestaurants");
+	public List<Restaurant> getRestaurantsByName(String restaurantName) throws Exception {
+		return sqlSession.selectList(NS + "getRestaurantsByName", restaurantName);
 	}
 
 	@Override
-	public List<Restaurant> getRestaurantNotInTodayRestaurant() throws Exception{
-		return sqlSession.selectList(NS+"getRestaurantNotInTodayRestaurant");
+	public Restaurant getRestaurantById(String restaurantId) throws Exception {
+		return sqlSession.selectOne(NS + "getRestaurantById", restaurantId);
 	}
-	
+
+	@Override
+	public List<Restaurant> getAllRestaurants() throws Exception {
+		return sqlSession.selectList(NS + "getAllRestaurants");
+	}
+
+	@Override
+	public List<Restaurant> getRestaurantNotInTodayRestaurant() throws Exception {
+		return sqlSession.selectList(NS + "getRestaurantNotInTodayRestaurant");
+	}
 
 }

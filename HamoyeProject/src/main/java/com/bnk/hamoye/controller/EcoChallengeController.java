@@ -19,7 +19,6 @@ import com.bnk.hamoye.domain.Account;
 import com.bnk.hamoye.domain.Coordinate;
 import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.Participation;
-import com.bnk.hamoye.domain.TodayRestaurant;
 import com.bnk.hamoye.domain.TripChallenge;
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.EcoChallengeService;
@@ -105,8 +104,6 @@ public class EcoChallengeController {
 					String[] newContent = content.split("@@");
 					model.addAttribute("newContent", newContent);
 					
-					System.out.println(userId+" "+challengeId);
-					
 					if (userId != null) {
 						Participation participation = new Participation();
 						participation.setUserId(userId);
@@ -175,7 +172,6 @@ public class EcoChallengeController {
 			
 			tripChallengeService.participateTripChallenge(participation);
 				tripChallengeService.addPoint(userId, rewardPoint); // 포인트 업뎃
-				System.out.println("hi");
 				int value = tripChallengeService.checkParticipationTripChallenge(participation);
 				if (value > 0) {
 					flag = "T";

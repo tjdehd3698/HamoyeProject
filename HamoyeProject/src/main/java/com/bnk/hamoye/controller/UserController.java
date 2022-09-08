@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bnk.hamoye.domain.User;
 import com.bnk.hamoye.service.EcoChallengeService;
-import com.bnk.hamoye.service.TripChallengeService;
 import com.bnk.hamoye.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -91,11 +90,11 @@ public class UserController {
 			List<String> tempType = ecoChallengeService.getEcoChallengeType();
 
 			HashMap<String, String> ecoChallengeMap = new HashMap<>();
-			
+
 			for (String str : tempType) {
-				if(str.equals("1001")) {
+				if (str.equals("1001")) {
 					ecoChallengeMap.put(str, "대중교통");
-				}else if(str.equals("1002")) {
+				} else if (str.equals("1002")) {
 					ecoChallengeMap.put(str, "환경 봉사");
 				}
 			}
@@ -115,24 +114,24 @@ public class UserController {
 		}
 		return "chl/MWPCHLV10M";
 	}
-	
+
 	@RequestMapping("findPasswordPage.do")
 	public String findPasswordPage(User user, Model model) {
 		return "cmn/MWPCMNV03M";
 	}
-	
+
 	@PostMapping("findPassword.do")
 	public String findPassword(User user, Model model) {
 		String result = "cmn/MWPCMNV03M";
 		try {
 			String findPassword = userService.findPassword(user);
-			
-			if(findPassword!=null) {
+
+			if (findPassword != null) {
 				result = "cmn/MWPCMNV04M";
 				model.addAttribute("result", findPassword);
 			}
 		} catch (Exception e) {
-			System.out.println("findPassword 에러 : "+ e.getMessage());
+			System.out.println("findPassword 에러 : " + e.getMessage());
 		}
 		return result;
 	}

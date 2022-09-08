@@ -17,7 +17,7 @@ public class PaymentDAOImpl implements PaymentDAO {
 
 	@Override
 	public List<Payment> getPublicTransportationUsageByUserId(String userId) throws Exception {
-		return sqlSession.selectList(NS+"getPublicTransportationUsageByUserId", userId);
+		return sqlSession.selectList(NS + "getPublicTransportationUsageByUserId", userId);
 	}
 
 }

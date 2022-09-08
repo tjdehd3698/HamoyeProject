@@ -2,6 +2,7 @@ package com.bnk.hamoye.service;
 
 import java.util.List;
 
+import com.bnk.hamoye.domain.Account;
 import com.bnk.hamoye.domain.EcoChallenge;
 import com.bnk.hamoye.domain.User;
 
@@ -15,4 +16,6 @@ public interface EcoChallengeService {
 	List<EcoChallenge> getEcoChallengeList() throws Exception; // 전체 챌린지 리스트 표출
 	EcoChallenge getEcoChallengeDetail(String ecoChallengeId) throws Exception; // 챌린지 상세 내역 표출
 	List<EcoChallenge> getRecommendedEcoChallengeList(User user) throws Exception; // 추천 챌린지 표출
+	Account setAccountInfo(String purpose, String incomeSource, String maturity,
+			String ecoChallengeId) throws Exception; // 챌린지 계좌정보 주입
 }

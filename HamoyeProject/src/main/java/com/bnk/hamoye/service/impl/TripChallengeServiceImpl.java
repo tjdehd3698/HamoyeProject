@@ -26,7 +26,7 @@ public class TripChallengeServiceImpl implements TripChallengeService {
 	private final AccountDAO accountDAO;
 	private final ParticipationDAO participationDAO;
 	private final TripChallengeDAO tripChallengeDAO;
-	
+
 	@Override
 	public int registerTripChallenge(TripChallenge tripChallenge) throws Exception {
 		return tripChallengeDAO.registerTripChallenge(tripChallenge);

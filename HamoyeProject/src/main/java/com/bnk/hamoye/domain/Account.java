@@ -14,21 +14,23 @@ public class Account {
 	private String purpose; // 통장 개설 목적
 	private String incomeSource; // 수입원
 	private int balance; // 통장 잔고
-	
-	public Account(){
+
+	public Account() {
 		this.primeRate = 0.5;
 	}
-	
+
 	public void makeAccountNumber() {
-		if(accountNumber!=null) return;
+		if (accountNumber != null)
+			return;
 		Random random = new Random();
-		String newNumber ="112-";
-		
-        for(int i=0;i<10;i++) {
-        	if(i==4||i==8) newNumber+="-";
-        	newNumber+=(random.nextInt(9));
-        }
-        
-        this.accountNumber = newNumber;
+		String newNumber = "112-";
+
+		for (int i = 0; i < 10; i++) {
+			if (i == 4 || i == 8)
+				newNumber += "-";
+			newNumber += (random.nextInt(9));
+		}
+
+		this.accountNumber = newNumber;
 	}
 }

@@ -16,25 +16,25 @@ public class TripChallengeDAOImpl implements TripChallengeDAO {
 	private final String NS = "sql.hamoye.tripChallenge_mapper.";
 	@Autowired
 	private SqlSession sqlSession;
-	
+
 	@Override
 	public int registerTripChallenge(TripChallenge tripChallenge) throws Exception {
-		return sqlSession.insert(NS+"registerTripChallenge", tripChallenge);
+		return sqlSession.insert(NS + "registerTripChallenge", tripChallenge);
 	}
 
 	@Override
 	public int updateTripChallenge(TripChallenge tripChallenge) throws Exception {
-		return sqlSession.update(NS+"updateTripChallenge", tripChallenge);
+		return sqlSession.update(NS + "updateTripChallenge", tripChallenge);
 	}
 
 	@Override
 	public int deleteTripChallenge(String tripChallengeId) throws Exception {
-		return sqlSession.update(NS+"deleteTripChallenge", tripChallengeId);
+		return sqlSession.update(NS + "deleteTripChallenge", tripChallengeId);
 	}
 
 	@Override
 	public List<TripChallenge> searchTripChallenge(String word) throws Exception {
-		return sqlSession.selectList(NS+"searchTripChallenge", word);
+		return sqlSession.selectList(NS + "searchTripChallenge", word);
 	}
 
 	@Override
@@ -44,27 +44,27 @@ public class TripChallengeDAOImpl implements TripChallengeDAO {
 
 	@Override
 	public List<TripChallenge> getTripChallengeList() throws Exception {
-		return sqlSession.selectList(NS+"getTripChallengeList");
+		return sqlSession.selectList(NS + "getTripChallengeList");
 	}
 
 	@Override
 	public TripChallenge getTripChallengeDetail(String tripChallengeId) throws Exception {
-		return sqlSession.selectOne(NS+"getTripChallengeDetail", tripChallengeId);
+		return sqlSession.selectOne(NS + "getTripChallengeDetail", tripChallengeId);
 	}
 
 	@Override
 	public List<TripChallenge> getRecommendedTripChallengeList(User user) throws Exception {
-		return sqlSession.selectOne(NS+"getRecommendedTripChallengeList", user);
+		return sqlSession.selectOne(NS + "getRecommendedTripChallengeList", user);
 	}
 
 	@Override
 	public List<TripChallenge> getTripChallengeListByAdmin() throws Exception {
-		return sqlSession.selectList(NS+"getTripChallengeListByAdmin");
+		return sqlSession.selectList(NS + "getTripChallengeListByAdmin");
 	}
 
 	@Override
 	public int updateTripChallengeImage(TripChallenge tripChallenge) throws Exception {
-		return sqlSession.update(NS+"updateTripChallengeImage", tripChallenge);
+		return sqlSession.update(NS + "updateTripChallengeImage", tripChallenge);
 	}
 
 }

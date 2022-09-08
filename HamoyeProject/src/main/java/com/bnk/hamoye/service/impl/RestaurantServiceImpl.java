@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class RestaurantServiceImpl implements RestaurantService {
-	
+
 	private final UserDAO userDAO;
 	private final PointDAO pointDAO;
 	private final AccountDAO accountDAO;
@@ -103,7 +103,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public int deleteTodayRestaurantByList(List<String> restaurantIdList) throws Exception {
-		for(String s : restaurantIdList) {
+		for (String s : restaurantIdList) {
 			todayRestaurantDAO.deleteTodayRestaurantById(s);
 		}
 		return 0;
@@ -111,7 +111,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public int updateTodayRestaurant(List<String> restaurantIdList) throws Exception {
-		for(String id : restaurantIdList) {
+		for (String id : restaurantIdList) {
 			Restaurant restaurant = restaurantDAO.getRestaurantById(id);
 			TodayRestaurant todayRestaurant = new TodayRestaurant();
 			todayRestaurant.setCategory(restaurant.getCategory());
@@ -119,7 +119,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 			todayRestaurant.setRestaurantName(restaurant.getRestaurantName());
 			todayRestaurantDAO.registerTodayRestaurant(todayRestaurant);
 		}
-		
+
 		return 0;
 	}
 

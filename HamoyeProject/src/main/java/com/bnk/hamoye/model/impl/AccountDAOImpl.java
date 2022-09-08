@@ -17,7 +17,6 @@ public class AccountDAOImpl implements AccountDAO{
 	
 	@Override
 	public int registerAccount(Account account) throws Exception {
-		System.out.println(account);
 		return sqlSession.insert(NS+"registerAccount",account);
 	}
 	

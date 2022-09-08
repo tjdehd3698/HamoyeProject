@@ -111,7 +111,6 @@
 			var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 			    
 			for (var i = 0; i < positions.length; i ++) {
-				console.log(positions[i].title);
 			    // 마커 이미지의 이미지 크기 입니다
 			    var imageSize = new kakao.maps.Size(24, 35); 
 			    

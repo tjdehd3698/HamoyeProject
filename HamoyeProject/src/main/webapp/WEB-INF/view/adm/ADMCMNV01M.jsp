@@ -68,7 +68,7 @@
 	                                        <div class="col mr-2">
 	                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 	                                                전체회원수</div>
-	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${totalUserCnt} 명<span class="small ml-2 text-danger">↑${userIncrement}</span></div>
+	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${totalUserCnt} 명<span class="small ml-2 text-danger">↑ ${userIncrement}</span></div>
 	                                        </div>
 	                                        <div class="col-auto">
 	                                            <i class="fas fa fa-users fa-2x text-gray-300"></i>
@@ -87,7 +87,7 @@
 	                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
 	                                                지구계좌수
 	                                            </div>
-	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${totalAccountCnt}<span class="small ml-2 text-danger">↑${accountIncrement}</span></div>
+	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${totalAccountCnt}<span class="small ml-2 text-danger">↑ ${accountIncrement}</span></div>
 	                                        </div>
 	                                        <div class="col-auto">
 	                                            <i class="fas fa-globe fa-2x text-gray-300"></i>

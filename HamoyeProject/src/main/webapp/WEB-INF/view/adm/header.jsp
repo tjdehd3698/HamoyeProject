@@ -50,8 +50,7 @@ $(function(){
     </li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#challengePages" aria-expanded="true" aria-controls="challengePages">
-            <i class="fas fa-fw fa-list"></i>
-            <span>챌린지관리</span>
+            <i class="fas fa-fw fa-list"></i><span>챌린지관리</span>
         </a>
         <div id="challengePages" class="collapse" aria-labelledby="headingPages" data-parent="#challengePages">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -64,7 +63,10 @@ $(function(){
             </div>
         </div>
     </li>
-    
+    <li class="nav-item">
+<!--         <a class="nav-link" href="http://127.0.0.1:5001/"  onclick="window.open(this.href, '_blank')" ><i class="fas fa fa-users"></i><span>기업리포트</span></a> -->
+        <a class="nav-link" href="adminReport.do" ><i class="fas fa fa-clone"></i><span> 기업리포트</span></a>
+    </li>
     <hr class="sidebar-divider">
     
     <div class="text-center d-none d-md-inline">

@@ -694,5 +694,15 @@ public class AdminController {
 		}
 		return result;
 	}
+	
+	@RequestMapping("adminReport.do")
+	public String report() {
+		return "adm/report";
+	}
+	
+	@RequestMapping("adminError.do")
+	public String adminError() {
+		return "adm/error";
+	}
 
 }
